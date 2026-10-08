@@ -1,0 +1,120 @@
+9.29 dual cone cover start radical 312
+9.31 dual cone cover radical matrix (2496, 312)
+12.14 dual cone cover radical rank 306
+47.38 dual cone cover top selected [0, 0, 0, 1, 2, 3] constructing projective
+48.47 dual cone cover cover matrix built (312, 688)
+53.61 dual cone cover dim 312 top [3, 1, 1, 1] P 688 kernel 376
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/05-candidate1/runner.py", line 16 in job08_product
+  File "computations/05-candidate1/candidate.py", line 55 in quotient
+  File "computations/05-candidate1/finish.py", line 45 in cosyzygy
+  File "computations/05-candidate1/finish.py", line 128 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 36 in section_columns
+  File "computations/05-candidate1/candidate.py", line 38 in restrict
+  File "computations/05-candidate1/finish.py", line 62 in cosyzygy
+  File "computations/05-candidate1/finish.py", line 128 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+128.46 N dimension 376 injective dimension 688 top projection rank 188
+175.54 twist lift exact top map rank 20
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/finish.py", line 82 in beta
+  File "computations/05-candidate1/finish.py", line 85 in lift_twist
+  File "computations/05-candidate1/finish.py", line 132 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+222.81 twist lift exact top map rank 20
+222.89 P(N) start radical 376
+222.91 P(N) radical matrix (3008, 376)
+226.29 P(N) radical rank 370
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 112 in cover
+  File "computations/05-candidate1/finish.py", line 133 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+282.03 P(N) top selected [0, 0, 0, 1, 2, 3] constructing projective
+283.31 P(N) cover matrix built (376, 688)
+287.6 P(N) dim 376 top [3, 1, 1, 1] P 688 kernel 312
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "/usr/lib/python3.14/site-packages/sage/matrix/special.py", line 2185 in block_matrix
+  File "/usr/lib/python3.14/site-packages/sage/matrix/special.py", line 2255 in block_diagonal_matrix
+  File "computations/05-candidate1/finish.py", line 134 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/05-candidate1/runner.py", line 16 in job08_product
+  File "computations/05-candidate1/candidate.py", line 40 in restrict
+  File "computations/05-candidate1/finish.py", line 136 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+392.89 F dimension 352 Lambda dimension 392
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8182 in _echelonized_basis
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 6835 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8052 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8247 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 1795 in span
+  File "computations/05-candidate1/candidate.py", line 47 in quotient
+  File "computations/05-candidate1/finish.py", line 113 in evaluate_s
+  File "computations/05-candidate1/finish.py", line 138 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8182 in _echelonized_basis
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 6835 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8052 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8247 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 1795 in span
+  File "computations/05-candidate1/candidate.py", line 47 in quotient
+  File "computations/05-candidate1/finish.py", line 113 in evaluate_s
+  File "computations/05-candidate1/finish.py", line 138 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 6862 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8052 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8247 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 1795 in span
+  File "computations/05-candidate1/candidate.py", line 47 in quotient
+  File "computations/05-candidate1/finish.py", line 113 in evaluate_s
+  File "computations/05-candidate1/finish.py", line 138 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f243eb54bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8182 in _echelonized_basis
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 6835 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8052 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8247 in __init__
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 1795 in span
+  File "computations/05-candidate1/candidate.py", line 47 in quotient
+  File "computations/05-candidate1/finish.py", line 113 in evaluate_s
+  File "computations/05-candidate1/finish.py", line 138 in finish
+  File "computations/05-candidate1/finish.py", line 154 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+641.1 saved Candidate 1 Cs 6 Fs 8 Z 16

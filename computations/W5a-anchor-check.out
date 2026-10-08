@@ -1,0 +1,17 @@
+labels_before 160 labels_after 160
+changed_printed_number_or_page []
+changed_label_keys []
+anchor thm:tate-duality theorem.1 => theorem.2.1
+anchor eq:conversion-sequence equation.5 => equation.8.5
+pdf_pages 51 named_destinations 343 internal_named_links 425
+missing_named_link_targets []
+invalid_destination_pages []
+labels_missing_pdf_destination []
+label_target_page_mismatches [('prop:simple-witness', '7', 6), ('rem:selection-visible-rank', '18', 17), ('lemma:fractions', '19', 18), ('prop:quotient-action', '21', 20), ('thm:T-ext', '36', 35), ('thm:ar-counterexample', '42', 41), ('coro:one-factor', '44', 43)]
+baseline_pages_for_mismatched_labels [('prop:simple-witness', 6), ('rem:selection-visible-rank', 17), ('lemma:fractions', 18), ('prop:quotient-action', 5), ('thm:T-ext', 35), ('thm:ar-counterexample', 17), ('coro:one-factor', 43)]
+baseline_duplicate_warnings 31
+corrected_duplicate_warnings 0
+text_identical True
+page_images_compared 51
+different_page_images []
+original_build_inputs_present_and_matching_HEAD 9 of 9

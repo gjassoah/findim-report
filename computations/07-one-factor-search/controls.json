@@ -1,0 +1,731 @@
+{
+  "job": "Codex job 12",
+  "status": "supported exact controls",
+  "signed_nullhomotopy": {
+    "coefficient_ring": "Z",
+    "d_squared": 0,
+    "beta_square_nullhomotopy": "K=VT+BE",
+    "bracket_boundary": "TK+UB=d(WT+UE)",
+    "scope": "formal signed identities; existence of W uses H^-3=0"
+  },
+  "AR_weights": {
+    "index_bound": 12,
+    "defined_triples": 5525,
+    "zero_target": 2236,
+    "nonzero_target_weight_mismatch": 3289
+  },
+  "six_dimensional": {
+    "dimension": 6,
+    "simples": 2,
+    "ext_0_to_12": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "chain_identities": [
+      "df=0",
+      "dU=f^2",
+      "fU+Uf=v^2"
+    ],
+    "bracket": "<f,f/v,f/v>={1}",
+    "tau_square": 0,
+    "exception_to_obstruction": "beta*gamma=f/v^2 != 0 in H^-5; Ext^4=k",
+    "DC_degrees": {
+      "form": 1,
+      "tau": -2,
+      "beta": 1
+    },
+    "path_degrees": {
+      "form": 2,
+      "tau": -4,
+      "beta": 2
+    }
+  },
+  "cyclic_nakayama_screen": [
+    {
+      "vertices": 2,
+      "length": 3,
+      "dimension": 6,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 5,
+      "dimension": 10,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 7,
+      "dimension": 14,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 9,
+      "dimension": 18,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 11,
+      "dimension": 22,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 13,
+      "dimension": 26,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 15,
+      "dimension": 30,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 17,
+      "dimension": 34,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 19,
+      "dimension": 38,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 21,
+      "dimension": 42,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 23,
+      "dimension": 46,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 25,
+      "dimension": 50,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 27,
+      "dimension": 54,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 2,
+      "length": 29,
+      "dimension": 58,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        3,
+        4
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 3,
+      "length": 4,
+      "dimension": 12,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        5,
+        6
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 3,
+      "length": 7,
+      "dimension": 21,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        5,
+        6
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 3,
+      "length": 10,
+      "dimension": 30,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        5,
+        6
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 3,
+      "length": 13,
+      "dimension": 39,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        5,
+        6
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 3,
+      "length": 16,
+      "dimension": 48,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        5,
+        6
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 3,
+      "length": 19,
+      "dimension": 57,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        5,
+        6
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 4,
+      "length": 5,
+      "dimension": 20,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_positive_degrees": [
+        7,
+        8
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 4,
+      "length": 9,
+      "dimension": 36,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_positive_degrees": [
+        7,
+        8
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 4,
+      "length": 13,
+      "dimension": 52,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_positive_degrees": [
+        7,
+        8
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 5,
+      "length": 6,
+      "dimension": 30,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "first_positive_degrees": [
+        9,
+        10
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 5,
+      "length": 11,
+      "dimension": 55,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "first_positive_degrees": [
+        9,
+        10
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 6,
+      "length": 7,
+      "dimension": 42,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "first_positive_degrees": [
+        11,
+        12
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    },
+    {
+      "vertices": 7,
+      "length": 8,
+      "dimension": 56,
+      "ext_0_to_12": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "first_positive_degrees": [
+        13,
+        14
+      ],
+      "rejection": "two consecutive positive Ext degrees"
+    }
+  ]
+}

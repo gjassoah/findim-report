@@ -1,0 +1,27 @@
+FIELD Fraction Field of Univariate Polynomial Ring in q over Finite Field of size 2 (using GF2X) q= q
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)
+FIELD Finite Field in a of size 2^8 q= a
+modulus x^8 + x^4 + x^3 + x^2 + 1 order 255
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)
+FIELD Finite Field in a of size 2^12 q= a
+modulus x^12 + x^7 + x^6 + x^5 + x^3 + x + 1 order 4095
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)
+FIELD Finite Field in a of size 2^16 q= a
+modulus x^16 + x^5 + x^3 + x^2 + 1 order 65535
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)

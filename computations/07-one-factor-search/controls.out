@@ -1,0 +1,7 @@
+Codex job 12: exact controls
+PASS: signed free dg identities over Z, including identical beta representatives
+AR weight enumeration: {'index_bound': 12, 'defined_triples': 5525, 'zero_target': 2236, 'nonzero_target_weight_mismatch': 3289}
+PASS: T(k A2), all four complete-resolution residues; c=1; tau^2=0
+T(k A2) Ext dimensions 0..12: [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1]
+Symmetric cyclic Nakayama presentations with r>=2, dim<=60: 27
+All fail the polynomial requirement; no step-4 candidate.

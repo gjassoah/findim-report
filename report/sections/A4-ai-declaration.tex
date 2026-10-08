@@ -1,0 +1,81 @@
+\section{Declaration of the use of AI and outline of the process}
+\label{app:ai-declaration}
+
+This article was prepared autonomously by AI agents, as instructed by Gustavo
+Jasso, between 7 and 8 October 2026. All its text, proofs, computations and
+formal proofs were produced by AI models; no part of it was written by a human.
+Gustavo Jasso designed the task and took the decisions recorded below. No human
+has checked the mathematics of this article, and it is not peer reviewed.
+
+\subsection*{Models}
+
+The models and their roles were as follows; the names are those of the
+project's records.
+\begin{itemize}
+  \item Claude Opus~5.5 (Anthropic), run in Claude Code: coordination of the
+  work, the analysis of the preprints, the general criteria and obstructions
+    of \Cref{sec:criteria} and \Cref{sec:obstructions} (part of them jointly
+    with the other models, as recorded in the repository), the proof notes
+    compiled from earlier results, the checking of verification reports, the
+    first stage of the Lean formalisation, and the first draft of the prose of
+    this article.
+  \item GPT-6 Astra (OpenAI), run in Codex (command-line interface, version
+    0.161), with reasoning effort between medium and its highest setting:
+    independent verification of every proof in fresh sessions, all heavy
+    computations, the proof notes for the constructions of the two preprints,
+    the Tate-duality obstruction of \Cref{thm:tate-obstruction}, the later
+    stages of the Lean formalisation, and the block-by-block review of the
+    article.
+  \item Claude Fable~5.1 (Anthropic): two consultations on possible simpler
+    constructions and on the obstructions to them; the second was incomplete.
+  \item Claude Sonnet (Anthropic), as subagents: retrieval of literature and
+    bibliographic data, summaries of instructions, and one computation; their
+    output was checked before use.
+\end{itemize}
+A ChatGPT Pro~100 subscription and a premium seat in the Claude Team plan for
+scientists (at a discounted rate) were available for the work.
+% Usage figures: USAGE.md in the repository.
+
+\subsection*{Process}
+
+The first part (7--8 October 2026) analysed the main
+preprint~\cite{OAI26findim} and searched for a simpler counterexample to the
+little finitistic dimension conjecture; it produced the criteria of
+\Cref{sec:criteria} and the obstructions of \Cref{sec:obstructions}, but found
+no counterexample verifiable by hand. The second part
+produced this article from that record.
+
+Every mathematical claim carried a status (heuristic, plausible, supported by
+computation, proved by an AI model, or verified by a second, independent check
+of a different kind) and every change to a stronger status was accompanied by a
+record of the supporting evidence. Proofs were checked step by step in fresh
+sessions, sometimes of
+the same model that wrote them. For the checks of the proof notes, earlier
+verdicts were removed as far as possible, and the reviewers were instructed not
+to use any remaining assessment as evidence; several errors and gaps were found
+and
+corrected in this way, and two broader claims were withdrawn. Computations used
+exact arithmetic over finite fields and rational function fields, and their
+scope is stated wherever they are used (\Cref{app:computations}). Citations were
+checked against the sources, whose statements and locators were read before
+being cited. Parts of \Cref{sec:criteria,sec:selection,sec:realisation} are
+formally verified in Lean against Mathlib, and the arguments of
+\Cref{sec:obstructions} are formally verified under explicitly stated
+hypotheses (\Cref{app:verification}). The completed article was reviewed block by
+block by fresh sessions of GPT-6 Astra without waiting for human approval of
+each block, in three parts. The reviewers checked
+$337$ blocks, corrected punctuation, typesetting and a few slips directly, and
+proposed $15$ further changes, concerning notation and the precision of
+statements about scope, attribution and evidence; each proposal was examined
+by Claude Opus~5.5, and all were adopted. No error in a proof was found at this
+stage.
+
+\subsection*{Repository}
+
+The repository
+\url{https://github.com/gjassoah/findim-report} contains the complete record of
+the work: the plan, the
+notes, the verification reports, the scripts and their outputs, the Lean
+sources and the evidence of their checks, the sources of this article, and a
+log of all interactions between Gustavo Jasso and the agents, in which his
+messages are reproduced verbatim and the agents' replies are summarised.

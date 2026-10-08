@@ -1,0 +1,48 @@
+CASE exact F2(q)
+PASS symmetric algebra AR20 dimension 20 simples 2
+AR20 Ext dimensions: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+FIELD Fraction Field of Univariate Polynomial Ring in q over Finite Field of size 2 (using GF2X) q= q
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+CASE GF(2^16), q=a
+PASS symmetric algebra AR20 dimension 20 simples 2
+AR20 Ext dimensions: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+FIELD Finite Field in a of size 2^16 q= a
+modulus x^16 + x^5 + x^3 + x^2 + 1 order 65535
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+CASE GF(2^16), q=a^7
+PASS symmetric algebra AR20 dimension 20 simples 2
+AR20 Ext dimensions: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+FIELD Finite Field in a of size 2^16 q= a^7
+modulus x^16 + x^5 + x^3 + x^2 + 1 order 65535
+PASS: explicit syzygy bases, right-U/right-X lifts, all linearity identities
+PASS: Cone(tau)=Te/<x+qy,z,j,E,X+Y,U>; lift(u)=[X], lift(F)=0
+PASS: beta cone extension G(m,p)=beta1(m); beta2 G=0
+PASS: H^1=H^-3=0 by cyclicity and injective left-u on fM3
+RESULT: both Toda brackets are {0}; c=0 (exact certificates)
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+PASS symmetric algebra Nakayama6 dimension 6 simples 2
+Nakayama6 Ext dimensions: [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1]
+PASS symmetric algebra dual_numbers dimension 2 simples 1
+dual_numbers Ext dimensions: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+PASS symmetric algebra tensor12 dimension 12 simples 2
+tensor12 Ext dimensions: [1, 1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7]
+PASS symmetric algebra iterated40 dimension 40 simples 2
+iterated40 Ext dimensions: [1, 1]
+Iterated T(T_AR) Ext 0..12 from checked tensor resolution: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5]
+COMPLETED completed; no eligible candidate; step 4 not entered max unknowns 78

@@ -1,0 +1,17 @@
+lakefile.toml: OK
+lake-manifest.json: OK
+lean-toolchain: OK
+FindimCounterexample.lean: OK
+Audit/Axioms.lean: OK
+Audit/Statements.lean: OK
+FindimCounterexample/Coresolution.lean: OK
+FindimCounterexample/Duality.lean: OK
+FindimCounterexample/ExactCoresolution.lean: OK
+FindimCounterexample/ModuleResolution.lean: OK
+FindimCounterexample/ModuleResolutionExt.lean: OK
+FindimCounterexample/ResolutionExt.lean: OK
+FindimCounterexample/Stage4bExtinction.lean: OK
+FindimCounterexample/Stage4bRankObstruction.lean: OK
+FindimCounterexample/StrongNakayama.lean: OK
+FindimCounterexample/StrongNakayamaExt.lean: OK
+FindimCounterexample/Transpose.lean: OK

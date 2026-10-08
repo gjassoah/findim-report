@@ -1,0 +1,23 @@
+{
+  "coefficient_ring": "F2[q], exact bitset polynomials; H checked coefficientwise",
+  "T_basis": "efxyzuvtjnEFXYZUVTJN",
+  "associativity_basis_triples": 8000,
+  "cochain_nonzero_distinct_inputs": 179,
+  "cochain_endpoint_and_weight_minus_one": "all 179 nonzero entries",
+  "Hochschild_radical_quadruples": 104976,
+  "Hochschild_composable_quadruples": 15250,
+  "boundary_radical_pairs": 324,
+  "boundary_H_coefficients": [
+    0,
+    1
+  ],
+  "cycle": "q^2[t|x|J]+[t|y|J]",
+  "cycle_p_value": "q^3 f",
+  "Casimir_multiplication_H_coefficients": [
+    0,
+    1
+  ],
+  "radical_endpoint_Casimir": "sum_{left(w)=r} h(w) w* = r*, r=e,f",
+  "outcome": "all enumerated polynomial identities hold",
+  "scope_exclusion": "Does not alone certify any all-degree Ext, homotopy, or stable-category claim."
+}

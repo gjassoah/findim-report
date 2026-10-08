@@ -1,0 +1,5 @@
+1-source-scan exit 0
+2-build exit 0
+3-axioms exit 0
+4-statements exit 0
+5-leanchecker exit 0

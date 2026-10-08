@@ -1,0 +1,13 @@
+✔ [2109/2121] Built FindimCounterexample.Coresolution (105s)
+✔ [2110/2121] Built FindimCounterexample.ResolutionExt (104s)
+✔ [2111/2121] Built FindimCounterexample.ModuleResolution (105s)
+✔ [2112/2121] Built FindimCounterexample.Stage4bRankObstruction (104s)
+✔ [2113/2121] Built FindimCounterexample.Duality (109s)
+✔ [2114/2121] Built FindimCounterexample.Stage4bExtinction (67s)
+✔ [2115/2121] Built FindimCounterexample.ExactCoresolution (68s)
+✔ [2116/2121] Built FindimCounterexample.ModuleResolutionExt (67s)
+✔ [2117/2121] Built FindimCounterexample.StrongNakayama (67s)
+✔ [2118/2121] Built FindimCounterexample.StrongNakayamaExt (23s)
+✔ [2119/2121] Built FindimCounterexample.Transpose (23s)
+✔ [2120/2121] Built FindimCounterexample (11s)
+Build completed successfully (2121 jobs).

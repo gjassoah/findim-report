@@ -1,0 +1,47 @@
+@Stage3cOddDouble.complementDecomposition : {C : Type u_2} →
+  [inst : Category.{u_1, u_2} C] →
+    [inst_1 : Preadditive C] →
+      [inst_2 : HasFiniteBiproducts C] → (U : Karoubi C) → (toKaroubi C).obj U.X ≅ U.complement ⊞ U
+@Stage3cOddDouble.complement_matrix : ∀ {C : Type u_2} [inst : Category.{u_1, u_2} C] [inst_1 : Preadditive C]
+  [inst_2 : HasFiniteBiproducts C] (U : Karoubi C),
+  (Stage3cOddDouble.complementDecomposition U).inv ≫
+      (toKaroubi C).map (𝟙 U.X - U.p) ≫ (Stage3cOddDouble.complementDecomposition U).hom =
+    biprod.fst ≫ biprod.inl
+@Stage3cOddDouble.firstDouble : {C : Type u_2} →
+  [inst : Category.{u_1, u_2} C] →
+    [inst_1 : Preadditive C] →
+      [inst_2 : HasZeroObject C] →
+        [inst_3 : HasShift C ℤ] →
+          [inst_4 : ∀ (n : ℤ), (shiftFunctor C n).Additive] →
+            [inst_5 : Pretriangulated C] → (U : Karoubi C) → (X : C) × ((toKaroubi C).obj X ≅ U ⊞ (shift 1).obj U)
+@Stage3cOddDouble.shiftedDecomposition : {C : Type u_2} →
+  [inst : Category.{u_1, u_2} C] →
+    [inst_1 : Preadditive C] →
+      [inst_2 : HasShift C ℤ] →
+        [∀ (n : ℤ), (shiftFunctor C n).Additive] →
+          [inst_4 : HasFiniteBiproducts C] →
+            (U : Karoubi C) →
+              {X : C} →
+                ((toKaroubi C).obj X ≅ U ⊞ (shift 1).obj U) →
+                  ((toKaroubi C).obj ((shiftFunctor C 1).obj X) ≅ (shift 1).obj U ⊞ (shift 2).obj U)
+@Stage3cOddDouble.thirdDouble : {C : Type u_2} →
+  [inst : Category.{u_1, u_2} C] →
+    [inst_1 : Preadditive C] →
+      [inst_2 : HasZeroObject C] →
+        [inst_3 : HasShift C ℤ] →
+          [inst_4 : ∀ (n : ℤ), (shiftFunctor C n).Additive] →
+            [inst_5 : Pretriangulated C] → (U : Karoubi C) → (X : C) × ((toKaroubi C).obj X ≅ U ⊞ (shift 3).obj U)
+@Stage3cOddDouble.exists_odd_doubles : ∀ {C : Type u_2} [inst : Category.{u_1, u_2} C] [inst_1 : Preadditive C]
+  [inst_2 : HasZeroObject C] [inst_3 : HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (shiftFunctor C n).Additive]
+  [inst_5 : Pretriangulated C] (U : Karoubi C),
+  ∃ X V, Nonempty ((toKaroubi C).obj X ≅ U ⊞ (shift 1).obj U) ∧ Nonempty ((toKaroubi C).obj V ≅ U ⊞ (shift 3).obj U)
+'FindimCounterexample.Stage3cOddDouble.complementDecomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.complement_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.firstDouble' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.shiftedDecomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.thirdDouble' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.exists_odd_doubles' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+exit code: 0

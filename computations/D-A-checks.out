@@ -1,0 +1,18 @@
+D-A exact finite checks; Python standard library, rational arithmetic
+SIGN CHECKS: {'multibar_faces': 69633, 'dg_mixed_terms': 73791, 'dg_shifted_action': 29511, 'simulation_differentials': 168}
+NONFLAT TWO-CYCLE: dim Delta=3, dim A=4
+  X=S_0(left) tensor S_1(right), N=S_0: Tor dimensions {0: 0, 1: 1}
+  vector-space dimensions of A-projective terms, indices 0..9: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  augmentation/differential ranks: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  dim H^{-n}(Delta tensor_A resolution), n=0..8: [1, 0, 1, 0, 1, 0, 1, 0, 1]
+  agrees with N[r][r] in the checked degrees; no finite check asserts infinity
+NONFLAT FINITE EXTINCTION: dim Delta=6, dim A=7
+  X=S_0(left) tensor S_2(right), N=S_1
+  Phi N=S_0[1], Phi^2 N=0; ordinary X tensor_Delta N=0
+  complete minimal A-resolution vertices: [1, 2, 0, 1]
+  vector-space dimensions of the projective terms: [2, 2, 3, 2]
+  augmentation/differential ranks: [1, 1, 1, 2]
+  dim H^{-n}(Delta tensor_A resolution), n=0..3: [1, 0, 1, 0]
+  pd_Delta N=1; pd_Delta(Phi N)=2; formula terms: [1, 3]
+  pd_A N=3 from the complete minimal resolution
+All stated finite checks passed. Universal claims use the written dossier.

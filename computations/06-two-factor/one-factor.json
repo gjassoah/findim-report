@@ -1,0 +1,266 @@
+{
+  "job": "Codex job 10",
+  "status": "one-factor cone and five minimal tail terms reconstructed",
+  "seed": 10102026,
+  "field": "Finite Field in b of size 2^16",
+  "modulus": "x^16 + x^5 + x^3 + x^2 + 1",
+  "exponents": [
+    45499,
+    55487,
+    38596
+  ],
+  "orders": [
+    65535,
+    65535,
+    65535
+  ],
+  "ratio_order": 65535,
+  "resolution": [
+    {
+      "a": 0,
+      "P": 208,
+      "syzygy": 20,
+      "next_syzygy": 188,
+      "betti": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "a": 1,
+      "P": 480,
+      "syzygy": 188,
+      "next_syzygy": 292,
+      "betti": [
+        2,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "a": 2,
+      "P": 768,
+      "syzygy": 292,
+      "next_syzygy": 476,
+      "betti": [
+        4,
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "name": "bimodule degree 0 radical equations",
+      "equations": 160,
+      "unknowns_per_rhs": 20
+    },
+    {
+      "name": "bimodule degree 0 cover kernel",
+      "equations": 20,
+      "unknowns_per_rhs": 208
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 188,
+      "unknowns_per_rhs": 188
+    },
+    {
+      "name": "bimodule degree 1 radical equations",
+      "equations": 1504,
+      "unknowns_per_rhs": 188
+    },
+    {
+      "name": "bimodule degree 1 cover kernel",
+      "equations": 188,
+      "unknowns_per_rhs": 480
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 292,
+      "unknowns_per_rhs": 292
+    },
+    {
+      "name": "bimodule degree 2 radical equations",
+      "equations": 2336,
+      "unknowns_per_rhs": 292
+    },
+    {
+      "name": "bimodule degree 2 cover kernel",
+      "equations": 292,
+      "unknowns_per_rhs": 768
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 476,
+      "unknowns_per_rhs": 476
+    },
+    {
+      "name": "cone minimal degree 0 radical equations",
+      "equations": 2496,
+      "unknowns_per_rhs": 312
+    },
+    {
+      "name": "cone minimal degree 0 cover kernel",
+      "equations": 312,
+      "unknowns_per_rhs": 768
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 456,
+      "unknowns_per_rhs": 456
+    },
+    {
+      "name": "cone minimal degree 1 radical equations",
+      "equations": 3648,
+      "unknowns_per_rhs": 456
+    },
+    {
+      "name": "cone minimal degree 1 cover kernel",
+      "equations": 456,
+      "unknowns_per_rhs": 1056
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 600,
+      "unknowns_per_rhs": 600
+    },
+    {
+      "name": "cone minimal degree 0 radical equations",
+      "equations": 2496,
+      "unknowns_per_rhs": 312
+    },
+    {
+      "name": "cone minimal degree 0 cover kernel",
+      "equations": 312,
+      "unknowns_per_rhs": 768
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 456,
+      "unknowns_per_rhs": 456
+    },
+    {
+      "name": "cone minimal degree 1 radical equations",
+      "equations": 3648,
+      "unknowns_per_rhs": 456
+    },
+    {
+      "name": "cone minimal degree 1 cover kernel",
+      "equations": 456,
+      "unknowns_per_rhs": 1056
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 600,
+      "unknowns_per_rhs": 600
+    },
+    {
+      "name": "cone minimal degree 2 radical equations",
+      "equations": 4800,
+      "unknowns_per_rhs": 600
+    },
+    {
+      "name": "cone minimal degree 2 cover kernel",
+      "equations": 600,
+      "unknowns_per_rhs": 1344
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 744,
+      "unknowns_per_rhs": 744
+    },
+    {
+      "name": "cone minimal degree 3 radical equations",
+      "equations": 5952,
+      "unknowns_per_rhs": 744
+    },
+    {
+      "name": "cone minimal degree 3 cover kernel",
+      "equations": 744,
+      "unknowns_per_rhs": 1632
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 888,
+      "unknowns_per_rhs": 888
+    },
+    {
+      "name": "cone minimal degree 4 radical equations",
+      "equations": 7104,
+      "unknowns_per_rhs": 888
+    },
+    {
+      "name": "cone minimal degree 4 cover kernel",
+      "equations": 888,
+      "unknowns_per_rhs": 1920
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1032,
+      "unknowns_per_rhs": 1032
+    }
+  ],
+  "dim_C": 312,
+  "cone_resolution": [
+    {
+      "degree": 0,
+      "projective": 768,
+      "next_syzygy": 456,
+      "betti": [
+        4,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "degree": 1,
+      "projective": 1056,
+      "next_syzygy": 600,
+      "betti": [
+        6,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "degree": 2,
+      "projective": 1344,
+      "next_syzygy": 744,
+      "betti": [
+        8,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "degree": 3,
+      "projective": 1632,
+      "next_syzygy": 888,
+      "betti": [
+        10,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "degree": 4,
+      "projective": 1920,
+      "next_syzygy": 1032,
+      "betti": [
+        12,
+        1,
+        1,
+        0
+      ]
+    }
+  ]
+}

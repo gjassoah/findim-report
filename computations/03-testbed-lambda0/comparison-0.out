@@ -1,0 +1,8 @@
+{'a': 0, 'H_dimension': 1, 'delta_rank': 1, 'delta_kernel': 1, 'delta_cokernel': 1, 'twist_eigenvalues': ['[1]', '[1]'], 'equals_H_inverse_power': [True, True]}
+{'a': 1, 'H_dimension': 0, 'delta_rank': 0, 'delta_kernel': 0, 'delta_cokernel': 0, 'twist_eigenvalues': ['[]', '[]']}
+{'a': 2, 'H_dimension': 0, 'delta_rank': 0, 'delta_kernel': 0, 'delta_cokernel': 0, 'twist_eigenvalues': ['[]', '[]']}
+{'a': 3, 'H_dimension': 1, 'delta_rank': 2, 'delta_kernel': 0, 'delta_cokernel': 0, 'twist_eigenvalues': ['[b^11 + b^6 + b^2 + b]', '[b^15 + b^12 + b^11 + b^10 + b^9 + b^6 + b^4 + b^3 + 1]'], 'equals_H_inverse_power': [True, True]}
+{'a': 4, 'H_dimension': 0, 'delta_rank': 0, 'delta_kernel': 0, 'delta_cokernel': 0, 'twist_eigenvalues': ['[]', '[]']}
+{'a': 5, 'H_dimension': 0, 'delta_rank': 0, 'delta_kernel': 0, 'delta_cokernel': 0, 'twist_eigenvalues': ['[]', '[]']}
+{'a': 6, 'H_dimension': 1, 'delta_rank': 2, 'delta_kernel': 0, 'delta_cokernel': 0, 'twist_eigenvalues': ['[b^12 + b^11 + b^9 + b^8 + b^6 + b^4 + b^2]', '[b^14 + b^13 + b^12 + b^10 + b^6 + b^5 + b^4 + b^3 + b]'], 'equals_H_inverse_power': [True, True]}
+COMPLETED direct comparison-map check, case 0

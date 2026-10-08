@@ -1,0 +1,74 @@
+{
+  "model": "GPT-6 (specific variant unknown)",
+  "effort": "unknown",
+  "date": "2026-10-08",
+  "status": "supported AI review; not human certification",
+  "block_count": 149,
+  "block_statuses": {
+    "clean": 102,
+    "corrected": 44,
+    "proposal": 3
+  },
+  "unapplied_proposals": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "python": "3.14.7",
+  "build_command": "cd report && latexmk -pdf -outdir=../scratch/W5b-build main.tex",
+  "build_exit": 0,
+  "pdf_pages": 51,
+  "underfull_messages": 21,
+  "overfull_messages": 0,
+  "duplicate_destinations": 0,
+  "sha256": {
+    "report/main.tex": "743f8a7b74be457ed446a1645420917e02cdd4b92cc8227dbb7bd3e0cd6a5036",
+    "report/library.bib": "190208033be41c0227c5e40d22580ca64f432d8a400c801c4b692378a82384d2",
+    "report/sections/01-introduction.tex": "f0b1e3eb0441985079706aafdd4f2e9129073997436f6a0df052719592db591c",
+    "report/sections/02-preliminaries.tex": "3592328e4700ba43239c3ca3a59688c59070f66df87680f0c42a9753f39aa230",
+    "report/sections/03-criteria.tex": "d7bb1cae8222741260540f161a046d75b584eec1d4707db57071f183b71a554f",
+    "report/sections/04-trivial-extensions.tex": "f9b904e4e16ac6f7efdd768c9304815ad57976aec7ae52a37aece5d6c559e44a",
+    "report/sections/05-selection.tex": "faf471e88f6b658e83e4399eee3948335024f934049ea35c10d3308b9a4f45ea",
+    "report/sections/06-realisation.tex": "fc79f8d4fd493e01d14dc23180a365a68516cc85b3bb918f7e2a37afff486f4a",
+    "report/sections/07-simulation.tex": "c5d4f04d3224269ece0896ade6d05fb4c71cf22689d1f5b8cbfa39b11ff93368",
+    "report/sections/08-conversion.tex": "da92bccd44e4623867af4f9c26fa6e70d62af6142e9ed622dbae98734a56ef85",
+    "report/sections/09-ar-counterexample.tex": "3d1621fc2956f35987a517d63358380fccf4a078e328fda05d6f78b8abefd35e",
+    "report/sections/10-obstructions.tex": "f345c7a79b50345022047308ebef261b23a2baa1fcb1f868b97d480c4288f50d",
+    "report/sections/A1-computations.tex": "37ef29b947f3c1594610c8b3c1b39d83aacdf0e5925a6da8063bbfcd28d42598",
+    "report/sections/A2-verification.tex": "355919d177b7306f947f0115ffa7ba25b279ea685aef2f3d2068ecfd6ce931c5",
+    "report/sections/A3-companion.tex": "0f39d422d1d150fba56275af18f7752880d719d87e2b87201397f0aa8e8ad8ca",
+    "report/sections/A4-ai-declaration.tex": "9e4474a072daf4f1bff3154e833033a0fa8ee9b4c2365ba99d8c90728ce4fde9",
+    "audit/report-notation.md": "f69ee451cfbff429f46196434626154173f6ed52cc4657c8c8976e20fd6db8d5",
+    "computations/W5b-review-checks.py": "037c1d4057709d1a3fbf41bb4cc8eae3709471413fc85b26205ab2078e3ea136",
+    "computations/W5b-review-checks.out": "2b9bb4a4613d8420337db2374ab73e4a277d406de0595959418d7d43f7aadcba",
+    "audit/report-review-W5b.md": "e3aca2a19ad12eec2f602edc1ff6bc23d9eeb135ff055c0cf32607093dac0a02",
+    "scratch/W5b-build/main.pdf": "9e6b6573e8078f5ea6d380e3c1d5585a0955025d4e695f35752698cc4c2792ba",
+    "scratch/W5b-build/main.log": "e70118f72c112f616d97b9ac87f866f0398aa3a354073c7a9f1a36b661cb5d27",
+    "scratch/W5b-build-final.stdout": "9ce6e9f7cb822174f8368d0cdbe4e9e3b504ce7e1f45ceed876534682f1a82ff"
+  },
+  "original_scope_sha256": {
+    "04-trivial-extensions.tex": "8b953a8c5a235c4ce876009ed6d4f2691a99a26a436ace33ae6840a97b5be557",
+    "05-selection.tex": "1084b200565d4c8cee75c0f5f0d6fc0c7147e67253ceb461da2b4aacdc0c771c",
+    "06-realisation.tex": "e9680092008b59e41b6475e60aa0462c83d42fa3b1ba3018e88140f002af1742",
+    "07-simulation.tex": "74224ac2e0cac19a6ee342257253f9796051a481ffee424b001bf47d36575116",
+    "A1-computations.tex": "795073b52ea7b776326d9237ed559808fb98b4ce112f30a5e33087d24355a51e"
+  },
+  "resumption_check": {
+    "status": "complete",
+    "scope_hashes_unchanged": true,
+    "all_proposals_unapplied": true,
+    "coverage_verified": 149,
+    "context_files_changed": [
+      "report/main.tex",
+      "report/sections/01-introduction.tex",
+      "report/sections/03-criteria.tex",
+      "report/sections/A2-verification.tex",
+      "report/sections/A3-companion.tex",
+      "report/sections/A4-ai-declaration.tex"
+    ],
+    "changed_rendered_page": 8,
+    "remaining_rendered_pages_identical": 25,
+    "previous_receipt": "scratch/W5b-review-receipt-before-resume.json"
+  }
+}

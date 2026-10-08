@@ -1,0 +1,4 @@
+0.57 _multiply_classical 0.14950895309448242
+1.48 _multiply_karatsuba 0.9124550819396973
+1.57 sparse 0.09348225593566895
+1.61 all three exact products agree

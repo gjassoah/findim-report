@@ -1,0 +1,329 @@
+\section{Trivial extensions and extinction}
+\label{sec:extinction}
+
+Let $\Delta$ be a finite-dimensional algebra and $X$ a finite-dimensional
+$\Delta$-bimodule, and put
+\[
+  A=\Delta\ltimes X,\qquad\Phi=X\Lotimes[\Delta]-.
+\]
+For an inflated $A$-module $N$, ${\Phi^rN\not\simeq0}$ forces
+${\operatorname{pd}_AN\geq r}$, and when $\Delta$ has finite global dimension, an
+inflated module $N$ has finite projective dimension exactly when
+${\Phi^tN\simeq0}$ for some $t$. Hence, for such $\Delta$,
+${\operatorname{findim}A=\infty}$ as soon as finite extinction times of $\Phi$
+are unbounded on inflated modules. Both statements are due to Minamoto and
+Yamaura~\cite{MY20}; we give a proof in the present conventions, without
+assuming that $X$ is flat on either side.
+
+\subsection{The bar decomposition}
+\label{subsec:bar-decomposition}
+
+Complexes are graded cohomologically, with the conventions of
+\Cref{sec:preliminaries}; the differential of a tensor product of complexes is
+${d(u\otimes v)=du\otimes v+(-1)^{|u|}u\otimes dv}$. We write
+${\DerCat[-]{\operatorname{Mod}\Delta}}$ for the derived category of
+bounded-above complexes of left $\Delta$-modules.
+
+\begin{theorem}[{Minamoto--Yamaura~\cite[Lemma~4.13(4) and proof of
+    Theorem~4.17]{MY20}}]
+  \label{thm:bar-decomposition}
+  Let $N$ be a left $\Delta$-module, regarded as an $A$-module through the
+  projection ${A\to\Delta}$. There is an isomorphism, natural in~$N$,
+  \[
+    \Delta\Lotimes[A]N\cong\bigoplus_{r\geq0}\Phi^rN[r]
+    \quad\text{in }\DerCat[-]{\operatorname{Mod}\Delta},
+  \]
+  where ${\Phi^0N=N}$.
+\end{theorem}
+
+The source states the decomposition in terms of the internal grading of the
+graded algebra $A$, for right modules; the statement above is its translation
+to left modules through the opposite algebras. The proof below avoids the
+grading, and it does not assume that $X$ is flat on either side. That the
+derived powers of $X$ appear, and not the ordinary ones, matters already in
+small examples; see \Cref{ex:derived-powers}.
+
+\begin{proof}
+  Choose a resolution ${\widetilde{X}\to X}$ by finitely generated projective
+  $\Delta$-bimodules with ${\widetilde{X}^j=0}$ for ${j>0}$, and a projective
+  resolution ${\widetilde{N}\to N}$ over $\Delta$ with ${\widetilde{N}^j=0}$ for
+  ${j>0}$. The complex ${\widetilde{A}=\Delta\oplus\widetilde{X}}$, with
+  multiplication ${(d,x)(d',x')=(dd',dx'+xd')}$, is a dg algebra in which
+  $\widetilde{X}$ is an ideal of square zero, and the augmentation
+  ${\widetilde{A}\to A}$ is a quasi-isomorphism of dg algebras.
+
+  \emph{The bar module.} For ${r\geq0}$ put
+  ${F_r=\widetilde{X}^{\otimes_\Delta r}\otimes_\Delta\widetilde{N}}$, with
+  ${F_0=\widetilde{N}}$; each $F_r$ is a bounded-above complex of projective left
+  $\Delta$-modules, since for a projective bimodule $V$ and any left module $L$
+  the module ${V\otimes_\Delta L}$ is a direct summand of a direct sum of modules
+  ${\Delta\otimes_\kk L}$. Let
+  \[
+    \mathcal{B}=\bigoplus_{r\geq0}(\widetilde{A}\otimes_\Delta F_r)[r],
+  \]
+  and write $s^rw$ for the element of the summand of index $r$ corresponding
+  to ${w\in\widetilde{A}\otimes_\Delta F_r}$. Let $\widetilde{A}$ act by
+  ${a\cdot s^rw=(-1)^{r|a|}s^r(aw)}$, and define the differential by
+  \[
+    \begin{gathered}
+      D(s^rw)=(-1)^rs^r\,dw+b(s^rw),\\
+      b\bigl(s^r(a\otimes q_1\otimes\cdots\otimes q_r\otimes v)\bigr)=
+      s^{r-1}(aq_1\otimes q_2\otimes\cdots\otimes q_r\otimes v)
+    \end{gathered}
+  \]
+  for ${r>0}$, and ${b=0}$ on the summand of index zero; here $d$ is the
+  differential of the tensor product ${\widetilde{A}\otimes_\Delta F_r}$. The
+  multiplication ${\widetilde{A}\otimes_\Delta F_r\to\widetilde{A}\otimes_\Delta
+  F_{r-1}}$ is a chain map, so the mixed terms of $D^2$ cancel, with
+  coefficients ${(-1)^r+(-1)^{r-1}}$; and ${b^2=0}$ because ${q_1q_2=0}$ in
+  $\widetilde{A}$. Moreover, ${b(a\cdot z)=(-1)^{|a|}a\cdot b(z)}$, since
+  ${r|a|\equiv|a|+(r-1)|a|}$ modulo two. Thus, $\mathcal{B}$ is a dg
+  $\widetilde{A}$-module. The other faces of the usual bar construction
+  vanish: they multiply two elements of $\widetilde{X}$, or let
+  $\widetilde{X}$ act on $\widetilde{N}$.
+
+  \emph{The bar module resolves $N$.} Let ${\epsilon\colon\mathcal{B}\to
+  \widetilde{N}}$ be the map induced by ${\widetilde{A}\to\Delta}$ on the summand
+  of index zero and zero elsewhere, where $\widetilde{N}$ is regarded as an
+  $\widetilde{A}$-module through ${\widetilde{A}\to\Delta}$. As a complex of
+  left $\Delta$-modules, ${\widetilde{A}\otimes_\Delta F_r=F_r\oplus F_{r+1}}$,
+  according to the decomposition ${\widetilde{A}=\Delta\oplus\widetilde{X}}$.
+  Hence, $\mathcal{B}$ is the direct sum of $\widetilde{N}$, in index zero, and
+  of the complexes
+  \[
+    F_r[r]\oplus F_r[r-1]\qquad(r\geq1),
+  \]
+  in which the first summand is the part of index $r$ with leading factor in
+  $\Delta$, the second is the part of index ${r-1}$ with leading factor in
+  $\widetilde{X}$, and the component of $D$ from the first to the second is the
+  identity of the underlying graded module, given by $b$. Each of these
+  complexes is the mapping cone of an identity map, so the map of degree ${-1}$
+  sending the second summand identically to the first is a contraction. These
+  contractions give $h$ with ${Dh+hD=\id-\iota\epsilon}$, where $\iota$ is the
+  inclusion of $\widetilde{N}$. Hence, $\epsilon$ is a quasi-isomorphism.
+
+  \emph{Base change to $A$.} Filter $\mathcal{B}$ by the subcomplexes of the
+  summands of index at most $r$. The subquotients are
+  ${(\widetilde{A}\otimes_\Delta F_r)[r]}$, and the filtration is split as a
+  filtration of graded $\widetilde{A}$-modules. For an acyclic right dg
+  $\widetilde{A}$-module $Z$, the complex
+  \[
+    Z\otimes_{\widetilde{A}}(\widetilde{A}\otimes_\Delta F_r)[r]\cong
+    (Z\otimes_\Delta F_r)[r],
+  \]
+  with the sign ${(-1)^{r|z|}}$ on ${z\otimes s^rw}$, is acyclic, because a
+  bounded-above complex of projective modules is K-flat: its stupid truncations
+  from below are finite extensions of projective modules, and it is their
+  filtered colimit. By induction on $r$ and passage to the colimit,
+  ${Z\otimes_{\widetilde{A}}\mathcal{B}}$ is acyclic, so $\mathcal{B}$ is K-flat
+  over $\widetilde{A}$. Since ${\widetilde{A}\to A}$ is a quasi-isomorphism, so is
+  ${\mathcal{B}\to L\coloneqq A\otimes_{\widetilde{A}} \mathcal{B}}$, and the
+  augmentation ${L\to N}$ induced by $\epsilon$ and ${\widetilde{N}\to N}$ is a
+  quasi-isomorphism. The terms of $L$ are direct sums of modules
+  ${(A\otimes_\Delta F_r^j)}$, which are projective over $A$, and they vanish in
+  positive degrees; in each degree only finitely many indices $r$ contribute.
+  Hence, $L$ is a bounded-above projective resolution of~$N$.
+
+  \emph{Tensoring with $\Delta$.} In ${\Delta\otimes_AL}$ the bar differential
+  vanishes, since its image has a leading factor in the ideal $X$, which acts
+  as zero on~$\Delta$. Hence,
+  \[
+    \Delta\otimes_AL\cong\bigoplus_{r\geq0}F_r[r],
+  \]
+  with the differential ${(-1)^rd_{F_r}}$ on the summand of index $r$, which is
+  the differential of $F_r[r]$. Finally, $F_r$ represents $\Phi^rN$: by
+  induction on $r$, $F_{r-1}$ is a bounded-above complex of projective modules
+  representing $\Phi^{r-1}N$, hence K-flat, and
+  ${F_r=\widetilde{X}\otimes_\Delta F_{r-1}\to X\otimes_\Delta F_{r-1}}$ is a
+  quasi-isomorphism. Naturality follows by choosing $\widetilde{N}$
+  functorially, for instance as the bar resolution of $N$ over~$\kk$.
+\end{proof}
+
+\begin{example}
+  \label{ex:derived-powers}
+  Let ${\Delta=\kk(0\xrightarrow{a}1\xrightarrow{b}2)}$, a path algebra of
+  dimension six, and let ${X=S_0\otimes_\kk S_2'}$, where $S_i$ and $S_i'$ denote
+  the simple left and right modules at the vertex $i$. Then $A$ is the quotient
+  of the path algebra of the cyclic quiver ${0\to1\to2\to0}$, with the new arrow
+  ${x\colon2\to0}$, by the relations ${ax=0=xb}$. For ${N=S_1}$ the ordinary tensor
+  product ${X\otimes_\Delta N}$ is zero, whereas the projective resolution
+  \[
+    0\longrightarrow e_1\Delta\xrightarrow{\,b\cdot\,}e_2\Delta\longrightarrow
+    S_2'\longrightarrow0
+  \]
+  gives ${\Phi N\cong S_0[1]}$ and ${\Phi^2N=0}$. The minimal projective resolution
+  \[
+    0\longrightarrow Ae_1\xrightarrow{\,\cdot a\,}Ae_0\xrightarrow{\,\cdot x\,}
+    Ae_2\xrightarrow{\,\cdot b\,}Ae_1\longrightarrow S_1\longrightarrow0,
+  \]
+  by right multiplications, shows that ${\operatorname{pd}_AS_1=3}$, in agreement
+  with \Cref{prop:pd-formula}: the two finite terms of the formula are
+  ${\operatorname{pd}_\Delta S_1=1}$ and ${\operatorname{pd}_\Delta(S_0[1])+1=3}$.
+\end{example}
+
+\subsection{Projective dimension and extinction}
+\label{subsec:pd-formula}
+
+Let ${\DerCat[-]{\operatorname{mod}\Delta}}$ be the derived category of
+bounded-above complexes with finitely generated cohomology. For a nonzero
+object $C$ of it, let $\operatorname{pd}_\Delta C$ be the least integer $p$ such
+that $C$ is represented by a bounded-above complex of projective modules
+vanishing in degrees below ${-p}$, or $\infty$ if there is none; for a module
+this is its projective dimension, and
+${\operatorname{pd}(C[s])=\operatorname{pd}C+s}$. We put
+${\operatorname{pd}0=-\infty}$.
+
+\begin{lemma}
+  \label{lemma:pd-detection}
+  Let $\Lambda$ be a finite-dimensional algebra and $C$ a nonzero object of
+  ${\DerCat[-]{\operatorname{mod}\Lambda}}$. Then
+  \[
+    \operatorname{pd}_\Lambda C=\sup\set{n\in\ZZ}[\Hom{C}{S[n]}\neq0
+    \text{ for a simple module }S].
+  \]
+\end{lemma}
+
+\begin{proof}
+  Represent $C$ by a bounded-above complex $J$ of finitely generated
+  projective modules. If some differential ${J^{n}\to J^{n+1}}$ is nonzero on the
+  tops of its source and target, it has an invertible component between
+  isomorphic indecomposable summands, and a change of bases splits off a
+  contractible complex ${P\xrightarrow{\id}P}$. Performing these cancellations
+  from the highest degree downwards, finitely many in each degree, we may assume
+  that $J$ is minimal: every differential has image in the radical of its
+  target. Then $\Hom[\Lambda]{J}{S}$ has zero differential for every simple
+  $S$, so ${\Hom{C}{S[n]}=\Hom[\Lambda]{J^{-n}}{S}}$, which is nonzero for some
+  $S$ exactly when ${J^{-n}\neq0}$. A representative vanishing below ${-p}$ forces
+  these groups to vanish for ${n>p}$, and the minimal one realises the bound.
+\end{proof}
+
+\begin{proposition}[{Minamoto--Yamaura~\cite[Corollary~4.11]{MY20}}]
+  \label{prop:pd-formula}
+  Let $N$ be a nonzero finitely generated left $\Delta$-module, regarded as an
+  $A$-module. Then
+  \[
+    \operatorname{pd}_AN=\sup_{r\geq0}\bigl(\operatorname{pd}_\Delta(\Phi^rN)
+    +r\bigr).
+  \]
+  In particular, ${\Phi^rN\not\simeq0}$ implies ${\operatorname{pd}_AN\geq r}$.
+\end{proposition}
+
+\begin{proof}
+  Every simple $A$-module $S$ is annihilated by $X$: the submodule $XS$ is $0$
+  or $S$, and ${XS=S}$ would give ${S=X^2S=0}$. Hence, the simple $A$-modules are
+  the
+  simple $\Delta$-modules, inflated. For such $S$, adjunction and
+  \Cref{thm:bar-decomposition} give
+  \[
+    \operatorname{Ext}^n_A(N,S)\cong\Hom[\DerCat{\Delta}]{\Delta\Lotimes[A]N}
+    {S[n]}\cong\prod_{r\geq0}\Hom[\DerCat{\Delta}]{\Phi^rN}{S[n-r]},
+  \]
+  where the factors with ${r>n}$ vanish since $\Phi^rN$ is represented by a
+  complex concentrated in nonpositive degrees. Taking the supremum over $n$
+  and $S$ and applying \Cref{lemma:pd-detection} over $A$ and over $\Delta$
+  gives the formula. If ${\Phi^rN\not\simeq0}$, then
+  ${\operatorname{pd}_\Delta\Phi^rN\geq0}$, again by \Cref{lemma:pd-detection}.
+\end{proof}
+
+\begin{corollary}
+  \label{coro:extinction}
+  Suppose that the left and the right global dimensions of $\Delta$ are at most
+  $d_L$ and $d_R$, respectively, and let $N$ be a nonzero finitely generated
+  left $\Delta$-module. Then ${\operatorname{pd}_AN<\infty}$ if and only if
+  ${\Phi^tN\simeq0}$ for some ${t\geq1}$, and in that case
+  \[
+    \operatorname{pd}_AN=\max_{0\leq r<t}\bigl(\operatorname{pd}_\Delta
+    (\Phi^rN)+r\bigr)\leq d_L+(t-1)(d_R+1).
+  \]
+  In particular, if the finite extinction times ${\min\set{t}[\Phi^tN\simeq0]}$
+  of finitely generated $\Delta$-modules $N$ are unbounded, then
+  ${\operatorname{findim}A=\infty}$.
+\end{corollary}
+
+\begin{proof}
+  Truncating a projective bimodule resolution of $X$ at its $d_R$-th syzygy,
+  which is projective as a right module, gives a resolution ${X'\to X}$ in
+  degrees ${[-d_R,0]}$ by bimodules that are projective as right modules. Its
+  tensor powers compute the iterates of $\Phi$, so $\Phi^rN$ has cohomology in
+  degrees ${[-rd_R,0]}$. A complex $C$ with finitely generated cohomology in
+  degrees $[u,0]$ satisfies ${\operatorname{pd}C\leq d_L-u}$, by
+  \Cref{lemma:pd-detection} applied to the triangles of its cohomology
+  truncations: in a triangle ${C_1\to C\to C_2\to C_1[1]}$, if
+  ${\Hom{C_1}{S[n]}=0=\Hom{C_2}{S[n]}}$, then ${\Hom{C}{S[n]}=0}$, and
+  ${H^i(C)[-i]}$ has projective dimension at most ${d_L-i}$. Hence,
+  ${\operatorname{pd}_\Delta\Phi^rN\leq d_L+rd_R}$. If ${\Phi^tN\simeq0}$, then
+  ${\Phi^rN\simeq0}$ for all ${r\geq t}$, and \Cref{prop:pd-formula} gives the
+  displayed equality and bound. Conversely, if ${\operatorname{pd}_AN=p<\infty}$,
+  then ${\Phi^{p+1}N\simeq0}$ by \Cref{prop:pd-formula}. For the last assertion,
+  a module of extinction time ${t\geq1}$ has ${\Phi^{t-1}N\not\simeq0}$, so its
+  projective dimension is finite and at least ${t-1}$.
+\end{proof}
+
+\subsection{Two constraints on extinction}
+\label{subsec:extinction-constraints}
+
+\begin{remark}
+  \label{rem:k0-invisibility}
+  Suppose that $\Delta$ has finite global dimension, with $n$ simple modules.
+  The functor $\Phi$ preserves the bounded derived category of finitely
+  generated modules, by the proof of \Cref{coro:extinction}, and induces an
+  endomorphism $[\Phi]$ of ${K_0(\Delta)\cong\ZZ^n}$. If ${\Phi^tN\simeq0}$, then
+  ${[\Phi]^t[N]=0}$, so $[N]$ lies in the generalised kernel of $[\Phi]$ on
+  $\mathbb{Q}^n$, which is annihilated by $[\Phi]^n$. Hence,
+  ${[\Phi^rN]=[\Phi]^r[N]=0}$ for ${r\geq n}$, although $\Phi^rN$ may be nonzero. In
+  the main construction,
+  \Cref{prop:simulation} and \Cref{thm:realisation} give
+  ${\Phi^2M(Y)\simeq M(HY)[b]\oplus M(HY)[b+3]}$, whose class is zero because
+  the two shifts differ by an odd integer, as in \Cref{prop:odd-double}.
+\end{remark}
+
+For an integer ${d\geq0}$, let $\operatorname{Rep}_d(\Delta)$ be the set of
+$\kk$-algebra homomorphisms ${\Delta\to M_d(\kk)}$, that is, of left
+$\Delta$-module structures on $\kk^d$. It is a Zariski-closed subset of the
+affine space $\Hom[\kk]{\Delta}{M_d(\kk)}$, and therefore a noetherian
+topological space.
+
+\begin{proposition}
+  \label{prop:bounded-extinction}
+  Suppose that $\Delta$ has finite right global dimension, and let ${d\geq0}$.
+  Then the finite extinction times ${\min\set{t}[\Phi^tN\simeq0]}$ of the modules
+  ${N\in\operatorname{Rep}_d(\Delta)}$ are bounded.
+\end{proposition}
+
+\begin{proof}
+  Let ${X'\to X}$ be a bounded resolution by finite-dimensional bimodules that
+  are projective as right modules, as in the proof of \Cref{coro:extinction}.
+  For each $t$, the complex $X'^{\otimes_\Delta t}$ is bounded, with
+  finite-dimensional terms projective as right modules, and computes $\Phi^t$.
+  Let $f_1,\dots,f_s$ be a complete set of orthogonal primitive idempotents of
+  $\Delta$. Every finitely generated projective right $\Delta$-module is
+  isomorphic to $\bigoplus_if_i\Delta^{m_i}$ for some integers $m_i$, so that
+  ${\dim_\kk(V\otimes_\Delta N)}={\sum_im_i\dim_\kk f_iN}$ for such a module $V$.
+  The function ${N}\mapsto{\dim_\kk f_iN}$ is the rank of an idempotent matrix
+  depending polynomially on $N$, and it is locally constant: the conditions
+  ${\operatorname{rank}f_i\geq c}$ and ${\operatorname{rank}(1-f_i)\geq d-c}$ are
+  open, and the two ranks add up to $d$. Hence, $\operatorname{Rep}_d(\Delta)$
+  is the disjoint union of finitely many open and closed subsets on each of
+  which all the numbers $\dim_\kk f_iN$ are constant.
+
+  Fix such a subset $Z$ and an integer ${t\geq0}$, and write the terms of
+  $X'^{\otimes_\Delta t}$ as direct summands $\varepsilon_j\Delta^{n_j}$ of free
+  right modules, with idempotent matrices $\varepsilon_j$ over~$\Delta$. For
+  ${N\in Z}$, the complex ${C=X'^{\otimes_\Delta t}\otimes_\Delta N}$ is then
+  identified with a complex of subspaces ${C^j=\varepsilon_j(N^{n_j})}$, whose
+  dimensions do not depend on $N$, and whose differentials are the restrictions
+  of linear maps ${D^j\colon N^{n_j}\to N^{n_{j+1}}}$ vanishing on the
+  complements ${(1-\varepsilon_j)(N^{n_j})}$ and given by matrices whose entries
+  are polynomial functions of~$N$. The rank of the differential ${C^j\to
+  C^{j+1}}$ is the rank of $D^j$. The complex is exact at $C^j$ if and only if
+  ${\operatorname{rank}D^{j-1}+\operatorname{rank}D^j\geq\dim C^j}$, which is an
+  open condition. Hence, the sets ${U_t=\set{N\in Z}[\Phi^tN\simeq0]}$ are
+  open. They form an ascending chain, since $\Phi$ preserves zero objects, so
+  the chain is stationary, say from $T_Z$ on. Every ${N\in Z}$ of finite
+  extinction time therefore has extinction time at most $T_Z$, and the maximum
+  of the finitely many $T_Z$ bounds all finite extinction times in
+  $\operatorname{Rep}_d(\Delta)$.
+\end{proof}
+
+Compare \Cref{prop:bounded-dimension}, which bounds finite projective dimensions
+on modules of bounded dimension.

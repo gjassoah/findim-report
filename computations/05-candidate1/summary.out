@@ -1,0 +1,4 @@
+Codex job 08: both case receipts complete; numerical results agree.
+case 0 dimensions {'dim_C': 312, 'dim_N': 376, 'dim_F': 352, 'dim_Lambda': 392, 'dim_Cs': 6, 'dim_Fs': 8, 'dim_Z': 16} Ext self [1, 0, 0] Ext regular [0, 0, 0] largest guarded unknown count 768
+case 1 dimensions {'dim_C': 312, 'dim_N': 376, 'dim_F': 352, 'dim_Lambda': 392, 'dim_Cs': 6, 'dim_Fs': 8, 'dim_Z': 16} Ext self [1, 0, 0] Ext regular [0, 0, 0] largest guarded unknown count 768
+Input hashes, summary.json and SHA256SUMS written.

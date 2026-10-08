@@ -1,0 +1,821 @@
+\section{A counterexample to the Auslander--Reiten conjecture}
+\label{sec:ar-route}
+
+Following~\cite{OAI26ar}, we construct a bimodule and a stable morphism
+satisfying the hypotheses of \Cref{thm:conversion}, and deduce a second algebra
+of infinite little finitistic dimension, with nine simple modules. Throughout,
+\[
+  \kk=\mathbb{F}_2(q,H_1,H_2),
+\]
+the field of rational functions in three variables over $\mathbb{F}_2$; in
+characteristic two all signs disappear, and ${\delta^a(g,j)=F(g)v+v[a]j}$ in
+\Cref{thm:conversion}. The construction uses a ten-dimensional algebra $C$ with
+a simple module $s$ whose resolution has differentials depending on successive
+powers of $q$ (\Cref{subsec:algebra-C}); its trivial extension ${T=C\ltimes DC}$,
+over which $s$ has polynomial Ext algebra on a generator of degree three
+(\Cref{subsec:algebra-T}), realised by an explicit Hochschild cocycle
+(\Cref{subsec:cocycle}); the tensor square ${E=T\otimes_\kk T}$, a bimodule
+$\mathcal{C}$ built from two cones on that cocycle, and twisted lifts
+(\Cref{subsec:tensor-square,subsec:two-cones,subsec:lifts}); and the fibre $F$
+of a map from two twisted copies of $E$ to $\mathcal{C}[3]$
+(\Cref{subsec:fibre}). Finite identities, such as associativity of $C$ and
+the cocycle identities, are checked by exact computations recorded in
+\Cref{app:computations}; every statement about all degrees is proved in the
+text.
+
+\subsection{The algebra \texorpdfstring{$C$}{C}}
+\label{subsec:algebra-C}
+
+Let $C$ be the $\kk$-algebra with basis
+\[
+  e,x,y,z\in eCe,\qquad u,v\in eCf,\qquad t,j\in fCe,\qquad f,n\in fCf,
+\]
+where $e$ and $f$ are orthogonal idempotents with ${e+f=1}$, multiplication by
+$e$ and $f$ is prescribed by the corners, and the products of two of the
+remaining eight basis vectors are zero except for
+\[
+  xy=qz,\quad yx=z,\quad xu=yu=v,\quad tx=j,\quad ty=q^2j,\quad ut=y+qx,
+\]
+\[
+  vt=qz,\quad uj=z,\quad tu=(1+q)n,\quad nt=qj,\quad un=v.
+\]
+Let $N$ be the span of $x,y,z,u,v,t,j,n$, let $s$ be the simple left module
+${C/(N+Ce)}$ at $f$, and let $s^{\mathrm{r}}$ be the simple right module at~$f$.
+
+\begin{lemma}
+  \label{lemma:algebra-C}
+  The algebra $C$ is associative. It is graded by
+  ${\deg u=\deg t=1}$, ${\deg x=\deg y=\deg n=2}$, ${\deg v=\deg j=3}$, ${\deg z=4}$
+  and ${\deg e=\deg f=0}$, its radical is $N$, and ${N^5=0}$.
+\end{lemma}
+
+\begin{proof}
+  Every product above is homogeneous for the grading. A product of three
+  basis vectors vanishes under both bracketings if one of them is an
+  idempotent that does not match the corners, or if its total degree exceeds
+  four, since there is no basis vector of degree larger than four. Among the
+  remaining triples of radical basis vectors, the only ones with compatible
+  corners are $xut$, $yut$, $utx$, $uty$, $utu$, $unt$, $txu$, $tyu$, $tut$,
+  $tun$ and $ntu$, and their products under both bracketings are $qz$, $qz$,
+  $z$, $q^2z$, ${(1+q)v}$, $qz$, $0$, $0$, ${q(1+q)j}$, $0$ and $0$; for instance
+  ${(ut)y=(y+qx)y=q^2z=u(q^2j)=u(ty)}$. The associators of all $1000$ triples
+  of basis vectors are also checked by an exact computation
+  (\Cref{app:computations}). The span $N$ of the basis vectors of positive
+  degree is a nilpotent ideal with ${N^5=0}$ and ${C/N\cong\kk\times\kk}$, so $N$
+  is the radical.
+\end{proof}
+
+For ${i\geq0}$ put ${\ell_i=x+q^iy\in eCe}$. The left modules $Ce$ and $Cf$ have
+the bases $e,x,y,z,t,j$ and $f,u,v,n$, and right multiplication by $u$ and by
+$\ell_i$ acts as follows:
+\begin{equation}
+  \label{eq:C-right-multiplication}
+  \begin{array}{c|cccccc}
+    a&e&x&y&z&t&j\\\hline
+    au&u&v&v&0&(1+q)n&0\\
+    a\ell_i&\ell_i&q^{i+1}z&z&0&(1+q^{i+2})j&0
+  \end{array}
+\end{equation}
+
+\begin{proposition}
+  \label{prop:C-resolution}
+  The complex
+  \[
+    \mathbb{R}\colon\quad\cdots\longrightarrow Ce\xrightarrow{\cdot\ell_2}Ce
+    \xrightarrow{\cdot\ell_1}Ce\xrightarrow{\cdot\ell_0}Ce
+    \xrightarrow{\cdot u}Cf,
+  \]
+  with $Cf$ in degree zero and right multiplications as differentials, is a
+  minimal projective resolution of $s$. Consequently,
+  ${\operatorname{Ext}^a_C(s,s)=0}$ for ${a>0}$, and ${\RHom[C]{s}{C}\cong
+  s^{\mathrm{r}}[-2]}$ in the derived category of right $C$-modules.
+\end{proposition}
+
+\begin{proof}
+  Since $q$ is transcendental over $\mathbb{F}_2$, the elements ${1+q}$ and
+  ${1+q^{i+2}}$ are nonzero. By~\eqref{eq:C-right-multiplication}, the image of
+  ${\cdot u}$ is the span of $u$, $v$ and $n$, which is the radical of $Cf$, and
+  its kernel is spanned by $\ell_0$, $z$ and $j$. A vector in the kernel of
+  ${\cdot\ell_i}$ has zero coefficients at $e$ and $t$, and coefficients at $x$
+  and $y$ related by ${a_y=q^{i+1}a_x}$; hence
+  \[
+    \ker(\cdot\ell_i)=\langle\ell_{i+1},z,j\rangle,\qquad
+    \operatorname{im}(\cdot\ell_i)=\langle\ell_i,z,j\rangle,
+  \]
+  for every ${i\geq0}$, and the complex is exact. All differentials have image
+  in $N$ times their targets, so each surjection onto a syzygy is a projective
+  cover, and the resolution is minimal. Since ${\Hom[C]{Ce}{s}=es=0}$ and
+  ${\Hom[C]{Cf}{s}=\kk}$, the asserted vanishing of self-extensions follows.
+
+  Identifying ${\Hom[C]{Ce}{C}=eC}$ and ${\Hom[C]{Cf}{C}=fC}$ as right modules,
+  precomposition with right multiplication by $b$ becomes left multiplication
+  by $b$, and $\Hom[C]{\mathbb{R}}{C}$ is the complex
+  \[
+    fC\xrightarrow{u\cdot}eC\xrightarrow{\ell_0\cdot}eC\xrightarrow{\ell_1\cdot}
+    eC\longrightarrow\cdots
+  \]
+  in degrees $0,1,2,\dots$, with ${fC=\langle f,t,j,n\rangle}$ and
+  ${eC=\langle e,x,y,z,u,v\rangle}$. Left multiplication by $u$ sends
+  $f,t,j,n$ to the independent vectors ${u,y+qx,z,v}$, and left multiplication
+  by $\ell_i$ sends $e,x,y,z,u,v$ to ${\ell_i,q^iz,qz,0,(1+q^i)v,0}$. For ${i=0}$
+  its kernel is ${\langle qx+y,z,u,v\rangle}$, the image of ${u\cdot}$, and its
+  image is $\langle\ell_0,z\rangle$; for ${i\geq1}$ its kernel is
+  $\langle\ell_{i-1},z,v\rangle$ and its image is $\langle\ell_i,z,v\rangle$.
+  Hence, the only cohomology is in degree two, spanned by the class of $v$,
+  on which $f$ acts as the identity and the radical acts as zero, since
+  ${vt=qz}$ is a boundary. Good truncations identify the complex with
+  ${s^{\mathrm{r}}[-2]}$.
+\end{proof}
+
+The parameter $q$ makes the resolution aperiodic, while the self-extensions of
+$s$ vanish in positive degrees: on $e\langle\ell_i,z,j\rangle$ the elements $x$
+and $y$ act with ${x=q^{i+1}y}$ and ${y\neq0}$, a ratio preserved by isomorphisms of
+$C$-modules, so the syzygies $\langle\ell_i,z,j\rangle$ are pairwise
+nonisomorphic. The module $s$ is not a counterexample to the Auslander--Reiten
+conjecture over $C$, since ${\operatorname{Ext}^2_C(s,C)\neq0}$; over ${T=C\ltimes
+DC}$, its Ext algebra is polynomial on a generator of degree three
+(\Cref{thm:T-ext}).
+
+\subsection{The trivial extension \texorpdfstring{$T$}{T}}
+\label{subsec:algebra-T}
+
+Let ${T=C\ltimes DC}$, where the bimodule structure of $DC$ is
+${(a\phi)(c)=\phi(ca)}$ and ${(\phi a)(c)=\phi(ac)}$, and regard $s$ as a
+$T$-module through ${T\to C}$. For a basis vector $c$ of $C$ we write $c^*$ for
+the dual basis vector of $DC$.
+
+\begin{lemma}
+  \label{lemma:T-symmetric}
+  The algebra $T$ is a twenty-dimensional symmetric algebra, with symmetrising
+  form ${\operatorname{tr}(a,\phi)=\phi(1)}$. Its radical is ${N\oplus DC}$, with
+  sixth power zero, and ${T/\operatorname{rad}T\cong\kk\times\kk}$.
+\end{lemma}
+
+\begin{proof}
+  The algebra $T$ is symmetric, with the stated form, by
+  \Cref{subsec:trivial-extensions}. With ${\deg c^*=5-\deg c}$, the algebra $T$ is
+  graded, with all basis vectors
+  other than $e$ and $f$ in degrees between one and five; their span is a
+  nilpotent ideal with sixth power zero and quotient ${\kk\times\kk}$.
+\end{proof}
+
+\begin{theorem}
+  \label{thm:T-ext}
+  There is ${\tau\in\operatorname{Ext}^3_T(s,s)}$ such that
+  ${\operatorname{Ext}^*_T(s,s)=\kk[\tau]}$, a polynomial algebra under the
+  Yoneda product. Every nonzero element of $\operatorname{Ext}^3_T(s,s)$ is
+  such a generator. Moreover, $s$ is not projective and
+  ${\underline{\operatorname{End}}_T(s)=\kk}$.
+\end{theorem}
+
+\begin{proof}
+  Let $\mathbb{R}$ be the resolution of \Cref{prop:C-resolution}. For a
+  finitely generated projective left $C$-module $V$, the map
+  ${DC\otimes_CV\to D\Hom[C]{V}{C}}$, ${\phi\otimes v\mapsto(g\mapsto\phi(g(v)))}$,
+  is a natural isomorphism of left $C$-modules, as one sees for ${V=C}$. Hence,
+  ${DC\otimes_C\mathbb{R}\cong D\Hom[C]{\mathbb{R}}{C}}$, which has cohomology
+  ${D(s^{\mathrm{r}})=s}$ in degree ${-2}$ by \Cref{prop:C-resolution}; since $DC$
+  acts on it as zero, it is quasi-isomorphic to $s[2]$ as a complex of
+  $T$-modules. Tensoring the sequence ${0\to DC\to T\to C\to0}$ of
+  $(T,C)$-bimodules with the complex $\mathbb{R}$ of projective, hence flat,
+  $C$-modules gives a short exact sequence of complexes of $T$-modules, and
+  hence a triangle
+  \begin{equation}
+    \label{eq:T-triangle}
+    s[2]\longrightarrow\mathcal{I}\longrightarrow s\xrightarrow{\ \eta\ }s[3],
+    \qquad\mathcal{I}=T\otimes_C\mathbb{R},
+  \end{equation}
+  in ${\DerCat[-]{\operatorname{mod}T}}$. The terms ${T\otimes_CCe=Te}$ and
+  ${T\otimes_CCf=Tf}$ of $\mathcal{I}$ are projective, and $\mathcal{I}$ is
+  bounded above, so adjunction gives
+  ${\Hom{\mathcal{I}}{s[a]}\cong H^a\Hom[C]{\mathbb{R}}{s}}$, which is $\kk$ for
+  ${a=0}$ and zero otherwise.
+
+  Put ${V^a=\Hom{s}{s[a]}}$, which is $\operatorname{Ext}^a_T(s,s)$ for ${a\geq0}$
+  and zero for ${a<0}$. Applying $\Hom{-}{s[a]}$ to~\eqref{eq:T-triangle} gives
+  exact sequences
+  \[
+    \Hom{\mathcal{I}}{s[a-1]}\longrightarrow V^{a-3}
+    \xrightarrow{\ \beta\mapsto\beta[3]\circ\eta\ }V^a\longrightarrow
+    \Hom{\mathcal{I}}{s[a]}.
+  \]
+  For ${a=1}$ this gives ${V^1=0}$, and for ${a\geq2}$ the outer terms vanish, so
+  that composition with $\eta$ is an isomorphism ${V^{a-3}\to V^a}$. Since
+  ${V^0=\kk}$ and ${V^{-1}=V^{-2}=0}$, we obtain ${V^{3m}=\kk\eta^m}$ for ${m\geq0}$
+  and ${V^a=0}$ in all other degrees, and no power of $\eta$ vanishes. Hence,
+  ${\operatorname{Ext}^*_T(s,s)=\kk[\eta]}$, and every nonzero multiple of $\eta$
+  is a generator. Since ${\operatorname{Ext}^3_T(s,s)\neq0}$, the module $s$ is
+  not projective, and a nonzero endomorphism of the one-dimensional module $s$
+  factoring through a projective module would make $s$ a direct summand of a
+  projective module; hence ${\underline{\operatorname{End}}_T(s)=\kk}$.
+\end{proof}
+
+\subsection{A Hochschild cocycle}
+\label{subsec:cocycle}
+
+The construction of the bimodule $F$ needs a representative of $\tau$ by a
+bimodule map, which the abstract computation of \Cref{thm:T-ext} does not
+provide. Let ${I=\kk e\oplus\kk f\subseteq T}$ and
+${\mathfrak{r}=\operatorname{rad}
+T}$, so that ${T=I\oplus\mathfrak{r}}$. The \emph{bar resolution} of $T$ relative
+to $I$ is the complex $\mathbb{B}$ of $T$-bimodules with
+\[
+  \mathbb{B}^{-n}=T\otimes_I\mathfrak{r}^{\otimes_In}\otimes_IT\quad(n\geq0),
+  \qquad\mathbb{B}^n=0\quad(n>0),
+\]
+whose elements we write $a_0[a_1|\cdots|a_n]a_{n+1}$, with the differential
+given by the sum of the ${n+1}$ products of adjacent entries, and augmentation
+${\mathbb{B}^0\to T}$ given by multiplication. Its terms are finite direct sums
+of the projective bimodules ${Ti\otimes_\kk jT}$ for ${i,j\in\set{e,f}}$. The map
+\[
+  a_0[a_1|\cdots|a_n]a_{n+1}\longmapsto[\overline{a}_0|a_1|\cdots|a_n]a_{n+1},
+\]
+where $\overline{a}_0$ is the component of $a_0$ in $\mathfrak{r}$, together
+with ${a\mapsto1[\,]a}$ in augmented degree, is a contraction of the augmented
+complex, and it is right linear; hence $\mathbb{B}$ is a projective bimodule
+resolution of $T$, and ${\mathbb{B}\otimes_Ts}$ is a projective resolution of
+$s$.
+
+Let ${p\colon\mathfrak{r}^{\otimes_I3}\to T}$ be the $I$-bilinear map given by
+the table of $179$ coefficients in \Cref{app:computations}, reproduced from the
+appendix of~\cite{OAI26ar}: an entry $abcw$ in the row $q^d$ means that the
+coefficient of the basis vector $w$ in $p(a,b,c)$ is $q^d$, where capital
+letters denote dual basis vectors, so that for example ${J=j^*}$; all other
+coefficients are zero. For ${\lambda\in\kk^\times}$ let $h_\lambda$ be the
+automorphism ${(c,\phi)\mapsto(c,\lambda\phi)}$ of $T$, and let
+${z_\lambda\colon\mathfrak{r}\to\mathfrak{r}}$ be the linear map given on basis
+vectors by
+\[
+  z_\lambda(a)=\begin{cases}
+    \lambda qa&\text{if }a\in\set{u,v,t,e^*,x^*,y^*,z^*,u^*,v^*},\\
+    0&\text{otherwise}.
+  \end{cases}
+\]
+
+\begin{lemma}
+  \label{lemma:cocycle}
+  The map $p$ has the following properties.
+  \begin{enumerate}
+    \item\label{it:cocycle} It is a Hochschild cocycle: for all
+      ${a,b,c,d\in\mathfrak{r}}$,
+      \[
+        ap(b,c,d)+p(ab,c,d)+p(a,bc,d)+p(a,b,cd)+p(a,b,c)d=0,
+      \]
+      where $p$ is extended by zero to inputs with a factor in $I$.
+    \item\label{it:weight} Every nonzero coefficient of $p(a,b,c)$ at a basis
+      vector $w$, for basis vectors $a,b,c$, has exactly one more dual basis
+      vector among $a,b,c$ than $w$ has.
+    \item\label{it:boundary} For all ${a,b\in\mathfrak{r}}$ and
+      ${\lambda\in\kk^\times}$,
+      \[
+        \sum_{w}p(a,b,h_\lambda(w))w^*=az_\lambda(b)+z_\lambda(ab)+
+        z_\lambda(a)h_\lambda^{-1}(b),
+      \]
+      where $w$ runs through the radical basis vectors and $w^*$ denotes the
+      dual of $w$ under the trace, so that ${(c^*)^*=c}$.
+    \item\label{it:evaluation} ${p(t,x,j^*)=0}$ and ${p(t,y,j^*)=q^3f}$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  These are finitely many polynomial identities in $q$ and $\lambda$, and
+  they are checked by an exact computation over $\mathbb{F}_2[q,\lambda]$ on
+  all inputs; see \Cref{app:computations}.
+\end{proof}
+
+Define a map ${p\colon\mathbb{B}\to\mathbb{B}[3]}$ by
+\[
+  p(a_0[a_1|\cdots|a_n]a_{n+1})=a_0[a_1|\cdots|a_{n-3}]\,
+  p(a_{n-2},a_{n-1},a_n)a_{n+1}\quad(n\geq3),
+\]
+and zero on $\mathbb{B}^{-n}$ for ${n<3}$. In ${dp+pd}$, every product of adjacent
+entries among the first ${n-3}$ bars appears twice, and the remaining five terms
+form the left side of \Cref{lemma:cocycle}\eqref{it:cocycle}; hence $p$ is a
+chain map of bimodule complexes.
+
+\begin{proposition}
+  \label{prop:cocycle-generator}
+  The class $\tau$ of the chain map ${p\otimes_Ts\colon\mathbb{B}\otimes_Ts\to
+  (\mathbb{B}\otimes_Ts)[3]}$ in $\operatorname{Ext}^3_T(s,s)$ is nonzero, and
+  therefore generates $\operatorname{Ext}^*_T(s,s)$.
+\end{proposition}
+
+\begin{proof}
+  The class is represented by the cocycle
+  ${c\colon\mathbb{B}^{-3}\otimes_Ts\to s}$ obtained by composing with the
+  augmentation. The element
+  ${\zeta=q^2[t|x|j^*]+[t|y|j^*]}$ of ${s^{\mathrm{r}}\otimes_T\mathbb{B}^{-3}
+  \otimes_Ts}$ is a cycle: its outer terms vanish because the radical
+  annihilates simple modules, and since ${tx=j}$, ${ty=q^2j}$, ${xj^*=t^*}$ and
+  ${yj^*=q^2t^*}$, the four inner terms cancel in pairs. A coboundary vanishes on
+  every cycle, whereas ${c(\zeta)=q^2p(t,x,j^*)+p(t,y,j^*)}$ acts on $s$ as
+  ${q^3\neq0}$ by \Cref{lemma:cocycle}\eqref{it:evaluation}. Hence, ${\tau\neq0}$,
+  and \Cref{thm:T-ext} applies.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma:twist}
+  For ${\lambda\in\kk^\times}$ the functor ${T_{h_\lambda}\otimes_T-}$, where
+  $T_{h_\lambda}$ is $T$ with the right action twisted by $h_\lambda$, fixes
+  $s$ up to a canonical isomorphism and acts on $\operatorname{Ext}^{3m}_T
+  (s,s)$ as multiplication by $\lambda^{-m}$, for every ${m\geq0}$.
+\end{lemma}
+
+\begin{proof}
+  The map ${T_{h_\lambda}\otimes_TM\to{}_{h_\lambda^{-1}}M}$,
+  ${a\otimes m\mapsto h_\lambda^{-1}(a)m}$, is an isomorphism, natural in the
+  left module $M$, onto $M$ with the action restricted along $h_\lambda^{-1}$.
+  Since $h_\lambda$ is the identity modulo $DC$, which acts as zero on $s$, the
+  twisted module ${}_{h_\lambda^{-1}}s$ is $s$. Applying $h_\lambda^{-1}$ to all
+  entries of ${\mathbb{B}\otimes_Ts}$ defines an isomorphism from this
+  resolution to its twist which induces the identity on $s$. Under it, the
+  cocycle $c$ of \Cref{prop:cocycle-generator} becomes ${c\circ h_\lambda^{-1}}$.
+  The only coefficients of $p$ that survive in $c$ are those at $f$ or $e$,
+  which have no dual factor, and by \Cref{lemma:cocycle}\eqref{it:weight} they
+  occur only on inputs with exactly one dual factor; on those inputs
+  ${c\circ h_\lambda^{-1}=\lambda^{-1}c}$. Hence, the functor sends $\tau$ to
+  $\lambda^{-1}\tau$, and, being exact, it preserves Yoneda products, so it
+  sends $\tau^m$ to $\lambda^{-m}\tau^m$.
+\end{proof}
+
+\subsection{The tensor square}
+\label{subsec:tensor-square}
+
+Let ${E=T\otimes_\kk T}$ and ${S=s\otimes_\kk s}$, and put
+${H^a}={\widehat{\operatorname{Ext}}{}^a_E(S,S)}$.
+
+\begin{proposition}
+  \label{prop:E-ext}
+  The algebras $E$ and ${E^e=E\otimes_\kk E^{\op}}$ are symmetric, and
+  \[
+    \operatorname{Ext}^*_E(S,S)=\kk[\tau_1,\tau_2],\qquad
+    \tau_1=\tau\otimes1,\ \tau_2=1\otimes\tau,
+  \]
+  is a polynomial algebra on two generators of degree three. Moreover, $S$ is
+  not projective and ${\underline{\operatorname{End}}_E(S)=\kk}$.
+\end{proposition}
+
+\begin{proof}
+  The tensor product of the symmetrising forms of the factors is a symmetric
+  associative form, nondegenerate because its Gram matrix is the Kronecker
+  product of two invertible matrices; the same applies to $E^e$. If
+  ${\mathbb{Q}\to s}$ is a projective resolution with finitely generated terms,
+  then the total complex ${\mathbb{Q}\otimes_\kk\mathbb{Q}}$ is a projective
+  resolution of $S$ by finitely generated $E$-modules, as one sees by
+  splitting $\mathbb{Q}$, as a complex of vector spaces, into its cohomology
+  and contractible complexes. The isomorphism of complexes
+  \[
+    \Hom[E]{\mathbb{Q}\otimes\mathbb{Q}}{S}\cong\Hom[T]{\mathbb{Q}}{s}\otimes
+    \Hom[T]{\mathbb{Q}}{s}
+  \]
+  gives $\operatorname{Ext}^{3m}_E(S,S)$ the basis
+  $\tau_1^i\tau_2^{m-i}$, ${0\leq i\leq m}$, and all other positive degrees
+  vanish. The classes $\tau_1$ and $\tau_2$ are represented by lifts of $\tau$
+  acting on different tensor factors, which commute in characteristic two, so
+  their monomials are the external products ${\tau^i\otimes\tau^{m-i}}$ and
+  there are no relations. The last assertion follows as in \Cref{thm:T-ext}.
+\end{proof}
+
+For ${m\geq0}$ let ${P_m\subseteq\kk[\tau_1,\tau_2]}$ be the space of homogeneous
+polynomials of degree $m$ in the generators, so that ${H^{3m}=P_m}$, and put
+${P_m=0}$ for ${m<0}$.
+
+\begin{proposition}
+  \label{prop:E-tate}
+  The Tate groups of $S$ are
+  \[
+    H^{3m}=P_m,\qquad H^{-3m-1}\cong DP_m\quad(m\geq0),\qquad
+    H^a=0\quad\text{otherwise}.
+  \]
+  For ${m\geq1}$, multiplication by $\tau_i$ from $H^{-3m-1}$ to $H^{-3m+2}$ is
+  the transpose ${DP_m}\to{ DP_{m-1}}$ of multiplication by $\tau_i$ from
+  $P_{m-1}$ to $P_m$; it is surjective with kernel spanned by the dual of
+  $\tau_{3-i}^m$. Multiplication by $\tau_i$ on ${H^{-1}=DP_0}$ is zero.
+\end{proposition}
+
+\begin{proof}
+  The first assertion follows from \Cref{prop:E-ext} and Tate duality,
+  \Cref{thm:tate-duality}, with ${X=Y=S}$: ${H^{-1-a}\cong DH^a}$. The
+  compatibility of the duality pairing with composition~\cite[Section~2,
+  (2.8)]{Lin13}, recalled after \Cref{thm:tate-duality}, identifies
+  multiplication by $\tau_i$ on the negative groups with the transpose of
+  multiplication by $\tau_i$ on the positive ones. Multiplication by $\tau_i$
+  from $P_{m-1}$ to $P_m$ is injective with cokernel spanned by the class of
+  $\tau_{3-i}^m$, which gives the description of its transpose. On $H^{-1}$
+  the product lands in ${H^2=0}$.
+\end{proof}
+
+\subsection{The bimodule \texorpdfstring{$\mathcal{C}$}{C}}
+\label{subsec:two-cones}
+
+Let $\mathcal{L}$ be the mapping cone of
+${p[-3]\colon\mathbb{B}[-3]\to\mathbb{B}}$,
+a complex of projective $T$-bimodules with ${\mathcal{L}^j=\mathbb{B}^{j-2}\oplus
+\mathbb{B}^j}$, and let
+\[
+  K=\mathcal{L}\otimes_\kk\mathcal{L},
+\]
+a complex of projective $E$-bimodules, that is, of projective $E^e$-modules,
+bounded above with finitely generated terms. The complex $\mathcal{L}$ has
+cohomology $T$ in degrees $0$ and $2$ and no other cohomology, and $K$ has a
+filtration with four subquotients ${\mathbb{B}\otimes\mathbb{B}}$,
+${(\mathbb{B}\otimes\mathbb{B})[-2]}$ twice, and ${(\mathbb{B}\otimes\mathbb{B})
+[-4]}$, where ${\mathbb{B}\otimes\mathbb{B}}$ is a projective bimodule resolution
+of $E$; in particular $K$ is exact in negative degrees. For ${N\geq0}$ put
+\[
+  C_N=\operatorname{coker}(K^{-N-1}\to K^{-N}).
+\]
+
+\begin{lemma}
+  \label{lemma:two-cones}
+  For ${N\geq1}$, the bimodule $C_N$ is projective as a left and as a right
+  $E$-module, and ${C_{N+1}\cong C_N[-1]}$ in $\operatorname{\underline{mod}}E^e$.
+  Let $\mathcal{C}$ be a finitely generated $E$-bimodule, projective on both
+  sides, representing $C_N[N]$, which does not depend on $N$. Then
+  ${M\mapsto\mathcal{C}M=\mathcal{C}\otimes_EM}$ induces an exact functor on
+  $\operatorname{\underline{mod}}E$, and there are triangles
+  \[
+    S[-3]\xrightarrow{\tau_1}S\longrightarrow\mathcal{C}_1S
+    \xrightarrow{\pi_1}S[-2],\qquad
+    (\mathcal{C}_1S)[-3]\xrightarrow{\tau_2}\mathcal{C}_1S\longrightarrow
+    \mathcal{C}S\xrightarrow{\pi_2}(\mathcal{C}_1S)[-2]
+  \]
+  in $\operatorname{\underline{mod}}E$, where $\mathcal{C}_1S$ is the
+  evaluation at $S$ of a bimodule, projective on both sides, representing
+  \[
+    \operatorname{coker}\bigl((\mathcal{L}\otimes_\kk\mathbb{B})^{-2}\to
+    (\mathcal{L}\otimes_\kk\mathbb{B})^{-1}\bigr)[1],
+  \]
+  and the second $\tau_2$ is induced by $p$ acting on the second factor.
+\end{lemma}
+
+\begin{proof}
+  The cokernel functor $C_N$ is exact on degreewise split short exact
+  sequences of complexes that are exact in degree ${-N-1}$: if $b$ in the
+  subcomplex becomes a boundary $dv$ in the middle, the image of $v$ in the
+  quotient is a cycle, hence a boundary $d\bar{w}$; replacing $v$ by
+  ${v-dw}$ for a lift $w$ of $\bar{w}$ shows that $b$ is a boundary in the
+  subcomplex. Hence, $C_N$ has a filtration whose factors are the cokernels
+  \[
+    Z_j=\operatorname{coker}\bigl((\mathbb{B}\otimes\mathbb{B})^{-j-1}\to
+    (\mathbb{B}\otimes\mathbb{B})^{-j}\bigr)
+  \]
+  for ${j=N}$, ${N+2}$, ${N+2}$ and ${N+4}$. The
+  augmented resolution ${\mathbb{B}\otimes\mathbb{B}\to E}$ splits as a complex
+  of left and as a complex of right $E$-modules, since $E$ is projective on
+  each side, so the $Z_j$ are projective on each side, and so is $C_N$, since
+  the filtration splits on each side. Exactness of $K$ in degree ${-N}$ gives an
+  exact sequence ${0\to C_{N+1}\to K^{-N}\to C_N\to0}$ with $K^{-N}$ projective
+  over $E^e$, so ${C_{N+1}\cong C_N[-1]}$.
+
+  A cosyzygy of a bimodule $M$ that is projective on each side, taken in
+  $E^e$-modules, is again projective on each side: $E^e$ is symmetric, so $M$
+  embeds into a projective $E^e$-module, and since modules projective on one
+  side over the symmetric algebra $E$ are injective on that side, the embedding
+  splits on each side. Hence, $\mathcal{C}$ can be chosen projective on both
+  sides. For such a bimodule, ${\mathcal{C}\otimes_E-}$ is exact and preserves
+  projective modules, and it induces an exact functor on the stable category.
+  Evaluation at $S$ of the degreewise split cone sequences, which split as
+  sequences of right modules, gives the two triangles; the first comes from the
+  cone in the first factor of $K$, and the second from the action of $p$ on the
+  second factor, as $K$ is the cone of the map induced by ${p[-3]}$ on
+  ${\mathcal{L}\otimes\mathbb{B}}$.
+\end{proof}
+
+Write ${\pi=\pi_1[-2]\circ\pi_2\colon\mathcal{C}S\to S[-4]}$ for the composite
+of the two projections, and put ${W^a=\widehat{\operatorname{Ext}}{}^a_E
+(S,\mathcal{C}S)}$.
+
+\begin{proposition}
+  \label{prop:two-cone-profile}
+  For every ${a\in\ZZ}$,
+  \[
+    W^a\cong\begin{cases}\kk&a\in\set{0,3},\\0&\text{otherwise,}\end{cases}
+  \]
+  and $\pi[3]$ induces an isomorphism ${W^3\to H^{-1}}$.
+\end{proposition}
+
+\begin{proof}
+  Put ${U^a=\widehat{\operatorname{Ext}}{}^a_E(S,\mathcal{C}_1S)}$. The first
+  triangle of \Cref{lemma:two-cones} gives exact sequences
+  \[
+    0\longrightarrow\operatorname{coker}(\tau_1\colon H^{a-3}\to H^a)
+    \longrightarrow U^a\xrightarrow{\pi_1}\ker(\tau_1\colon H^{a-2}\to
+    H^{a+1})\longrightarrow0.
+  \]
+  By \Cref{prop:E-ext,prop:E-tate}, multiplication by $\tau_1$ is injective
+  on $\bigoplus_{m\geq0}P_m$ with cokernel $\kk[\tau_2]$, and on the negative
+  part it is surjective with kernel spanned by the duals
+  ${\varepsilon_m\in H^{-3m-1}}$ of $\tau_2^m$. Since the two possible
+  contributions lie in degrees that are incongruent modulo three,
+  \[
+    U^{3m}=\kk x_m,\qquad U^{1-3m}=\kk y_m\quad(m\geq0),\qquad
+    U^a=0\quad\text{otherwise},
+  \]
+  where $x_m$ is the image of $\tau_2^m$ and ${\pi_1(y_m)=\varepsilon_m}$. The
+  action of $\tau_2$ on the second tensor factor commutes with all maps of the
+  first triangle,
+  so ${\tau_2x_m=x_{m+1}}$, ${\tau_2y_m=y_{m-1}}$ for ${m\geq1}$ and ${\tau_2y_0=0}$.
+  The second triangle gives exact sequences
+  \[
+    0\longrightarrow\operatorname{coker}(\tau_2\colon U^{a-3}\to U^a)
+    \longrightarrow W^a\xrightarrow{\pi_2}\ker(\tau_2\colon U^{a-2}\to
+    U^{a+1})\longrightarrow0.
+  \]
+  The cokernel is nonzero only for ${a=0}$, where it is $\kk x_0$, and the kernel
+  is nonzero only for ${a-2=1}$, where it is $\kk y_0$. Hence, ${W^0\cong\kk}$,
+  ${W^3\cong\kk}$ via $\pi_2$ onto ${U^1=\kk y_0}$, and ${W^a=0}$ otherwise; since
+  ${\pi_1(y_0)=\varepsilon_0}$ spans $H^{-1}$, the composite $\pi[3]$ is an
+  isomorphism ${W^3\to H^{-1}}$.
+\end{proof}
+
+\subsection{Twisted lifts}
+\label{subsec:lifts}
+
+For ${\lambda\in\kk^\times}$ let $E_\lambda$ be the $E$-bimodule $E$ with the
+right action twisted by ${h_\lambda\otimes h_\lambda}$. By \Cref{lemma:twist}
+and \Cref{prop:E-ext}, the functor ${E_\lambda\otimes_E-}$ fixes $S$ and acts on
+$H^{3m}$ as multiplication by $\lambda^{-m}$, for every ${m\geq0}$. Let
+${\beta_0\in H^{-1}}$ be the class of the map ${S\to\Omega S}$,
+${f\otimes f\mapsto f^*\otimes f^*}$, where ${\Omega S=\operatorname{rad}(E)
+(f\otimes f)}$ is the kernel of the projective cover ${E(f\otimes f)\to S}$.
+
+\begin{proposition}
+  \label{prop:lifts}
+  For every ${\lambda\in\kk^\times}$ there is a morphism ${g_\lambda\colon
+  E_\lambda\to\mathcal{C}[3]}$ in $\operatorname{\underline{mod}}E^e$ such that
+  ${\pi[3]\circ(g_\lambda\otimes_ES)=\lambda^2\beta_0}$, and ${\beta_0\neq0}$.
+\end{proposition}
+
+\begin{proof}
+  Let $\mathcal{B}$ be the basis of $T$ consisting of the basis of $C$ and its
+  dual basis, and let $w^*$ denote the trace dual of ${w\in\mathcal{B}}$. The
+  Casimir element ${\sum_ww\otimes w^*}$ of ${T\otimes_\kk T}$ corresponds to the
+  identity under ${x\otimes y\mapsto(t\mapsto x\operatorname{tr}(yt))}$, so it
+  commutes with the elements of $T$. Applying $h_\lambda$ to the first factor
+  and projecting to ${T\otimes_IT=\mathbb{B}^0}$ gives
+  \[
+    \xi_\lambda=\sum_{w\in\mathcal{B}}h_\lambda(w)\otimes_Iw^*,\qquad
+    h_\lambda(a)\xi_\lambda=\xi_\lambda a\quad(a\in T),
+  \]
+  so ${b(x)=x\xi_\lambda}$ defines a bimodule map ${b\colon T_{h_\lambda}\to
+  \mathbb{B}^0}$. Its composite with the augmentation is $\sum_wh_\lambda(w)w^*$,
+  which is zero: for a basis vector $w$ of $C$, the products $ww^*$ and $w^*w$
+  are the duals of the idempotents at the two ends of $w$, and each idempotent
+  is the end of an even number of basis vectors of $C$ on each side, namely
+  $6$ for $e$ and $4$ for $f$. Separating the same identity according to the
+  left idempotent ${r\in\set{e,f}}$ of $w$ and removing the idempotent term gives
+  ${\sum_{w}h_\lambda(w)w^*=r^*}$, the sum over the radical basis vectors $w$
+  with left idempotent $r$; these identities are also checked in
+  \Cref{app:computations}.
+
+  Let $\mathbb{Q}$ be $\mathbb{B}$ with the right action twisted by $h_\lambda$,
+  a resolution of $T_{h_\lambda}$, and define maps out of $\mathbb{Q}$ on
+  generators $[a_1|\cdots|a_n]$, extended by ${\psi(a_0[\cdots]a_{n+1})}={
+  a_0\psi([\cdots])h_\lambda^{-1}(a_{n+1})}$, which is the rule for bimodule
+  maps from $\mathbb{Q}$. Let ${D_b\colon\mathbb{Q}\to\mathbb{B}}$ be $b$
+  composed with the augmentation in degree zero and zero elsewhere, and put
+  \begin{align*}
+    B_n([a_1|\cdots|a_n])&=\sum_w[a_1|\cdots|a_n|h_\lambda(w)]w^*,\\
+    G_n([a_1|\cdots|a_n])&=[a_1|\cdots|a_{n-1}]z_\lambda(a_n),
+  \end{align*}
+  with $w$ running through the radical basis vectors and ${G_0=0}$, maps of
+  degrees ${-1}$ and ${+1}$. Projecting ${a\xi_\lambda=\xi_\lambda h_\lambda^{-1}(a)}$
+  to the radical in the first factor gives, for a radical $a$ with right
+  idempotent $r$,
+  \[
+    \sum_wah_\lambda(w)\otimes_Iw^*+\sum_wh_\lambda(w)\otimes_I
+    w^*h_\lambda^{-1}(a)=a\otimes_Ir^*.
+  \]
+  Using this identity and the previous one, all terms of ${dB+Bd-D_b}$ cancel:
+  the products among the first bars appear twice, the two terms involving the
+  last bar of the source add up to $[a_1|\cdots|a_n]r^*$, and the product of
+  the appended bar with its coefficient gives the same element. Hence,
+  ${dB+Bd=0}$ in negative degrees. In degree zero, for ${r\in\set{e,f}}$,
+  \[
+    dB_0(r[\,]r)=\sum_wh_\lambda(w)\otimes_Iw^*+r\otimes_Ir^*=r\xi_\lambda=
+    D_b(r[\,]r),
+  \]
+  with $w$ running through the radical basis vectors with left idempotent $r$,
+  so ${dB+Bd=D_b}$. In ${dG+Gd}$ the products among the first bars cancel, and what
+  remains is
+  \[
+    [a_1|\cdots|a_{n-2}]\bigl(a_{n-1}z_\lambda(a_n)+z_\lambda(a_{n-1}a_n)+
+    z_\lambda(a_{n-1})h_\lambda^{-1}(a_n)\bigr),
+  \]
+  which is $pB$ by
+  \Cref{lemma:cocycle}\eqref{it:boundary}; for ${n\leq1}$ both sides vanish.
+  Hence, ${pB=dG+Gd}$.
+
+  The complex ${\mathbb{Q}\otimes_\kk\mathbb{Q}}$ resolves $E_\lambda$. Define a
+  map ${\Phi\colon\mathbb{Q}\otimes\mathbb{Q}\to K[3]}$ with component ${B\otimes
+  D_b}$ into the summand ${(\mathbb{B}\otimes\mathbb{B})[-4][3]}$ of the underlying
+  graded bimodule, component
+  ${G\otimes D_b}$ into the summand corresponding to the cone in the second tensor
+  factor, and zero
+  components into the other two summands. The component of ${d\Phi-\Phi d}$ in
+  ${(\mathbb B\otimes\mathbb B)[-4][3]}$ is ${D_b\otimes D_b}$; in the summand
+  corresponding to the second tensor factor, the component ${(dG+Gd)\otimes D_b}$
+  is cancelled by the term ${pB\otimes D_b}$ of the cone differential, and the
+  term coming from the first factor vanishes because ${pD_b=0}$. Hence, $\Phi$ is
+  a chain map in all degrees below zero, where ${D_b\otimes D_b}$ vanishes. For
+  ${n\geq4}$ both complexes are exact in degree ${-n}$, so $\Phi$ induces a map
+  of cokernels ${C^{-n}(\mathbb{Q}\otimes\mathbb{Q})\to C_{n-3}}$, that is, a
+  stable morphism ${E_\lambda[-n]\to\mathcal{C}[3-n]}$, and shifting by $n$ gives
+  $g_\lambda$. Its composite with the projection onto ${(\mathbb B\otimes\mathbb
+  B)[-4][3]}$ is the
+  comparison map of the bimodule map
+  \[
+    E_\lambda\longrightarrow\Omega_{E^e}E\subseteq(\mathbb{B}\otimes
+    \mathbb{B})^0,\qquad1\longmapsto\xi_\lambda\otimes\xi_\lambda,
+  \]
+  which takes values in the kernel of the augmentation, since $b$ does; the
+  augmentation is a projective cover, since its source is
+  ${\bigoplus_rEr\otimes_\kk rE}$ over the four primitive vertex idempotents $r$
+  of $E$ and the induced map on tops is an isomorphism.
+
+  Evaluating at $S$, all terms of ${\xi_\lambda\otimes_Ts}$ vanish except the
+  one with $w^*$ ending at $f$ and ${h_\lambda(w)=\lambda f^*}$; hence
+  ${\pi[3]\circ(g_\lambda\otimes S)}$ is the class of
+  ${f\otimes f\mapsto\lambda^2(f^*\otimes f^*)}$, which is $\lambda^2\beta_0$.
+  Finally, ${\beta_0\neq0}$: a map ${S\to\Omega S}$ factoring through a projective
+  module factors through a free module $E^r$, its components ${S\to E}$ take
+  values in the left socle of $E$, and a map ${E\to\Omega S}$ is right
+  multiplication by a radical element; for $u$ in the left socle and $j$ in the
+  radical we have ${\operatorname{tr}(auj)=\operatorname{tr}(jau)=0}$ for all
+  $a$, so ${uj=0}$, and every such factorisation is zero, whereas
+  ${f^*\otimes f^*\neq0}$.
+\end{proof}
+
+\subsection{The fibre and the counterexample}
+\label{subsec:fibre}
+
+Let ${w\in W^3}$ be the element with ${\pi[3](w)=\beta_0}$, which exists and is
+nonzero by \Cref{prop:two-cone-profile,prop:lifts}. For a finitely generated
+$E^e$-module $M$, put
+\[
+  \Sigma M=\operatorname{coker}\bigl(M\to\Hom[\kk]{E^e}{M}\bigr),
+\]
+where $E^e$ acts on $\Hom[\kk]{E^e}{M}$ by ${(r\varphi)(t)=\varphi(tr)}$ and
+${m\mapsto(t\mapsto tm)}$ is an injective homomorphism. Its target is
+projective-injective, since
+\[
+  \Hom[\kk]{E^e}{M}\cong D(E^e)\otimes_\kk M\cong E^e\otimes_\kk M,
+\]
+with $M$ regarded as a vector space. If $M$ is projective on each side, so is
+$\Sigma M$, as in the proof of \Cref{lemma:two-cones}, and $\Sigma M$ represents
+$M[1]$. The bimodule ${\mathcal{Y}=\Sigma^4C_1}$ represents $\mathcal{C}[3]$.
+Choose bimodule homomorphisms ${g_i\colon E_{H_i}\to\mathcal{Y}}$ representing
+$H_i^{-2}g_{H_i}$, for ${i=1,2}$, so that both evaluate at $S$ to $w$. Let
+${Q_{\mathcal{Y}}=E^e\otimes_\kk\mathcal{Y}\to\mathcal{Y}}$ be the free cover
+${r\otimes y\mapsto ry}$, and define $F$ by the exact sequence
+\begin{equation}
+  \label{eq:fibre}
+  0\longrightarrow F\longrightarrow E_{H_1}\oplus E_{H_2}\oplus Q_{\mathcal{Y}}
+  \xrightarrow{(g_1,g_2,\cdot)}\mathcal{Y}\longrightarrow0,
+\end{equation}
+with projections ${\rho_i\colon F\to E_{H_i}}$.
+
+\begin{proposition}
+  \label{prop:fibre}
+  The bimodule $F$ is finite-dimensional and projective as a left and as a
+  right $E$-module. There is a unique stable morphism ${v\colon S\to FS}$ with
+  ${\rho_1v=\rho_2v=\id[S]}$, and for ${V^a=\widehat{\operatorname{Ext}}{}^a_E
+  (S,FS)}$ the map
+  \[
+    \delta^a\colon(H^a)^{\oplus2}\longrightarrow V^a,\qquad
+    (g,j)\longmapsto F(g)v+v[a]j,
+  \]
+  is bijective for every ${a>0}$, while $\delta^0$ is surjective with kernel
+  spanned by $(1,1)$.
+\end{proposition}
+
+\begin{proof}
+  All terms of~\eqref{eq:fibre} are finite-dimensional, and $\mathcal{Y}$ is
+  projective on each side, so the sequence splits on each side and $F$ is
+  projective on each side. Tensoring with $S$ preserves exactness, the free
+  bimodule evaluates to a projective module, and ${E_{H_i}\otimes_ES\cong S}$;
+  hence there is a triangle
+  \[
+    FS\xrightarrow{(\rho_1,\rho_2)}S\oplus S\xrightarrow{(w,w)}
+    \mathcal{C}S[3]\longrightarrow FS[1]
+  \]
+  in $\operatorname{\underline{mod}}E$, and the $\rho_i$ induce natural
+  transformations ${F\otimes_E-\to E_{H_i}\otimes_E-}$ of exact functors on the
+  stable category. Applying ${\widehat{\operatorname{Ext}}{}^a_E(S,-)}$ gives
+  exact sequences
+  \[
+    (H^{a-1})^{\oplus2}\longrightarrow W^{a+2}\longrightarrow V^a
+    \xrightarrow{(\rho_1,\rho_2)}(H^a)^{\oplus2}\longrightarrow W^{a+3}.
+  \]
+  For ${a=0}$, since ${W^2=0}$ and ${W^3=\kk w}$, the group $V^0$ maps
+  isomorphically onto the kernel of ${(c,d)\mapsto(c+d)w}$, the diagonal line;
+  this gives the unique $v$, which spans $V^0$. For ${a=1}$, the map
+  ${(H^0)^{\oplus2}\to W^3}$ is surjective and ${W^4=0}$, and for ${a\geq2}$ both
+  $W^{a+2}$ and $W^{a+3}$ vanish; hence ${(\rho_1,\rho_2)\colon V^a\to
+  (H^a)^{\oplus2}}$ is an isomorphism for all ${a>0}$.
+
+  By naturality,
+  \[
+    \rho_i[a]\circ F(g)\circ v=(E_{H_i}\otimes_E g)\circ\rho_iv=
+    E_{H_i}\otimes_Eg\qquad\text{and}\qquad\rho_i[a]\circ v[a]\circ j=j.
+  \]
+  In degree zero this
+  gives ${\delta^0(c,d)=(c+d)v}$, which is surjective with kernel $\kk(1,1)$. For
+  ${a=3m}$ with ${m>0}$, composing $\delta^a$ with the isomorphism $(\rho_1,\rho_2)$
+  gives
+  \[
+    (g,j)\longmapsto(H_1^{-m}g+j,\ H_2^{-m}g+j),
+  \]
+  by \Cref{lemma:twist}; its scalar ${2\times2}$ matrix has determinant
+  ${H_1^{-m}+H_2^{-m}\neq0}$, since
+  $H_1^m$ and $H_2^m$ are distinct monomials. For positive $a$ not divisible
+  by three both sides vanish.
+\end{proof}
+
+\begin{theorem}[{\cite[Theorem~1.1]{OAI26ar}}]
+  \label{thm:ar-counterexample}
+  Let
+  \[
+    \Lambda=\begin{pmatrix}E&0\\F&E\end{pmatrix},
+  \]
+  and let $Z$ be the $\Lambda$-module of \Cref{thm:conversion} for the data of
+  \Cref{prop:fibre}. Then $\Lambda$ is a finite-dimensional algebra over
+  ${\kk=\mathbb{F}_2(q,H_1,H_2)}$ with eight simple modules, all one-dimensional,
+  and $Z$ is a finite-dimensional, nonprojective, Gorenstein-projective
+  $\Lambda$-module with ${\operatorname{Ext}^i_\Lambda(Z,Z\oplus\Lambda)=0}$ for
+  all ${i\geq1}$. The same holds after extending scalars to any field
+  containing~$\kk$.
+\end{theorem}
+
+\begin{proof}
+  The first assertion about $Z$ is \Cref{thm:conversion} applied to
+  \Cref{prop:fibre}. The radical of $E$ is ${J_E=\operatorname{rad}T\otimes T+
+  T\otimes\operatorname{rad}T}$, a sum of two commuting nilpotent ideals with
+  quotient $\kk^4$. The ideal of $\Lambda$ with diagonal entries in $J_E$ and
+  lower left entry in $F$ is nilpotent: a product of $2n$ of its elements has
+  at most one factor contributing through the lower left corner, flanked by
+  ${2n-1}$ factors from $J_E$, and vanishes if ${J_E^n=0}$. Its quotient is
+  $\kk^8$, so it is the radical, and $\Lambda$ has eight one-dimensional simple
+  modules.
+
+  For a field extension $K$ of $\kk$, a projective resolution of a finitely
+  generated module $M$ by finitely generated projective modules gives
+  \[
+    K\otimes_\kk\operatorname{Ext}^i_\Lambda(M,N)\cong
+    \operatorname{Ext}^i_{\Lambda_K}(M_K,N_K),
+  \]
+  since Hom from a finitely
+  generated projective module commutes with extension of scalars. Hence, the
+  vanishing of extensions persists. A complete resolution of $Z$ remains totally
+  acyclic after extension of scalars, and a nonsplit projective cover sequence
+  of $Z$ remains nonsplit, since its class in $\operatorname{Ext}^1$ stays
+  nonzero; so $Z_K$ is Gorenstein-projective and nonprojective. The radical
+  computation is unchanged.
+\end{proof}
+
+\subsection{An endomorphism algebra of infinite finitistic dimension}
+\label{subsec:ar-consequences}
+
+\begin{corollary}
+  \label{coro:ar-findim}
+  Let $Z'$ be an indecomposable nonprojective direct summand of the module $Z$
+  of \Cref{thm:ar-counterexample}. Then the algebra
+  ${\operatorname{End}_\Lambda(\Lambda\oplus Z')}$ has nine simple modules and
+  infinite little finitistic dimension. The same construction gives such an
+  algebra over every field containing~$\kk$.
+\end{corollary}
+
+\begin{proof}
+  The module $Z'$ exists since $Z$ is nonprojective, and it inherits the
+  vanishing of extensions, since Ext is additive. By \Cref{thm:ar-to-findim},
+  the algebra ${\operatorname{End}_\Lambda(\Lambda\oplus Z')}$ has infinite
+  little finitistic dimension. Since ${\Lambda/\operatorname{rad}\Lambda\cong
+  \kk^8}$, the algebra $\Lambda$ is basic with eight indecomposable projective
+  modules, and ${\Lambda\oplus Z'}$ has nine pairwise nonisomorphic
+  indecomposable summands, which index the simple modules of its endomorphism
+  algebra. For a field $K$ containing $\kk$, the same argument applies to
+  $\Lambda_K$ and an indecomposable nonprojective summand of $Z_K$, by
+  \Cref{thm:ar-counterexample}.
+\end{proof}
+
+\begin{remark}
+  \label{rem:ar-sizes}
+  The algebra $\Lambda$ is explicit. With the bimodule
+  representatives used above, ${\dim_\kk E=400}$ and ${\dim_\kk E^e=160000}$, each
+  application of $\Sigma$ multiplies dimensions by $159999$, and
+  \[
+    \dim_\kk F=800+159999^5\dim_\kk C_1,\qquad
+    \dim_\kk\Lambda=2\dim_\kk E+\dim_\kk F,
+  \]
+  where ${\dim_\kk C_1=1\,623\,889\,344}$ is computed from the dimensions of the
+  terms of $K$ and its cohomology (\Cref{app:computations}); hence
+  ${\dim_\kk\Lambda\approx1.7\cdot10^{35}}$. A computation with minimal bimodule
+  resolutions of the cones over a finite field, recorded in
+  \Cref{app:computations}, determined that the two cokernels corresponding
+  to $C_0$ and $C_1$ would have dimensions $784\,704$ and $1\,377\,984$, and
+  was stopped before forming them, at a linear system with about
+  ${3.6\cdot10^6}$ unknowns; it gives no lower bound for the dimension of a
+  minimised construction. The algebra in \Cref{coro:ar-findim} has nine simple
+  modules; the number ${3(l+2)}$ for \Cref{coro:main} is not determined.
+\end{remark}

@@ -1,0 +1,127 @@
+\section{Conventions and preliminaries}
+\label{sec:preliminaries}
+
+\begin{conventions}
+  Throughout, $\kk$ is a field and ${D=\Hom[\kk]{-}{\kk}}$ denotes the
+  $\kk$-linear duality. Algebras are associative and unital; unless stated
+  otherwise, they are finite-dimensional over $\kk$, although the algebras of
+  selection data in \Cref{sec:selection} need not be. Modules are finitely
+  generated \emph{left} modules unless they are called right modules, and right
+  $A$-modules are identified with left $A^{\op}$-modules. Composition of maps
+  and products of paths in a quiver are written from right to left, so that an
+  arrow ${a\colon i\to j}$ lies in $e_jAe_i$. Complexes are graded
+  cohomologically, with ${K[s]^n=K^{n+s}}$ and ${d_{K[s]}=(-1)^sd_K}$. For a module
+  $M$ we write ${M^*=\Hom[A]{M}{A}}$, which is a right module, $\Omega M$ for the
+  kernel of a projective cover of $M$, and $\operatorname{Tr}M$ for the
+  transpose computed from a minimal projective presentation: if
+  ${P_1\to P_0\to M\to 0}$ is minimal, then
+  ${\operatorname{Tr}M=\operatorname{coker}(P_0^*\to P_1^*)}$.
+\end{conventions}
+
+The \emph{little finitistic dimension} of an algebra $A$ is
+\[
+  \operatorname{findim}A\coloneqq\sup\set*{\operatorname{pd}_AM}[\substack{
+    M\text{ a finitely generated left }A\text{-module}\\
+    \operatorname{pd}_AM<\infty}].
+\]
+The \emph{little finitistic dimension conjecture} asserts that
+${\operatorname{findim}A<\infty}$ for every finite-dimensional
+algebra~$A$~\cite{Bas60}; see~\cite{ZHui95} for its history. The finitistic
+dimension of $A^{\op}$ is the \emph{right} finitistic dimension of $A$; the two
+need not agree.
+
+\subsection{Stable categories of symmetric algebras}
+\label{subsec:stable}
+
+Let $A$ be a symmetric algebra. Its stable module category
+$\operatorname{\underline{mod}}A$ is triangulated, with suspension $[1]$ given
+by the cosyzygy $\Omega^{-1}$, so that ${[-1]=\Omega}$, and with triangles
+induced by short exact sequences. For modules $X$ and $Y$ and an integer $a$, we
+write
+\[
+  \widehat{\operatorname{Ext}}{}^a_A(X,Y)\coloneqq
+  \underline{\operatorname{Hom}}_A(X,Y[a]),
+\]
+so that ${\widehat{\operatorname{Ext}}{}^a_A(X,Y)=\operatorname{Ext}^a_A(X,Y)}$
+for ${a\geq1}$. Composition makes $\widehat{\operatorname{Ext}}{}^*_A(X,X)$ a
+graded algebra.
+
+\begin{theorem}[{Tate duality; \cite[Section~2, (2.1)]{Lin13}}]
+  \label{thm:tate-duality}
+  Let $A$ be a symmetric algebra. For all modules $X$, $Y$ and every integer
+  $a$, there is an isomorphism
+  \[
+    D\widehat{\operatorname{Ext}}{}^a_A(X,Y)\cong
+    \widehat{\operatorname{Ext}}{}^{-1-a}_A(Y,X),
+  \]
+  natural in $X$ and $Y$.
+\end{theorem}
+
+Equivalently~\cite[Section~2, (2.2)]{Lin13}, there is a natural nondegenerate
+bilinear form
+\[
+  \langle-,-\rangle\colon\widehat{\operatorname{Ext}}{}^{a}_A(Y,X)\times
+  \widehat{\operatorname{Ext}}{}^{-1-a}_A(X,Y)\longrightarrow\kk,
+\]
+and it is compatible with composition: ${\langle\zeta\eta,\tau\rangle=
+\langle\zeta,\eta\tau\rangle}$ whenever the composites are
+defined~\cite[Section~2, (2.8)]{Lin13}.
+
+\subsection{Toda brackets}
+\label{subsec:toda}
+
+Let $\mathcal{T}$ be a triangulated category and let
+\[
+  X\xrightarrow{f}Y\xrightarrow{g}Z\xrightarrow{h}W
+\]
+be morphisms with ${gf=0}$ and ${hg=0}$. Choose a triangle
+\[
+  Y\xrightarrow{g}Z\xrightarrow{i}C_g\xrightarrow{q}Y[1].
+\]
+A \emph{defining
+system} is a pair of morphisms ${a\colon X[1]\to C_g}$ and ${b\colon C_g\to W}$ with
+${qa=f[1]}$ and ${bi=h}$; such pairs exist since ${gf=0}$ and ${hg=0}$. The
+\emph{Toda bracket} ${\langle h,g,f\rangle\subseteq\Hom[\mathcal{T}]{X[1]}{W}}$
+is the set of the composites $ba$ over all defining systems. It is a coset of
+the \emph{indeterminacy}
+\[
+  h\circ\Hom[\mathcal{T}]{X[1]}{Z}+\Hom[\mathcal{T}]{Y[1]}{W}\circ f[1].
+\]
+In a graded endomorphism ring $\widehat{\operatorname{Ext}}{}^*_A(X,X)$, the
+bracket of homogeneous classes of degrees $p$, $q$ and $r$ lies in degree
+${p+q+r-1}$.
+
+\begin{lemma}
+  \label{lemma:toda-juggling}
+  In the situation above, let ${u\colon X'\to X}$ be a morphism. Then
+  \[
+    \langle h,g,f\rangle\circ u[1]\subseteq\langle h,g,fu\rangle.
+  \]
+\end{lemma}
+
+\begin{proof}
+  If $(a,b)$ is a defining system for $\langle h,g,f\rangle$, then
+  ${q(a\circ u[1])=(fu)[1]}$ and ${bi=h}$, so that ${(a\circ u[1],b)}$ is a defining
+  system for $\langle h,g,fu\rangle$, with value ${(ba)\circ u[1]}$.
+\end{proof}
+
+\subsection{Trivial extensions}
+\label{subsec:trivial-extensions}
+
+For an algebra $\Delta$ and a $\Delta$-bimodule $X$, the \emph{trivial
+extension} is the algebra ${\Delta\ltimes X=\Delta\oplus X}$ with multiplication
+\[
+  (d,x)(d',x')=(dd',dx'+xd').
+\]
+Every $\Delta$-module is a ${(\Delta\ltimes X)}$-module through the projection
+${\Delta\ltimes X\to\Delta}$; we call such modules \emph{inflated}.
+
+For a finite-dimensional algebra $C$, the trivial extension ${C\ltimes DC}$ by
+the bimodule $DC$, with actions ${(a\phi)(c)=\phi(ca)}$ and ${(\phi a)(c)=
+\phi(ac)}$, is symmetric: the linear form ${\operatorname{tr}(c,\phi)=\phi(1)}$
+satisfies ${\operatorname{tr}((a,\phi)(b,\psi))=\psi(a)+\phi(b)}$, which is
+symmetric in the two factors, and the associated bilinear form is
+nondegenerate, since for ${a\neq0}$ there is $\psi$ with ${\psi(a)\neq0}$, and for
+${a=0\neq\phi}$ there is $b$ with ${\phi(b)\neq0}$. Hence,
+${t\mapsto\operatorname{tr}(-\,t)}$ is an isomorphism of bimodules from
+${C\ltimes DC}$ to its dual.

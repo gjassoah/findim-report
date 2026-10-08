@@ -1,0 +1,351 @@
+\section{Tate cohomology and the Auslander--Reiten conjecture}
+\label{sec:conversion}
+
+By \Cref{thm:ar-to-findim}, a counterexample to the Auslander--Reiten
+conjecture~\cite{AR75a} yields an algebra of infinite little finitistic
+dimension. The preprint~\cite{OAI26ar} constructs a counterexample from data in
+the stable
+category of a symmetric algebra $E$: a bimodule $F$ and a stable morphism
+${v\colon S\to F\otimes_ES}$. \Cref{thm:conversion} gives this construction over
+an arbitrary field; the preprint treats characteristic two, in which the signs
+disappear. The theorem reduces the vanishing of the self-extensions of a module
+over the triangular
+algebra $\left(\begin{smallmatrix}E&0\\F&E\end{smallmatrix}\right)$ to the
+bijectivity of a map between Tate cohomology groups over~$E$.
+
+\subsection{Complete resolutions}
+\label{subsec:complete-resolutions}
+
+Let $A$ be a finite-dimensional algebra. For complexes $\mathbb{P}$ and
+$\mathbb{W}$ of $A$-modules, the Hom complex has the terms and differential
+\[
+  \Hom[A]{\mathbb{P}}{\mathbb{W}}^a=\prod_{n\in\ZZ}\Hom[A]{\mathbb{P}^n}
+  {\mathbb{W}^{n+a}},\qquad\partial f=d_{\mathbb{W}}f-(-1)^afd_{\mathbb{P}};
+\]
+its cocycles of degree $a$ are the chain maps ${\mathbb{P}\to\mathbb{W}[a]}$,
+up to the signs of the shift, and its coboundaries are the null-homotopic ones.
+For an exact complex $\mathbb{P}$ put
+${C^n(\mathbb{P})=\operatorname{coker}(\mathbb{P}^{n-1}\to\mathbb{P}^n)}$; the
+differential induces injections ${C^n(\mathbb{P})\to\mathbb{P}^{n+1}}$ and short
+exact sequences
+\begin{equation}
+  \label{eq:cokernel-sequences}
+  0\longrightarrow C^n(\mathbb{P})\longrightarrow\mathbb{P}^{n+1}
+  \longrightarrow C^{n+1}(\mathbb{P})\longrightarrow0.
+\end{equation}
+An exact complex $\mathbb{P}$ of finitely generated projective modules is
+\emph{totally acyclic} if $\Hom[A]{\mathbb{P}}{A}$ is exact; then
+$\Hom[A]{\mathbb{P}}{L}$ is exact for every projective module $L$, since
+${\Hom[A]{\mathbb{P}}{A^{(I)}}=\Hom[A]{\mathbb{P}}{A}^{(I)}}$ by finite
+generation. A finitely generated module is \emph{Gorenstein-projective} if it
+is isomorphic to $C^0(\mathbb{P})$ for a totally acyclic complex $\mathbb{P}$,
+which is then called a \emph{complete resolution} of it.
+
+\begin{lemma}
+  \label{lemma:complete-resolutions}
+  Let $\mathbb{P}$ be a totally acyclic complex and $\mathbb{W}$ an exact
+  complex of finitely generated projective $A$-modules, and put
+  ${M=C^0(\mathbb{P})}$ and ${N=C^0(\mathbb{W})}$. Then for every integer $a$
+  there are isomorphisms
+  \[
+    H^a\Hom[A]{\mathbb{P}}{\mathbb{W}}\cong
+    \underline{\operatorname{Hom}}_A(C^{-a}(\mathbb{P}),N)\cong
+    \underline{\operatorname{Hom}}_A(M,C^a(\mathbb{W})),
+  \]
+  compatible with composition and with additive functors that preserve the
+  complexes involved, and for ${a>0}$ these groups are isomorphic to
+  $\operatorname{Ext}^a_A(M,N)$. Moreover, ${\operatorname{Ext}^a_A(M,L)=0}$ for
+  every ${a>0}$ and every projective module~$L$.
+\end{lemma}
+
+\begin{proof}
+  Let ${\epsilon_n\colon\mathbb{P}^n\to C^n(\mathbb{P})}$ and
+  ${\jmath_n\colon C^n(\mathbb{P})\to\mathbb{P}^{n+1}}$ be the induced maps. If
+  $L$ is projective, every map ${u\colon C^n(\mathbb{P})\to L}$ extends across
+  $\jmath_n$: the map $u\epsilon_n$ is a cocycle of $\Hom[A]{\mathbb{P}}{L}$,
+  hence a coboundary, so ${u\epsilon_n=bd^n_{\mathbb{P}}}$ for some
+  ${b\colon\mathbb{P}^{n+1}\to L}$, and ${b\jmath_n=u}$.
+
+  A chain map ${f\colon\mathbb{P}\to\mathbb{W}}$ induces a map ${M\to N}$.
+  Conversely, given ${u\colon M\to N}$, lift $u\epsilon_0$ to
+  ${f^0\colon\mathbb{P}^0\to\mathbb{W}^0}$, and construct $f^n$ for ${n<0}$ by
+  lifting through the surjections ${\mathbb{W}^{n}\to\operatorname{im}
+  d^{n}_{\mathbb{W}}}$, using projectivity of the $\mathbb{P}^n$. For ${n\geq0}$,
+  once $f^n$ is chosen, $d^n_{\mathbb{W}}f^n$ vanishes on the image of
+  $d^{n-1}_{\mathbb{P}}$ and so factors through $C^n(\mathbb{P})$; the
+  extension property gives $f^{n+1}$ with
+  ${f^{n+1}d^n_{\mathbb{P}}=d^n_{\mathbb{W}}f^n}$.
+
+  If ${f=d_{\mathbb{W}}h+hd_{\mathbb{P}}}$, then the induced map is induced by
+  $h^1d^0_{\mathbb{P}}$ and factors through $\mathbb{P}^1$. Conversely, suppose
+  the induced map factors as ${M\xrightarrow{\alpha}L\xrightarrow{\beta}N}$ with
+  $L$ projective. Extending $\alpha$ to $\mathbb{P}^1$ and lifting $\beta$ to
+  $\mathbb{W}^0$ gives ${h^1\colon\mathbb{P}^1\to\mathbb{W}^0}$ whose boundary
+  induces $\beta\alpha$; subtracting it, we may assume that $f$ induces zero.
+  Then $f^0$ takes values in the image of $d^{-1}_{\mathbb{W}}$, and we
+  construct $h$ with ${f=d_{\mathbb{W}}h+hd_{\mathbb{P}}}$ by two recursions,
+  starting with ${h^1=0}$ and a lift $h^0$ of $f^0$ through
+  $d^{-1}_{\mathbb{W}}$. For ${n<0}$, the map ${f^n-h^{n+1}d^n_{\mathbb{P}}}$ takes
+  values in ${\ker d^n_{\mathbb{W}}=\operatorname{im}d^{n-1}_{\mathbb{W}}}$ and
+  lifts to $h^n$ by projectivity of $\mathbb{P}^n$. For ${n\geq1}$, the map
+  ${f^n-d^{n-1}_{\mathbb{W}}h^n}$ vanishes on the image of
+  $d^{n-1}_{\mathbb{P}}$, hence factors through $C^n(\mathbb{P})$, and the
+  extension property gives $h^{n+1}$. Since the Hom complex is a product, no
+  finiteness condition arises. This proves the case ${a=0}$; the compatibility
+  with composition and with additive functors follows from the construction.
+
+  The case of general $a$ follows by applying the case ${a=0}$ to the pairs
+  ${(\mathbb{P}[-a],\mathbb{W})}$ and $(\mathbb{P},\mathbb{W}[a])$, since
+  ${C^0(\mathbb{P}[-a])=C^{-a}(\mathbb{P})}$ and ${C^0(\mathbb{W}[a])=
+  C^a(\mathbb{W})}$. For ${a>0}$, the truncation ${\cdots\to\mathbb{P}^{-1}\to
+  \mathbb{P}^0}$ is a projective resolution of $M$, and it computes
+  $\operatorname{Ext}^a_A(M,N)$ as the maps ${C^{-a}(\mathbb{P})\to N}$ modulo
+  those that extend to $\mathbb{P}^{-a+1}$; by the extension property, these
+  are exactly the maps factoring through a projective module. Applying the
+  same description with $N$ replaced by a projective module $L$ gives
+  ${\operatorname{Ext}^a_A(M,L)=0}$, since every map ${C^{-a}(\mathbb{P})\to L}$
+  extends.
+\end{proof}
+
+Now let $E$ be a finite-dimensional symmetric algebra. Then
+${E\cong DE}$ as bimodules, so finitely generated projective $E$-modules are
+injective, and every finitely generated module $M$ embeds into a finitely
+generated projective module, by dualising a projective cover of the right
+module $DM$. Splicing a projective resolution of $M$ with a coresolution by
+projective modules gives an exact complex $\mathbb{P}$ of finitely generated
+projective modules with ${C^0(\mathbb{P})=M}$, and $\mathbb{P}$ is totally
+acyclic, since $\Hom[E]{-}{L}$ is exact for projective $L$. By
+\Cref{lemma:complete-resolutions}, two such complexes for $M$ are homotopy
+equivalent, the functor $C^0$ identifies the homotopy category of these
+complexes with the stable category $\operatorname{\underline{mod}}E$, the
+shift $[1]$ corresponds to the cosyzygy by~\eqref{eq:cokernel-sequences}, and
+\[
+  \widehat{\operatorname{Ext}}{}^a_E(M,N)=H^a\Hom[E]{\mathbb{P}_M}
+  {\mathbb{P}_N}
+\]
+for complete resolutions $\mathbb{P}_M$ and $\mathbb{P}_N$. Let $F$ be a
+finitely generated $E$-bimodule that is projective as a left and as a right
+module, and write ${FM=F\otimes_EM}$. The functor ${F\otimes_E-}$ is exact, since
+$F_E$ is projective, and preserves projective modules, since ${}_EF$ is
+projective; hence $F\mathbb{P}$ is a complete resolution of $FM$. In particular,
+${F\otimes_E-}$ induces an exact functor on
+$\operatorname{\underline{mod}}E$ with ${F(M[a])\cong(FM)[a]}$, and for a stable
+morphism ${g\colon M\to N[a]}$ we write ${F(g)\colon FM\to(FN)[a]}$.
+
+\subsection{Triangular algebras}
+\label{subsec:triangular}
+
+For $E$ and $F$ as above, let
+\[
+  \Lambda=\begin{pmatrix}E&0\\F&E\end{pmatrix},\qquad
+  (a,f,b)(a',f',b')=(aa',fa'+bf',bb'),
+\]
+where $(a,f,b)$ denotes the matrix with diagonal entries $a$, $b$ and lower
+left entry $f$. The two diagonal idempotents split a left $\Lambda$-module
+into components $M$ and $N$, and the action of the lower left corner gives an
+$E$-linear map ${\eta\colon FM\to N}$; conversely, every such triple
+$(M,N,\eta)$ is a $\Lambda$-module, with ${(a,f,b)(m,n)=(am,\eta(f\otimes
+m)+bn)}$. A morphism ${(M,N,\eta)\to(M',N',\eta')}$ is a pair of $E$-linear maps
+$(\alpha,\beta)$ with ${\beta\eta=\eta'F(\alpha)}$, and a sequence of triples is
+exact if and only if both component sequences are exact. Define exact functors
+\[
+  \mathsf{L}_1(M)=(M,FM,\id),\qquad\mathsf{L}_2(N)=(0,N,0).
+\]
+
+\begin{lemma}
+  \label{lemma:triangular}
+  In the situation above, the following hold.
+  \begin{enumerate}
+    \item\label{it:triangular-hom} There are natural isomorphisms
+      ${\Hom[\Lambda]{\mathsf{L}_iM}{\mathsf{L}_iN}}\cong{\Hom[E]{M}{N}}$ for
+      ${i=1,2}$, ${\Hom[\Lambda]{\mathsf{L}_2M}{\mathsf{L}_1N}}\cong
+      {\Hom[E]{M}{FN}}$ and ${\Hom[\Lambda]{\mathsf{L}_1M}{\mathsf{L}_2N}}={0}$.
+    \item\label{it:triangular-proj} We have ${\Lambda=\mathsf{L}_1(E)\oplus
+      \mathsf{L}_2(E)}$, so $\mathsf{L}_1$ and $\mathsf{L}_2$ preserve finitely
+      generated projective modules, and the first component of every
+      finitely generated projective $\Lambda$-module is a projective
+      $E$-module.
+    \item\label{it:triangular-acyclic} If $\mathbb{P}$ is a totally acyclic
+      complex of $E$-modules, then $\mathsf{L}_1\mathbb{P}$ and
+      $\mathsf{L}_2\mathbb{P}$ are totally acyclic complexes of
+      $\Lambda$-modules.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \eqref{it:triangular-hom} A morphism ${\mathsf{L}_1M\to(M',N',\eta')}$ is
+  determined by its first component $\alpha$, the second being
+  $\eta'F(\alpha)$, and a morphism ${\mathsf{L}_2M\to(M',N',\eta')}$ is an
+  arbitrary map ${M\to N'}$. This gives the first three isomorphisms. For the
+  last, the compatibility condition forces the second component to vanish,
+  since the structure map of $\mathsf{L}_1M$ is the identity.
+
+  \eqref{it:triangular-proj} The first column of $\Lambda$ is
+  ${(E,F,\id)=\mathsf{L}_1(E)}$ and the second is ${(0,E,0)=\mathsf{L}_2(E)}$.
+  The first component of a direct summand of $\Lambda^r$ is a direct summand of
+  $E^r$.
+
+  \eqref{it:triangular-acyclic} The terms are finitely generated projective by
+  \eqref{it:triangular-proj}, and both complexes are exact. By
+  \eqref{it:triangular-hom} and \eqref{it:triangular-proj},
+  \begin{gather*}
+    \Hom[\Lambda]{\mathsf{L}_1\mathbb{P}}{\Lambda}\cong\Hom[E]{\mathbb{P}}{E},\\
+    \Hom[\Lambda]{\mathsf{L}_2\mathbb{P}}{\Lambda}\cong
+    \Hom[E]{\mathbb{P}}{F}\oplus\Hom[E]{\mathbb{P}}{E},
+  \end{gather*}
+  which are exact since $\mathbb{P}$ is totally acyclic and ${}_EF$ is
+  projective.
+\end{proof}
+
+\subsection{A module with no positive self-extensions}
+\label{subsec:conversion-theorem}
+
+\begin{theorem}
+  \label{thm:conversion}
+  Let $E$ be a finite-dimensional symmetric algebra over a field $\kk$, let $F$
+  be a finite-dimensional $E$-bimodule that is projective as a left and as a
+  right module, let $S$ be a finite-dimensional left $E$-module, and let
+  ${v\colon S\to FS}$ be a morphism in $\operatorname{\underline{mod}}E$. For
+  ${a\in\ZZ}$ consider the linear map
+  \[
+    \delta^a\colon\widehat{\operatorname{Ext}}{}^a_E(S,S)^{\oplus2}
+    \longrightarrow\widehat{\operatorname{Ext}}{}^a_E(S,FS),\qquad
+    (g,j)\longmapsto F(g)v-v[a]j.
+  \]
+  Suppose that $\delta^0$ is surjective with nonzero kernel and that $\delta^a$
+  is bijective for every ${a>0}$. Choose a homomorphism ${v_0\colon S\to FS}$
+  representing $v$ and an injective homomorphism ${i\colon S\to Q}$ into a
+  finitely generated projective module $Q$, and put
+  \[
+    \begin{gathered}
+    Z_2=(FS\oplus Q)/\set{(v_0(s),i(s))}[s\in S],\\
+    \iota\colon FS\to Z_2,\ t\mapsto[t,0],\qquad Z=(S,Z_2,\iota).
+    \end{gathered}
+  \]
+  Then $Z$ is a finite-dimensional, nonprojective and Gorenstein-projective
+  $\Lambda$-module, and
+  \[
+    \operatorname{Ext}^a_\Lambda(Z,Z)=0=\operatorname{Ext}^a_\Lambda(Z,\Lambda)
+    \qquad\text{for all }a>0.
+  \]
+  In particular, $Z$ is a counterexample to the Auslander--Reiten conjecture
+  for~$\Lambda$.
+\end{theorem}
+
+\begin{proof}
+  \emph{The complete resolution.} Choose a complete resolution $\mathbb{P}$ of
+  $S$ over $E$ with ${\mathbb{P}^1=Q}$ and ${d^0_{\mathbb{P}}=i\epsilon_0}$, where
+  ${\epsilon_0\colon\mathbb{P}^0\to S}$ is the projection; this is possible by
+  starting the coresolution of $S$ with~$i$. By
+  \Cref{lemma:complete-resolutions} there is a chain map ${f\colon\mathbb{P}\to
+  F\mathbb{P}}$ inducing $v_0$ on $C^0$. By \Cref{lemma:triangular}, $f$ defines
+  a chain map ${V\colon\mathsf{L}_2\mathbb{P}\to\mathsf{L}_1\mathbb{P}}$. Let
+  $\mathbb{P}_Z$ be its mapping cone:
+  \[
+    \mathbb{P}_Z^n=\mathsf{L}_1\mathbb{P}^n\oplus\mathsf{L}_2\mathbb{P}^{n+1},
+    \qquad d_{\mathbb{P}_Z}=\begin{pmatrix}\mathsf{L}_1(d)&V\\0&
+    -\mathsf{L}_2(d)\end{pmatrix}.
+  \]
+  The sequence
+  \[
+    0\longrightarrow\mathsf{L}_1\mathbb{P}\longrightarrow\mathbb{P}_Z
+    \longrightarrow\mathsf{L}_2\mathbb{P}[1]\longrightarrow0
+  \]
+  is split in each degree, and its outer terms
+  are totally acyclic by \Cref{lemma:triangular}; the long exact cohomology
+  sequences of this sequence and of its dual show that $\mathbb{P}_Z$ is
+  totally acyclic.
+
+  \emph{Its cokernel.} The first component of $C^0(\mathbb{P}_Z)$ is
+  ${C^0(\mathbb{P})=S}$. Its second component is the cokernel of
+  \[
+    F\mathbb{P}^{-1}\oplus\mathbb{P}^0\longrightarrow F\mathbb{P}^0\oplus Q,
+    \qquad(x,y)\longmapsto(F(d)x+f^0y,-i\epsilon_0y),
+  \]
+  which is ${(FS\oplus Q)/\set{(v_0(s),-i(s))}[s\in S]}$, since ${F\otimes_E-}$ is
+  exact and $f$ induces $v_0$; the structure map is induced by the inclusion of
+  $FS$. The automorphism ${(t,q)\mapsto(t,-q)}$ of ${FS\oplus Q}$ induces an
+  isomorphism ${C^0(\mathbb{P}_Z)\cong Z}$. Hence, $Z$ is Gorenstein-projective,
+  and ${\operatorname{Ext}^a_\Lambda(Z,\Lambda)=0}$ for ${a>0}$ by
+  \Cref{lemma:complete-resolutions}. The module $Z$ is finite-dimensional
+  since $S$, $FS$ and $Q$ are.
+
+  \emph{The endomorphism complex.} Put ${\mathcal{H}=\Hom[E]{\mathbb{P}}
+  {\mathbb{P}}}$ and ${\mathcal{K}=\Hom[E]{\mathbb{P}}{F\mathbb{P}}}$, so that
+  ${H^a(\mathcal{H})=\widehat{\operatorname{Ext}}{}^a_E(S,S)}$ and
+  ${H^a(\mathcal{K})=\widehat{\operatorname{Ext}}{}^a_E(S,FS)}$, and let
+  $\boldsymbol{\delta}$ be the chain map
+  \[
+    \boldsymbol{\delta}\colon\mathcal{H}^{\oplus2}\longrightarrow\mathcal{K},
+    \qquad(g,j)\longmapsto F(g)f-fj;
+  \]
+  it induces $\delta^a$ in cohomology. Since there
+  are no nonzero maps from $\mathsf{L}_1$-terms to $\mathsf{L}_2$-terms, an
+  element $\Phi$ of degree $n$ of $\Hom[\Lambda]{\mathbb{P}_Z}{\mathbb{P}_Z}$
+  has unique coordinates ${(g,j,h)\in\mathcal{H}^n\oplus\mathcal{H}^n\oplus
+  \mathcal{K}^{n-1}}$, defined by
+  \[
+    \Phi=\begin{pmatrix}\mathsf{L}_1(g)&(-1)^nh\\0&(-1)^n\mathsf{L}_2(j)
+    \end{pmatrix},
+  \]
+  where $h$ stands for the map ${\mathsf{L}_2\mathbb{P}\to\mathsf{L}_1
+  \mathbb{P}}$ corresponding to it under \Cref{lemma:triangular}. Expanding
+  \[
+    \partial\Phi=d_{\mathbb{P}_Z}\Phi-(-1)^n\Phi d_{\mathbb{P}_Z},
+  \]
+  the diagonal
+  entries are $\mathsf{L}_1(\partial g)$ and ${(-1)^{n+1}\mathsf{L}_2(\partial
+  j)}$, and the upper right entry is
+  \[
+    (-1)^n\bigl(dh+(-1)^nhd+fj-F(g)f\bigr)
+    =(-1)^{n+1}\bigl(\boldsymbol{\delta}(g,j)-\partial h\bigr).
+  \]
+  Hence,
+  \[
+    \partial(g,j,h)=\bigl(\partial g,\partial j,\boldsymbol{\delta}(g,j)-
+    \partial h\bigr),
+  \]
+  and there is a degreewise split short exact sequence of complexes
+  \[
+    0\longrightarrow\mathcal{K}[-1]\longrightarrow
+    \Hom[\Lambda]{\mathbb{P}_Z}{\mathbb{P}_Z}\longrightarrow
+    \mathcal{H}^{\oplus2}\longrightarrow0,
+  \]
+  given by ${h\mapsto(0,0,h)}$ and ${(g,j,h)\mapsto(g,j)}$. A cocycle $(g,j)$
+  lifts to $(g,j,0)$, whose boundary is $(0,0,\boldsymbol{\delta}(g,j))$, so
+  the connecting homomorphism is $\delta^a$, and for every $a$ there is an exact
+  sequence
+  \begin{equation}
+    \label{eq:conversion-sequence}
+    0\longrightarrow\operatorname{coker}\delta^{a-1}\longrightarrow
+    H^a\Hom[\Lambda]{\mathbb{P}_Z}{\mathbb{P}_Z}\longrightarrow
+    \ker\delta^a\longrightarrow0.
+  \end{equation}
+  For ${a>0}$ the middle term is $\operatorname{Ext}^a_\Lambda(Z,Z)$ by
+  \Cref{lemma:complete-resolutions}. For ${a=1}$ the outer terms vanish since
+  $\delta^0$ is surjective and $\delta^1$ is injective, and for ${a\geq2}$ since
+  $\delta^{a-1}$ and $\delta^a$ are bijective.
+
+  \emph{Nonprojectivity.} Since ${\ker\delta^0\neq0}$, the stable endomorphism
+  ring of $S$ is nonzero, so $S$ is not projective. The first component of $Z$
+  is $S$, so $Z$ is not projective by \Cref{lemma:triangular}.
+\end{proof}
+
+\begin{remark}
+  \label{rem:conversion-mechanism}
+  The proof uses the symmetry of $E$ only to ensure that finitely generated
+  projective modules are injective and that every module embeds into a
+  projective one; it uses neither Tate duality nor the simplicity of~$S$. The
+  sequence~\eqref{eq:conversion-sequence} holds without the hypotheses on
+  $\delta$. In particular, if $\delta^1$ is injective, then
+  ${\operatorname{Ext}^1_\Lambda(Z,Z)\cong\operatorname{coker}\delta^0}$. An
+  application of \Cref{thm:conversion} therefore needs a bimodule $F$ for
+  which $\widehat{\operatorname{Ext}}{}^a_E(S,FS)$ is a copy of
+  $\widehat{\operatorname{Ext}}{}^a_E(S,S)^{\oplus2}$ for ${a>0}$, compatibly
+  with the two actions of the Tate algebra of $S$ in the definition of
+  $\delta^a$, while in degree zero $\delta^0$ is surjective but not injective;
+  in the construction below, $\widehat{\operatorname{Ext}}{}^0_E(S,FS)$ is
+  one-dimensional. The bimodule of \Cref{sec:ar-route} is obtained as a
+  fibre of a map from two twisted copies of $E$ to a bimodule whose evaluation
+  at $S$ has Tate cohomology only in degrees $0$ and $3$.
+\end{remark}

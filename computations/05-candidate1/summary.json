@@ -1,0 +1,196 @@
+{
+  "job": "Codex job 08",
+  "model": "GPT-6 (Codex)",
+  "effort": "unknown",
+  "status": "supported in two finite-field cases",
+  "cases": [
+    {
+      "case": 0,
+      "seed": 8082026,
+      "exponents": [
+        2377,
+        63797,
+        37483
+      ],
+      "orders": [
+        65535,
+        65535,
+        65535
+      ],
+      "ratio_order": 65535,
+      "dimensions": {
+        "dim_C": 312,
+        "dim_N": 376,
+        "dim_F": 352,
+        "dim_Lambda": 392,
+        "dim_Cs": 6,
+        "dim_Fs": 8,
+        "dim_Z": 16
+      },
+      "Ext_Z_Z": [
+        1,
+        0,
+        0
+      ],
+      "Ext_Z_Lambda": [
+        0,
+        0,
+        0
+      ],
+      "W": {
+        "-4": 0,
+        "-3": 0,
+        "-2": 0,
+        "-1": 0,
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "delta0": {
+        "domain": 2,
+        "codomain": 2,
+        "rank": 1,
+        "kernel_dimension": 1,
+        "cokernel_dimension": 1,
+        "formula": "(c,d) -> (c+d)[v]",
+        "kernel_basis": [
+          [
+            1,
+            1
+          ]
+        ],
+        "matrix_rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "normalisation": {
+        "job": "Codex job 08",
+        "case": 0,
+        "dim_Ns": 14,
+        "equal_stably": true,
+        "both_stably_nonzero": true,
+        "equal_as_actual_maps": true,
+        "projective_factor_dimension": "0",
+        "systems": [
+          {
+            "name": "normalisation tensor quotient",
+            "equations": 1880,
+            "unknowns_per_rhs": 376
+          }
+        ]
+      },
+      "largest_guarded_unknown_count": 768
+    },
+    {
+      "case": 1,
+      "seed": 8082027,
+      "exponents": [
+        8654,
+        62198,
+        5212
+      ],
+      "orders": [
+        65535,
+        65535,
+        65535
+      ],
+      "ratio_order": 65535,
+      "dimensions": {
+        "dim_C": 312,
+        "dim_N": 376,
+        "dim_F": 352,
+        "dim_Lambda": 392,
+        "dim_Cs": 6,
+        "dim_Fs": 8,
+        "dim_Z": 16
+      },
+      "Ext_Z_Z": [
+        1,
+        0,
+        0
+      ],
+      "Ext_Z_Lambda": [
+        0,
+        0,
+        0
+      ],
+      "W": {
+        "-4": 0,
+        "-3": 0,
+        "-2": 0,
+        "-1": 0,
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "delta0": {
+        "domain": 2,
+        "codomain": 2,
+        "rank": 1,
+        "kernel_dimension": 1,
+        "cokernel_dimension": 1,
+        "formula": "(c,d) -> (c+d)[v]",
+        "kernel_basis": [
+          [
+            1,
+            1
+          ]
+        ],
+        "matrix_rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "normalisation": {
+        "job": "Codex job 08",
+        "case": 1,
+        "dim_Ns": 14,
+        "equal_stably": true,
+        "both_stably_nonzero": true,
+        "equal_as_actual_maps": true,
+        "projective_factor_dimension": "0",
+        "systems": [
+          {
+            "name": "normalisation tensor quotient",
+            "equations": 1880,
+            "unknowns_per_rhs": 376
+          }
+        ]
+      },
+      "largest_guarded_unknown_count": 768
+    }
+  ],
+  "input_sha256": {
+    ".cache/ar-src/01-introduction.tex": "ea50dfba92fe6182d24af373a7680a24afbe8f30fd54f9f8ca95b4b949ccf0bb",
+    ".cache/ar-src/01-stable.tex": "598837f4705df91bbae832abe9809bd601fef9c636a7395aa670e97a7d61edeb",
+    ".cache/ar-src/02-conversion.tex": "816fd48bbb39b30678b89175bfbafc2b06dbca4ab244935d17ecb37a2c76daca",
+    ".cache/ar-src/03-algebra.tex": "f3da85912c346824c1532feb9b410e169a0b520e8261ebbea2a95e8527908af5",
+    ".cache/ar-src/04-resolution.tex": "d19c8a962c5883d1f53d920604c137229b01c9c8370a17ca6fbfa0abbdbf2636",
+    ".cache/ar-src/05-cones.tex": "6ead1fdaec5fadea2a66c5b7aeace86dbf602f7a3766cc2c00a62b712c926eb3",
+    ".cache/ar-src/06-lift.tex": "1005f67f0188b8a02c43c1ef67062b785476ad648363eecd1704999ba6a21e39",
+    ".cache/ar-src/07-branches.tex": "a6d5866ab571891f6845de6dd31b500fa57c9a27f1ac805c3dacd77cb561de66",
+    ".cache/ar-src/08-consequences.tex": "79abd114831c82382ca0f241368932b7fe7728f5eff88310d7fa327f6cbf72ce",
+    ".cache/ar-src/09-cochain.tex": "838a489943b88b3501248a02d4835d09124a6b0002834de6fd380057948d340a",
+    ".cache/ar-src/main.tex": "c4da7a8976713e71ad392c2dfa451c216436f5fcf09cce609f85236abfe64208",
+    "computations/02-ar-finite-data/01_algebra.py": "b03a5b32852b19a04d3bc8f0d2c0cc97de328a4a60e3a8c9adc37112e2eea382",
+    "computations/02-ar-finite-data/04_trivial_extension.py": "7125927ff9595f195ca537679a70c1d8da4d1c32d495df7af80ad3f4a856e976",
+    "computations/02-ar-finite-data/05_cochain.py": "9f5c0ae42c32227e6ab6eff60572ffce04d936dce1efd444ea652a33a3007245"
+  }
+}

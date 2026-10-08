@@ -1,0 +1,122 @@
+\section{Introduction}
+\label{sec:introduction}
+
+The little finitistic dimension of a finite-dimensional algebra $A$ is the
+supremum of the projective dimensions of the finitely generated $A$-modules of
+finite projective dimension. Bass asked whether it is always
+finite~\cite{Bas60}; see~\cite{ZHui95} for the history of the resulting
+finitistic dimension conjecture. In September 2026, OpenAI released preprints
+that claim counterexamples. The first~\cite{OAI26findim} constructs a
+finite-dimensional complex algebra of infinite little finitistic dimension. The
+second~\cite{OAI26ar} constructs a counterexample to the Auslander--Reiten
+conjecture over the field $\mathbb{F}_2(q,H_1,H_2)$; by a theorem of Auslander
+and Reiten~\cite[Theorem~1.1(b)]{AR75a}, together with
+\Cref{thm:strong-nakayama}, such a counterexample yields a further
+algebra of infinite little finitistic dimension.
+
+This article reconstructs both constructions with complete proofs, organised
+around general statements, some more general than the applications require. It
+also gives criteria and obstructions that explain the choices in the
+constructions. All proofs were written and checked by AI models, as
+described in \Cref{app:verification,app:ai-declaration}; no human has checked
+them, and the article has not been peer reviewed.
+
+\subsection*{The main construction}
+
+A \emph{selection functor}
+${H=\Psi\otimes_R-}$ on finite-dimensional modules over an algebra $R$, possibly
+infinite-dimensional, annihilates modules at arbitrarily late times
+(\Cref{def:selection-data}). A bounded complex $P$ of bimodules over a
+finite-dimensional algebra $B$ of global dimension at most two realises $H$, in
+the
+sense that ${P\Lotimes[B]M(Y)\cong M(HY)\oplus M(HY)[3]}$ for a fully faithful
+embedding $M$ (\Cref{thm:realisation}). The complex $P$ is simulated by an
+ordinary bimodule $X$ over an algebra $\Delta$ of finite global dimension, and
+the trivial extension ${\Delta\ltimes X}$ turns the extinction times of $H$ into
+projective dimensions (\Cref{prop:simulation,coro:extinction}). The result is
+the following theorem, proved in \Cref{sec:simulation}; the main preprint
+treats the case of a central idempotent and an endomorphism of~$R$.
+
+\begin{theorem*}[\Cref{thm:main}]
+  Let $(R,\Psi)$ be selection data over a field, with $R$ finitely presented
+  and with unbounded extinction. Then there is a finite-dimensional algebra
+  ${A=\Delta\ltimes X}$, with $\Delta$ of finite global dimension, such that
+  ${\operatorname{findim}A=\infty}$.
+\end{theorem*}
+
+Selection data with unbounded extinction exist: the complex group algebra of a
+finitely presented group with a family of independent central involutions,
+shifted by an automorphism, provides them (\Cref{thm:selection-unbounded}),
+which gives the counterexample of the main preprint (\Cref{coro:main}). The
+selection data must be infinite-dimensional in an essential way: their rank
+functions on finite-dimensional modules must span an infinite-dimensional space
+(\Cref{prop:rank-obstruction}), which excludes finite-dimensional algebras,
+commutative noetherian algebras and universal localisations of
+finite-dimensional hereditary algebras
+(\Cref{coro:rank-obstruction}). The realisation is the only step that is not
+explicit: it lifts a diagram from a Verdier quotient by the calculus of
+fractions, and the argument gives no bound on the length $l$ of the complex $P$,
+hence on the number ${3(l+2)}$ of simple modules of the final algebra
+(\Cref{rem:uncontrolled-length,rem:what-is-explicit}). The argument works with
+an object ${U\oplus U[3]}$ instead of the summand $U$ that encodes $\Psi$: the
+summand $U$ need not lie in the Verdier quotient, while ${U\oplus U[3]}$ does
+(\Cref{prop:odd-double}), and with the shift $3$ the obstruction to splitting
+the realisation lies in an $\operatorname{Ext}^4$ over an algebra of global
+dimension at most two (\Cref{rem:why-three}).
+
+\subsection*{The counterexample to the Auslander--Reiten conjecture}
+
+The second construction uses the following result over an arbitrary field
+(\Cref{thm:conversion}): for a symmetric algebra $E$, a
+bimodule $F$ projective on both sides, a module $S$ and a stable morphism
+${v\colon S\to FS}$, if the maps ${(g,j)\mapsto F(g)v-v[a]j}$ between Tate
+cohomology groups are bijective in positive degrees and surjective with nonzero
+kernel in degree zero, then a module over the triangular algebra
+$\left(\begin{smallmatrix}E&0\\F&E\end{smallmatrix}\right)$ is a counterexample
+to the Auslander--Reiten conjecture. The construction uses a ten-dimensional
+algebra $C$, whose simple module has an aperiodic resolution, the symmetric
+algebra ${T=C\ltimes DC}$, over which this simple module has polynomial Ext
+algebra on a generator of degree three, and the tensor square ${E=T\otimes T}$,
+over which two cones and two twists produce the bimodule $F$
+(\Cref{sec:ar-route}). With \Cref{thm:ar-to-findim} this gives an algebra of
+infinite little finitistic dimension with nine simple modules
+(\Cref{coro:ar-findim}); the triangular algebra used to obtain it has eight
+simple modules and dimension of the order of $10^{35}$ (\Cref{rem:ar-sizes}).
+
+\subsection*{Criteria and obstructions}
+
+The work that led to this article began with a search for a counterexample that
+could be verified by hand. The search did not succeed, and its results are the
+general statements of \Cref{sec:criteria,sec:extinction,sec:obstructions}.
+Failure of the strong Nakayama conjecture produces explicit modules of every
+finite projective dimension (\Cref{thm:strong-nakayama}); simple modules
+witnessing this failure always come from a corner of the algebra and a
+counterexample to the Auslander--Reiten conjecture over that corner
+(\Cref{prop:simple-witness});
+and finite projective dimensions, as well as finite extinction times, are
+bounded on modules of bounded dimension
+(\Cref{prop:bounded-dimension,prop:bounded-extinction}), where the assertion
+about extinction times is for trivial extensions of algebras of finite global
+dimension. For the construction of the counterexample to the Auslander--Reiten
+conjecture, the analogous construction over $T$
+itself, with one cone instead of two, fails in degree zero
+whenever the simple module has polynomial Ext algebra on a generator of degree
+three (\Cref{prop:one-factor,coro:one-factor}); the proof uses Tate duality,
+which also forces the vanishing of the corresponding Toda brackets
+(\Cref{thm:tate-obstruction}). Whether a counterexample with a small explicit
+presentation exists remains open.
+
+\subsection*{Structure}
+
+\Cref{sec:preliminaries} fixes conventions and recalls Tate duality and Toda
+brackets. \Cref{sec:criteria} contains the general criteria. The main
+construction occupies \Cref{sec:extinction,sec:selection,sec:realisation,%
+sec:simulation}: trivial extensions and extinction, selection data and the
+group, the realisation by a bimodule complex, and the simulation with the main
+theorem. The counterexample to the Auslander--Reiten conjecture is constructed
+in \Cref{sec:conversion,sec:ar-route},
+and \Cref{sec:obstructions} discusses obstructions to smaller constructions.
+\Cref{app:computations} describes the computations used,
+\Cref{app:verification} the verification and formalisation record,
+\Cref{app:companion} the third preprint of the release, and
+\Cref{app:ai-declaration} the use of AI in the preparation of this article.

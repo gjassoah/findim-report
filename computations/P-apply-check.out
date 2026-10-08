@@ -1,0 +1,75 @@
+{
+  "files": 15,
+  "source_sha256": {
+    "report/main.tex": "a81241757563655d7d8c090d55556d2e07dc42df7acbd8af03a3f7ecd17bf41f",
+    "report/sections/01-introduction.tex": "6e7b79bc8a5d88af4d689b1020cbf2ea403f1016abdb138fe256028deac26326",
+    "report/sections/02-preliminaries.tex": "3592328e4700ba43239c3ca3a59688c59070f66df87680f0c42a9753f39aa230",
+    "report/sections/03-criteria.tex": "0066d731a3a931d28a3fda86c928691d423a8c67295022ccb62d70c1edaa2095",
+    "report/sections/04-trivial-extensions.tex": "cade7895a311b76535db1897150522dee04513c4528c64262e576da7912e9829",
+    "report/sections/05-selection.tex": "03aa098e62afa97c1219d40670aeb2b432b97d136ae436cb2e8ea0e58944fba8",
+    "report/sections/06-realisation.tex": "6cb08176ad1b01f4a620a0ead3c2932f2631ab5b99636c7e51f3d2f32e797750",
+    "report/sections/07-simulation.tex": "a0421f6a428e8447a21e29dd0d0dedec6a31d9ed6d34a3d5f15b8c02fc735fef",
+    "report/sections/08-conversion.tex": "88ff6a637c39cbde02036a53aa8b836c035c11c45d3a59ee363570e2690595e8",
+    "report/sections/09-ar-counterexample.tex": "18316d55881d8bacaaa6efcc4ceaca6ae8a537e13bf56b4cb8e51e6feaea5fac",
+    "report/sections/10-obstructions.tex": "81f72ab6c2db94537fa6f4c9f02d8b6a11ce74b88387f072d3ebe57090605f26",
+    "report/sections/A1-computations.tex": "8ac1c96c220e326535dc52e50f7e6482831e67e52a5090d97fef91bcdc539bc3",
+    "report/sections/A2-verification.tex": "c17bee2d176bc9c63debbb09967dfafbe3113b2ac66f5ee4f9e3cae7965d3146",
+    "report/sections/A3-companion.tex": "2f56cebfa55e9ae31676e51a1cb9767fc4101b526e58564a600767ba908dd4de",
+    "report/sections/A4-ai-declaration.tex": "19c0e304738839ddfedee12d4d723a39353f631181f7c43a7e895f7c1c6aa163"
+  },
+  "protected_terms": {
+    "selection data": 25,
+    "selection functor": 5
+  },
+  "display_punctuation_changes": [
+    "report/sections/06-realisation.tex:display-19",
+    "report/sections/06-realisation.tex:display-33"
+  ],
+  "added_reference_targets": {
+    "report/sections/03-criteria.tex": {
+      "thm:strong-nakayama": 1
+    },
+    "report/sections/06-realisation.tex": {
+      "cons:diagram-V": 1
+    },
+    "report/sections/08-conversion.tex": {
+      "thm:conversion": 1
+    },
+    "report/sections/09-ar-counterexample.tex": {
+      "thm:T-ext": 1
+    },
+    "report/sections/10-obstructions.tex": {
+      "prop:one-factor": 1,
+      "thm:conversion": 2
+    }
+  },
+  "removed_reference_targets": {
+    "report/sections/04-trivial-extensions.tex": {
+      "prop:bounded-extinction": 1
+    },
+    "report/sections/05-selection.tex": {
+      "coro:z-independent": 1
+    },
+    "report/sections/09-ar-counterexample.tex": {
+      "it:weight": 1
+    },
+    "report/sections/A3-companion.tex": {
+      "sec:criteria": 1
+    }
+  },
+  "scratch/P-apply-baseline.log": {
+    "overfull_boxes": {
+      "12.35039pt too wide": 25,
+      "11.19655pt too wide": 1
+    },
+    "sha256": "2849e226ac1cd466bddf7365e22a03d923160359dd0cd85bc1378dcc38985543"
+  },
+  "scratch/P-apply-build/main.log": {
+    "overfull_boxes": {
+      "12.35039pt too wide": 25,
+      "11.19655pt too wide": 1
+    },
+    "sha256": "11fd134cc6b56bbddfcba5f6fcbc9b5ccdf9934f7b65a6657f1474e482a6bc5c"
+  },
+  "result": "PASS: source preservation, terminology, line width, references, build warnings"
+}

@@ -1,0 +1,23 @@
+Codex job 06; supported finite computation; parameters: {'field': 'Finite Field in b of size 2^16', 'modulus': 'x^16 + x^5 + x^3 + x^2 + 1', 'primitive': 'b', 'seed': 6062026, 'exponents': [48448, 2749, 15926], 'orders': [65535, 65535, 65535], 'ratio_order': 65535}
+PASS: associativity on all 1000 basis triples
+PASS: unit e+f, orthogonal idempotents, corner dimensions [4, 2, 2, 2]
+PASS: N two-sided; dimensions N^1..N^5 = [8, 5, 3, 1, 0] ; C/N = k x k
+PASS: ((ut)u)t = (0, 0, 0, b^15 + b^13 + b^11 + b^9 + b^7 + b^6 + b^5 + b^3 + b + 1, 0, 0, 0, 0, 0, 0) = q(1+q)z != 0
+ITEM 1 PASS (supported by exhaustive exact computation)
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+PASS: both scaling maps are automorphisms (all basis products, nonzero scale)
+PASS: 512000 Lambda associators; projective dimensions [36,24,12,8]; radical support powers [76, 66, 50, 30, 14, 4, 0]
+PASS: Q=Tf dimension 8; i(s)=<dual f>; Y dimension 9; Z dimension 10; all 6400 module identities
+degree 0 syzygy 10 Betti [0, 1, 0, 1] Pdim 32 next syzygy 22 elapsed 9.61
+degree 1 syzygy 22 Betti [1, 0, 0, 1] Pdim 44 next syzygy 22 elapsed 21.88
+degree 2 syzygy 22 Betti [1, 0, 1, 0] Pdim 48 next syzygy 26 elapsed 35.73
+degree 3 syzygy 26 Betti [1, 1, 1, 0] Pdim 72 next syzygy 46 elapsed 65.22
+degree 4 syzygy 46 Betti [2, 0, 1, 1] Pdim 92 next syzygy 46 elapsed 117.64
+degree 5 syzygy 46 Betti [2, 0, 2, 0] Pdim 96 next syzygy 50 elapsed 162.58
+degree 6 syzygy 50 Betti [2, 1, 2, 0] Pdim 120 next syzygy 70 elapsed 254.6
+degree 7 syzygy 70 Betti [3, 0, 2, 1] Pdim 140 next syzygy 70 elapsed 416.04
+SELF EXT: [{'a': 0, 'cochains': 6, 'out_rank': 1, 'in_rank': 0, 'ext': 5}, {'a': 1, 'cochains': 5, 'out_rank': 3, 'in_rank': 1, 'ext': 1}, {'a': 2, 'cochains': 4, 'out_rank': 1, 'in_rank': 3, 'ext': 0}, {'a': 3, 'cochains': 5, 'out_rank': 4, 'in_rank': 1, 'ext': 0}, {'a': 4, 'cochains': 9, 'out_rank': 5, 'in_rank': 4, 'ext': 0}, {'a': 5, 'cochains': 8, 'out_rank': 3, 'in_rank': 5, 'ext': 0}, {'a': 6, 'cochains': 9, 'out_rank': 6, 'in_rank': 3, 'ext': 0}]
+REGULAR EXT: [{'a': 0, 'cochains': 32, 'out_rank': 10, 'in_rank': 0, 'ext': 22}, {'a': 1, 'cochains': 36, 'out_rank': 26, 'in_rank': 10, 'ext': 0}, {'a': 2, 'cochains': 48, 'out_rank': 22, 'in_rank': 26, 'ext': 0}, {'a': 3, 'cochains': 56, 'out_rank': 34, 'in_rank': 22, 'ext': 0}, {'a': 4, 'cochains': 84, 'out_rank': 50, 'in_rank': 34, 'ext': 0}, {'a': 5, 'cochains': 96, 'out_rank': 46, 'in_rank': 50, 'ext': 0}, {'a': 6, 'cochains': 104, 'out_rank': 58, 'in_rank': 46, 'ext': 0}]
+stable End: 1 ordinary End: 5 projective-factor subspace: 4
+COMPLETED 0 elapsed 693.87 seconds; no expected Ext dimension used as assertion

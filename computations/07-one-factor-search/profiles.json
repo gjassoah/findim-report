@@ -1,0 +1,1677 @@
+{
+  "job": "Codex job 12",
+  "status": "completed; no eligible candidate; step 4 not entered",
+  "cases": [
+    {
+      "algebra": "AR20",
+      "parameters": "exact F2(q)",
+      "resolution": [
+        {
+          "degree": 0,
+          "syzygy_dimension": 1,
+          "projective_dimension": 8,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 1,
+          "syzygy_dimension": 7,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 5
+        },
+        {
+          "degree": 2,
+          "syzygy_dimension": 5,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 3,
+          "syzygy_dimension": 7,
+          "projective_dimension": 20,
+          "betti": [
+            1,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 4,
+          "syzygy_dimension": 13,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 11
+        },
+        {
+          "degree": 5,
+          "syzygy_dimension": 11,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 6,
+          "syzygy_dimension": 13,
+          "projective_dimension": 32,
+          "betti": [
+            2,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 7,
+          "syzygy_dimension": 19,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 17
+        },
+        {
+          "degree": 8,
+          "syzygy_dimension": 17,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 9,
+          "syzygy_dimension": 19,
+          "projective_dimension": 44,
+          "betti": [
+            3,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 10,
+          "syzygy_dimension": 25,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 23
+        },
+        {
+          "degree": 11,
+          "syzygy_dimension": 23,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 12,
+          "syzygy_dimension": 25,
+          "projective_dimension": 56,
+          "betti": [
+            4,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 31
+        }
+      ],
+      "c": 0,
+      "form_degree": 1,
+      "tau_degree": -1,
+      "beta_degree": 1
+    },
+    {
+      "algebra": "AR20",
+      "parameters": "GF(2^16), q=a",
+      "resolution": [
+        {
+          "degree": 0,
+          "syzygy_dimension": 1,
+          "projective_dimension": 8,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 1,
+          "syzygy_dimension": 7,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 5
+        },
+        {
+          "degree": 2,
+          "syzygy_dimension": 5,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 3,
+          "syzygy_dimension": 7,
+          "projective_dimension": 20,
+          "betti": [
+            1,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 4,
+          "syzygy_dimension": 13,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 11
+        },
+        {
+          "degree": 5,
+          "syzygy_dimension": 11,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 6,
+          "syzygy_dimension": 13,
+          "projective_dimension": 32,
+          "betti": [
+            2,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 7,
+          "syzygy_dimension": 19,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 17
+        },
+        {
+          "degree": 8,
+          "syzygy_dimension": 17,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 9,
+          "syzygy_dimension": 19,
+          "projective_dimension": 44,
+          "betti": [
+            3,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 10,
+          "syzygy_dimension": 25,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 23
+        },
+        {
+          "degree": 11,
+          "syzygy_dimension": 23,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 12,
+          "syzygy_dimension": 25,
+          "projective_dimension": 56,
+          "betti": [
+            4,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 31
+        }
+      ],
+      "c": 0,
+      "form_degree": 1,
+      "tau_degree": -1,
+      "beta_degree": 1
+    },
+    {
+      "algebra": "AR20",
+      "parameters": "GF(2^16), q=a^7",
+      "resolution": [
+        {
+          "degree": 0,
+          "syzygy_dimension": 1,
+          "projective_dimension": 8,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 1,
+          "syzygy_dimension": 7,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 5
+        },
+        {
+          "degree": 2,
+          "syzygy_dimension": 5,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 3,
+          "syzygy_dimension": 7,
+          "projective_dimension": 20,
+          "betti": [
+            1,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 4,
+          "syzygy_dimension": 13,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 11
+        },
+        {
+          "degree": 5,
+          "syzygy_dimension": 11,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 6,
+          "syzygy_dimension": 13,
+          "projective_dimension": 32,
+          "betti": [
+            2,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 7,
+          "syzygy_dimension": 19,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 17
+        },
+        {
+          "degree": 8,
+          "syzygy_dimension": 17,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 9,
+          "syzygy_dimension": 19,
+          "projective_dimension": 44,
+          "betti": [
+            3,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 10,
+          "syzygy_dimension": 25,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 23
+        },
+        {
+          "degree": 11,
+          "syzygy_dimension": 23,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            0
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 12,
+          "syzygy_dimension": 25,
+          "projective_dimension": 56,
+          "betti": [
+            4,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 31
+        }
+      ],
+      "c": 0,
+      "form_degree": 1,
+      "tau_degree": -1,
+      "beta_degree": 1
+    },
+    {
+      "algebra": "Nakayama6",
+      "dimension": 6,
+      "simples": 2,
+      "resolution": [
+        {
+          "degree": 0,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 2
+        },
+        {
+          "degree": 1,
+          "syzygy_dimension": 2,
+          "projective_dimension": 3,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 1
+        },
+        {
+          "degree": 2,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 2
+        },
+        {
+          "degree": 3,
+          "syzygy_dimension": 2,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 1
+        },
+        {
+          "degree": 4,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 2
+        },
+        {
+          "degree": 5,
+          "syzygy_dimension": 2,
+          "projective_dimension": 3,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 1
+        },
+        {
+          "degree": 6,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 2
+        },
+        {
+          "degree": 7,
+          "syzygy_dimension": 2,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 1
+        },
+        {
+          "degree": 8,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 2
+        },
+        {
+          "degree": 9,
+          "syzygy_dimension": 2,
+          "projective_dimension": 3,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 1
+        },
+        {
+          "degree": 10,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 0,
+          "next_syzygy_dimension": 2
+        },
+        {
+          "degree": 11,
+          "syzygy_dimension": 2,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 1
+        },
+        {
+          "degree": 12,
+          "syzygy_dimension": 1,
+          "projective_dimension": 3,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 2
+        }
+      ],
+      "rejection": "Ext^4 is nonzero; tau^2=0, see controls.json",
+      "form_degree": 2
+    },
+    {
+      "algebra": "tensor12",
+      "dimension": 12,
+      "simples": 2,
+      "resolution": [
+        {
+          "degree": 0,
+          "syzygy_dimension": 1,
+          "projective_dimension": 6,
+          "betti": [
+            1,
+            0
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 5
+        },
+        {
+          "degree": 1,
+          "syzygy_dimension": 5,
+          "projective_dimension": 12,
+          "betti": [
+            1,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 7
+        },
+        {
+          "degree": 2,
+          "syzygy_dimension": 7,
+          "projective_dimension": 18,
+          "betti": [
+            1,
+            2
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 11
+        },
+        {
+          "degree": 3,
+          "syzygy_dimension": 11,
+          "projective_dimension": 24,
+          "betti": [
+            2,
+            2
+          ],
+          "Ext": 2,
+          "next_syzygy_dimension": 13
+        },
+        {
+          "degree": 4,
+          "syzygy_dimension": 13,
+          "projective_dimension": 30,
+          "betti": [
+            3,
+            2
+          ],
+          "Ext": 3,
+          "next_syzygy_dimension": 17
+        },
+        {
+          "degree": 5,
+          "syzygy_dimension": 17,
+          "projective_dimension": 36,
+          "betti": [
+            3,
+            3
+          ],
+          "Ext": 3,
+          "next_syzygy_dimension": 19
+        },
+        {
+          "degree": 6,
+          "syzygy_dimension": 19,
+          "projective_dimension": 42,
+          "betti": [
+            3,
+            4
+          ],
+          "Ext": 3,
+          "next_syzygy_dimension": 23
+        },
+        {
+          "degree": 7,
+          "syzygy_dimension": 23,
+          "projective_dimension": 48,
+          "betti": [
+            4,
+            4
+          ],
+          "Ext": 4,
+          "next_syzygy_dimension": 25
+        },
+        {
+          "degree": 8,
+          "syzygy_dimension": 25,
+          "projective_dimension": 54,
+          "betti": [
+            5,
+            4
+          ],
+          "Ext": 5,
+          "next_syzygy_dimension": 29
+        },
+        {
+          "degree": 9,
+          "syzygy_dimension": 29,
+          "projective_dimension": 60,
+          "betti": [
+            5,
+            5
+          ],
+          "Ext": 5,
+          "next_syzygy_dimension": 31
+        },
+        {
+          "degree": 10,
+          "syzygy_dimension": 31,
+          "projective_dimension": 66,
+          "betti": [
+            5,
+            6
+          ],
+          "Ext": 5,
+          "next_syzygy_dimension": 35
+        },
+        {
+          "degree": 11,
+          "syzygy_dimension": 35,
+          "projective_dimension": 72,
+          "betti": [
+            6,
+            6
+          ],
+          "Ext": 6,
+          "next_syzygy_dimension": 37
+        },
+        {
+          "degree": 12,
+          "syzygy_dimension": 37,
+          "projective_dimension": 78,
+          "betti": [
+            7,
+            6
+          ],
+          "Ext": 7,
+          "next_syzygy_dimension": 41
+        }
+      ],
+      "rejection": "Ext^1 is nonzero",
+      "form_degree": 2
+    },
+    {
+      "algebra": "iterated40",
+      "dimension": 40,
+      "simples": 2,
+      "form_degree": 2,
+      "resolution": [
+        {
+          "degree": 0,
+          "syzygy_dimension": 1,
+          "projective_dimension": 16,
+          "betti": [
+            0,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 15
+        },
+        {
+          "degree": 1,
+          "syzygy_dimension": 15,
+          "projective_dimension": 40,
+          "betti": [
+            1,
+            1
+          ],
+          "Ext": 1,
+          "next_syzygy_dimension": 25
+        }
+      ],
+      "ext_0_to_12_via_tensor_resolution": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5
+      ],
+      "trace_isomorphism_basis_permutation": [
+        0,
+        30,
+        1,
+        31,
+        2,
+        32,
+        3,
+        33,
+        4,
+        34,
+        5,
+        35,
+        6,
+        36,
+        7,
+        37,
+        8,
+        38,
+        9,
+        39,
+        10,
+        20,
+        11,
+        21,
+        12,
+        22,
+        13,
+        23,
+        14,
+        24,
+        15,
+        25,
+        16,
+        26,
+        17,
+        27,
+        18,
+        28,
+        19,
+        29
+      ],
+      "rejection": "Ext^1 is nonzero"
+    }
+  ],
+  "finite_field": {
+    "field": "Finite Field in a of size 2^16",
+    "modulus": "x^16 + x^5 + x^3 + x^2 + 1",
+    "primitive": "a",
+    "order": 65535
+  },
+  "systems": [
+    {
+      "name": "AR20 degree 0 radical",
+      "equations": 18,
+      "unknowns": 1
+    },
+    {
+      "name": "AR20 degree 0 cover",
+      "equations": 1,
+      "unknowns": 8
+    },
+    {
+      "name": "AR20 degree 1 radical",
+      "equations": 126,
+      "unknowns": 7
+    },
+    {
+      "name": "AR20 degree 1 cover",
+      "equations": 7,
+      "unknowns": 12
+    },
+    {
+      "name": "AR20 degree 2 radical",
+      "equations": 90,
+      "unknowns": 5
+    },
+    {
+      "name": "AR20 degree 2 cover",
+      "equations": 5,
+      "unknowns": 12
+    },
+    {
+      "name": "AR20 degree 3 radical",
+      "equations": 126,
+      "unknowns": 7
+    },
+    {
+      "name": "AR20 degree 3 cover",
+      "equations": 7,
+      "unknowns": 20
+    },
+    {
+      "name": "AR20 degree 4 radical",
+      "equations": 234,
+      "unknowns": 13
+    },
+    {
+      "name": "AR20 degree 4 cover",
+      "equations": 13,
+      "unknowns": 24
+    },
+    {
+      "name": "AR20 degree 5 radical",
+      "equations": 198,
+      "unknowns": 11
+    },
+    {
+      "name": "AR20 degree 5 cover",
+      "equations": 11,
+      "unknowns": 24
+    },
+    {
+      "name": "AR20 degree 6 radical",
+      "equations": 234,
+      "unknowns": 13
+    },
+    {
+      "name": "AR20 degree 6 cover",
+      "equations": 13,
+      "unknowns": 32
+    },
+    {
+      "name": "AR20 degree 7 radical",
+      "equations": 342,
+      "unknowns": 19
+    },
+    {
+      "name": "AR20 degree 7 cover",
+      "equations": 19,
+      "unknowns": 36
+    },
+    {
+      "name": "AR20 degree 8 radical",
+      "equations": 306,
+      "unknowns": 17
+    },
+    {
+      "name": "AR20 degree 8 cover",
+      "equations": 17,
+      "unknowns": 36
+    },
+    {
+      "name": "AR20 degree 9 radical",
+      "equations": 342,
+      "unknowns": 19
+    },
+    {
+      "name": "AR20 degree 9 cover",
+      "equations": 19,
+      "unknowns": 44
+    },
+    {
+      "name": "AR20 degree 10 radical",
+      "equations": 450,
+      "unknowns": 25
+    },
+    {
+      "name": "AR20 degree 10 cover",
+      "equations": 25,
+      "unknowns": 48
+    },
+    {
+      "name": "AR20 degree 11 radical",
+      "equations": 414,
+      "unknowns": 23
+    },
+    {
+      "name": "AR20 degree 11 cover",
+      "equations": 23,
+      "unknowns": 48
+    },
+    {
+      "name": "AR20 degree 12 radical",
+      "equations": 450,
+      "unknowns": 25
+    },
+    {
+      "name": "AR20 degree 12 cover",
+      "equations": 25,
+      "unknowns": 56
+    },
+    {
+      "name": "AR20 degree 0 radical",
+      "equations": 18,
+      "unknowns": 1
+    },
+    {
+      "name": "AR20 degree 0 cover",
+      "equations": 1,
+      "unknowns": 8
+    },
+    {
+      "name": "AR20 degree 1 radical",
+      "equations": 126,
+      "unknowns": 7
+    },
+    {
+      "name": "AR20 degree 1 cover",
+      "equations": 7,
+      "unknowns": 12
+    },
+    {
+      "name": "AR20 degree 2 radical",
+      "equations": 90,
+      "unknowns": 5
+    },
+    {
+      "name": "AR20 degree 2 cover",
+      "equations": 5,
+      "unknowns": 12
+    },
+    {
+      "name": "AR20 degree 3 radical",
+      "equations": 126,
+      "unknowns": 7
+    },
+    {
+      "name": "AR20 degree 3 cover",
+      "equations": 7,
+      "unknowns": 20
+    },
+    {
+      "name": "AR20 degree 4 radical",
+      "equations": 234,
+      "unknowns": 13
+    },
+    {
+      "name": "AR20 degree 4 cover",
+      "equations": 13,
+      "unknowns": 24
+    },
+    {
+      "name": "AR20 degree 5 radical",
+      "equations": 198,
+      "unknowns": 11
+    },
+    {
+      "name": "AR20 degree 5 cover",
+      "equations": 11,
+      "unknowns": 24
+    },
+    {
+      "name": "AR20 degree 6 radical",
+      "equations": 234,
+      "unknowns": 13
+    },
+    {
+      "name": "AR20 degree 6 cover",
+      "equations": 13,
+      "unknowns": 32
+    },
+    {
+      "name": "AR20 degree 7 radical",
+      "equations": 342,
+      "unknowns": 19
+    },
+    {
+      "name": "AR20 degree 7 cover",
+      "equations": 19,
+      "unknowns": 36
+    },
+    {
+      "name": "AR20 degree 8 radical",
+      "equations": 306,
+      "unknowns": 17
+    },
+    {
+      "name": "AR20 degree 8 cover",
+      "equations": 17,
+      "unknowns": 36
+    },
+    {
+      "name": "AR20 degree 9 radical",
+      "equations": 342,
+      "unknowns": 19
+    },
+    {
+      "name": "AR20 degree 9 cover",
+      "equations": 19,
+      "unknowns": 44
+    },
+    {
+      "name": "AR20 degree 10 radical",
+      "equations": 450,
+      "unknowns": 25
+    },
+    {
+      "name": "AR20 degree 10 cover",
+      "equations": 25,
+      "unknowns": 48
+    },
+    {
+      "name": "AR20 degree 11 radical",
+      "equations": 414,
+      "unknowns": 23
+    },
+    {
+      "name": "AR20 degree 11 cover",
+      "equations": 23,
+      "unknowns": 48
+    },
+    {
+      "name": "AR20 degree 12 radical",
+      "equations": 450,
+      "unknowns": 25
+    },
+    {
+      "name": "AR20 degree 12 cover",
+      "equations": 25,
+      "unknowns": 56
+    },
+    {
+      "name": "AR20 degree 0 radical",
+      "equations": 18,
+      "unknowns": 1
+    },
+    {
+      "name": "AR20 degree 0 cover",
+      "equations": 1,
+      "unknowns": 8
+    },
+    {
+      "name": "AR20 degree 1 radical",
+      "equations": 126,
+      "unknowns": 7
+    },
+    {
+      "name": "AR20 degree 1 cover",
+      "equations": 7,
+      "unknowns": 12
+    },
+    {
+      "name": "AR20 degree 2 radical",
+      "equations": 90,
+      "unknowns": 5
+    },
+    {
+      "name": "AR20 degree 2 cover",
+      "equations": 5,
+      "unknowns": 12
+    },
+    {
+      "name": "AR20 degree 3 radical",
+      "equations": 126,
+      "unknowns": 7
+    },
+    {
+      "name": "AR20 degree 3 cover",
+      "equations": 7,
+      "unknowns": 20
+    },
+    {
+      "name": "AR20 degree 4 radical",
+      "equations": 234,
+      "unknowns": 13
+    },
+    {
+      "name": "AR20 degree 4 cover",
+      "equations": 13,
+      "unknowns": 24
+    },
+    {
+      "name": "AR20 degree 5 radical",
+      "equations": 198,
+      "unknowns": 11
+    },
+    {
+      "name": "AR20 degree 5 cover",
+      "equations": 11,
+      "unknowns": 24
+    },
+    {
+      "name": "AR20 degree 6 radical",
+      "equations": 234,
+      "unknowns": 13
+    },
+    {
+      "name": "AR20 degree 6 cover",
+      "equations": 13,
+      "unknowns": 32
+    },
+    {
+      "name": "AR20 degree 7 radical",
+      "equations": 342,
+      "unknowns": 19
+    },
+    {
+      "name": "AR20 degree 7 cover",
+      "equations": 19,
+      "unknowns": 36
+    },
+    {
+      "name": "AR20 degree 8 radical",
+      "equations": 306,
+      "unknowns": 17
+    },
+    {
+      "name": "AR20 degree 8 cover",
+      "equations": 17,
+      "unknowns": 36
+    },
+    {
+      "name": "AR20 degree 9 radical",
+      "equations": 342,
+      "unknowns": 19
+    },
+    {
+      "name": "AR20 degree 9 cover",
+      "equations": 19,
+      "unknowns": 44
+    },
+    {
+      "name": "AR20 degree 10 radical",
+      "equations": 450,
+      "unknowns": 25
+    },
+    {
+      "name": "AR20 degree 10 cover",
+      "equations": 25,
+      "unknowns": 48
+    },
+    {
+      "name": "AR20 degree 11 radical",
+      "equations": 414,
+      "unknowns": 23
+    },
+    {
+      "name": "AR20 degree 11 cover",
+      "equations": 23,
+      "unknowns": 48
+    },
+    {
+      "name": "AR20 degree 12 radical",
+      "equations": 450,
+      "unknowns": 25
+    },
+    {
+      "name": "AR20 degree 12 cover",
+      "equations": 25,
+      "unknowns": 56
+    },
+    {
+      "name": "Nakayama6 degree 0 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 0 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 1 radical",
+      "equations": 8,
+      "unknowns": 2
+    },
+    {
+      "name": "Nakayama6 degree 1 cover",
+      "equations": 2,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 2 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 2 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 3 radical",
+      "equations": 8,
+      "unknowns": 2
+    },
+    {
+      "name": "Nakayama6 degree 3 cover",
+      "equations": 2,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 4 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 4 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 5 radical",
+      "equations": 8,
+      "unknowns": 2
+    },
+    {
+      "name": "Nakayama6 degree 5 cover",
+      "equations": 2,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 6 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 6 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 7 radical",
+      "equations": 8,
+      "unknowns": 2
+    },
+    {
+      "name": "Nakayama6 degree 7 cover",
+      "equations": 2,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 8 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 8 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 9 radical",
+      "equations": 8,
+      "unknowns": 2
+    },
+    {
+      "name": "Nakayama6 degree 9 cover",
+      "equations": 2,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 10 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 10 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 11 radical",
+      "equations": 8,
+      "unknowns": 2
+    },
+    {
+      "name": "Nakayama6 degree 11 cover",
+      "equations": 2,
+      "unknowns": 3
+    },
+    {
+      "name": "Nakayama6 degree 12 radical",
+      "equations": 4,
+      "unknowns": 1
+    },
+    {
+      "name": "Nakayama6 degree 12 cover",
+      "equations": 1,
+      "unknowns": 3
+    },
+    {
+      "name": "dual_numbers degree 0 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 0 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 1 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 1 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 2 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 2 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 3 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 3 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 4 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 4 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 5 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 5 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 6 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 6 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 7 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 7 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 8 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 8 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 9 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 9 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 10 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 10 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 11 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 11 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "dual_numbers degree 12 radical",
+      "equations": 1,
+      "unknowns": 1
+    },
+    {
+      "name": "dual_numbers degree 12 cover",
+      "equations": 1,
+      "unknowns": 2
+    },
+    {
+      "name": "tensor12 degree 0 radical",
+      "equations": 10,
+      "unknowns": 1
+    },
+    {
+      "name": "tensor12 degree 0 cover",
+      "equations": 1,
+      "unknowns": 6
+    },
+    {
+      "name": "tensor12 degree 1 radical",
+      "equations": 50,
+      "unknowns": 5
+    },
+    {
+      "name": "tensor12 degree 1 cover",
+      "equations": 5,
+      "unknowns": 12
+    },
+    {
+      "name": "tensor12 degree 2 radical",
+      "equations": 70,
+      "unknowns": 7
+    },
+    {
+      "name": "tensor12 degree 2 cover",
+      "equations": 7,
+      "unknowns": 18
+    },
+    {
+      "name": "tensor12 degree 3 radical",
+      "equations": 110,
+      "unknowns": 11
+    },
+    {
+      "name": "tensor12 degree 3 cover",
+      "equations": 11,
+      "unknowns": 24
+    },
+    {
+      "name": "tensor12 degree 4 radical",
+      "equations": 130,
+      "unknowns": 13
+    },
+    {
+      "name": "tensor12 degree 4 cover",
+      "equations": 13,
+      "unknowns": 30
+    },
+    {
+      "name": "tensor12 degree 5 radical",
+      "equations": 170,
+      "unknowns": 17
+    },
+    {
+      "name": "tensor12 degree 5 cover",
+      "equations": 17,
+      "unknowns": 36
+    },
+    {
+      "name": "tensor12 degree 6 radical",
+      "equations": 190,
+      "unknowns": 19
+    },
+    {
+      "name": "tensor12 degree 6 cover",
+      "equations": 19,
+      "unknowns": 42
+    },
+    {
+      "name": "tensor12 degree 7 radical",
+      "equations": 230,
+      "unknowns": 23
+    },
+    {
+      "name": "tensor12 degree 7 cover",
+      "equations": 23,
+      "unknowns": 48
+    },
+    {
+      "name": "tensor12 degree 8 radical",
+      "equations": 250,
+      "unknowns": 25
+    },
+    {
+      "name": "tensor12 degree 8 cover",
+      "equations": 25,
+      "unknowns": 54
+    },
+    {
+      "name": "tensor12 degree 9 radical",
+      "equations": 290,
+      "unknowns": 29
+    },
+    {
+      "name": "tensor12 degree 9 cover",
+      "equations": 29,
+      "unknowns": 60
+    },
+    {
+      "name": "tensor12 degree 10 radical",
+      "equations": 310,
+      "unknowns": 31
+    },
+    {
+      "name": "tensor12 degree 10 cover",
+      "equations": 31,
+      "unknowns": 66
+    },
+    {
+      "name": "tensor12 degree 11 radical",
+      "equations": 350,
+      "unknowns": 35
+    },
+    {
+      "name": "tensor12 degree 11 cover",
+      "equations": 35,
+      "unknowns": 72
+    },
+    {
+      "name": "tensor12 degree 12 radical",
+      "equations": 370,
+      "unknowns": 37
+    },
+    {
+      "name": "tensor12 degree 12 cover",
+      "equations": 37,
+      "unknowns": 78
+    },
+    {
+      "name": "iterated40 degree 0 radical",
+      "equations": 38,
+      "unknowns": 1
+    },
+    {
+      "name": "iterated40 degree 0 cover",
+      "equations": 1,
+      "unknowns": 16
+    },
+    {
+      "name": "iterated40 degree 1 radical",
+      "equations": 570,
+      "unknowns": 15
+    },
+    {
+      "name": "iterated40 degree 1 cover",
+      "equations": 15,
+      "unknowns": 40
+    }
+  ],
+  "maximum_unknowns": 78,
+  "source_sha256": {
+    "computations/07-one-factor-search/profiles.py": "24768a5347202ab9d0de593f27c8c9c591bcbf6c1893fbb56128bfed1009efed",
+    "computations/07-one-factor-search/controls.py": "49fea53502f58159c8b29b1e9dd9d645e51c1f19d3244867b0b72a83ce9e56f1",
+    "computations/02-ar-finite-data/01_algebra.py": "b03a5b32852b19a04d3bc8f0d2c0cc97de328a4a60e3a8c9adc37112e2eea382",
+    "computations/02-ar-finite-data/04_trivial_extension.py": "7125927ff9595f195ca537679a70c1d8da4d1c32d495df7af80ad3f4a856e976",
+    "computations/02-ar-finite-data/05_cochain.py": "9f5c0ae42c32227e6ab6eff60572ffce04d936dce1efd444ea652a33a3007245",
+    "computations/04-toda-bracket/witness.py": "618bb230bc28927b392857f51a2aa142730146b432603b6b41d9647c9e48bc14",
+    ".cache/ar-src/09-cochain.tex": "838a489943b88b3501248a02d4835d09124a6b0002834de6fd380057948d340a"
+  },
+  "witness_adaptation": "AST: redirect DOT_SAGE only; no equations or assertions changed",
+  "elapsed_seconds": 147.6870048046112
+}

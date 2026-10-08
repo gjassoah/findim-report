@@ -1,0 +1,14 @@
+{
+  "FindimCounterexample/Stage4aCone.lean": {
+    "before_sha256": "12a839c5e3bf3b8d14e00d28d1560021d8ecee0ad42acc9a37fb200b2139a032",
+    "candidate_sha256": "f3986b5651e216eb86b0d1818bcb30ff3c6857170e0d66b50f5edeb1d5d9c3db"
+  },
+  "Audit/Statements.lean": {
+    "before_sha256": "903210b25a460d836c4709c23a04506cfaeb52ad35d916a60e0a4b0571bfa8cb",
+    "candidate_sha256": "7b2e456c23e65effac8f98b523b2c1fa11c8452b87c2b323c3c91822bd23a060"
+  },
+  "README.md": {
+    "before_sha256": "6f8c4423e025697bd69d72dc0b70454cc62d6218ec505d6433348a302caf8ea7",
+    "candidate_sha256": "47f106c9c8d925af5e33a5348da68beea2693dbcdd4715536540fbaf6bb49525"
+  }
+}

@@ -1,0 +1,21 @@
+@ProjectiveCoresolution.hasProjectiveDimensionLE : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) → ∀ (n : ℕ), CategoryTheory.HasProjectiveDimensionLE (R.c n) n
+@ProjectiveCoresolution.not_hasProjectiveDimensionLT : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  ¬CategoryTheory.Projective (R.c 1) → ∀ (n : ℕ), ¬CategoryTheory.HasProjectiveDimensionLT (R.c (n + 1)) (n + 1)
+@ProjectiveCoresolution.projectiveDimension_eq : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) →
+    ¬CategoryTheory.Projective (R.c 1) →
+      ∀ (n : ℕ),
+        1 ≤ n → CategoryTheory.HasProjectiveDimensionLE (R.c n) n ∧ ¬CategoryTheory.HasProjectiveDimensionLT (R.c n) n
+'FindimCounterexample.ProjectiveCoresolution.hasProjectiveDimensionLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.not_hasProjectiveDimensionLT' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.projectiveDimension_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

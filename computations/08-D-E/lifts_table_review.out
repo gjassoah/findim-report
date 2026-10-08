@@ -1,0 +1,3 @@
+All 179 literal source-table entries, exponents, and within-row order match.
+Row cardinalities: {0: 32, 1: 123, 2: 20, 3: 4}
+Scope: transcription only; universal identities are checked by finite_cochain_certificate.py.

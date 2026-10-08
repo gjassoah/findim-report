@@ -1,0 +1,32 @@
+2.06 resuming rebuilt cone
+3.49 cone minimal degree 0 radical 312
+15.06 cone minimal degree 0 dim 312 top [4, 1, 1, 0] P 768 kernel 456
+15.57 cone minimal degree 1 radical 456
+35.29 cone minimal degree 1 dim 456 top [6, 1, 1, 0] P 1056 kernel 600
+36.24 cone minimal degree 2 radical 600
+Timeout (0:01:00)!
+Thread 0x00007ff492d10bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 31 in kernel
+  File "computations/06-two-factor/reuse.py", line 91 in cover_on_top
+  File "computations/06-two-factor/one_factor.py", line 68 in run
+  File "computations/06-two-factor/one_factor.py", line 81 in <module>
+69.56 cone minimal degree 2 dim 600 top [8, 1, 1, 0] P 1344 kernel 744
+70.88 cone minimal degree 3 radical 744
+Timeout (0:01:00)!
+Thread 0x00007ff492d10bc0 [python3] (most recent call first):
+  File "computations/06-two-factor/reuse.py", line 21 in product
+  File "computations/05-candidate1/candidate.py", line 40 in restrict
+  File "computations/06-two-factor/reuse.py", line 92 in cover_on_top
+  File "computations/06-two-factor/one_factor.py", line 68 in run
+  File "computations/06-two-factor/one_factor.py", line 81 in <module>
+124.58 cone minimal degree 3 dim 744 top [10, 1, 1, 0] P 1632 kernel 888
+126.73 cone minimal degree 4 radical 888
+Timeout (0:01:00)!
+Thread 0x00007ff492d10bc0 [python3] (most recent call first):
+  File "computations/06-two-factor/reuse.py", line 21 in product
+  File "computations/05-candidate1/candidate.py", line 41 in restrict
+  File "computations/06-two-factor/reuse.py", line 92 in cover_on_top
+  File "computations/06-two-factor/one_factor.py", line 68 in run
+  File "computations/06-two-factor/one_factor.py", line 81 in <module>
+190.69 cone minimal degree 4 dim 888 top [12, 1, 1, 0] P 1920 kernel 1032
+193.03 one-factor cone and five minimal tail terms reconstructed [{'degree': 0, 'projective': 768, 'next_syzygy': 456, 'betti': [4, 1, 1, 0]}, {'degree': 1, 'projective': 1056, 'next_syzygy': 600, 'betti': [6, 1, 1, 0]}, {'degree': 2, 'projective': 1344, 'next_syzygy': 744, 'betti': [8, 1, 1, 0]}, {'degree': 3, 'projective': 1632, 'next_syzygy': 888, 'betti': [10, 1, 1, 0]}, {'degree': 4, 'projective': 1920, 'next_syzygy': 1032, 'betti': [12, 1, 1, 0]}]

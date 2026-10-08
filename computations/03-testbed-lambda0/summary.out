@@ -1,0 +1,25 @@
+Case 0 self [5, 1, 0, 0, 0, 0, 0] regular [22, 0, 0, 0, 0, 0, 0] stable End 1
+  Deviations from requested positive-degree pattern: []
+  Parameters {'field': 'Finite Field in b of size 2^16', 'modulus': 'x^16 + x^5 + x^3 + x^2 + 1', 'primitive': 'b', 'seed': 6062026, 'exponents': [48448, 2749, 15926], 'orders': [65535, 65535, 65535], 'ratio_order': 65535} ; runtime seconds 693.85
+Case 1 self [5, 1, 0, 0, 0, 0, 0] regular [22, 0, 0, 0, 0, 0, 0] stable End 1
+  Deviations from requested positive-degree pattern: []
+  Parameters {'field': 'Finite Field in b of size 2^16', 'modulus': 'x^16 + x^5 + x^3 + x^2 + 1', 'primitive': 'b', 'seed': 6062027, 'exponents': [63731, 13111, 8078], 'orders': [65535, 65535, 65535], 'ratio_order': 65535} ; runtime seconds 1081.47
+Case 2 self [5, 1, 0, 0, 0, 0, 0] regular [22, 0, 0, 0, 0, 0, 0] stable End 1
+  Deviations from requested positive-degree pattern: []
+  Parameters {'field': 'Finite Field in b of size 2^16', 'modulus': 'x^16 + x^5 + x^3 + x^2 + 1', 'primitive': 'b', 'seed': 6062028, 'exponents': [49513, 57191, 64202], 'orders': [65535, 65535, 65535], 'ratio_order': 21845} ; runtime seconds 1056.34
+Case exact self [5, 1, 0] regular [22, 0, 0] stable End 1
+  Deviations from requested positive-degree pattern: []
+  Parameters {'field': 'Fraction Field of Multivariate Polynomial Ring in q, H1, H2 over Finite Field of size 2'} ; runtime seconds 61.93
+PASS: independent Hom and explicit coker(delta0) checks agree for case 0 and exact.
+a | syzygy | Betti (upper e,f, lower e,f) | Pdim | self (C,out,in,H) | regular (C,out,in,H)
+0 | 10 | [0, 1, 0, 1] | 32 | (6, 1, 0, 5) | (32, 10, 0, 22)
+1 | 22 | [1, 0, 0, 1] | 44 | (5, 3, 1, 1) | (36, 26, 10, 0)
+2 | 22 | [1, 0, 1, 0] | 48 | (4, 1, 3, 0) | (48, 22, 26, 0)
+3 | 26 | [1, 1, 1, 0] | 72 | (5, 4, 1, 0) | (56, 34, 22, 0)
+4 | 46 | [2, 0, 1, 1] | 92 | (9, 5, 4, 0) | (84, 50, 34, 0)
+5 | 46 | [2, 0, 2, 0] | 96 | (8, 3, 5, 0) | (96, 46, 50, 0)
+6 | 50 | [2, 1, 2, 0] | 120 | (9, 6, 3, 0) | (104, 58, 46, 0)
+7 | 70 | [3, 0, 2, 1] | 140 | - | -
+Omega^8 dimension: 70
+PASS: all saved source hashes and internal rank/dimension identities.
+PASS: direct comparison-map kernel/cokernel dimensions reproduce Ext^1..Ext^6 in case 0.

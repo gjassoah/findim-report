@@ -1,0 +1,2 @@
+1.03 W {'-4': 0, '-3': 0, '-2': 0, '-1': 0, '0': 1, '1': 1, '2': 0, '3': 0, '4': 0}
+1.03 delta0 {'domain': 2, 'codomain': 2, 'rank': 1, 'kernel_dimension': 1, 'cokernel_dimension': 1, 'formula': '(c,d) -> (c+d)[v]', 'kernel_basis': [[1, 1]], 'matrix_rows': [['1', '1'], ['0', '0']]}

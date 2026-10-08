@@ -1,0 +1,30 @@
+
+FIELD: exact F_2(q)
+degree 0 : dim R = 4 ; outgoing rank = 1 ; incoming rank = 3 ; exact and minimal: PASS
+degree 1 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 2 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 3 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 4 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 5 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 6 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 7 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 8 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+PASS: simple character, kernel/image formulas, minimality; degrees 0..8
+Finite-field modulus: x^16 + x^5 + x^3 + x^2 + 1
+Specialisation q = a ; multiplicative order = 65535
+
+FIELD: specialised F_(2^16)
+degree 0 : dim R = 4 ; outgoing rank = 1 ; incoming rank = 3 ; exact and minimal: PASS
+degree 1 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 2 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 3 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 4 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 5 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 6 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 7 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+degree 8 : dim R = 6 ; outgoing rank = 3 ; incoming rank = 3 ; exact and minimal: PASS
+PASS: simple character, kernel/image formulas, minimality; degrees 0..8
+UNIFORM: ker right(x+r*y) = <x+q*r*y,z,j>; image = <x+r*y,z,j>
+Rank-3 minor (columns e,y,t; rows x,z,j) = q^2*r + 1
+At r=q^i, i>=0, pivot = 1+q^(i+2) is nonzero in F_2(q).
+ITEM 2 PASS (finite checks supported; uniform formula has symbolic certificate)

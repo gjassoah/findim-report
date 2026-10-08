@@ -1,0 +1,9 @@
+{
+  "case": "exact",
+  "end": 5,
+  "hom_regular": 22,
+  "delta0_rank": 1,
+  "extension_span_mod_boundaries": 1,
+  "extension_kernel": "span(1,1)",
+  "Ext_T_1_s_s": 0
+}

@@ -1,0 +1,9 @@
+Coefficient ring: F_2[q], exact polynomial arithmetic (no specialization).
+C associativity basis triples: 1000
+C grading: all 100 products homogeneous; positive degrees 1 through 4.
+C fourth radical product: utut=(q+q^2)z, nonzero in F_2[q].
+Compatible positive basis triples of total degree <=4: xut, yut, utx, uty, utu, unt, txu, tyu, tut, tun, ntu
+T associativity basis triples: 8000
+T grading: all 400 products homogeneous; positive degrees 1 through 5.
+T trace pairing: all 400 entries are the starred permutation matrix.
+PASS: finite polynomial identities only; no all-degree claim is certified by this script.

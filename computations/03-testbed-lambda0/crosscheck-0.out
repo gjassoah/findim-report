@@ -1,0 +1,9 @@
+PASS: Q=Tf dimension 8; i(s)=<dual f>; Y dimension 9; Z dimension 10; all 6400 module identities
+Codex job 06 independent Hom/extension check, case 0
+Direct intertwiner equations: End dimension 5 Hom(Z,Lambda) dimension 22
+PASS: quotient variations of v0 give B1,B2 modulo the displayed coboundary
+PASS: both B are extension cocycles (all 6400 products each)
+Coboundary rank 37 ; with B1 38 ; with B2 38 ; with both 38 ; with B1+B2 37
+SUPPORTED: (c1,c2) -> [c1 B1+c2 B2] has kernel <(1,1)> and rank 1.
+PASS: top(rad(Tf)) has f multiplicity 0, hence Ext_T^1(s,s)=0; stable End_T(s)=k.
+COMPLETED independent check 0

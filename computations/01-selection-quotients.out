@@ -1,0 +1,208 @@
+=== m = 1 (arguments in [-2,2]) ===
+  PASS     T_l commute: 9 pass, 0 fail
+  PASS     U_i(r)=T_i^-r u_i T_i^r: 15 pass, 0 fail
+  PASS     V_i(r)=T_i^r v_i T_i^-r: 15 pass, 0 fail
+  PASS     W_ij(r)=T_i^r w_ij T_i^-r: 30 pass, 0 fail
+  PASS     [U_i(r),W_ij(s)]=U_j(r+s): 150 pass, 0 fail
+  PASS     [U_i,U_j]=1 (i!=j): 150 pass, 0 fail
+  PASS     [U_i,V_j]=1 (i!=j): 150 pass, 0 fail
+  PASS     [V_i,V_j]=1 (i!=j): 150 pass, 0 fail
+  PASS     [W_ij(s),V_j(r)]=V_i(s+r): 150 pass, 0 fail
+  PASS     [W_ij,U_h]=1 (h!=i): 300 pass, 0 fail
+  PASS     [W_ij,V_h]=1 (h!=j): 300 pass, 0 fail
+  PASS     alt-comm [U_i(r),W_ij(s)]=U_j(r+s): 150 pass, 0 fail
+  PASS     alt-comm [W_ij(s),V_j(r)]=V_i(s+r): 150 pass, 0 fail
+  PASS     conj T S T^-1 = S(r+lam): 180 pass, 0 fail
+  PASS     conj alt T^-1 S T = S(r+lam): 180 pass, 0 fail
+  PASS     opp-composition [U_i(r),W_ij(s)]=U_j(r+s): 150 pass, 0 fail
+  PASS     opp-composition [W_ij(s),V_j(r)]=V_i(s+r): 150 pass, 0 fail
+  PASS     self-inverse: 60 pass, 0 fail
+  PASS     transfer [U_i(r),V_i(q+s)]=[U_j(r+q),V_j(s)]: 750 pass, 0 fail
+  PASS     u_i,v_i commute with T_h (h!=i): 6 pass, 0 fail
+  PASS     w_ij commutes with T_h (h not in {i,j}): 6 pass, 0 fail
+  PASS     w_ij commutes with T_i T_j: 6 pass, 0 fail
+  PASS     w_ij does NOT commute with T_i (sanity, m>1): 6 pass, 0 fail
+  PASS     z_0..z_{m-1}: 2^m products pairwise distinct: 1 pass, 0 fail
+  PASS     z_N = I + t^N E04 (all i,a,b): 75 pass, 0 fail
+  PASS     z_N central vs T_l: 15 pass, 0 fail
+  PASS     z_N central vs U,V,W gens: 300 pass, 0 fail
+  PASS     z_N independent of (i,a,b): 9 pass, 0 fail
+  PASS     z_N^2 = 1: 9 pass, 0 fail
+  PASS     z_{N+m}=z_N (period m): 1 pass, 0 fail
+=== m = 2 (arguments in [-4,4]) ===
+  PASS     T_l commute: 9 pass, 0 fail
+  PASS     U_i(r)=T_i^-r u_i T_i^r: 27 pass, 0 fail
+  PASS     V_i(r)=T_i^r v_i T_i^-r: 27 pass, 0 fail
+  PASS     W_ij(r)=T_i^r w_ij T_i^-r: 54 pass, 0 fail
+  PASS     [U_i(r),W_ij(s)]=U_j(r+s): 486 pass, 0 fail
+  PASS     [U_i,U_j]=1 (i!=j): 486 pass, 0 fail
+  PASS     [U_i,V_j]=1 (i!=j): 486 pass, 0 fail
+  PASS     [V_i,V_j]=1 (i!=j): 486 pass, 0 fail
+  PASS     [W_ij(s),V_j(r)]=V_i(s+r): 486 pass, 0 fail
+  PASS     [W_ij,U_h]=1 (h!=i): 972 pass, 0 fail
+  PASS     [W_ij,V_h]=1 (h!=j): 972 pass, 0 fail
+  PASS     alt-comm [U_i(r),W_ij(s)]=U_j(r+s): 486 pass, 0 fail
+  PASS     alt-comm [W_ij(s),V_j(r)]=V_i(s+r): 486 pass, 0 fail
+  PASS     conj T S T^-1 = S(r+lam): 324 pass, 0 fail
+  PASS     conj alt T^-1 S T = S(r+lam): 324 pass, 0 fail
+  PASS     opp-composition [U_i(r),W_ij(s)]=U_j(r+s): 486 pass, 0 fail
+  PASS     opp-composition [W_ij(s),V_j(r)]=V_i(s+r): 486 pass, 0 fail
+  PASS     self-inverse: 108 pass, 0 fail
+  PASS     transfer [U_i(r),V_i(q+s)]=[U_j(r+q),V_j(s)]: 4374 pass, 0 fail
+  PASS     u_i,v_i commute with T_h (h!=i): 6 pass, 0 fail
+  PASS     w_ij commutes with T_h (h not in {i,j}): 6 pass, 0 fail
+  PASS     w_ij commutes with T_i T_j: 6 pass, 0 fail
+  PASS     w_ij does NOT commute with T_i (sanity, m>1): 6 pass, 0 fail
+  PASS     z_0..z_{m-1}: 2^m products pairwise distinct: 1 pass, 0 fail
+  PASS     z_N = I + t^N E04 (all i,a,b): 243 pass, 0 fail
+  PASS     z_N central vs T_l: 27 pass, 0 fail
+  PASS     z_N central vs U,V,W gens: 972 pass, 0 fail
+  PASS     z_N independent of (i,a,b): 17 pass, 0 fail
+  PASS     z_N^2 = 1: 17 pass, 0 fail
+  PASS     z_{N+m}=z_N (period m): 1 pass, 0 fail
+=== m = 3 (arguments in [-6,6]) ===
+  PASS     T_l commute: 9 pass, 0 fail
+  PASS     U_i(r)=T_i^-r u_i T_i^r: 39 pass, 0 fail
+  PASS     V_i(r)=T_i^r v_i T_i^-r: 39 pass, 0 fail
+  PASS     W_ij(r)=T_i^r w_ij T_i^-r: 78 pass, 0 fail
+  PASS     [U_i(r),W_ij(s)]=U_j(r+s): 1014 pass, 0 fail
+  PASS     [U_i,U_j]=1 (i!=j): 1014 pass, 0 fail
+  PASS     [U_i,V_j]=1 (i!=j): 1014 pass, 0 fail
+  PASS     [V_i,V_j]=1 (i!=j): 1014 pass, 0 fail
+  PASS     [W_ij(s),V_j(r)]=V_i(s+r): 1014 pass, 0 fail
+  PASS     [W_ij,U_h]=1 (h!=i): 2028 pass, 0 fail
+  PASS     [W_ij,V_h]=1 (h!=j): 2028 pass, 0 fail
+  PASS     alt-comm [U_i(r),W_ij(s)]=U_j(r+s): 1014 pass, 0 fail
+  PASS     alt-comm [W_ij(s),V_j(r)]=V_i(s+r): 1014 pass, 0 fail
+  PASS     conj T S T^-1 = S(r+lam): 468 pass, 0 fail
+  FAIL (alternative reading, informational) conj alt T^-1 S T = S(r+lam): 234 pass, 234 fail
+      e.g. (('U', 1, -6), 1)
+      e.g. (('V', 1, -6), 1)
+      e.g. (('W', 1, 2, -6), 1)
+      e.g. (('W', 1, 3, -6), 1)
+      e.g. (('W', 2, 1, -6), 1)
+  PASS     opp-composition [U_i(r),W_ij(s)]=U_j(r+s): 1014 pass, 0 fail
+  PASS     opp-composition [W_ij(s),V_j(r)]=V_i(s+r): 1014 pass, 0 fail
+  PASS     self-inverse: 156 pass, 0 fail
+  PASS     transfer [U_i(r),V_i(q+s)]=[U_j(r+q),V_j(s)]: 13182 pass, 0 fail
+  PASS     u_i,v_i commute with T_h (h!=i): 6 pass, 0 fail
+  PASS     w_ij commutes with T_h (h not in {i,j}): 6 pass, 0 fail
+  PASS     w_ij commutes with T_i T_j: 6 pass, 0 fail
+  PASS     w_ij does NOT commute with T_i (sanity, m>1): 6 pass, 0 fail
+  PASS     z_0..z_{m-1}: 2^m products pairwise distinct: 1 pass, 0 fail
+  PASS     z_N = I + t^N E04 (all i,a,b): 507 pass, 0 fail
+  PASS     z_N central vs T_l: 39 pass, 0 fail
+  PASS     z_N central vs U,V,W gens: 2028 pass, 0 fail
+  PASS     z_N independent of (i,a,b): 25 pass, 0 fail
+  PASS     z_N^2 = 1: 25 pass, 0 fail
+  PASS     z_{N+m}=z_N (period m): 1 pass, 0 fail
+=== m = 4 (arguments in [-8,8]) ===
+  PASS     T_l commute: 9 pass, 0 fail
+  PASS     U_i(r)=T_i^-r u_i T_i^r: 51 pass, 0 fail
+  PASS     V_i(r)=T_i^r v_i T_i^-r: 51 pass, 0 fail
+  PASS     W_ij(r)=T_i^r w_ij T_i^-r: 102 pass, 0 fail
+  PASS     [U_i(r),W_ij(s)]=U_j(r+s): 1734 pass, 0 fail
+  PASS     [U_i,U_j]=1 (i!=j): 1734 pass, 0 fail
+  PASS     [U_i,V_j]=1 (i!=j): 1734 pass, 0 fail
+  PASS     [V_i,V_j]=1 (i!=j): 1734 pass, 0 fail
+  PASS     [W_ij(s),V_j(r)]=V_i(s+r): 1734 pass, 0 fail
+  PASS     [W_ij,U_h]=1 (h!=i): 3468 pass, 0 fail
+  PASS     [W_ij,V_h]=1 (h!=j): 3468 pass, 0 fail
+  PASS     alt-comm [U_i(r),W_ij(s)]=U_j(r+s): 1734 pass, 0 fail
+  PASS     alt-comm [W_ij(s),V_j(r)]=V_i(s+r): 1734 pass, 0 fail
+  PASS     conj T S T^-1 = S(r+lam): 612 pass, 0 fail
+  FAIL (alternative reading, informational) conj alt T^-1 S T = S(r+lam): 306 pass, 306 fail
+      e.g. (('U', 1, -8), 1)
+      e.g. (('V', 1, -8), 1)
+      e.g. (('W', 1, 2, -8), 1)
+      e.g. (('W', 1, 3, -8), 1)
+      e.g. (('W', 2, 1, -8), 1)
+  PASS     opp-composition [U_i(r),W_ij(s)]=U_j(r+s): 1734 pass, 0 fail
+  PASS     opp-composition [W_ij(s),V_j(r)]=V_i(s+r): 1734 pass, 0 fail
+  PASS     self-inverse: 204 pass, 0 fail
+  PASS     transfer [U_i(r),V_i(q+s)]=[U_j(r+q),V_j(s)]: 29478 pass, 0 fail
+  PASS     u_i,v_i commute with T_h (h!=i): 6 pass, 0 fail
+  PASS     w_ij commutes with T_h (h not in {i,j}): 6 pass, 0 fail
+  PASS     w_ij commutes with T_i T_j: 6 pass, 0 fail
+  PASS     w_ij does NOT commute with T_i (sanity, m>1): 6 pass, 0 fail
+  PASS     z_0..z_{m-1}: 2^m products pairwise distinct: 1 pass, 0 fail
+  PASS     z_N = I + t^N E04 (all i,a,b): 867 pass, 0 fail
+  PASS     z_N central vs T_l: 51 pass, 0 fail
+  PASS     z_N central vs U,V,W gens: 3468 pass, 0 fail
+  PASS     z_N independent of (i,a,b): 33 pass, 0 fail
+  PASS     z_N^2 = 1: 33 pass, 0 fail
+  PASS     z_{N+m}=z_N (period m): 1 pass, 0 fail
+=== m = 5 (arguments in [-10,10]) ===
+  PASS     T_l commute: 9 pass, 0 fail
+  PASS     U_i(r)=T_i^-r u_i T_i^r: 63 pass, 0 fail
+  PASS     V_i(r)=T_i^r v_i T_i^-r: 63 pass, 0 fail
+  PASS     W_ij(r)=T_i^r w_ij T_i^-r: 126 pass, 0 fail
+  PASS     [U_i(r),W_ij(s)]=U_j(r+s): 2646 pass, 0 fail
+  PASS     [U_i,U_j]=1 (i!=j): 2646 pass, 0 fail
+  PASS     [U_i,V_j]=1 (i!=j): 2646 pass, 0 fail
+  PASS     [V_i,V_j]=1 (i!=j): 2646 pass, 0 fail
+  PASS     [W_ij(s),V_j(r)]=V_i(s+r): 2646 pass, 0 fail
+  PASS     [W_ij,U_h]=1 (h!=i): 5292 pass, 0 fail
+  PASS     [W_ij,V_h]=1 (h!=j): 5292 pass, 0 fail
+  PASS     alt-comm [U_i(r),W_ij(s)]=U_j(r+s): 2646 pass, 0 fail
+  PASS     alt-comm [W_ij(s),V_j(r)]=V_i(s+r): 2646 pass, 0 fail
+  PASS     conj T S T^-1 = S(r+lam): 756 pass, 0 fail
+  FAIL (alternative reading, informational) conj alt T^-1 S T = S(r+lam): 378 pass, 378 fail
+      e.g. (('U', 1, -10), 1)
+      e.g. (('V', 1, -10), 1)
+      e.g. (('W', 1, 2, -10), 1)
+      e.g. (('W', 1, 3, -10), 1)
+      e.g. (('W', 2, 1, -10), 1)
+  PASS     opp-composition [U_i(r),W_ij(s)]=U_j(r+s): 2646 pass, 0 fail
+  PASS     opp-composition [W_ij(s),V_j(r)]=V_i(s+r): 2646 pass, 0 fail
+  PASS     self-inverse: 252 pass, 0 fail
+  PASS     transfer [U_i(r),V_i(q+s)]=[U_j(r+q),V_j(s)]: 55566 pass, 0 fail
+  PASS     u_i,v_i commute with T_h (h!=i): 6 pass, 0 fail
+  PASS     w_ij commutes with T_h (h not in {i,j}): 6 pass, 0 fail
+  PASS     w_ij commutes with T_i T_j: 6 pass, 0 fail
+  PASS     w_ij does NOT commute with T_i (sanity, m>1): 6 pass, 0 fail
+  PASS     z_0..z_{m-1}: 2^m products pairwise distinct: 1 pass, 0 fail
+  PASS     z_N = I + t^N E04 (all i,a,b): 1323 pass, 0 fail
+  PASS     z_N central vs T_l: 63 pass, 0 fail
+  PASS     z_N central vs U,V,W gens: 5292 pass, 0 fail
+  PASS     z_N independent of (i,a,b): 41 pass, 0 fail
+  PASS     z_N^2 = 1: 41 pass, 0 fail
+  PASS     z_{N+m}=z_N (period m): 1 pass, 0 fail
+=== m = 6 (arguments in [-12,12]) ===
+  PASS     T_l commute: 9 pass, 0 fail
+  PASS     U_i(r)=T_i^-r u_i T_i^r: 75 pass, 0 fail
+  PASS     V_i(r)=T_i^r v_i T_i^-r: 75 pass, 0 fail
+  PASS     W_ij(r)=T_i^r w_ij T_i^-r: 150 pass, 0 fail
+  PASS     [U_i(r),W_ij(s)]=U_j(r+s): 3750 pass, 0 fail
+  PASS     [U_i,U_j]=1 (i!=j): 3750 pass, 0 fail
+  PASS     [U_i,V_j]=1 (i!=j): 3750 pass, 0 fail
+  PASS     [V_i,V_j]=1 (i!=j): 3750 pass, 0 fail
+  PASS     [W_ij(s),V_j(r)]=V_i(s+r): 3750 pass, 0 fail
+  PASS     [W_ij,U_h]=1 (h!=i): 7500 pass, 0 fail
+  PASS     [W_ij,V_h]=1 (h!=j): 7500 pass, 0 fail
+  PASS     alt-comm [U_i(r),W_ij(s)]=U_j(r+s): 3750 pass, 0 fail
+  PASS     alt-comm [W_ij(s),V_j(r)]=V_i(s+r): 3750 pass, 0 fail
+  PASS     conj T S T^-1 = S(r+lam): 900 pass, 0 fail
+  FAIL (alternative reading, informational) conj alt T^-1 S T = S(r+lam): 450 pass, 450 fail
+      e.g. (('U', 1, -12), 1)
+      e.g. (('V', 1, -12), 1)
+      e.g. (('W', 1, 2, -12), 1)
+      e.g. (('W', 1, 3, -12), 1)
+      e.g. (('W', 2, 1, -12), 1)
+  PASS     opp-composition [U_i(r),W_ij(s)]=U_j(r+s): 3750 pass, 0 fail
+  PASS     opp-composition [W_ij(s),V_j(r)]=V_i(s+r): 3750 pass, 0 fail
+  PASS     self-inverse: 300 pass, 0 fail
+  PASS     transfer [U_i(r),V_i(q+s)]=[U_j(r+q),V_j(s)]: 93750 pass, 0 fail
+  PASS     u_i,v_i commute with T_h (h!=i): 6 pass, 0 fail
+  PASS     w_ij commutes with T_h (h not in {i,j}): 6 pass, 0 fail
+  PASS     w_ij commutes with T_i T_j: 6 pass, 0 fail
+  PASS     w_ij does NOT commute with T_i (sanity, m>1): 6 pass, 0 fail
+  PASS     z_0..z_{m-1}: 2^m products pairwise distinct: 1 pass, 0 fail
+  PASS     z_N = I + t^N E04 (all i,a,b): 1875 pass, 0 fail
+  PASS     z_N central vs T_l: 75 pass, 0 fail
+  PASS     z_N central vs U,V,W gens: 7500 pass, 0 fail
+  PASS     z_N independent of (i,a,b): 49 pass, 0 fail
+  PASS     z_N^2 = 1: 49 pass, 0 fail
+  PASS     z_{N+m}=z_N (period m): 1 pass, 0 fail
+=== preimage table weight check: PASS (4374 instances) ===
+OVERALL (main readings): ALL PASS

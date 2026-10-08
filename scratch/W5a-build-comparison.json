@@ -1,0 +1,18 @@
+{
+  "baseline": {
+    "overfull": 23,
+    "underfull_hbox": 23,
+    "underfull_vbox": 1,
+    "duplicate_destinations": 31,
+    "undefined_reference_or_citation": 0,
+    "pages": "51"
+  },
+  "final": {
+    "overfull": 1,
+    "underfull_hbox": 18,
+    "underfull_vbox": 1,
+    "duplicate_destinations": 0,
+    "undefined_reference_or_citation": 0,
+    "pages": "51"
+  }
+}

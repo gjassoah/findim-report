@@ -1,0 +1,71 @@
+FIELD exact q = q
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+cover 0 dim(M) 1 vertices ['f'] dim(kernel) 7
+cover 1 dim(M) 7 vertices ['e'] dim(kernel) 5
+cover 2 dim(M) 5 vertices ['e'] dim(kernel) 7
+cover 3 dim(M) 7 vertices ['e', 'f'] dim(kernel) 13
+cover 4 dim(M) 13 vertices ['e', 'e'] dim(kernel) 11
+cover 5 dim(M) 11 vertices ['e', 'e'] dim(kernel) 13
+cover 6 dim(M) 13 vertices ['e', 'e', 'f'] dim(kernel) 19
+cover 7 dim(M) 19 vertices ['e', 'e', 'e'] dim(kernel) 17
+stable dimensions {-7: 1, -6: 0, -5: 0, -4: 1, -3: 0, -2: 0, -1: 1, 0: 1, 1: 0, 2: 0, 3: 1, 4: 0, 5: 0, 6: 1, 7: 0}
+beta0 = F; beta1 beta0 = 0; tau beta2 = 0 (literal maps)
+cone(tau) dimension 6 dim Hom(M1,C) 2 c = 0
+beta triple: cone dimension 14 null factor rank 0 Omega(value) = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] contains zero True
+indeterminacies: tau H^-3 + H^1 beta = 0; beta H^-3 + H^-3 beta = 0
+RESULT (supported): c = 0 ; beta triple = {0}
+FIELD 8 q = a
+modulus x^8 + x^4 + x^3 + x^2 + 1 order(q) 255
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+cover 0 dim(M) 1 vertices ['f'] dim(kernel) 7
+cover 1 dim(M) 7 vertices ['e'] dim(kernel) 5
+cover 2 dim(M) 5 vertices ['e'] dim(kernel) 7
+cover 3 dim(M) 7 vertices ['e', 'f'] dim(kernel) 13
+cover 4 dim(M) 13 vertices ['e', 'e'] dim(kernel) 11
+cover 5 dim(M) 11 vertices ['e', 'e'] dim(kernel) 13
+cover 6 dim(M) 13 vertices ['e', 'e', 'f'] dim(kernel) 19
+cover 7 dim(M) 19 vertices ['e', 'e', 'e'] dim(kernel) 17
+stable dimensions {-7: 1, -6: 0, -5: 0, -4: 1, -3: 0, -2: 0, -1: 1, 0: 1, 1: 0, 2: 0, 3: 1, 4: 0, 5: 0, 6: 1, 7: 0}
+beta0 = F; beta1 beta0 = 0; tau beta2 = 0 (literal maps)
+cone(tau) dimension 6 dim Hom(M1,C) 2 c = 0
+beta triple: cone dimension 14 null factor rank 0 Omega(value) = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] contains zero True
+indeterminacies: tau H^-3 + H^1 beta = 0; beta H^-3 + H^-3 beta = 0
+RESULT (supported): c = 0 ; beta triple = {0}
+FIELD 12 q = a
+modulus x^12 + x^7 + x^6 + x^5 + x^3 + x + 1 order(q) 4095
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+cover 0 dim(M) 1 vertices ['f'] dim(kernel) 7
+cover 1 dim(M) 7 vertices ['e'] dim(kernel) 5
+cover 2 dim(M) 5 vertices ['e'] dim(kernel) 7
+cover 3 dim(M) 7 vertices ['e', 'f'] dim(kernel) 13
+cover 4 dim(M) 13 vertices ['e', 'e'] dim(kernel) 11
+cover 5 dim(M) 11 vertices ['e', 'e'] dim(kernel) 13
+cover 6 dim(M) 13 vertices ['e', 'e', 'f'] dim(kernel) 19
+cover 7 dim(M) 19 vertices ['e', 'e', 'e'] dim(kernel) 17
+stable dimensions {-7: 1, -6: 0, -5: 0, -4: 1, -3: 0, -2: 0, -1: 1, 0: 1, 1: 0, 2: 0, 3: 1, 4: 0, 5: 0, 6: 1, 7: 0}
+beta0 = F; beta1 beta0 = 0; tau beta2 = 0 (literal maps)
+cone(tau) dimension 6 dim Hom(M1,C) 2 c = 0
+beta triple: cone dimension 14 null factor rank 0 Omega(value) = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] contains zero True
+indeterminacies: tau H^-3 + H^1 beta = 0; beta H^-3 + H^-3 beta = 0
+RESULT (supported): c = 0 ; beta triple = {0}
+FIELD 16 q = a
+modulus x^16 + x^5 + x^3 + x^2 + 1 order(q) 65535
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+cover 0 dim(M) 1 vertices ['f'] dim(kernel) 7
+cover 1 dim(M) 7 vertices ['e'] dim(kernel) 5
+cover 2 dim(M) 5 vertices ['e'] dim(kernel) 7
+cover 3 dim(M) 7 vertices ['e', 'f'] dim(kernel) 13
+cover 4 dim(M) 13 vertices ['e', 'e'] dim(kernel) 11
+cover 5 dim(M) 11 vertices ['e', 'e'] dim(kernel) 13
+cover 6 dim(M) 13 vertices ['e', 'e', 'f'] dim(kernel) 19
+cover 7 dim(M) 19 vertices ['e', 'e', 'e'] dim(kernel) 17
+stable dimensions {-7: 1, -6: 0, -5: 0, -4: 1, -3: 0, -2: 0, -1: 1, 0: 1, 1: 0, 2: 0, 3: 1, 4: 0, 5: 0, 6: 1, 7: 0}
+beta0 = F; beta1 beta0 = 0; tau beta2 = 0 (literal maps)
+cone(tau) dimension 6 dim Hom(M1,C) 2 c = 0
+beta triple: cone dimension 14 null factor rank 0 Omega(value) = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] contains zero True
+indeterminacies: tau H^-3 + H^1 beta = 0; beta H^-3 + H^-3 beta = 0
+RESULT (supported): c = 0 ; beta triple = {0}

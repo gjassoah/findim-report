@@ -1,0 +1,73 @@
+0.42 parameters {'job': 'Codex job 08', 'case': 1, 'status': 'running', 'field': 'Finite Field in b of size 2^16', 'modulus': 'x^16 + x^5 + x^3 + x^2 + 1', 'primitive': 'b', 'seed': 8082027, 'exponents': [8654, 62198, 5212], 'orders': [65535, 65535, 65535], 'ratio_order': 65535, 'resolution': [], 'systems': [], 'elapsed_seconds': 0.4171125888824463}
+PASS: associativity on all 1000 basis triples
+PASS: unit e+f, orthogonal idempotents, corner dimensions [4, 2, 2, 2]
+PASS: N two-sided; dimensions N^1..N^5 = [8, 5, 3, 1, 0] ; C/N = k x k
+PASS: ((ut)u)t = (0, 0, 0, b^15 + b^12 + b^4 + b^2 + 1, 0, 0, 0, 0, 0, 0) = q(1+q)z != 0
+ITEM 1 PASS (supported by exhaustive exact computation)
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+PASS: all 324 twisted boundary pairs, both coefficient identities
+PASS: all 324 twisted boundary pairs, both coefficient identities
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+4.16 bimodule degree 0 start radical 20
+4.16 bimodule degree 0 radical matrix (160, 20)
+4.26 bimodule degree 0 radical rank 18
+4.43 bimodule degree 0 top selected [0, 3] constructing projective
+4.64 bimodule degree 0 cover matrix built (20, 208)
+22.55 bimodule degree 0 dim 20 top [1, 0, 0, 1] P 208 kernel 188
+22.55 bimodule degree 1 start radical 188
+22.56 bimodule degree 1 radical matrix (1504, 188)
+23.64 bimodule degree 1 radical rank 184
+35.31 bimodule degree 1 top selected [0, 0, 1, 2] constructing projective
+36.14 bimodule degree 1 cover matrix built (188, 480)
+56.18 bimodule degree 1 dim 188 top [2, 1, 1, 0] P 480 kernel 292
+56.24 bimodule degree 2 start radical 292
+56.27 bimodule degree 2 radical matrix (2336, 292)
+58.53 bimodule degree 2 radical rank 286
+Timeout (0:01:00)!
+Thread 0x00007f58bb4e3bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 109 in cover
+  File "computations/05-candidate1/candidate.py", line 172 in build_cone
+  File "computations/05-candidate1/candidate.py", line 218 in main
+  File "computations/05-candidate1/candidate.py", line 224 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+85.67 bimodule degree 2 top selected [0, 0, 0, 0, 1, 2] constructing projective
+88.74 bimodule degree 2 cover matrix built (292, 768)
+Timeout (0:01:00)!
+Thread 0x00007f58bb4e3bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/05-candidate1/runner.py", line 16 in job08_product
+  File "computations/05-candidate1/candidate.py", line 40 in restrict
+  File "computations/05-candidate1/candidate.py", line 123 in cover
+  File "computations/05-candidate1/candidate.py", line 172 in build_cone
+  File "computations/05-candidate1/candidate.py", line 218 in main
+  File "computations/05-candidate1/candidate.py", line 224 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+133.46 bimodule degree 2 dim 292 top [4, 1, 1, 0] P 768 kernel 476
+133.59 bar comparison degree 1 vectors 480 terms 588
+133.81 bar comparison degree 2 vectors 768 terms 2556
+135.07 tau on Omega3 shape (20, 476) rank 20 all bimodule identities PASS
+Timeout (0:01:00)!
+Thread 0x00007f58bb4e3bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/05-candidate1/runner.py", line 16 in job08_product
+  File "computations/05-candidate1/candidate.py", line 55 in quotient
+  File "computations/05-candidate1/candidate.py", line 198 in build_cone
+  File "computations/05-candidate1/candidate.py", line 218 in main
+  File "computations/05-candidate1/candidate.py", line 224 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f58bb4e3bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/runner.py", line 16 in job08_product
+  File "computations/05-candidate1/candidate.py", line 55 in quotient
+  File "computations/05-candidate1/candidate.py", line 198 in build_cone
+  File "computations/05-candidate1/candidate.py", line 218 in main
+  File "computations/05-candidate1/candidate.py", line 224 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+250.33 cone C dimension 312

@@ -1,0 +1,85 @@
+{
+  "job": "Codex job 12",
+  "status": "supported",
+  "receipt_hashes_match": true,
+  "maximum_unknowns": 78,
+  "AR_e_simple_resolution": [
+    {
+      "degree": 0,
+      "syzygy_dimension": 1,
+      "projective_dimension": 12,
+      "betti": [
+        1,
+        0
+      ],
+      "Ext": 1,
+      "next_syzygy_dimension": 11
+    },
+    {
+      "degree": 1,
+      "syzygy_dimension": 11,
+      "projective_dimension": 32,
+      "betti": [
+        2,
+        1
+      ],
+      "Ext": 2,
+      "next_syzygy_dimension": 21
+    }
+  ],
+  "eTe_dimension": 8,
+  "iterated_balanced_grading": {
+    "basis_degrees": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2,
+      -2
+    ],
+    "form_degree": 2,
+    "tau_degree": -4,
+    "beta_degree": 2,
+    "description": "old DC weight 4; epsilon weight -2"
+  },
+  "C_A2_source_simple": {
+    "vertex": 0,
+    "projective_dimension": 1,
+    "Ext_C_1_s_C_right_simple_vertex": 1,
+    "dual_simple_differs": true
+  }
+}

@@ -1,0 +1,3 @@
+exit 0
+source-only check with saved worktree setup, warnings as errors
+sha256 f3986b5651e216eb86b0d1818bcb30ff3c6857170e0d66b50f5edeb1d5d9c3db Stage4aCone.lean

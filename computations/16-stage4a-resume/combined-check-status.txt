@@ -1,0 +1,2 @@
+exit 0
+sha256 74c5e9f8a9f65ed7b504ecc488aae524d666136004cad2bec9e7d8c381a62750 CombinedCheck.lean

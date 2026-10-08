@@ -1,0 +1,32 @@
+Kernel bases: 12/12; weight(q)=1, weight(b)=0, determinant=+/-1.
+Integral preimage U_i,U_j: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage V_i,V_j: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage U_i,V_j: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage W_ij,U_j: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage W_ij,U_k: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage W_ij,V_i: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage W_ij,V_k: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage U_i,W_ij: 6/6 index choices; symbolic target (r,s) attained.
+Integral preimage W_ij,V_j: 6/6 index choices; symbolic target (r,s) attained.
+Both noncommuting rows: output weight is r+s in all 12 choices.
+m= 1: 143 exact matrix equalities; 2 distinct central subset products; first zero iterate=1.
+       U-squares=3, commute-UU=6, commute-UV=6, commute-VV=6, commute-WU=12, commute-WV=12, conjugation=36, inverses=12, negative-parameters=12, torus=6, transfer-U=6, transfer-V=6, z-central-root=12, z-central-torus=3, z-images=3, z-subsets=2
+m= 2: 418 exact matrix equalities; 4 distinct central subset products; first zero iterate=2.
+       U-squares=6, commute-UU=24, commute-UV=24, commute-VV=24, commute-WU=48, commute-WV=48, conjugation=72, inverses=24, negative-parameters=24, torus=6, transfer-U=24, transfer-V=24, z-central-root=48, z-central-torus=6, z-images=12, z-subsets=4
+m= 3: 833 exact matrix equalities; 8 distinct central subset products; first zero iterate=3.
+       U-squares=9, commute-UU=54, commute-UV=54, commute-VV=54, commute-WU=108, commute-WV=108, conjugation=108, inverses=36, negative-parameters=36, torus=6, transfer-U=54, transfer-V=54, z-central-root=108, z-central-torus=9, z-images=27, z-subsets=8
+m= 4: 1390 exact matrix equalities; 16 distinct central subset products; first zero iterate=4.
+       U-squares=12, commute-UU=96, commute-UV=96, commute-VV=96, commute-WU=192, commute-WV=192, conjugation=144, inverses=48, negative-parameters=48, torus=6, transfer-U=96, transfer-V=96, z-central-root=192, z-central-torus=12, z-images=48, z-subsets=16
+m= 5: 2093 exact matrix equalities; 32 distinct central subset products; first zero iterate=5.
+       U-squares=15, commute-UU=150, commute-UV=150, commute-VV=150, commute-WU=300, commute-WV=300, conjugation=180, inverses=60, negative-parameters=60, torus=6, transfer-U=150, transfer-V=150, z-central-root=300, z-central-torus=15, z-images=75, z-subsets=32
+m= 6: 2950 exact matrix equalities; 64 distinct central subset products; first zero iterate=6.
+       U-squares=18, commute-UU=216, commute-UV=216, commute-VV=216, commute-WU=432, commute-WV=432, conjugation=216, inverses=72, negative-parameters=72, torus=6, transfer-U=216, transfer-V=216, z-central-root=432, z-central-torus=18, z-images=108, z-subsets=64
+m= 7: 3977 exact matrix equalities; 128 distinct central subset products; first zero iterate=7.
+       U-squares=21, commute-UU=294, commute-UV=294, commute-VV=294, commute-WU=588, commute-WV=588, conjugation=252, inverses=84, negative-parameters=84, torus=6, transfer-U=294, transfer-V=294, z-central-root=588, z-central-torus=21, z-images=147, z-subsets=128
+m= 8: 5206 exact matrix equalities; 256 distinct central subset products; first zero iterate=8.
+       U-squares=24, commute-UU=384, commute-UV=384, commute-VV=384, commute-WU=768, commute-WV=768, conjugation=288, inverses=96, negative-parameters=96, torus=6, transfer-U=384, transfer-V=384, z-central-root=768, z-central-torus=24, z-images=192, z-subsets=256
+m= 9: 6701 exact matrix equalities; 512 distinct central subset products; first zero iterate=9.
+       U-squares=27, commute-UU=486, commute-UV=486, commute-VV=486, commute-WU=972, commute-WV=972, conjugation=324, inverses=108, negative-parameters=108, torus=6, transfer-U=486, transfer-V=486, z-central-root=972, z-central-torus=27, z-images=243, z-subsets=512
+m=10: 8590 exact matrix equalities; 1024 distinct central subset products; first zero iterate=10.
+       U-squares=30, commute-UU=600, commute-UV=600, commute-VV=600, commute-WU=1200, commute-WV=1200, conjugation=360, inverses=120, negative-parameters=120, torus=6, transfer-U=600, transfer-V=600, z-central-root=1200, z-central-torus=30, z-images=300, z-subsets=1024
+All listed finite checks passed. No all-m conclusion is inferred from them.

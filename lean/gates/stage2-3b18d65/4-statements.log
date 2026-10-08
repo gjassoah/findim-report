@@ -1,0 +1,106 @@
+@ProjectiveCoresolution.hasProjectiveDimensionLE : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) → ∀ (n : ℕ), CategoryTheory.HasProjectiveDimensionLE (R.c n) n
+@ProjectiveCoresolution.not_hasProjectiveDimensionLT : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  ¬CategoryTheory.Projective (R.c 1) → ∀ (n : ℕ), ¬CategoryTheory.HasProjectiveDimensionLT (R.c (n + 1)) (n + 1)
+@ProjectiveCoresolution.projectiveDimension_eq : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) →
+    ¬CategoryTheory.Projective (R.c 1) →
+      ∀ (n : ℕ),
+        1 ≤ n → CategoryTheory.HasProjectiveDimensionLE (R.c n) n ∧ ¬CategoryTheory.HasProjectiveDimensionLT (R.c n) n
+'FindimCounterexample.ProjectiveCoresolution.hasProjectiveDimensionLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.not_hasProjectiveDimensionLT' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.projectiveDimension_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@RingDual.freeDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (ι : Type u_2) → [Fintype ι] → [DecidableEq ι] → RingDual.RightDual A (ι → Aᵐᵒᵖ) ≃ₗ[A] ι → A
+@RingDual.evalEquiv : {A : Type u_1} →
+  [inst : Ring A] →
+    {P : Type u_2} →
+      [inst_1 : AddCommGroup P] →
+        [inst_2 : Module Aᵐᵒᵖ P] →
+          [Module.Finite Aᵐᵒᵖ P] → [Module.Projective Aᵐᵒᵖ P] → P ≃ₗ[Aᵐᵒᵖ] RingDual.LeftDual A (RingDual.RightDual A P)
+@RingDual.rightDual_projective : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P],
+  Module.Projective A (RingDual.RightDual A P)
+@RingDual.rightDual_finite : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P], Module.Finite A (RingDual.RightDual A P)
+@RingDual.split_of_dual_split : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} {P' : Type u_3}
+  [inst_1 : AddCommGroup P] [inst_2 : AddCommGroup P'] [inst_3 : Module Aᵐᵒᵖ P] [inst_4 : Module Aᵐᵒᵖ P']
+  [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P'] [Module.Projective Aᵐᵒᵖ P']
+  (f : P →ₗ[Aᵐᵒᵖ] P') (r : RingDual.RightDual A P →ₗ[A] RingDual.RightDual A P'),
+  r ∘ₗ RingDual.rightMap f = LinearMap.id → ∃ s, f ∘ₗ s = LinearMap.id
+@ExactCoresolution.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (X : ℕ → ModuleCat A) →
+      (d : (n : ℕ) → ↑(X n) →ₗ[A] ↑(X (n + 1))) →
+        (∀ (n : ℕ), (d n).range = (d (n + 1)).ker) →
+          Function.Injective ⇑(d 0) →
+            (∀ (n : ℕ), CategoryTheory.Projective (X (n + 1))) → ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] →
+          [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] →
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+              (∀ (n : ℕ),
+                  (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+                ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.projective_zero : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)], CategoryTheory.Projective (StrongNakayama.cok P d 0)
+@StrongNakayama.cok_finite : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] (n : ℕ), Module.Finite A ↑(StrongNakayama.cok P d n)
+@StrongNakayama.not_projective_one : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε → ε ∘ₗ d 0 = 0 → ¬CategoryTheory.Projective (StrongNakayama.cok P d 1)
+@StrongNakayama.projectiveDimension_eq : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                  ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                ∃ M,
+                  Module.Finite A ↑M ∧
+                    CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+'FindimCounterexample.RingDual.freeDualEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.evalEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_projective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.split_of_dual_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ExactCoresolution.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projective_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.cok_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.not_projective_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]

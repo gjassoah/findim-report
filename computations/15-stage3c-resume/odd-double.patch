@@ -1,0 +1,37 @@
+--- a/FindimCounterexample/Stage3cOddDouble.lean
++++ b/FindimCounterexample/Stage3cOddDouble.lean
+@@ -21,8 +21,7 @@
+ 
+ universe v u
+ 
+-variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C]
+-  [HasShift C ℤ] [∀ n : ℤ, (shiftFunctor C n).Additive]
++variable {C : Type u} [Category.{v} C] [Preadditive C]
+ 
+ noncomputable section
+ 
+@@ -50,9 +49,15 @@
+   rw [hmap, ← hp, ← hi]
+   simp only [complementDecomposition, Iso.trans_inv, Iso.symm_inv, Iso.trans_hom,
+     Iso.symm_hom]
++  change ((biprod.braiding U U.complement).inv ≫ U.decomposition.hom) ≫
++    ((U.decomposition.inv ≫ biprod.snd) ≫ biprod.inr ≫ U.decomposition.hom) ≫
++      U.decomposition.inv ≫ (biprod.braiding U U.complement).hom = _
+   simp only [Category.assoc]
+   rw [Iso.hom_inv_id_assoc, Iso.hom_inv_id_assoc, hb, reassoc_of% hb']
+ 
++variable [HasZeroObject C] [HasShift C ℤ]
++  [∀ n : ℤ, (shiftFunctor C n).Additive]
++
+ /-- The first cone and its decomposition `U ⊞ U[1]`. -/
+ def firstDouble [Pretriangulated C] (U : Karoubi C) :
+     Σ X : C, (toKaroubi C).obj X ≅ U ⊞ (shift 1).obj U := by
+@@ -63,7 +68,7 @@
+     (complementDecomposition U) (complementDecomposition U) (complement_matrix U)⟩⟩
+ 
+ /-- Shift the first decomposition, identifying the iterated shift with `[2]`. -/
+-def shiftedDecomposition [Pretriangulated C] (U : Karoubi C) {X : C}
++def shiftedDecomposition [HasFiniteBiproducts C] (U : Karoubi C) {X : C}
+     (e : (toKaroubi C).obj X ≅ U ⊞ (shift 1).obj U) :
+     (toKaroubi C).obj (X⟦(1 : ℤ)⟧) ≅ (shift 1).obj U ⊞ (shift 2).obj U := by
+   letI : PreservesBinaryBiproducts (shift (C := C) 1) :=

@@ -1,0 +1,49 @@
+15.49 Lambda dimension 392 projective dimensions [236, 136, 12, 8] generators 22
+15.57 Z dimension 16 Y 15 all off-diagonal module relations PASS
+45.02 F left dim 352 top ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f'] P 352 next 0
+Timeout (0:01:00)!
+Thread 0x00007f2bdbab5bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/profile.py", line 20 in left_cover
+  File "computations/05-candidate1/ext.py", line 144 in run
+  File "computations/05-candidate1/ext.py", line 167 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+75.0 F dual right dim 352 top ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f'] P 352 next 0
+81.0 Lambda degree 0 syzygy 16 Betti [0, 1, 0, 1] P 144 next 128
+102.79 Lambda degree 1 syzygy 128 Betti [1, 0, 0, 1] P 244 next 116
+Timeout (0:01:00)!
+Thread 0x00007f2bdbab5bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/05-candidate1/ext.py", line 40 in indec_action
+  File "computations/05-candidate1/ext.py", line 54 in <lambda>
+  File "computations/05-candidate1/ext.py", line 46 in act
+  File "computations/05-candidate1/ext.py", line 99 in <genexpr>
+  File "computations/05-candidate1/ext.py", line 99 in cover
+  File "computations/05-candidate1/ext.py", line 151 in run
+  File "computations/05-candidate1/ext.py", line 167 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+121.55 Lambda degree 2 syzygy 116 Betti [1, 0, 1, 0] P 248 next 132
+150.56 Lambda degree 3 syzygy 132 Betti [1, 1, 1, 0] P 384 next 252
+Timeout (0:01:00)!
+Thread 0x00007f2bdbab5bc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/05-candidate1/ext.py", line 40 in indec_action
+  File "computations/05-candidate1/ext.py", line 61 in apply
+  File "computations/05-candidate1/ext.py", line 103 in action
+  File "computations/05-candidate1/ext.py", line 46 in act
+  File "computations/05-candidate1/ext.py", line 48 in apply
+  File "computations/05-candidate1/ext.py", line 97 in cover
+  File "computations/05-candidate1/ext.py", line 151 in run
+  File "computations/05-candidate1/ext.py", line 167 in <module>
+  File "computations/05-candidate1/runner.py", line 38 in execute
+  File "computations/05-candidate1/runner.py", line 45 in <module>
+198.93 Lambda degree 4 syzygy 252 Betti [2, 0, 1, 1] P 492 next 240
+199.06 self {'degree': 0, 'cochains': 8, 'out_rank': 1, 'in_rank': 0, 'Ext': 7}
+199.14 self {'degree': 1, 'cochains': 7, 'out_rank': 5, 'in_rank': 1, 'Ext': 1}
+199.26 self {'degree': 2, 'cochains': 8, 'out_rank': 3, 'in_rank': 5, 'Ext': 0}
+199.39 self {'degree': 3, 'cochains': 9, 'out_rank': 6, 'in_rank': 3, 'Ext': 0}
+204.23 regular {'degree': 0, 'cochains': 144, 'out_rank': 16, 'in_rank': 0, 'Ext': 128}
+209.45 regular {'degree': 1, 'cochains': 148, 'out_rank': 132, 'in_rank': 16, 'Ext': 0}
+215.19 regular {'degree': 2, 'cochains': 248, 'out_rank': 116, 'in_rank': 132, 'Ext': 0}
+222.32 regular {'degree': 3, 'cochains': 256, 'out_rank': 140, 'in_rank': 116, 'Ext': 0}

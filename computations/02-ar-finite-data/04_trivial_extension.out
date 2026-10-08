@@ -1,0 +1,34 @@
+
+FIELD: exact F_2(q)
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+degree 0 : syzygy dimension 1 ; top (e,f) (0, 1) ; projective dimension 8 ; next kernel dimension 7
+degree 1 : syzygy dimension 7 ; top (e,f) (1, 0) ; projective dimension 12 ; next kernel dimension 5
+degree 2 : syzygy dimension 5 ; top (e,f) (1, 0) ; projective dimension 12 ; next kernel dimension 7
+degree 3 : syzygy dimension 7 ; top (e,f) (1, 1) ; projective dimension 20 ; next kernel dimension 13
+degree 4 : syzygy dimension 13 ; top (e,f) (2, 0) ; projective dimension 24 ; next kernel dimension 11
+degree 5 : syzygy dimension 11 ; top (e,f) (2, 0) ; projective dimension 24 ; next kernel dimension 13
+degree 6 : syzygy dimension 13 ; top (e,f) (2, 1) ; projective dimension 32 ; next kernel dimension 19
+degree 7 : syzygy dimension 19 ; top (e,f) (3, 0) ; projective dimension 36 ; next kernel dimension 17
+degree 8 : syzygy dimension 17 ; top (e,f) (3, 0) ; projective dimension 36 ; next kernel dimension 19
+degree 9 : syzygy dimension 19 ; top (e,f) (3, 1) ; projective dimension 44 ; next kernel dimension 25
+Ext dimensions degrees 0..9: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+ITEM 4 PASS (supported); no Yoneda product or all-degree claim tested
+Finite-field modulus: x^16 + x^5 + x^3 + x^2 + 1
+Specialisation q = a ; multiplicative order = 65535
+
+FIELD: specialised F_(2^16)
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+degree 0 : syzygy dimension 1 ; top (e,f) (0, 1) ; projective dimension 8 ; next kernel dimension 7
+degree 1 : syzygy dimension 7 ; top (e,f) (1, 0) ; projective dimension 12 ; next kernel dimension 5
+degree 2 : syzygy dimension 5 ; top (e,f) (1, 0) ; projective dimension 12 ; next kernel dimension 7
+degree 3 : syzygy dimension 7 ; top (e,f) (1, 1) ; projective dimension 20 ; next kernel dimension 13
+degree 4 : syzygy dimension 13 ; top (e,f) (2, 0) ; projective dimension 24 ; next kernel dimension 11
+degree 5 : syzygy dimension 11 ; top (e,f) (2, 0) ; projective dimension 24 ; next kernel dimension 13
+degree 6 : syzygy dimension 13 ; top (e,f) (2, 1) ; projective dimension 32 ; next kernel dimension 19
+degree 7 : syzygy dimension 19 ; top (e,f) (3, 0) ; projective dimension 36 ; next kernel dimension 17
+degree 8 : syzygy dimension 17 ; top (e,f) (3, 0) ; projective dimension 36 ; next kernel dimension 19
+degree 9 : syzygy dimension 19 ; top (e,f) (3, 1) ; projective dimension 44 ; next kernel dimension 25
+Ext dimensions degrees 0..9: [1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+ITEM 4 PASS (supported); no Yoneda product or all-degree claim tested

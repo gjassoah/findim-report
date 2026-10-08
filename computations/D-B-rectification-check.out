@@ -1,0 +1,8 @@
+PASS: d_P^2=0 in all degrees of this example
+SENSITIVITY: omitting h gives nonzero squares in 2 degrees
+PASS: d H_a+H_a d=a iota-iota f_a
+PASS: d H_b+H_b d=b iota-iota f_b
+PASS: iota_0 induces an isomorphism on cohomology; dimensions {-2: 0, -1: 0, 0: 1, 1: 0}
+PASS: iota_1 induces an isomorphism on cohomology; dimensions {-2: 0, -1: 0, 0: 1, 1: 0}
+PASS: iota_2 induces an isomorphism on cohomology; dimensions {-2: 0, -1: 0, 0: 1, 1: 0}
+All arithmetic exact over Q. Reinsert the right-free B factor to multiply dimensions by 5.

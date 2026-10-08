@@ -1,0 +1,341 @@
+\section{Criteria for infinite finitistic dimension}
+\label{sec:criteria}
+
+Both constructions use a module with prescribed homological behaviour. The
+following dimension-shifting argument produces modules of every finite
+projective dimension.
+
+\begin{proposition}
+  \label{prop:coresolution}
+  Let $\A$ be an abelian category with enough projective objects, and suppose
+  given short exact sequences
+  \[
+    0\to c_0\to p_0\to c_1\to0\qquad\text{and}\qquad
+    0\to c_n\to p_n\to c_{n+1}\to0\quad(n\geq1)
+  \]
+  in which every $p_n$ is projective, $c_0$ is projective and $c_1$ is not.
+  Then ${\operatorname{pd}c_n=n}$ for every ${n\geq1}$.
+\end{proposition}
+
+\begin{proof}
+  A short exact sequence ${0\to c_n\to p_n\to c_{n+1}\to0}$ with $p_n$
+  projective gives ${\operatorname{pd}c_{n+1}\leq\operatorname{pd}c_n+1}$, so
+  ${\operatorname{pd}c_n\leq n}$ by induction. Since $c_1$ is not projective,
+  ${\operatorname{pd}c_1=1}$. Let ${n\geq1}$ and suppose that
+  ${\operatorname{pd}c_n=n}$. For every object $V$ and every ${j\geq1}$, the long
+  exact sequence of ${\operatorname{Ext}(-,V)}$ and the vanishing of
+  $\operatorname{Ext}^{\geq1}(p_n,V)$ give an isomorphism
+  ${\operatorname{Ext}^{j+1}(c_{n+1},V)\cong\operatorname{Ext}^j(c_n,V)}$.
+  Choosing $V$ with ${\operatorname{Ext}^n(c_n,V)\neq0}$ and ${j=n}$ yields
+  ${\operatorname{pd}c_{n+1}=n+1}$.
+\end{proof}
+
+\begin{remark}
+  \Cref{prop:coresolution} is formally verified in Lean, against Mathlib, in an
+  arbitrary abelian category; see \Cref{app:verification}.
+\end{remark}
+
+\subsection{The strong Nakayama conjecture}
+\label{subsec:strong-nakayama}
+
+The following argument shows that finiteness of the finitistic dimension of
+$A^{\op}$ implies the strong Nakayama conjecture for $A$~\cite[Section~3.2,
+Proposition~5]{CB19}; it also gives the exact projective dimensions of the
+modules constructed.
+
+\begin{theorem}
+  \label{thm:strong-nakayama}
+  Let $A$ be a finite-dimensional algebra and ${E\neq0}$ a right $A$-module
+  such that
+  \[
+    \operatorname{Ext}^i_{A^{\op}}(E,A)=0\qquad\text{for all }i\geq0.
+  \]
+  Let ${\cdots\to P_1\to P_0\to E\to0}$ be a minimal projective resolution, and
+  put ${C_n}={\operatorname{coker}(P_{n-1}^*}\to{ P_n^*)}$ for ${n\geq1}$. Then
+  ${C_n\cong\operatorname{Tr}\Omega^{n-1}E}$ and ${\operatorname{pd}_AC_n=n}$ for
+  every ${n\geq1}$. In particular, ${\operatorname{findim}A=\infty}$.
+\end{theorem}
+
+\begin{proof}
+  The complex ${0\to P_0^*\to P_1^*\to P_2^*\to\cdots}$ of projective left
+  $A$-modules has cohomology ${\operatorname{Ext}^*_{A^{\op}}(E,A)=0}$, so it is
+  exact, and it splits into short exact sequences
+  ${0\to C_0\to P_1^*\to C_1\to0}$ and ${0\to C_n\to P_{n+1}^*\to C_{n+1}\to0}$,
+  where ${C_0=P_0^*}$. If $C_1$ were projective, the map ${P_0^*\to P_1^*}$ would be
+  a split monomorphism; since finitely generated projective modules are
+  reflexive, its dual ${P_1\to P_0}$ would then be a split epimorphism, and
+  ${E=\operatorname{coker}(P_1\to P_0)}$ would vanish. Hence,
+  \Cref{prop:coresolution} applies. Finally,
+  ${P_n\to P_{n-1}\to\Omega^{n-1}E\to0}$ is a minimal presentation, so that
+  \[
+    \operatorname{Tr}\Omega^{n-1}E=\operatorname{coker}(P_{n-1}^*\to P_n^*)
+    =C_n.\qedhere
+  \]
+\end{proof}
+
+Since ${\operatorname{Ext}^i_{A^{\op}}(E,A)\cong D\operatorname{Tor}^A_i(E,DA)}$,
+the hypothesis says that the derived Nakayama functor ${-\Lotimes[A]DA}$
+annihilates $E$. It forces ${\operatorname{pd}E=\infty}$: if
+${\operatorname{pd}E=n<\infty}$, then ${\operatorname{Ext}^n(E,A)\neq0}$.
+
+\begin{remark}
+  \Cref{thm:strong-nakayama} is formally verified in Lean over an arbitrary
+  ring, including the equivalence between the vanishing of the groups
+  $\operatorname{Ext}^i_{A^{\op}}(E,A)$ and the exactness of the dual complex;
+  the identification of $C_n$ with a transpose is proved for the presentation
+  given by the resolution, without its minimality. See
+  \Cref{app:verification}.
+\end{remark}
+
+The next proposition reformulates the hypothesis of \Cref{thm:strong-nakayama}
+as a property of a module of projective dimension one, such as $C_1$.
+
+\begin{proposition}
+  \label{prop:infinitely-torsionfree}
+  Let $C$ be an $A$-module without nonzero projective summands and with
+  ${\operatorname{pd}C=1}$. The following are equivalent:
+  \begin{enumerate}
+    \item the right module ${E=\operatorname{Tr}C}$ satisfies
+      ${\operatorname{Ext}^i_{A^{\op}}(E,A)=0}$ for all ${i\geq0}$;
+    \item $C$ is not projective and
+      ${\operatorname{Ext}^i_{A^{\op}}(\operatorname{Tr}C,A)=0}$ for all ${i\geq1}$;
+    \item $C$ is not projective and admits an exact sequence
+      ${0\to C\to Q_2\to Q_3\to\cdots}$ with each $Q_m$ projective, in which every
+      map from $C$ or from a cokernel to the next $Q_m$ is a left
+      $\operatorname{add}A$-approximation.
+  \end{enumerate}
+  In this case ${E\cong\operatorname{Ext}^1_A(C,A)}$.
+\end{proposition}
+
+\begin{proof}
+  Choose a minimal projective resolution ${0\to Q_0\to Q_1\to C\to0}$. Then
+  ${E=\operatorname{coker}(Q_1^*\to Q_0^*)\cong\operatorname{Ext}^1_A(C,A)}$ and
+  ${E^*=\ker(Q_0\to Q_1)=0}$; moreover ${E\neq0}$, since otherwise ${Q_1^*\to Q_0^*}$
+  would split and $C$ would be projective. This proves that (1) and (2) are
+  equivalent. Assume (1). Dualising a minimal projective resolution of $E$ gives
+  an exact complex whose first cokernel is ${\operatorname{Tr}E=C}$ and whose tail
+  is a projective coresolution of $C$; the dual of each of its short exact
+  sequences is a segment of the resolution of $E$, hence exact, which is the
+  approximation property in (3). Conversely, dualising the sequence in (3) gives
+  an exact sequence ${\cdots\to Q_3^*\to Q_2^*\to C^*\to0}$; splicing it with
+  ${0\to C^*\to Q_1^*\to Q_0^*\to E\to0}$ gives a projective resolution of $E$
+  whose dual ${0\to Q_0\to Q_1\to Q_2\to\cdots}$ is exact, and (1) follows.
+\end{proof}
+
+\begin{corollary}
+  \label{coro:infinitely-many-torsionless}
+  If a finite-dimensional algebra $A$ admits a module $E$ as in
+  \Cref{thm:strong-nakayama}, then $A$ has infinitely many isomorphism classes
+  of indecomposable torsionless modules of finite projective dimension.
+\end{corollary}
+
+\begin{proof}
+  The indecomposable summands of the modules $C_n$ of
+  \Cref{thm:strong-nakayama} are torsionless and of finite projective
+  dimension. If there were only finitely many of them, their projective
+  dimensions would bound ${\operatorname{pd}C_n=n}$ for all $n$.
+\end{proof}
+
+\subsection{Counterexamples to the Auslander--Reiten conjecture}
+\label{subsec:auslander-reiten}
+
+Let $\Lambda$ be an Artin algebra. The \emph{Auslander--Reiten conjecture}
+asserts that a $\Lambda$-module $M$ with
+${\operatorname{Ext}^i_\Lambda(M,M\oplus\Lambda)=0}$ for all ${i\geq1}$ is
+projective. Auslander and Reiten showed that its failure
+produces a failure of the generalised Nakayama conjecture for an endomorphism
+algebra~\cite[Theorem~1.1(b)]{AR75a}. Combined with \Cref{thm:strong-nakayama},
+this gives a counterexample to the finitistic dimension conjecture with one
+more simple module.
+
+\begin{theorem}
+  \label{thm:ar-to-findim}
+  Let $\Lambda$ be a finite-dimensional algebra and $M$ a nonprojective
+  $\Lambda$-module with ${\operatorname{Ext}^i_\Lambda(M,M\oplus\Lambda)}={0}$ for
+  all ${i\geq1}$. Put ${G=\Lambda\oplus M}$ and
+  ${\Gamma}={\operatorname{End}_\Lambda(G)^{\op}}$,
+  and let ${\pi\colon P\to M}$ be a projective cover. Then the $\Gamma$-module
+  \[
+    S\coloneqq\operatorname{coker}\bigl(\Hom[\Lambda]{G}{\pi}\bigr)
+  \]
+  is nonzero and ${\operatorname{Ext}^i_\Gamma(S,\Gamma)=0}$ for all ${i\geq0}$.
+  Consequently, the algebra $\operatorname{End}_\Lambda(G)$ has infinite
+  little finitistic dimension.
+\end{theorem}
+
+\begin{proof}
+  Write ${\mathbb{F}=\Hom[\Lambda]{G}{-}}$, which restricts to an equivalence
+  ${\operatorname{add}G\simeq\operatorname{proj}\Gamma}$ with
+  ${\mathbb{F}G=\Gamma}$.
+  Put ${K_0=\ker\pi}$ and choose right $\operatorname{add}G$-approximations
+  ${g_j\colon G_j\to K_j}$ with ${K_{j+1}=\ker g_j}$; they are surjective since
+  ${\Lambda\in\operatorname{add}G}$. The functor $\mathbb{F}$ is left exact and
+  the
+  maps $\mathbb{F}g_j$ are surjective, so
+  \[
+    \cdots\to\mathbb{F}G_1\to\mathbb{F}G_0\to\mathbb{F}P\to\mathbb{F}M\to S\to0
+  \]
+  is a projective resolution of $S$. If $\mathbb{F}\pi$ were surjective, the
+  identity of the summand $M$ of $G$ would lift through $\pi$, and $M$ would be
+  projective; hence ${S\neq0}$. For ${Y\in\operatorname{add}G}$ there is a natural
+  isomorphism ${\Hom[\Gamma]{\mathbb{F}Y}{\Gamma}\cong\Hom[\Lambda]{Y}{G}}$, so
+  that
+  $\operatorname{Ext}^*_\Gamma(S,\Gamma)$ is the cohomology of
+  \[
+    0\to\Hom[\Lambda]{M}{G}\to\Hom[\Lambda]{P}{G}\to\Hom[\Lambda]{G_0}{G}\to
+    \Hom[\Lambda]{G_1}{G}\to\cdots,
+  \]
+  with $\Hom[\Lambda]{M}{G}$ in degree zero. Since
+  ${\operatorname{Ext}^{\geq1}_\Lambda(G,G)}={0}$, the resolution
+  ${\cdots}\to{ G_0}\to{ P}\to{ M}$ consists of $\Hom[\Lambda]{-}{G}$-acyclic modules
+  and
+  computes $\operatorname{Ext}^*_\Lambda(M,G)$; as
+  ${\operatorname{Ext}^{\geq1}_\Lambda(M,G)}={0}$ and the first map is injective,
+  the complex is exact. The last assertion is \Cref{thm:strong-nakayama} applied
+  to ${\Gamma^{\op}}={\operatorname{End}_\Lambda(G)}$.
+\end{proof}
+
+Replacing $M$ by an indecomposable nonprojective summand preserves the
+hypotheses of \Cref{thm:ar-to-findim}, since $\operatorname{Ext}$ is additive.
+If $\Lambda$ is basic, the algebra $\operatorname{End}_\Lambda(G)$ then has
+exactly one simple module more than $\Lambda$.
+
+Conversely, simple modules witnessing failure of the strong Nakayama conjecture
+always arise in this
+way, on a corner of the algebra. In the next proposition, $Af$, $M$ and their
+endomorphisms are taken as \emph{right} $B$-modules.
+
+\begin{proposition}
+  \label{prop:simple-witness}
+  Let $S$ be a simple right $A$-module with
+  ${\Hom[A^{\op}]{S}{A}}={0}={\operatorname{Ext}^1_{A^{\op}}(S,A)}$. Let $e$ be the
+  sum
+  of the primitive idempotents of a complete decomposition of $1$ corresponding
+  to $S$, ${f=1-e}$, ${B=fAf}$ and ${M=eAf}$. Then left multiplication induces an
+  algebra isomorphism
+  \[
+    A\stackrel{\sim}{\longrightarrow}\operatorname{End}_{B^{\op}}(Af)
+    =\operatorname{End}_{B^{\op}}(B\oplus M),
+  \]
+  $B$ has exactly one isomorphism class of simple modules fewer than $A$, and
+  $M$ is not a projective right $B$-module. If moreover
+  ${\operatorname{Ext}^i_{A^{\op}}(S,A)=0}$ for all ${i\geq0}$, then
+  ${\operatorname{Ext}^i_{B^{\op}}(M,B\oplus M)=0}$ for all ${i\geq1}$.
+\end{proposition}
+
+\begin{proof}
+  For a right $A$-module $V$, let ${\eta_V\colon V\to\Hom[B^{\op}]{Af}{Vf}}$ send
+  $v$ to ${x\mapsto vx}$. Multiplication by $f$ identifies $\eta_Vf$ with the
+  identity of $Vf$, so the kernel and cokernel of $\eta_V$ are modules over
+  $A/AfA$, whose composition factors are copies of $S$. If
+  ${\Hom[A^{\op}]{S}{V}=0}$, then $\eta_V$ is injective. If moreover
+  ${\operatorname{Ext}^1_{A^{\op}}(S,V)=0}$, then
+  ${\operatorname{Ext}^1_{A^{\op}}(T,V)=0}$ for every $A/AfA$-module $T$ by
+  induction on the length, so $\eta_V$ splits; its cokernel is a summand of
+  $\Hom[B^{\op}]{Af}{Vf}$ annihilated by $f$, hence zero, since
+  ${\Hom[A^{\op}]{T}{\Hom[B^{\op}]{Af}{Vf}}\cong\Hom[B^{\op}]{Tf}{Vf}=0}$. For
+  ${V=A}$ this gives the isomorphism. Passing from $A$ to $B$ removes exactly the
+  isomorphism class of $S$. If $M$ were projective, ${B\oplus M}$ would be a
+  progenerator of $B$ and $A$ would be Morita equivalent to $B$, which has fewer
+  simple modules.
+
+  Assume now the vanishing in all degrees. A minimal injective resolution
+  ${A\to I^\bullet}$ of the right regular module has no summand with socle $S$,
+  so each $I^j$ is a sum of modules $D(Ae_t)$ with ${e_t\leq f}$. Then
+  $I^jf$ is a direct sum of modules $D(Be_t)$, hence an injective right
+  $B$-module, and, by the first part of the proof applied to ${V=I^j}$, the
+  complex
+  ${\Hom[B^{\op}]{Af}{I^\bullet f}\cong\Hom[A^{\op}]{A}{I^\bullet}}$ computes
+  $\operatorname{Ext}^*_{B^{\op}}(Af,Af)$, which therefore vanishes in positive
+  degrees.
+\end{proof}
+
+\begin{example}
+  The two vanishing conditions in the first part of
+  \Cref{prop:simple-witness} do not suffice for the last assertion. Let $S$ be
+  the right simple module at the vertex $3$ of the algebra
+  ${A}={\kk(1\xrightarrow{a}2\xrightarrow{b}3)/(ba)}$. Its minimal projective resolution is
+  ${0\to e_1A\to e_2A\to e_3A\to S\to0}$, and the dual complex shows that
+  ${\Hom[A^{\op}]{S}{A}}={0}={\operatorname{Ext}^1_{A^{\op}}(S,A)}$, while
+  ${\operatorname{Ext}^2_{A^{\op}}(S,A)}\cong{ Ae_1/\kk a}\neq{0}$.
+\end{example}
+
+\subsection{Triangular matrix algebras and bounds on projective dimension}
+\label{subsec:gluing}
+
+Triangular matrix algebras cannot produce a counterexample to the strong
+Nakayama conjecture when both
+diagonal algebras have finite little finitistic dimension.
+
+\begin{proposition}
+  \label{prop:triangular}
+  Let ${A=\begin{psmallmatrix}B&0\\M&C\end{psmallmatrix}}$ for a $C$-$B$-bimodule
+  $M$, so that right $A$-modules are triples $(X,Y,\varphi)$ with $X$ a right
+  $B$-module, $Y$ a right $C$-module and ${\varphi\colon Y\otimes_CM\to X}$. Let
+  ${E=(X,Y,\varphi)\neq0}$ satisfy ${\RHom[A^{\op}]{E}{A}=0}$, and put
+  ${Z=\operatorname{cone}(Y\Lotimes[C]M\to X)}$ in
+  ${\DerCat[-]{\operatorname{mod}B^{\op}}}$.
+  Then ${\RHom[B^{\op}]{Z}{B}=0}$. If ${Z\neq0}$, the little finitistic dimension of
+  $B$ is infinite; if ${Z=0}$, then ${Y\neq0}$, ${\RHom[C^{\op}]{Y}{C}=0}$, and the
+  little finitistic dimension of $C$ is infinite.
+\end{proposition}
+
+\begin{proof}
+  Let ${e=\operatorname{diag}(1,0)}$ and ${f=\operatorname{diag}(0,1)}$, let $i_*$
+  inflate right $B$-modules and put ${j_!Y=Y\Lotimes[C]fA}$. The derived counit
+  gives
+  a triangle ${j_!Y\to E\to i_*Z\to(j_!Y)[1]}$. Since ${eA=i_*B}$, adjunction gives
+  ${\RHom[B^{\op}]{Z}{B}\cong\RHom[A^{\op}]{E}{eA}=0}$. If ${Z\neq0}$, represent it
+  by a nonzero minimal bounded-above complex ${P^\bullet}$ of finitely generated
+  projective right $B$-modules, with largest nonzero degree $m$. Its dual
+  ${0\to(P^m)^*\to(P^{m-1})^*\to\cdots}$ is exact, and its first cokernel is not
+  projective, since otherwise the first map would split, against the
+  minimality of ${P^\bullet}$; \Cref{prop:coresolution} applied to the successive
+  cokernels gives unbounded finite projective dimensions. If ${Z=0}$, then
+  ${E\simeq j_!Y}$, so ${Y\neq0}$, and
+  ${\RHom[C^{\op}]{Y}{C}\cong\RHom[A^{\op}]{j_!Y}{fA}=0}$ since ${(fA)f=C}$; now
+  \Cref{thm:strong-nakayama} applies to $C$.
+\end{proof}
+
+Finite projective dimensions are bounded on modules of bounded
+dimension. The argument is due to Schofield, as explained by Happel in his
+survey~\cite[Section~2.3]{Hap90}; the openness also follows from the
+semicontinuity of $\dim\operatorname{Ext}$ on module
+varieties~\cite[Corollary~2.6]{GLS24}. Both sources work over an algebraically
+closed field; the argument below works over any field.
+
+\begin{proposition}
+  \label{prop:bounded-dimension}
+  Let $A$ be a finite-dimensional algebra and $d$ a dimension vector. The
+  subset of the module variety $\operatorname{Rep}_d(A)$ of modules of
+  projective dimension at most $n$ is open, and projective dimension is bounded
+  on the modules of finite projective dimension in $\operatorname{Rep}_d(A)$.
+  In particular, modules of unbounded finite projective dimension have unbounded
+  dimension.
+\end{proposition}
+
+\begin{proof}
+  Let $J$ be the radical of $A$. A module $M$ satisfies
+  ${\operatorname{pd}M\leq n}$ if and only if
+  ${\operatorname{Tor}^A_{n+1}(A/J,M)=0}$. Choose a resolution ${Q_\bullet}$ of the
+  right module $A/J$ by finitely generated free modules. Over
+  $\operatorname{Rep}_d(A)$, the complex
+  \[
+    Q_{n+2}\otimes_AM\longrightarrow Q_{n+1}\otimes_AM\longrightarrow
+    Q_n\otimes_AM
+  \]
+  has terms of fixed dimension and differentials given by matrices whose entries
+  are polynomial in the point $M$; the vanishing of its middle homology is a
+  lower bound on the sum of the ranks of the two differentials, which is an open
+  condition. The open subsets ${\set{M}[\operatorname{pd}M\leq n]}$ form an
+  ascending chain in a noetherian topological space and are therefore
+  stationary.
+\end{proof}
+
+In \Cref{thm:strong-nakayama}, the dimension of $\operatorname{Tr}N$ is at
+most $(\dim A)^2\dim N$. Hence, by \Cref{prop:bounded-dimension}, the syzygies
+$\Omega^nE$ of a module $E$ as in \Cref{thm:strong-nakayama} have unbounded
+dimension:
+families of modules of constant dimension whose syzygies move along a
+parameter, such as those of Schulz~\cite[Example~7]{Schu95}, cannot themselves
+satisfy the hypothesis of that theorem.

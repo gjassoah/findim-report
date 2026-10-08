@@ -1,0 +1,19 @@
+Codex job 06; supported finite computation; parameters: {'field': 'Fraction Field of Multivariate Polynomial Ring in q, H1, H2 over Finite Field of size 2'}
+PASS: associativity on all 1000 basis triples
+PASS: unit e+f, orthogonal idempotents, corner dimensions [4, 2, 2, 2]
+PASS: N two-sided; dimensions N^1..N^5 = [8, 5, 3, 1, 0] ; C/N = k x k
+PASS: ((ut)u)t = (0, 0, 0, q^2 + q, 0, 0, 0, 0, 0, 0) = q(1+q)z != 0
+ITEM 1 PASS (supported by exhaustive exact computation)
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+PASS: both scaling maps are automorphisms (all basis products, nonzero scale)
+PASS: 512000 Lambda associators; projective dimensions [36,24,12,8]; radical support powers [76, 66, 50, 30, 14, 4, 0]
+PASS: Q=Tf dimension 8; i(s)=<dual f>; Y dimension 9; Z dimension 10; all 6400 module identities
+degree 0 syzygy 10 Betti [0, 1, 0, 1] Pdim 32 next syzygy 22 elapsed 11.54
+degree 1 syzygy 22 Betti [1, 0, 0, 1] Pdim 44 next syzygy 22 elapsed 16.6
+degree 2 syzygy 22 Betti [1, 0, 1, 0] Pdim 48 next syzygy 26 elapsed 22.65
+degree 3 syzygy 26 Betti [1, 1, 1, 0] Pdim 72 next syzygy 46 elapsed 45.86
+SELF EXT: [{'a': 0, 'cochains': 6, 'out_rank': 1, 'in_rank': 0, 'ext': 5}, {'a': 1, 'cochains': 5, 'out_rank': 3, 'in_rank': 1, 'ext': 1}, {'a': 2, 'cochains': 4, 'out_rank': 1, 'in_rank': 3, 'ext': 0}]
+REGULAR EXT: [{'a': 0, 'cochains': 32, 'out_rank': 10, 'in_rank': 0, 'ext': 22}, {'a': 1, 'cochains': 36, 'out_rank': 26, 'in_rank': 10, 'ext': 0}, {'a': 2, 'cochains': 48, 'out_rank': 22, 'in_rank': 26, 'ext': 0}]
+stable End: 1 ordinary End: 5 projective-factor subspace: 4
+COMPLETED exact elapsed 61.94 seconds; no expected Ext dimension used as assertion

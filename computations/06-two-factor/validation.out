@@ -1,0 +1,21 @@
+Timeout (0:01:00)!
+Thread 0x00007f3120145bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 31 in kernel
+  File "computations/06-two-factor/validate.py", line 18 in run
+  File "computations/06-two-factor/validate.py", line 37 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f3120145bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 31 in kernel
+  File "computations/06-two-factor/validate.py", line 26 in run
+  File "computations/06-two-factor/validate.py", line 37 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f3120145bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 31 in kernel
+  File "computations/06-two-factor/validate.py", line 26 in run
+  File "computations/06-two-factor/validate.py", line 37 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f3120145bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 31 in kernel
+  File "computations/06-two-factor/validate.py", line 26 in run
+  File "computations/06-two-factor/validate.py", line 37 in <module>
+246.13 {'job': 'Codex job 10', 'status': 'supported', 'dim_M': 276, 'ordinary_Hom_X_M': 1, 'ordinary_Hom_M_X': 0, 'projective_factor_rank': 0, 'W0': 1, 'Wminus1': 0, 'systems': [{'name': 'direct Hom(X,coneX)', 'equations': 11040, 'unknowns_per_rhs': 276}, {'name': 'direct Hom(coneX,X)', 'equations': 11040, 'unknowns_per_rhs': 276}]}

@@ -1,0 +1,28 @@
+
+FIELD: exact F_2(q)
+degree 0 : dim Hom = 4 ; kernel = 0 ; boundaries = 0 ; Ext dimension = 0
+degree 1 : dim Hom = 6 ; kernel = 4 ; boundaries = 4 ; Ext dimension = 0
+degree 2 : dim Hom = 6 ; kernel = 3 ; boundaries = 2 ; Ext dimension = 1
+PASS: class of v generates Ext^2 and has the right f-simple action
+degree 3 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 4 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 5 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 6 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 7 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 8 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+ITEM 3 PASS (supported): [0, 0, 1, 0, 0, 0, 0, 0, 0]
+Finite-field modulus: x^16 + x^5 + x^3 + x^2 + 1
+Specialisation q = a ; multiplicative order = 65535
+
+FIELD: specialised F_(2^16)
+degree 0 : dim Hom = 4 ; kernel = 0 ; boundaries = 0 ; Ext dimension = 0
+degree 1 : dim Hom = 6 ; kernel = 4 ; boundaries = 4 ; Ext dimension = 0
+degree 2 : dim Hom = 6 ; kernel = 3 ; boundaries = 2 ; Ext dimension = 1
+PASS: class of v generates Ext^2 and has the right f-simple action
+degree 3 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 4 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 5 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 6 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 7 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+degree 8 : dim Hom = 6 ; kernel = 3 ; boundaries = 3 ; Ext dimension = 0
+ITEM 3 PASS (supported): [0, 0, 1, 0, 0, 0, 0, 0, 0]

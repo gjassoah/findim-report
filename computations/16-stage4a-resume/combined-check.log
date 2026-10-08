@@ -1,0 +1,203 @@
+Stage4a.TateDuality : (k : Type u_1) →
+  [inst : Field k] →
+    (C : Type u_3) →
+      [inst_1 : Category.{u_2, u_3} C] →
+        [inst_2 : Preadditive C] → [Linear k C] → [HasShift C ℤ] → Type (max (max u_1 u_2) u_3)
+'FindimCounterexample.Stage4a.TateDuality' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Stage4a.PolynomialSelfExtensions : {k : Type u_1} →
+  [inst : Field k] →
+    {C : Type u_3} →
+      [inst_1 : Category.{u_2, u_3} C] →
+        [inst_2 : Preadditive C] → [Linear k C] → [HasShift C ℤ] → C → ℕ → Type (max u_1 u_2)
+'FindimCounterexample.Stage4a.PolynomialSelfExtensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Stage4a.TateDuality.right_factorization : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : Category.{u_2, u_3} C] [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ]
+  (D : Stage4a.TateDuality k C) {s : C} [FiniteDimensional k (ShiftedHom s s 0)],
+  Module.finrank k (ShiftedHom s s 0) = 1 →
+    ∀ (τ : ShiftedHom s s 3), τ ≠ 0 → ∀ (β : ShiftedHom s s (-1)), ∃ γ, τ.comp γ ⋯ = β
+'FindimCounterexample.Stage4a.TateDuality.right_factorization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.TateDuality.right_factorization: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Toda.bracket_nonempty : ∀ {C : Type u_2} [inst : Category.{u_1, u_2} C] [inst_1 : HasZeroObject C]
+  [inst_2 : Preadditive C] [inst_3 : HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (shiftFunctor C n).Additive]
+  [inst_5 : Pretriangulated C] {T : Triangle C} {X W : C} {f : X ⟶ T.obj₁} {h : T.obj₂ ⟶ W},
+  T ∈ distinguishedTriangles → f ≫ T.mor₁ = 0 → T.mor₁ ≫ h = 0 → (Stage4a.Toda.bracket T f h).Nonempty
+'FindimCounterexample.Stage4a.Toda.bracket_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.bracket_nonempty: []
+@Stage4a.Toda.bracket_eq_coset : ∀ {C : Type u_2} [inst : Category.{u_1, u_2} C] [inst_1 : HasZeroObject C]
+  [inst_2 : Preadditive C] [inst_3 : HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (shiftFunctor C n).Additive]
+  [inst_5 : Pretriangulated C] {T : Triangle C} {X W : C} {f : X ⟶ T.obj₁} {h : T.obj₂ ⟶ W},
+  T ∈ distinguishedTriangles →
+    ∀ (d : Stage4a.Toda.DefiningSystem T f h),
+      Stage4a.Toda.bracket T f h = {z | z - d.a ≫ d.b ∈ Stage4a.Toda.indeterminacy T f h}
+'FindimCounterexample.Stage4a.Toda.bracket_eq_coset' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.bracket_eq_coset: []
+@Stage4a.Toda.juggling : ∀ {C : Type u_2} [inst : Category.{u_1, u_2} C] [inst_1 : HasShift C ℤ] {T : Triangle C}
+  {X W : C} {f : X ⟶ T.obj₁} {h : T.obj₂ ⟶ W} {X' : C} (u : X' ⟶ X) {z : (shiftFunctor C 1).obj X ⟶ W},
+  z ∈ Stage4a.Toda.bracket T f h → (shiftFunctor C 1).map u ≫ z ∈ Stage4a.Toda.bracket T (u ≫ f) h
+'FindimCounterexample.Stage4a.Toda.juggling' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.juggling: []
+@Stage4a.Toda.bracket_eq_of_distinguished_cones : ∀ {C : Type u_2} [inst : Category.{u_1, u_2} C]
+  [inst_1 : HasZeroObject C] [inst_2 : Preadditive C] [inst_3 : HasShift C ℤ]
+  [inst_4 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_5 : Pretriangulated C] {X W Y Z Q Q' : C} (f : X ⟶ Y)
+  (g : Y ⟶ Z) (h : Z ⟶ W) (i : Z ⟶ Q) (q : Q ⟶ (shiftFunctor C 1).obj Y) (i' : Z ⟶ Q')
+  (q' : Q' ⟶ (shiftFunctor C 1).obj Y),
+  Triangle.mk g i q ∈ distinguishedTriangles →
+    Triangle.mk g i' q' ∈ distinguishedTriangles →
+      Stage4a.Toda.bracket (Triangle.mk g i q) f h = Stage4a.Toda.bracket (Triangle.mk g i' q') f h
+'FindimCounterexample.Stage4a.Toda.bracket_eq_of_distinguished_cones' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.bracket_eq_of_distinguished_cones: []
+@Stage4a.tate_obstruction : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3} [inst_1 : Category.{u_2, u_3} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasZeroObject C] [inst_5 : HasShift C ℤ]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C] (D : Stage4a.TateDuality k C) (s : C)
+  [FiniteDimensional k (ShiftedHom s s 0)],
+  Module.finrank k (ShiftedHom s s 0) = 1 →
+    Subsingleton (ShiftedHom s s 1) →
+      Subsingleton (ShiftedHom s s 2) →
+        Subsingleton (ShiftedHom s s 4) →
+          ∀ (τ : ShiftedHom s s 3) (β : ShiftedHom s s (-1)) (Z : C) (i : (shiftFunctor C (-2)).obj s ⟶ Z)
+            (q : Z ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-1)).obj s)),
+            Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q ∈ distinguishedTriangles →
+              Stage4a.Toda.bracket (Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q) β
+                  ((Stage4a.shiftHomEquiv s s (-2) 3 1 ⋯) τ) =
+                {0}
+'FindimCounterexample.Stage4a.tate_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.tate_obstruction: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.HigherObstruction.polynomial_toda_eq_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : Category.{u_2, u_3} C] [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasZeroObject C]
+  [inst_5 : HasShift C ℤ] [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C]
+  (D : Stage4a.TateDuality k C) {s : C} {p : ℕ} (P : Stage4a.PolynomialSelfExtensions s p),
+  3 ≤ p →
+    ∀ (τ : ShiftedHom s s ↑p) (β : ShiftedHom s s (-1)) {Q : C} (i : (shiftFunctor C (-2)).obj s ⟶ Q)
+      (q : Q ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-1)).obj s)),
+      Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q ∈ distinguishedTriangles →
+        Stage4a.Toda.bracket (Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q) β
+            ((Stage4a.shiftHomEquiv s s (-2) (↑p) (↑p - 2) ⋯) τ) =
+          {0}
+'FindimCounterexample.Stage4a.HigherObstruction.polynomial_toda_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.HigherObstruction.polynomial_toda_eq_zero: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4aRank.oneFactor_rank : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2} [inst_1 : Category.{u_3, u_2} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasZeroObject C] [inst_5 : HasShift C ℤ]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C]
+  [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (S X F : C) [inst_9 : HasBinaryBiproduct S S] (ρ : F ⟶ S ⊞ S)
+  (w₁ w₂ : S ⟶ (shiftFunctor C 1).obj X) (q : (shiftFunctor C 1).obj X ⟶ (shiftFunctor C 1).obj F),
+  Triangle.mk ρ (biprod.desc w₁ w₂) q ∈ distinguishedTriangles →
+    Module.finrank k (S ⟶ S) = 1 →
+      Module.finrank k (S ⟶ X) = 1 →
+        Module.finrank k (S ⟶ (shiftFunctor C 1).obj X) = 1 →
+          ∀ (β : S ⟶ (shiftFunctor C (-1)).obj S),
+            β ≠ 0 →
+              Module.finrank k (S ⟶ (shiftFunctor C (-1)).obj S) = 1 →
+                w₁ ≠ 0 ∨ w₂ ≠ 0 →
+                  β ≫ (shiftFunctor C (-1)).map w₁ = 0 →
+                    β ≫ (shiftFunctor C (-1)).map w₂ = 0 →
+                      Module.finrank k (S ⟶ F) = 2 ∧
+                        ∀ (v : S ⟶ F), ¬Function.Surjective ⇑(Stage4aRank.scalarDifference v)
+'FindimCounterexample.Stage4aRank.oneFactor_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4aRank.oneFactor_rank: []
+@Stage4a.beta_comp_eq_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3} [inst_1 : Category.{u_2, u_3} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ] [∀ (n : ℤ), (shiftFunctor C n).Additive]
+  (D : Stage4a.TateDuality k C) {s X : C} [FiniteDimensional k (ShiftedHom s s 0)],
+  Module.finrank k (ShiftedHom s s 0) = 1 →
+    ∀ (τ : ShiftedHom s s 3),
+      τ ≠ 0 → Subsingleton (ShiftedHom s X (-3)) → ∀ (β : ShiftedHom s s (-1)) (w : ShiftedHom s X 1), β.comp w ⋯ = 0
+'FindimCounterexample.Stage4a.beta_comp_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.beta_comp_eq_zero: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.beta_shift_comp_eq_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3} [inst_1 : Category.{u_2, u_3} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ] [∀ (n : ℤ), (shiftFunctor C n).Additive]
+  (D : Stage4a.TateDuality k C) {s X : C} [FiniteDimensional k (ShiftedHom s s 0)],
+  Module.finrank k (ShiftedHom s s 0) = 1 →
+    ∀ (τ : ShiftedHom s s 3),
+      τ ≠ 0 →
+        Subsingleton (ShiftedHom s X (-3)) →
+          ∀ (β : ShiftedHom s s (-1)) (w : ShiftedHom s X 1), β ≫ (shiftFunctor C (-1)).map w = 0
+'FindimCounterexample.Stage4a.beta_shift_comp_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.beta_shift_comp_eq_zero: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Cone.oneCone_i_bijective : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2} [inst_1 : Category.{u_3, u_2} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ] [inst_5 : HasZeroObject C]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C] (D : Stage4a.TateDuality k C) (s X : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) (t : (shiftFunctor C (-3)).obj s ⟶ s) (i : s ⟶ X)
+  (π : X ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-3)).obj s)),
+  Triangle.mk t i π ∈ distinguishedTriangles → Function.Bijective ⇑(Stage4a.Cone.homMap s i 0)
+'FindimCounterexample.Stage4a.Cone.oneCone_i_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_i_bijective: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Cone.oneCone_pi_bijective : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2} [inst_1 : Category.{u_3, u_2} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ] [inst_5 : HasZeroObject C]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C] (s X : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) (t : (shiftFunctor C (-3)).obj s ⟶ s) (i : s ⟶ X)
+  (π : X ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-3)).obj s)),
+  Triangle.mk t i π ∈ distinguishedTriangles → Function.Bijective ⇑(Stage4a.Cone.connecting s (Triangle.mk t i π) 1)
+'FindimCounterexample.Stage4a.Cone.oneCone_pi_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_pi_bijective: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis]
+@Stage4a.Cone.oneCone_profile : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2} [inst_1 : Category.{u_3, u_2} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ] [inst_5 : HasZeroObject C]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C]
+  [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C) (s X : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) (i : s ⟶ X) (π : X ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-3)).obj s)),
+  Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈ distinguishedTriangles →
+    Module.finrank k (ShiftedHom s X 0) = 1 ∧
+      Module.finrank k (ShiftedHom s X 1) = 1 ∧ ∀ (a : ℤ), a ≠ 0 → a ≠ 1 → Subsingleton (ShiftedHom s X a)
+'FindimCounterexample.Stage4a.Cone.oneCone_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_profile: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis_mul,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Cone.oneCone_composite_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2} [inst_1 : Category.{u_3, u_2} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasShift C ℤ] [inst_5 : HasZeroObject C]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C]
+  [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C) (s X : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) (i : s ⟶ X) (π : X ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-3)).obj s)),
+  Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈ distinguishedTriangles →
+    ∀ (β : ShiftedHom s s (-1)) (w : ShiftedHom s X 1), β ≫ (shiftFunctor C (-1)).map w = 0
+'FindimCounterexample.Stage4a.Cone.oneCone_composite_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_composite_zero: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis_mul,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.one_factor_rank : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3} [inst_1 : Category.{u_2, u_3} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasZeroObject C] [inst_5 : HasShift C ℤ]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C]
+  [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C) (s X F : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) [inst_9 : HasBinaryBiproduct s s] (i : s ⟶ X)
+  (π : X ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-3)).obj s)),
+  Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈ distinguishedTriangles →
+    ∀ (ρ : F ⟶ s ⊞ s) (w₁ w₂ : s ⟶ (shiftFunctor C 1).obj X) (q : (shiftFunctor C 1).obj X ⟶ (shiftFunctor C 1).obj F),
+      Triangle.mk ρ (biprod.desc w₁ w₂) q ∈ distinguishedTriangles →
+        ∀ (β : ShiftedHom s s (-1)),
+          β ≠ 0 →
+            w₁ ≠ 0 ∨ w₂ ≠ 0 →
+              β ≫ (shiftFunctor C (-1)).map w₁ = 0 →
+                β ≫ (shiftFunctor C (-1)).map w₂ = 0 →
+                  Module.finrank k (s ⟶ F) = 2 ∧ ∀ (v : s ⟶ F), ¬Function.Surjective ⇑(Stage4aRank.scalarDifference v)
+'FindimCounterexample.Stage4a.one_factor_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.one_factor_rank: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.one_factor_obstruction : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3} [inst_1 : Category.{u_2, u_3} C]
+  [inst_2 : Preadditive C] [inst_3 : Linear k C] [inst_4 : HasZeroObject C] [inst_5 : HasShift C ℤ]
+  [inst_6 : ∀ (n : ℤ), (shiftFunctor C n).Additive] [inst_7 : Pretriangulated C]
+  [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C) (s X F : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) [inst_9 : HasBinaryBiproduct s s] (i : s ⟶ X)
+  (π : X ⟶ (shiftFunctor C 1).obj ((shiftFunctor C (-3)).obj s)),
+  Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈ distinguishedTriangles →
+    ∀ (ρ : F ⟶ s ⊞ s) (w₁ w₂ : s ⟶ (shiftFunctor C 1).obj X) (q : (shiftFunctor C 1).obj X ⟶ (shiftFunctor C 1).obj F),
+      Triangle.mk ρ (biprod.desc w₁ w₂) q ∈ distinguishedTriangles →
+        w₁ ≠ 0 ∨ w₂ ≠ 0 →
+          (∀ (β : ShiftedHom s s (-1)), β ≫ (shiftFunctor C (-1)).map w₁ = 0 ∧ β ≫ (shiftFunctor C (-1)).map w₂ = 0) ∧
+            Module.finrank k (s ⟶ F) = 2 ∧ ∀ (v : s ⟶ F), ¬Function.Surjective ⇑(Stage4aRank.scalarDifference v)
+'FindimCounterexample.Stage4a.one_factor_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.one_factor_obstruction: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis_mul,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]

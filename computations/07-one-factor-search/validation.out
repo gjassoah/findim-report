@@ -1,0 +1,6 @@
+AR20 Ext dimensions: [1, 2]
+Codex job 12: validation PASS
+AR e-simple: Ext^1 dimension 2; eTe dimension 8, not 4.
+C=k(1->2): D Ext_C^1(s0,C)=s1, not s0.
+Iterated extension: old DC weight 4, epsilon weight -2 balances (-4)+2*2=0; Ext^1 still nonzero.
+Source hashes match; saved controls and profiles agree; max unknowns 78

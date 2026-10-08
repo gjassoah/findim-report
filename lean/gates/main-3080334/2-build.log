@@ -1,0 +1,10 @@
+✔ [2360/2369] Built Mathlib.CategoryTheory.Idempotents.Basic (8.7s)
+✔ [2361/2369] Built FindimCounterexample.Stage3cFractions (11s)
+✔ [2362/2369] Built Mathlib.CategoryTheory.Idempotents.Karoubi (8.3s)
+✔ [2363/2369] Built Mathlib.CategoryTheory.Idempotents.Biproducts (6.6s)
+✔ [2364/2369] Built Mathlib.CategoryTheory.Idempotents.FunctorExtension (11s)
+✔ [2365/2369] Built FindimCounterexample.Stage3cKaroubi (10s)
+✔ [2366/2369] Built FindimCounterexample.Stage3cConeSplitting (7.9s)
+✔ [2367/2369] Built FindimCounterexample.Stage3cOddDouble (4.9s)
+✔ [2368/2369] Built FindimCounterexample (22s)
+Build completed successfully (2369 jobs).

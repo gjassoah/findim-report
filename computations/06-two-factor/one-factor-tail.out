@@ -1,0 +1,33 @@
+1.62 resuming rebuilt cone
+3.06 cone minimal degree 0 start radical 312
+3.08 cone minimal degree 0 radical matrix (2496, 312)
+5.23 cone minimal degree 0 radical rank 306
+39.51 cone minimal degree 0 top selected [0, 0, 0, 0, 1, 2] constructing projective
+40.63 cone minimal degree 0 cover matrix built (312, 768)
+48.16 cone minimal degree 0 dim 312 top [4, 1, 1, 0] P 768 kernel 456
+48.76 cone minimal degree 1 start radical 456
+48.79 cone minimal degree 1 radical matrix (3648, 456)
+53.71 cone minimal degree 1 radical rank 448
+Timeout (0:01:00)!
+Thread 0x00007ff63e137bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 109 in cover
+  File "computations/06-two-factor/one_factor.py", line 68 in run
+  File "computations/06-two-factor/one_factor.py", line 81 in <module>
+Timeout (0:01:00)!
+Thread 0x00007ff63e137bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 109 in cover
+  File "computations/06-two-factor/one_factor.py", line 68 in run
+  File "computations/06-two-factor/one_factor.py", line 81 in <module>
+124.14 cone minimal degree 1 top selected [0, 0, 0, 0, 0, 0, 1, 2] constructing projective
+126.56 cone minimal degree 1 cover matrix built (456, 1056)
+138.71 cone minimal degree 1 dim 456 top [6, 1, 1, 0] P 1056 kernel 600
+139.53 cone minimal degree 2 start radical 600
+139.56 cone minimal degree 2 radical matrix (4800, 600)
+146.4 cone minimal degree 2 radical rank 590
+Timeout (0:01:00)!
+Thread 0x00007ff63e137bc0 [python3] (most recent call first):
+  File "computations/05-candidate1/candidate.py", line 109 in cover
+  File "computations/06-two-factor/one_factor.py", line 68 in run
+  File "computations/06-two-factor/one_factor.py", line 81 in <module>
+198.1 cone minimal degree 2 top selected [0, 0, 0, 0, 0, 0, 0, 0, 1, 2] constructing projective
+202.06 cone minimal degree 2 cover matrix built (600, 1344)

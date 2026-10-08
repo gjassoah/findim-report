@@ -1,0 +1,16 @@
+{
+  "job": "Codex job 08",
+  "case": 0,
+  "dim_Ns": 14,
+  "equal_stably": true,
+  "both_stably_nonzero": true,
+  "equal_as_actual_maps": true,
+  "projective_factor_dimension": "0",
+  "systems": [
+    {
+      "name": "normalisation tensor quotient",
+      "equations": 1880,
+      "unknowns_per_rhs": 376
+    }
+  ]
+}

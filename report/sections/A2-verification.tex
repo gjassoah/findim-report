@@ -1,0 +1,146 @@
+\section{Verification and formalisation record}
+\label{app:verification}
+
+All checks
+were carried out by AI models; none is a human verification, and the
+formalised statements are the only results checked by a proof assistant. The
+complete reports are in the repository described in \Cref{app:ai-declaration}.
+
+\subsection*{Proof notes and fresh-context verification}
+
+Before any section was written, every result received a written proof note,
+either compiled from the first part of the work or drafted from scratch, and
+the note was then checked by a fresh session of GPT-6 Astra that had not seen
+the note being written, was given the statements and proofs with the earlier
+verdicts and statuses removed as far as possible, and was instructed not to use
+any remaining assessment as evidence. Each drafted section was checked
+again, by another fresh session, against its note and its sources.
+\Cref{tab:verification} lists, for each part of the article, the author of the
+proof note, the verification of the note and the verification of the section;
+the effort settings are those of the Codex command-line interface, where
+\emph{ultra} is the highest.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Authors of the proof notes and verifications, by part of the
+    article.}
+  \label{tab:verification}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.16\textwidth}%
+    >{\raggedright\arraybackslash}p{0.21\textwidth}%
+    >{\raggedright\arraybackslash}p{0.26\textwidth}%
+    >{\raggedright\arraybackslash}p{0.26\textwidth}@{}}
+  \hline
+  Part&Proof note&Verification of the note&Verification of the section\\
+  \hline
+  \Cref{sec:criteria}&Claude Opus~5.5&GPT-6 Astra (max): errors and gaps in
+    five blocks, repaired&GPT-6 Astra (ultra): two local slips and an overstated
+    sentence repaired\\
+  \Cref{sec:extinction,sec:simulation}&GPT-6 Astra (max)&GPT-6 Astra (ultra):
+    no error; two wording repairs&GPT-6 Astra (ultra): wording repairs\\
+  \Cref{sec:selection}&GPT-6 Astra (max); Claude Opus~5.5 for
+    \Cref{subsec:selection-data}&GPT-6 Astra (max): no error&GPT-6 Astra
+    (ultra): one range and wording repairs\\
+  \Cref{sec:realisation}&GPT-6 Astra (ultra)&GPT-6 Astra (ultra): no error;
+    one wording repair&GPT-6 Astra (ultra): wording and scope repairs\\
+  \Cref{sec:conversion}&GPT-6 Astra (ultra)&GPT-6 Astra (ultra): no error&
+    GPT-6 Astra (ultra): no error; one remark narrowed\\
+  \Cref{sec:ar-route}&GPT-6 Astra (ultra)&GPT-6 Astra (ultra): no error; one
+  missing input supplied, one statement narrowed&GPT-6 Astra (ultra): two
+    steps restored from the note, one definition completed, wording repairs\\
+  \Cref{sec:obstructions}&Claude Opus~5.5, from proofs by GPT-6 Astra
+    (medium to max)&GPT-6 Astra (max): theorems confirmed, two readings
+    corrected; the search computations not rechecked&GPT-6 Astra (ultra): a gap
+    in the argument for a single cone closed by a direct proof
+    (\Cref{coro:one-factor})\\
+  \hline
+  \end{tabular}
+\end{table}
+
+The errors found and repaired in this way include an invalid inference from
+dimensions alone in an earlier version of \Cref{prop:infinitely-torsionfree},
+an unstated convention on left and right modules in \Cref{prop:simple-witness},
+a wrong lower
+bound on the size of a construction of a counterexample to the Auslander--Reiten
+conjecture using minimal bimodule resolutions, a misreading
+of the scope of \Cref{thm:tate-obstruction}, and several statements whose
+wording claimed more than their proofs. Two broader claims of the first part
+of the work were withdrawn.
+
+\subsection*{Formalisation}
+
+The following results are formally verified in Lean~4 (version 4.33.1)
+against Mathlib (commit \texttt{0df444a3}), without additional axioms beyond
+\texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. Items 1--5
+are unconditional. Item~6 is conditional on explicit hypotheses, listed
+below.
+\begin{enumerate}
+  \item \Cref{prop:coresolution}, for an arbitrary abelian category with enough
+    projective objects, stated as the conjunction of the projective dimension
+    bound and its sharpness.
+  \item \Cref{thm:strong-nakayama} over an arbitrary ring, in two stages. For
+    a resolution of a nonzero right module $E$ by finitely generated projective
+    modules, the vanishing of the groups $\operatorname{Ext}^i_{A^{\op}}(E,A)$
+    of Mathlib for all ${i\geq0}$ is equivalent to the exactness of the dual
+    complex, and the cokernels $C_n$ of the dual complex are then finitely
+    generated left modules of projective dimension exactly~$n$, for every
+    ${n\geq1}$; moreover $C_n$ is the transpose of the presentation
+    ${P_n\to P_{n-1}}$ of $\Omega^{n-1}E$. Minimality of this presentation, which
+    the report includes in the definition of the transpose, is not formalised,
+    since Mathlib has no projective covers.
+  \item The group of \Cref{sec:selection}: \Cref{def:selection-group} as a
+    presented group with exactly the stated relations, its finite presentation
+    (\Cref{prop:group-presentation}, with Mathlib's notion of a finitely
+    presented group), \Cref{prop:central-involutions},
+    \Cref{prop:shift-automorphism}, \Cref{prop:finite-quotients} for every
+    ${m\geq1}$, and \Cref{coro:z-independent}.
+  \item The argument of \Cref{prop:rank-obstruction}, as a statement of linear
+    algebra: if a linear form on a finite-dimensional vector space $\mathcal{V}$
+    vanishes on $\mathsf{T}^tv$ for all large $t$, then it vanishes on
+    $\mathsf{T}^tv$ for ${t\geq\dim\mathcal{V}}$; this holds over any field and
+    without assuming that the vectors $\mathsf{T}^tv$ span $\mathcal{V}$. The
+    passage from Grothendieck groups and rank functions to this statement is
+    not formalised.
+  \item \Cref{lemma:fractions}, for an arbitrary localisation with a calculus
+    of right fractions; \Cref{lemma:cone-splitting}, in Mathlib's idempotent
+    completion of a pretriangulated category; and \Cref{prop:odd-double}
+    without the assertion about $K_0$, with the objects $C$ and $V$ and their
+    decompositions constructed from the two cones of the proof.
+  \item The results of \Cref{sec:obstructions}, in a $\kk$-linear
+    pretriangulated category with finite-dimensional morphism spaces, under
+    two further hypotheses: a perfect pairing between the spaces of morphisms
+    ${X\to Y[a]}$ and ${Y\to X[-1-a]}$, natural and compatible with composition
+    as in \Cref{thm:tate-duality} and the paragraph after it; and, for
+    \Cref{prop:one-cone,prop:one-factor,coro:one-factor}, an object $s$ whose
+    morphisms ${s\to s[n]}$, ${n\geq0}$, form the graded algebra $\kk[\tau]$ with
+    $\tau$ of degree~$3$, as in \Cref{thm:T-ext}. Toda brackets are defined
+    from triangles as in \Cref{subsec:toda}, and their properties used in the
+    proofs, including \Cref{lemma:toda-juggling}, are proved. The formal
+    statements cover \Cref{prop:one-cone}, \Cref{thm:tate-obstruction},
+    \Cref{coro:tate-obstruction}, and the parts of \Cref{prop:one-factor} and
+    \Cref{coro:one-factor} that concern the triangle: the vanishing of the
+    composites, the dimension of $\widehat{\operatorname{Ext}}{}^0_A(s,Fs)$
+    and the failure of surjectivity of ${(c,d)\mapsto(c-d)v}$. The assertions
+    about $\operatorname{Ext}^1_\Lambda(Z,Z)$ and the identification of this
+    map with $\delta^0$ require \Cref{thm:conversion} and are not formalised.
+\end{enumerate}
+The formalisation of \Cref{prop:coresolution}, statements and proof, was
+written by Claude Opus~5.5. All other items were implemented by GPT-6 Astra
+from specifications by Claude Opus~5.5, who then reviewed their formal
+statements and, for item~6, the formal hypotheses. Acceptance required
+five checks: a scan of the
+sources for placeholders and new axioms, a build with warnings treated as
+errors, an axiom report, a listing of the formal statements, and an
+independent replay of the proof terms by the Lean kernel checker. The
+formalisation is included in the repository described in
+\Cref{app:ai-declaration} (directory \texttt{lean/formalisation}), with its check
+logs (\texttt{lean/gates}).
+A search of Mathlib shows that a complete formalisation of either construction
+would require theories not currently available there, in particular derived
+tensor products over
+noncommutative algebras and dg resolutions for the main construction, and
+stable categories of symmetric algebras with Tate duality for the construction
+of the counterexample to the Auslander--Reiten conjecture. Of the smaller parts
+identified by the feasibility review, only the finite computations of
+\Cref{sec:ar-route} have not been formalised. The evaluation is recorded in
+the repository.

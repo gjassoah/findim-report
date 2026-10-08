@@ -1,0 +1,11 @@
+D-D exact cone-sign check
+Scope: formal block signs, not complete resolutions or Ext vanishing.
+Composition right to left; Q^i=A^i+B^{i+1}; d_Q=[[a,V],[0,-b]].
+g denotes Fg; h has unshifted degree n-1.
+Z, n mod 2 = 0: coordinate differential PASS; endomorphism d^2 PASS
+Z, n mod 2 = 1: coordinate differential PASS; endomorphism d^2 PASS
+Z: cone d_Q^2 PASS using a^2=b^2=0 and aV=Vb
+Z/2Z, n mod 2 = 0: coordinate differential PASS; endomorphism d^2 PASS
+Z/2Z, n mod 2 = 1: coordinate differential PASS; endomorphism d^2 PASS
+Z/2Z: cone d_Q^2 PASS using a^2=b^2=0 and aV=Vb
+All checks passed. The identity covers all integer n by parity.

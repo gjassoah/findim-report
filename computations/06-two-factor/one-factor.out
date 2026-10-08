@@ -1,0 +1,61 @@
+0.32 parameters {'job': 'Codex job 10', 'status': 'running', 'seed': 10102026, 'field': 'Finite Field in b of size 2^16', 'modulus': 'x^16 + x^5 + x^3 + x^2 + 1', 'exponents': [45499, 55487, 38596], 'orders': [65535, 65535, 65535], 'ratio_order': 65535, 'resolution': [], 'systems': []}
+PASS: associativity on all 1000 basis triples
+PASS: unit e+f, orthogonal idempotents, corner dimensions [4, 2, 2, 2]
+PASS: N two-sided; dimensions N^1..N^5 = [8, 5, 3, 1, 0] ; C/N = k x k
+PASS: ((ut)u)t = (0, 0, 0, b^14 + b^9 + b^8 + b^7 + b^5 + b^4 + b^3, 0, 0, 0, 0, 0, 0) = q(1+q)z != 0
+ITEM 1 PASS (supported by exhaustive exact computation)
+PASS: dim T=20; all 8000 associators; form symmetric, associative, rank 20
+PASS: trace-dual stars; radical powers dimensions [18, 14, 10, 5, 2, 0]
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+PASS: all 324 twisted boundary pairs, both coefficient identities
+PASS: all 324 twisted boundary pairs, both coefficient identities
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+2.5 bimodule degree 0 start radical 20
+2.51 bimodule degree 0 radical matrix (160, 20)
+2.61 bimodule degree 0 radical rank 18
+2.85 bimodule degree 0 top selected [0, 3] constructing projective
+2.93 bimodule degree 0 cover matrix built (20, 208)
+13.81 bimodule degree 0 dim 20 top [1, 0, 0, 1] P 208 kernel 188
+13.81 bimodule degree 1 start radical 188
+13.82 bimodule degree 1 radical matrix (1504, 188)
+14.6 bimodule degree 1 radical rank 184
+24.0 bimodule degree 1 top selected [0, 0, 1, 2] constructing projective
+24.2 bimodule degree 1 cover matrix built (188, 480)
+25.9 bimodule degree 1 dim 188 top [2, 1, 1, 0] P 480 kernel 292
+25.94 bimodule degree 2 start radical 292
+25.95 bimodule degree 2 radical matrix (2336, 292)
+27.37 bimodule degree 2 radical rank 286
+44.7 bimodule degree 2 top selected [0, 0, 0, 0, 1, 2] constructing projective
+45.49 bimodule degree 2 cover matrix built (292, 768)
+50.35 bimodule degree 2 dim 292 top [4, 1, 1, 0] P 768 kernel 476
+50.43 bar comparison degree 1 vectors 480 terms 588
+50.53 bar comparison degree 2 vectors 768 terms 2556
+51.64 tau on Omega3 shape (20, 476) rank 20 all bimodule identities PASS
+Timeout (0:01:00)!
+Thread 0x00007f950f11dbc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "/usr/lib/python3.14/site-packages/sage/matrix/special.py", line 2185 in block_matrix
+  File "/usr/lib/python3.14/site-packages/sage/matrix/special.py", line 2255 in block_diagonal_matrix
+  File "computations/05-candidate1/candidate.py", line 196 in build_cone
+  File "computations/06-two-factor/one_factor.py", line 44 in run
+  File "computations/06-two-factor/one_factor.py", line 73 in <module>
+Timeout (0:01:00)!
+Thread 0x00007f950f11dbc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "computations/06-two-factor/reuse.py", line 21 in product
+  File "computations/05-candidate1/candidate.py", line 55 in quotient
+  File "computations/05-candidate1/candidate.py", line 198 in build_cone
+  File "computations/06-two-factor/one_factor.py", line 44 in run
+  File "computations/06-two-factor/one_factor.py", line 73 in <module>
+149.25 cone C dimension 312
+Traceback (most recent call last):
+  File "computations/06-two-factor/one_factor.py", line 73, in <module>
+    if __name__ == '__main__': run()
+                               ~~~^^
+  File "computations/06-two-factor/one_factor.py", line 51, in run
+    top = join(c.matrix(K,data['Ps'][1]['dim'],20),data['ds'][2],'augment')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "sage/matrix/matrix_gf2e_dense.pyx", line 1339, in sage.matrix.matrix_gf2e_dense.Matrix_gf2e_dense.augment
+    rsize = len(right)
+TypeError: object of type 'sage.matrix.matrix_generic_sparse.Matrix_generic_sparse' has no len()

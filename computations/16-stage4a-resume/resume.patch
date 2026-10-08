@@ -1,0 +1,118 @@
+--- a/FindimCounterexample/Stage4aCone.lean
++++ b/FindimCounterexample/Stage4aCone.lean
+@@ -97,9 +97,11 @@
+     (z : ShiftedHom S T.obj₃ n) :
+     homMap (k := k) S T.mor₁ (n + 1) (connecting (k := k) S T n z) = 0 := by
+   have hz := (preadditiveCoyoneda.obj (op S)).homologySequenceδ_comp T hT n (n + 1) rfl
+-  simpa only [ConcreteCategory.comp_apply, preadditiveCoyoneda_homologySequenceδ_apply,
+-    connecting, homMap, Linear.rightComp_apply, Category.assoc] using
+-    congrArg (fun f => f z) hz
++  have hz' := congrArg (fun f => f z) hz
++  change homMap (k := k) S T.mor₁ (n + 1)
++    ((preadditiveCoyoneda.obj (op S)).homologySequenceδ T n (n + 1) rfl z) = 0 at hz'
++  rw [preadditiveCoyoneda_homologySequenceδ_apply] at hz'
++  simpa only [connecting, homMap, Linear.rightComp_apply, Category.assoc] using hz'
+ 
+ /-- Surjectivity of the first action and injectivity of the next one force
+ the cone's Hom group to vanish. -/
+@@ -159,7 +161,8 @@
+     targetShiftEquiv (k := k) s s 3 n (3 + n) rfl (homMap (k := k) s τ n x) =
+       x.comp τ rfl := by
+   simp only [targetShiftEquiv, Linear.homCongr_apply, Iso.refl_inv,
+-    Category.id_comp, homMap, Linear.rightComp_apply, ShiftedHom.comp, Category.assoc]
++    Category.id_comp, homMap, Linear.rightComp_apply, ShiftedHom.comp, Category.assoc,
++    Iso.symm_hom, Iso.app_inv]
+ 
+ omit [HasZeroObject C] [∀ n : ℤ, (shiftFunctor C n).Additive] [Pretriangulated C] in
+ /-- Surjectivity transfers from graded multiplication to the actual shifted
+@@ -181,7 +184,9 @@
+     Function.Injective (homMap (k := k) s τ n) := by
+   intro x y hxy
+   apply h
+-  rw [← targetShift_homMap (k := k), ← targetShift_homMap (k := k), hxy]
++  exact (targetShift_homMap s τ n x).symm.trans
++    ((congrArg (targetShiftEquiv (k := k) s s 3 n (3 + n) rfl) hxy).trans
++      (targetShift_homMap s τ n y))
+ 
+ /-- The degree-three class as a map `s[-3] → s`, using the inverse of
+ the fully faithful shift and its counit. This specifies the report's
+@@ -246,7 +251,7 @@
+     (hT : Triangle.mk P.tau i π ∈ distTriang C)
+     (n : ℤ) (hn₀ : n ≠ -3) (hn₁ : n ≠ -2) :
+     Subsingleton (ShiftedHom s Y n) := by
+-  apply subsingleton_of_surjective_injective s (Triangle.mk P.tau i π) hT n
++  apply subsingleton_of_surjective_injective (k := k) s (Triangle.mk P.tau i π) hT n
+   · exact homMap_surjective_of_mul s P.tau n (P.right_mul_tau_surjective D n hn₀)
+   · exact homMap_injective_of_mul s P.tau (n + 1)
+       (P.right_mul_tau_injective D (n + 1) (by omega))
+@@ -267,14 +272,15 @@
+   let N := Triangle.mk P.tau (i⟦(3 : ℤ)⟧') (T₃.mor₃ ≫ e.hom⟦(1 : ℤ)⟧')
+   have hsign : (3 : ℤ).negOnePow = -1 := by decide
+   have eN : T₃ ≅ N := by
+-    apply Triangle.isoMk T₃ N e (-Iso.refl _) (Iso.refl _)
++    refine Triangle.isoMk T₃ N e (-Iso.refl _) (Iso.refl _) ?_ ?_ ?_
+     · change ((3 : ℤ).negOnePow • (deshiftTau s P.tau)⟦(3 : ℤ)⟧') ≫
+         (-(𝟙 (s⟦(3 : ℤ)⟧))) = e.hom ≫ P.tau
+-      simp only [hsign, neg_one_smul, Preadditive.neg_comp, Preadditive.comp_neg,
++      simp only [hsign, Units.neg_smul, one_smul, Preadditive.comp_neg,
+         Category.comp_id, neg_neg, deshiftTau, Functor.map_preimage, e]
+     · change ((3 : ℤ).negOnePow • i⟦(3 : ℤ)⟧') ≫ 𝟙 _ =
+         (-(𝟙 (s⟦(3 : ℤ)⟧))) ≫ i⟦(3 : ℤ)⟧'
+-      simp only [hsign, neg_one_smul, Preadditive.neg_comp, Category.id_comp, Category.comp_id]
++      simp only [hsign, Units.neg_smul, one_smul, Preadditive.neg_comp,
++        Category.id_comp, Category.comp_id]
+     · change T₃.mor₃ ≫ e.hom⟦(1 : ℤ)⟧' = 𝟙 _ ≫ (T₃.mor₃ ≫ e.hom⟦(1 : ℤ)⟧')
+       rw [Category.id_comp]
+   have hN : N ∈ distTriang C :=
+--- a/Audit/Statements.lean
++++ b/Audit/Statements.lean
+@@ -117,7 +117,7 @@
+ elab "#stage4a_fields " id:ident : command => do
+   let name ← Lean.Elab.Command.liftCoreM <| Lean.Elab.realizeGlobalConstNoOverloadWithInfo id
+   let env ← Lean.getEnv
+-  let (_, found) := (stage4aFields env name).run' ({}, {})
++  let (_, (_, found)) := (stage4aFields env name).run ({}, {})
+   Lean.logInfo m!"Interface projections in {name}: {found.toArray.qsort Lean.Name.lt}"
+ 
+ #check @Stage4a.TateDuality
+--- a/README.md
++++ b/README.md
+@@ -15,7 +15,7 @@
+ | 1 | In an abelian category, short exact sequences 0 → c₀ → p₀ → c₁ → 0 and 0 → cₙ → pₙ → cₙ₊₁ → 0 with all pₙ projective, c₀ projective and c₁ not projective give pd cₙ = n for n ≥ 1 (note 02, Proposition O.4, dimension-shifting half) | `FindimCounterexample.ProjectiveCoresolution.projectiveDimension_eq` | proved; gates pass |
+ | 2 | Proposition O.4 with exactness of the dual complex stated directly: a nonzero quotient E of P₀ annihilating d₀ gives finitely generated left cokernels Cₙ of projective dimension n for every n ≥ 1 | `FindimCounterexample.StrongNakayama.projectiveDimension_eq`, `.unbounded` | AI-proved; all five gates pass; committed |
+ | 3a | Theorem 3.3 with Ext vanishing as its hypothesis; Ext vanishing iff Hom-complex exactness; transpose and syzygy identifications for the chosen resolution | `FindimCounterexample.ModuleResolution.ext_vanishing_iff`, `StrongNakayama.projectiveDimension_eq_of_ext`, `.unbounded_of_ext`, `Transpose.cok_eq_transpose`, `.presentationCokernelIsoSyzygy` | AI-proved; all five gates pass (uncommitted) |
+-| 4a | Section 10 obstructions over the approved Tate interface | `Stage4a.tate_obstruction`, `Stage4a.HigherObstruction.polynomial_toda_eq_zero`; cone applications in progress | conditional AI-proved bracket results; final gates pending |
++| 4a | Section 10 obstructions over the approved Tate interface | `Stage4a.Cone.oneCone_profile`, `Stage4a.one_factor_obstruction`, `Stage4a.tate_obstruction`, `Stage4a.HigherObstruction.polynomial_toda_eq_zero` | conditional source checks passed; final gates pending |
+ | 3 | Proposition O.5: an Auslander–Reiten counterexample (Λ, M) gives Ext^i_Γ(S, Γ) = 0 for all i ≥ 0, Γ = End(Λ ⊕ M)^op | — | planned |
+ 
+ Not formalised: the constructions of the preprints, and any statement about a specific algebra.
+@@ -122,9 +122,9 @@
+ |---|---|
+ | Genuine Toda brackets, existence and indeterminacy coset | `Stage4a.Toda.bracket`, `.bracket_nonempty`, `.bracket_eq_coset` |
+ | Lemma 2.2 and independence of the chosen cone | `Stage4a.Toda.juggling`, `.bracket_eq_of_distinguished_cones` |
+-| Proposition 10.1: complete profile and the two map isomorphisms | `Stage4a.Cone.oneCone_profile`, `.oneCone_i_bijective`, `.oneCone_pi_bijective` (compilation pending) |
+-| Proposition 10.2: rank and triangle calculation with cone inputs derived | `Stage4a.one_factor_rank` (compilation pending) |
+-| Corollary 10.3: composite vanishing and rank obstruction | `Stage4a.Cone.oneCone_composite_zero`, `Stage4a.one_factor_obstruction` (compilation pending) |
++| Proposition 10.1: complete profile and the two map isomorphisms | `Stage4a.Cone.oneCone_profile`, `.oneCone_i_bijective`, `.oneCone_pi_bijective` (source check passed; final gates pending) |
++| Proposition 10.2: rank and triangle calculation with cone inputs derived | `Stage4a.one_factor_rank` (source check passed; final gates pending) |
++| Corollary 10.3: composite vanishing and rank obstruction | `Stage4a.Cone.oneCone_composite_zero`, `Stage4a.one_factor_obstruction` (source check passed; final gates pending) |
+ | Theorem 10.4: Tate obstruction, including definedness | `Stage4a.tate_obstruction` |
+ | Corollary 10.5: polynomial case in every degree `p ≥ 3` | `Stage4a.HigherObstruction.polynomial_toda_eq_zero` |
+ 
+@@ -139,6 +139,8 @@
+    and `Pretriangulated C`; finite dimensionality of each `X ⟶ Y`.
+    These are the approved linear pretriangulated category and Hom finiteness.
+    Individual results omit standard assumptions that their proof does not use.
++   Binary biproducts are supplied by Mathlib's pretriangulated instances; their
++   explicit witnesses in the one-factor statements do not add an assumption.
+ 2. `TateDuality.pairing X Y a b h` is a linear equivalence from
+    `Hom(X,Y[a])` to the dual of `Hom(Y,X[b])`, for `h : a+b=-1`.
+    `TateDuality.composition` states exactly `⟨ζη,τ⟩=⟨ζ,ητ⟩`.
+@@ -199,4 +201,6 @@
+ Stage 4a: GPT-6 (Codex), effort unknown (2026-10-08), with same-model agents.
+ Development record: `audit/16-lean-stage4a-codex.md` in the verification repository.
+ Conditional input correspondence and readability review by the implementing
+-model are not an independent review or human certification. Final gates pending.
++model are not an independent review or human certification. The resumed
++source-only check covers all stated targets, with departure 4a.4. Final gates
++remain pending; source checks do not replace the five acceptance gates.

@@ -1,0 +1,235 @@
+\section{Obstructions to smaller constructions}
+\label{sec:obstructions}
+
+The algebra of \Cref{coro:ar-findim} has nine simple modules, and the
+triangular algebra used to obtain it has eight simple modules and dimension of
+the order of $10^{35}$ (\Cref{rem:ar-sizes}). Most of this size comes
+from the tensor square ${E=T\otimes T}$ and from the bimodule cosyzygies
+over~$E^e$. The analogous construction over $T$ itself, with a single cone,
+fails in degree zero
+(\Cref{prop:one-factor,coro:one-factor}), and Tate duality also forces the
+vanishing of the related Toda brackets (\Cref{thm:tate-obstruction}).
+
+\subsection{One cone and two cones}
+\label{subsec:one-cone}
+
+In this subsection $A$ is a finite-dimensional symmetric algebra and $s$ a
+simple $A$-module with ${\operatorname{End}_A(s)=\kk}$ and
+${\operatorname{Ext}^*_A(s,s)=\kk[\tau]}$, a polynomial algebra on a generator
+of degree three; for instance ${(A,s)=(T,s)}$ of \Cref{thm:T-ext}. Write
+${H^a=\widehat{\operatorname{Ext}}{}^a_A(s,s)}$. By \Cref{thm:tate-duality},
+${H^{3m}=\kk\tau^m}$ and ${H^{-3m-1}\cong D(\kk\tau^m)}$ for ${m\geq0}$, all other
+$H^a$ vanish, and multiplication by $\tau$ is an isomorphism
+${H^{-3m-1}\to H^{-3m+2}}$ for ${m\geq1}$, by the argument of
+\Cref{prop:E-tate}. Let $\beta_0$ span $H^{-1}$.
+
+\begin{proposition}
+  \label{prop:one-cone}
+  Let
+  \[
+    s[-3]\xrightarrow{\tau}s\xrightarrow{i}X\xrightarrow{\pi}s[-2]
+  \]
+  be a triangle in $\operatorname{\underline{mod}}A$, and put
+  ${U^a=\widehat{\operatorname{Ext}}{}^a_A(s,X)}$. Then $U^0$ and $U^1$ are
+  one-dimensional, $i$ induces an isomorphism ${H^0\to U^0}$, $\pi[1]$ induces an
+  isomorphism ${U^1\to H^{-1}}$, and ${U^a=0}$ for ${a\notin\set{0,1}}$.
+\end{proposition}
+
+\begin{proof}
+  The triangle gives exact sequences
+  \[
+    0\longrightarrow\operatorname{coker}(\tau\colon H^{a-3}\to H^a)
+    \xrightarrow{\ i\ }U^a\xrightarrow{\ \pi\ }\ker(\tau\colon H^{a-2}\to
+    H^{a+1})\longrightarrow0.
+  \]
+  Multiplication by $\tau$ is an isomorphism ${H^{3m-3}\to H^{3m}}$ for ${m\geq1}$
+  and ${H^{-3m-1}}\to{ H^{-3m+2}}$ for ${m\geq1}$, so the only nonzero cokernel is
+  $H^0$, in degree ${a=0}$, and the only nonzero kernel is $H^{-1}$, in degree
+  ${a-2=-1}$.
+\end{proof}
+
+In the construction over ${T\otimes_\kk T}$ of \Cref{sec:ar-route}, the first cone
+has
+one-dimensional groups in the degrees $3m$ and ${1-3m}$ for ${m\geq0}$; after the
+second cone, taken in the other tensor factor, only the groups in degrees zero
+and three remain (\Cref{prop:two-cone-profile}). With a single cone the two
+nonzero degrees are
+adjacent, and the comparison map of \Cref{thm:conversion} cannot be surjective
+in degree zero unless at least one of the compositions ${w_i[-1]\circ\beta_0}$ in
+\Cref{prop:one-factor} is nonzero.
+
+\begin{proposition}
+  \label{prop:one-factor}
+  In the situation of \Cref{prop:one-cone}, let $F$ be a finite-dimen\-sional
+  $A$-bimodule, projective on each side, with a triangle
+  \[
+    Fs\xrightarrow{(\rho_1,\rho_2)}s\oplus s\xrightarrow{(w_1,w_2)}X[1]
+    \longrightarrow Fs[1]
+  \]
+  in $\operatorname{\underline{mod}}A$, where ${w_1,w_2\in U^1}$ are not both
+  zero. Suppose that ${w_1[-1]\circ\beta_0}={0}={w_2[-1]\circ\beta_0}$ in $U^0$. Then
+  for every stable morphism ${v\colon s\to Fs}$ the map $\delta^0$ of
+  \Cref{thm:conversion} is not surjective, and the module $Z$ constructed by the
+  formula in \Cref{thm:conversion}, if defined, satisfies
+  ${\operatorname{Ext}^1_\Lambda(Z,Z)\neq0}$.
+\end{proposition}
+
+\begin{proof}
+  Put ${V^0=\widehat{\operatorname{Ext}}{}^0_A(s,Fs)}$. Applying
+  ${\widehat{\operatorname{Ext}}{}^0_A(s,-)}$ to the triangle gives an exact
+  sequence
+  \[
+    (H^{-1})^{\oplus2}\xrightarrow{(w_1[-1],w_2[-1])}U^0\longrightarrow V^0
+    \longrightarrow(H^0)^{\oplus2}\xrightarrow{(w_1,w_2)}U^1.
+  \]
+  The first map vanishes by hypothesis, so ${U^0\cong\kk}$ injects into $V^0$.
+  The last map has rank one, since ${H^0=\kk}$ and the $w_i$ are not both zero,
+  so its kernel is one-dimensional. Hence, ${\dim V^0=2}$. Since ${H^0=\kk}$ acts by
+  scalars, ${\delta^0(c,d)=(c-d)v}$ is a multiple of $v$, so the image of
+  $\delta^0$ has dimension at most one and $\delta^0$ is not surjective. By the
+  exact sequence~\eqref{eq:conversion-sequence} for ${a=1}$, the cokernel of
+  $\delta^0$ embeds into $\operatorname{Ext}^1_\Lambda(Z,Z)$.
+\end{proof}
+
+\begin{corollary}
+  \label{coro:one-factor}
+  The hypothesis ${w_1[-1]\circ\beta_0=0=w_2[-1]\circ\beta_0}$ of
+  \Cref{prop:one-factor} always holds. Hence, in the situation of
+  \Cref{prop:one-cone}, the formula in \Cref{thm:conversion}, applied to a
+  single cone as above, never produces a module $Z$ with
+  ${\operatorname{Ext}^1_\Lambda(Z,Z)=0}$.
+\end{corollary}
+
+\begin{proof}
+  Since ${\tau\neq0}$, the nondegenerate pairing of \Cref{thm:tate-duality},
+  which is compatible with composition, makes the map ${H^{-4}\to H^{-1}}$,
+  ${\gamma\mapsto\gamma[3]\circ\tau}$, nonzero, hence surjective onto the
+  one-dimensional space $H^{-1}$. Choose $\gamma$ with
+  ${\gamma[3]\circ\tau=\beta_0}$. For ${w\in U^1}$,
+  \[
+    w[-1]\circ\beta_0=(w[-4]\circ\gamma)[3]\circ\tau,
+  \]
+  and ${w[-4]\circ\gamma\in U^{-3}}$, which is zero by \Cref{prop:one-cone}.
+\end{proof}
+
+\subsection{A Tate-duality obstruction}
+\label{subsec:tate-obstruction}
+
+\begin{theorem}
+  \label{thm:tate-obstruction}
+  Let $A$ be a finite-dimensional symmetric algebra and $s$ a nonprojective
+  simple $A$-module with ${\operatorname{End}_A(s)=\kk}$ and
+  \[
+    \operatorname{Ext}^1_A(s,s)=\operatorname{Ext}^2_A(s,s)=
+    \operatorname{Ext}^4_A(s,s)=0.
+  \]
+  Then for all ${\tau\in\widehat{\operatorname{Ext}}{}^3_A(s,s)}$ and
+  ${\beta\in\widehat{\operatorname{Ext}}{}^{-1}_A(s,s)}$ the Toda bracket
+  $\langle\tau,\beta,\beta\rangle$ is defined and equal to~$\set{0}$.
+\end{theorem}
+
+\begin{proof}
+  Write ${H^a}={\widehat{\operatorname{Ext}}{}^a_A(s,s)}$. By
+  \Cref{thm:tate-duality}, ${H^{-1-a}\cong DH^a}$, so ${H^{-2}}={H^{-3}}={H^{-5}}={0}$,
+  and ${H^{-1}\cong DH^0}$ is one-dimensional, since ${H^0}={
+  \underline{\operatorname{End}}_A(s)}={\kk}$ for the nonprojective module $s$
+  with ${\operatorname{End}_A(s)}={\kk}$. The bracket is defined, since
+  ${\tau\beta\in H^2=0}$ and ${\beta^2\in H^{-2}=0}$; it lies in $H^0$, and its
+  indeterminacy ${\tau H^{-3}+H^1\beta}$ is zero. If ${\tau=0}$, then $0$ is an
+  element of the bracket, obtained with ${b=0}$ in the defining system. If
+  ${\tau\neq0}$, the nondegenerate pairing of \Cref{thm:tate-duality}, which is
+  compatible with composition, makes the map ${H^{-4}\to H^{-1}}$,
+  ${\gamma}\mapsto{\gamma\tau}$, nonzero and hence surjective onto the
+  one-dimensional space $H^{-1}$; choose ${\gamma\in H^{-4}}$ with
+  ${\gamma\tau=\beta}$. The bracket $\langle\tau,\beta,\gamma\rangle$ is defined,
+  since ${\beta\gamma}\in{ H^{-5}}={0}$, and it lies in ${H^{-3}=0}$. By
+  \Cref{lemma:toda-juggling},
+  \[
+    \set{0}=\langle\tau,\beta,\gamma\rangle\circ\tau\subseteq
+    \langle\tau,\beta,\gamma\tau\rangle=\langle\tau,\beta,\beta\rangle.
+  \]
+  Since the indeterminacy vanishes, ${\langle\tau,\beta,\beta\rangle=\set{0}}$.
+\end{proof}
+
+\begin{corollary}
+  \label{coro:tate-obstruction}
+  Let $A$ be a finite-dimensional symmetric algebra and $s$ a simple
+  $A$-module. If ${\operatorname{End}_A(s)=\kk}$ and
+  ${\operatorname{Ext}^*_A(s,s)=\kk[\tau]}$
+  with $\tau$ of degree ${p\geq3}$, then ${\langle\tau,\beta,\beta\rangle=\set{0}}$
+  for every ${\beta\in\widehat{\operatorname{Ext}}{}^{-1}_A(s,s)}$.
+\end{corollary}
+
+\begin{proof}
+  For ${p=3}$ this is \Cref{thm:tate-obstruction}. For ${p>3}$ the bracket lies in
+  ${\widehat{\operatorname{Ext}}{}^{p-3}_A(s,s)}={\operatorname{Ext}^{p-3}_A(s,s)}$,
+  which vanishes since ${0<p-3<p}$.
+\end{proof}
+
+The tensor square ${S=s\otimes s}$ over ${E=T\otimes T}$ of \Cref{sec:ar-route}
+also satisfies the hypotheses of \Cref{thm:tate-obstruction}, since
+${\operatorname{Ext}^*_E(S,S)=\kk[\tau_1,\tau_2]}$ vanishes in degrees $1$, $2$
+and~$4$; so the corresponding brackets vanish there as well. The construction
+over ${T\otimes_\kk T}$ does not depend on such a bracket: it uses a second cone,
+after which the only nonzero groups $W^a$ are in degrees $0$ and $3$, as in
+\Cref{prop:two-cone-profile}, so that the term ${W^2=0}$ replaces the term $U^0$
+of \Cref{prop:one-factor}. \Cref{thm:tate-obstruction} does not exclude
+other constructions, for instance with simple modules whose stable
+endomorphism ring is larger than $\kk$, with other brackets, or with a different
+construction from stable morphisms to modules.
+
+\begin{remark}
+  \label{rem:weights}
+  For trivial extensions ${T=C\ltimes DC}$, graded with $C$ in degree zero and
+  $DC$ in degree one, there is a second explanation, by weights. The twists
+  $h_\lambda$ of \Cref{subsec:cocycle} act on a homogeneous stable class of
+  internal degree $\delta$ by $\lambda^{\delta}$, under the convention of
+  \Cref{lemma:twist}; a bracket of homogeneous classes with zero indeterminacy
+  and target concentrated in internal degree zero vanishes unless the
+  internal degrees add up to zero. For the pair $(T,s)$ of
+  \Cref{sec:ar-route}, let $\beta_0$ span
+  $\widehat{\operatorname{Ext}}{}^{-1}_T(s,s)$. Then ${\delta(\tau)=-1}$ by
+  \Cref{lemma:twist} and ${\delta(\beta_0)=1}$, since
+  $\beta_0$ is dual to the identity under a form of internal degree one, so
+  the weights do not cancel. This argument, and a six-dimensional example in
+  which the weights cancel and a bracket of the form $\langle\tau,\beta,\beta\rangle$ is
+  nonzero, are
+  recorded with their verification in the repository of the project; see
+  \Cref{app:verification}. The six-dimensional example has periodic, not
+  polynomial, Ext algebra, in accordance with \Cref{thm:tate-obstruction}.
+\end{remark}
+
+\subsection{Computational evidence}
+\label{subsec:obstruction-computations}
+
+The following computations concern constructions with a single cone, or without
+cones. Their scripts and parameters are described in \Cref{app:computations};
+the results agree with \Cref{coro:one-factor} in the stated cases and degrees.
+They are finite computations with the stated scope,
+not proofs in all degrees.
+\begin{enumerate}
+  \item An example without cones:
+    \[
+      \Lambda_0=\begin{pmatrix}T&0\\T_{H_1}\oplus T_{H_2}&T\end{pmatrix},
+    \]
+    of dimension $80$ with four simple modules, and a nonprojective module $Z_0$
+    of dimension ten. Over finite fields $\mathbb{F}_{2^{16}}$, in three runs
+    and up to degree six, $\operatorname{Ext}^a_{\Lambda_0}(Z_0,Z_0)$ has
+    dimensions $1,0,0,0,0,0$ for ${a=1,\dots,6}$ and
+    ${\operatorname{Ext}^a_{\Lambda_0}(Z_0,\Lambda_0)=0}$; the same holds exactly
+    over $\mathbb{F}_2(q,H_1,H_2)$ up to degree two. The surviving class is the
+    cokernel of $\delta^0$, as predicted by~\eqref{eq:conversion-sequence}.
+  \item The candidate constructed over $T$ from the cone of $\tau$, lifts of
+    the twists and a fibre $F_1$, of dimension $352$, giving an algebra
+    $\Lambda_1$ of dimension $392$ with four simple modules and a module $Z_1$
+    of dimension $16$. Over $\mathbb{F}_{2^{16}}$, in two samples,
+    $\operatorname{Ext}^a_{\Lambda_1}(Z_1,Z_1)$ has dimensions $1,0,0$ and
+    ${\operatorname{Ext}^a_{\Lambda_1}(Z_1,\Lambda_1)=0}$ for ${a=1,2,3}$, and
+    $\delta^0$ has rank one, as in \Cref{prop:one-factor}.
+  \item Three further attempts to use a single cone over algebras of dimensions
+    $6$, $12$ and $40$ fail because the relevant simple modules do not have
+    polynomial Ext algebras on one generator of degree three; their Ext
+    dimensions were computed over $\mathbb{F}_{2^{16}}$ up to degree twelve,
+    using a tensor-product formula in degrees $2$ to $12$ for the
+    forty-dimensional example.
+\end{enumerate}

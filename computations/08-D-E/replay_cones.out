@@ -1,0 +1,54 @@
+Reusing completed initial exact rank/product pass.
+rank -5 276
+rank -4 148
+rank -3 92
+rank -2 36
+rank -1 0
+rank 0 35
+rank 1 93
+rank 2 147
+rank 3 276
+rank 4 444
+rank 5 612
+rank 6 888
+rank 7 1224
+seam False corner dimension 36 ordinary Hom 1
+seam True corner dimension 36 ordinary Hom 0
+{
+  "scope": "Claim: finite exact replay of saved two-cone Hom matrices and seam.\nCases: computations/06-two-factor seed 10102026 over GF(2^16), -4<=a<=7.\nConventions: left modules, homological complete resolution, char two.\nScope: recomputes ranks and consecutive zero products of saved Hom matrices;\nchecks direct stable Hom in a=0,-1 from saved module action matrices. Does\nnot rebuild the cocycle, resolution, cone, or certify any all-degree claim.\nAll prior artifacts are read-only; outputs/state belong to this directory.\n",
+  "field": "Finite Field in b of size 2^16",
+  "dim_coneX": 276,
+  "W": {
+    "-4": 0,
+    "-3": 0,
+    "-2": 0,
+    "-1": 0,
+    "0": 1,
+    "1": 0,
+    "2": 0,
+    "3": 1,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0
+  },
+  "ranks": {
+    "-5": 276,
+    "-4": 148,
+    "-3": 92,
+    "-2": 36,
+    "-1": 0,
+    "0": 35,
+    "1": 93,
+    "2": 147,
+    "3": 276,
+    "4": 444,
+    "5": 612,
+    "6": 888,
+    "7": 1224
+  },
+  "ordinary_Hom_X_M": 1,
+  "ordinary_Hom_M_X": 0,
+  "projective_factor_rank": 0,
+  "status": "finite saved-matrix replay completed; no all-degree assertion"
+}

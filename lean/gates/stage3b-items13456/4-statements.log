@@ -1,0 +1,392 @@
+@ProjectiveCoresolution.hasProjectiveDimensionLE : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) → ∀ (n : ℕ), CategoryTheory.HasProjectiveDimensionLE (R.c n) n
+@ProjectiveCoresolution.not_hasProjectiveDimensionLT : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  ¬CategoryTheory.Projective (R.c 1) → ∀ (n : ℕ), ¬CategoryTheory.HasProjectiveDimensionLT (R.c (n + 1)) (n + 1)
+@ProjectiveCoresolution.projectiveDimension_eq : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) →
+    ¬CategoryTheory.Projective (R.c 1) →
+      ∀ (n : ℕ),
+        1 ≤ n → CategoryTheory.HasProjectiveDimensionLE (R.c n) n ∧ ¬CategoryTheory.HasProjectiveDimensionLT (R.c n) n
+'FindimCounterexample.ProjectiveCoresolution.hasProjectiveDimensionLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.not_hasProjectiveDimensionLT' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.projectiveDimension_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@RingDual.freeDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (ι : Type u_2) → [Fintype ι] → [DecidableEq ι] → RingDual.RightDual A (ι → Aᵐᵒᵖ) ≃ₗ[A] ι → A
+@RingDual.evalEquiv : {A : Type u_1} →
+  [inst : Ring A] →
+    {P : Type u_2} →
+      [inst_1 : AddCommGroup P] →
+        [inst_2 : Module Aᵐᵒᵖ P] →
+          [Module.Finite Aᵐᵒᵖ P] → [Module.Projective Aᵐᵒᵖ P] → P ≃ₗ[Aᵐᵒᵖ] RingDual.LeftDual A (RingDual.RightDual A P)
+@RingDual.rightDual_projective : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P],
+  Module.Projective A (RingDual.RightDual A P)
+@RingDual.rightDual_finite : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P], Module.Finite A (RingDual.RightDual A P)
+@RingDual.split_of_dual_split : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} {P' : Type u_3}
+  [inst_1 : AddCommGroup P] [inst_2 : AddCommGroup P'] [inst_3 : Module Aᵐᵒᵖ P] [inst_4 : Module Aᵐᵒᵖ P']
+  [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P'] [Module.Projective Aᵐᵒᵖ P']
+  (f : P →ₗ[Aᵐᵒᵖ] P') (r : RingDual.RightDual A P →ₗ[A] RingDual.RightDual A P'),
+  r ∘ₗ RingDual.rightMap f = LinearMap.id → ∃ s, f ∘ₗ s = LinearMap.id
+@ExactCoresolution.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (X : ℕ → ModuleCat A) →
+      (d : (n : ℕ) → ↑(X n) →ₗ[A] ↑(X (n + 1))) →
+        (∀ (n : ℕ), (d n).range = (d (n + 1)).ker) →
+          Function.Injective ⇑(d 0) →
+            (∀ (n : ℕ), CategoryTheory.Projective (X (n + 1))) → ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] →
+          [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] →
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+              (∀ (n : ℕ),
+                  (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+                ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.projective_zero : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)], CategoryTheory.Projective (StrongNakayama.cok P d 0)
+@StrongNakayama.cok_finite : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] (n : ℕ), Module.Finite A ↑(StrongNakayama.cok P d n)
+@StrongNakayama.not_projective_one : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε → ε ∘ₗ d 0 = 0 → ¬CategoryTheory.Projective (StrongNakayama.cok P d 1)
+@StrongNakayama.projectiveDimension_eq : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                  ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                ∃ M,
+                  Module.Finite A ↑M ∧
+                    CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+'FindimCounterexample.RingDual.freeDualEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.evalEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_projective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.split_of_dual_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ExactCoresolution.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projective_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.cok_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.not_projective_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ResolutionExt.ext_zero_iff_injective : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X),
+  Subsingleton (CategoryTheory.Abelian.Ext X Y 0) ↔
+    Function.Injective fun f => CategoryTheory.CategoryStruct.comp (R.complex.d 1 0) f
+@ResolutionExt.ext_succ_iff_cocycles_boundaries : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X) (n : ℕ),
+  Subsingleton (CategoryTheory.Abelian.Ext X Y (n + 1)) ↔
+    ∀ (f : R.complex.X (n + 1) ⟶ Y),
+      CategoryTheory.CategoryStruct.comp (R.complex.d (n + 2) (n + 1)) f = 0 →
+        ∃ g, CategoryTheory.CategoryStruct.comp (R.complex.d (n + 1) n) g = f
+@ResolutionExt.ext_vanishing_iff : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X),
+  (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext X Y n)) ↔
+    (Function.Injective fun f => CategoryTheory.CategoryStruct.comp (R.complex.d 1 0) f) ∧
+      ∀ (n : ℕ) (f : R.complex.X (n + 1) ⟶ Y),
+        CategoryTheory.CategoryStruct.comp (R.complex.d (n + 2) (n + 1)) f = 0 →
+          ∃ g, CategoryTheory.CategoryStruct.comp (R.complex.d (n + 1) n) g = f
+@ModuleResolution.projectiveResolution : {R : Type u_1} →
+  [inst : Ring R] →
+    (P : ℕ → ModuleCat R) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[R] ↑(P n)) →
+        (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+          {E : ModuleCat R} →
+            (ε : ↑(P 0) →ₗ[R] ↑E) →
+              (d 0).range = ε.ker →
+                Function.Surjective ⇑ε → [∀ (n : ℕ), Module.Projective R ↑(P n)] → CategoryTheory.ProjectiveResolution E
+@ModuleResolution.ext_vanishing_iff : ∀ {R : Type u_1} [inst : Ring R] (P : ℕ → ModuleCat R)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[R] ↑(P n)) (N : ModuleCat R) [inst_1 : Small.{u_2, u_1} R]
+  [∀ (n : ℕ), Module.Projective R ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat R} (ε : ↑(P 0) →ₗ[R] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ((∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E N n)) ↔
+            Function.Injective ⇑(ModuleResolution.homDifferential P d N 0) ∧
+              ∀ (n : ℕ),
+                (ModuleResolution.homDifferential P d N n).range = (ModuleResolution.homDifferential P d N (n + 1)).ker)
+@StrongNakayama.homRightDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (P : ℕ → ModuleCat Aᵐᵒᵖ) → (n : ℕ) → (P n ⟶ ModuleCat.of Aᵐᵒᵖ A) ≃+ RingDual.RightDual A ↑(P n)
+@StrongNakayama.homDifferential_eq_dualDifferential : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) (n : ℕ),
+  ModuleResolution.homDifferential P d (ModuleCat.of Aᵐᵒᵖ A) n = (StrongNakayama.dualDifferential P d n).toAddMonoidHom
+@StrongNakayama.ext_vanishing_iff_dual_exact : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ((∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) ↔
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) ∧
+              ∀ (n : ℕ),
+                (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker)
+@StrongNakayama.projectiveDimension_eq_of_ext : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ∀ [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] [Nontrivial ↑E],
+            (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) →
+              ∀ (n : ℕ),
+                1 ≤ n →
+                  Module.Finite A ↑(StrongNakayama.cok P d n) ∧
+                    CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                      ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded_of_ext : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ∀ [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] [Nontrivial ↑E],
+            (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) →
+              ∀ (n : ℕ),
+                1 ≤ n →
+                  ∃ M,
+                    Module.Finite A ↑M ∧
+                      CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+@Transpose.presentedModule : {A : Type u_1} →
+  [inst : Ring A] → {Q₁ Q₀ : ModuleCat Aᵐᵒᵖ} → (↑Q₁ →ₗ[Aᵐᵒᵖ] ↑Q₀) → ModuleCat Aᵐᵒᵖ
+@Transpose.ofPresentation : {A : Type u_1} →
+  [inst : Ring A] → {Q₁ Q₀ : ModuleCat Aᵐᵒᵖ} → (↑Q₁ →ₗ[Aᵐᵒᵖ] ↑Q₀) → ModuleCat A
+@Transpose.cok_eq_transpose : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) (n : ℕ), StrongNakayama.cok P d (n + 1) = Transpose.ofPresentation (d n)
+@Transpose.syzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      ((n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) → (E : ModuleCat Aᵐᵒᵖ) → (↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) → ℕ → ModuleCat Aᵐᵒᵖ
+@Transpose.presentationCokernelEquivSyzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        (E : ModuleCat Aᵐᵒᵖ) →
+          (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) →
+            Function.Surjective ⇑ε →
+              (d 0).range = ε.ker →
+                (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+                  (n : ℕ) → ↑(Transpose.presentedModule (d n)) ≃ₗ[Aᵐᵒᵖ] ↑(Transpose.syzygy P d E ε n)
+@Transpose.presentationCokernelIsoSyzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        (E : ModuleCat Aᵐᵒᵖ) →
+          (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) →
+            Function.Surjective ⇑ε →
+              (d 0).range = ε.ker →
+                (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+                  (n : ℕ) → Transpose.presentedModule (d n) ≅ Transpose.syzygy P d E ε n
+'FindimCounterexample.ResolutionExt.ext_zero_iff_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ResolutionExt.ext_succ_iff_cocycles_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ResolutionExt.ext_vanishing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ModuleResolution.projectiveResolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ModuleResolution.ext_vanishing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.homRightDualEquiv' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.StrongNakayama.homDifferential_eq_dualDifferential' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.StrongNakayama.ext_vanishing_iff_dual_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq_of_ext' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded_of_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.presentedModule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.ofPresentation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.cok_eq_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.syzygy' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.Transpose.presentationCokernelEquivSyzygy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Transpose.presentationCokernelIsoSyzygy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+FindimCounterexample.SelectionGroup.G : Type
+FindimCounterexample.SelectionGroup.Relator : FreeGroup SelectionGroup.Generator → Prop
+FindimCounterexample.SelectionGroup.weight : SelectionGroup.Root → (SelectionGroup.Index → ℤ) →+ ℤ
+@SelectionGroup.lift : {H : Type u_1} →
+  [inst : Group H] →
+    (t : SelectionGroup.Index → H) →
+      (s : SelectionGroup.Root → ℤ → H) →
+        (∀ (l k : SelectionGroup.Index), Commute (t l) (t k)) →
+          (∀ (l : SelectionGroup.Index) (a : SelectionGroup.Root) (r : ℤ),
+              t l * s a r * (t l)⁻¹ = s a (r + SelectionGroup.step a l)) →
+            (∀ (i : SelectionGroup.Index) (r : ℤ), s (SelectionGroup.Root.u i) r ^ 2 = 1) →
+              (∀ (i j : SelectionGroup.Index),
+                  i ≠ j → ∀ (r q : ℤ), Commute (s (SelectionGroup.Root.u i) r) (s (SelectionGroup.Root.u j) q)) →
+                (∀ (i j : SelectionGroup.Index),
+                    i ≠ j → ∀ (r q : ℤ), Commute (s (SelectionGroup.Root.v i) r) (s (SelectionGroup.Root.v j) q)) →
+                  (∀ (i j : SelectionGroup.Index),
+                      i ≠ j → ∀ (r q : ℤ), Commute (s (SelectionGroup.Root.u i) r) (s (SelectionGroup.Root.v j) q)) →
+                    (∀ (ij : SelectionGroup.Pair) (h : SelectionGroup.Index),
+                        h ≠ (↑ij).1 →
+                          ∀ (q r : ℤ), Commute (s (SelectionGroup.Root.w ij) q) (s (SelectionGroup.Root.u h) r)) →
+                      (∀ (ij : SelectionGroup.Pair) (h : SelectionGroup.Index),
+                          h ≠ (↑ij).2 →
+                            ∀ (q r : ℤ), Commute (s (SelectionGroup.Root.w ij) q) (s (SelectionGroup.Root.v h) r)) →
+                        (∀ (ij : SelectionGroup.Pair) (r q : ℤ),
+                            ⁅s (SelectionGroup.Root.u (↑ij).1) r, s (SelectionGroup.Root.w ij) q⁆ =
+                              s (SelectionGroup.Root.u (↑ij).2) (r + q)) →
+                          (∀ (ij : SelectionGroup.Pair) (q r : ℤ),
+                              ⁅s (SelectionGroup.Root.w ij) q, s (SelectionGroup.Root.v (↑ij).2) r⁆ =
+                                s (SelectionGroup.Root.v (↑ij).1) (r + q)) →
+                            SelectionGroup.G →* H
+@SelectionCommutator.transfer : ∀ {H : Type u_1} [inst : Group H] {x w v p q : H},
+  Commute x v → ⁅x, w⁆ = p → ⁅w, v⁆ = q → Commute q p → Commute q v → ⁅x, q⁆ = ⁅p, v⁆
+FindimCounterexample.SelectionGroup.commutator_transfer (i j : SelectionGroup.Index) (hij : i ≠ j) (a s b : ℤ) :
+  ⁅SelectionGroup.U i a, SelectionGroup.V i (s + b)⁆ = ⁅SelectionGroup.U j (a + s), SelectionGroup.V j b⁆
+FindimCounterexample.SelectionGroup.commutator_eq_of_sum (i j : SelectionGroup.Index) (a b c d : ℤ)
+  (h : a + b = c + d) : ⁅SelectionGroup.U i a, SelectionGroup.V i b⁆ = ⁅SelectionGroup.U j c, SelectionGroup.V j d⁆
+FindimCounterexample.SelectionGroup.z_eq (N : ℤ) (i : SelectionGroup.Index) (a b : ℤ) (h : a + b = N) :
+  SelectionGroup.z N = ⁅SelectionGroup.U i a, SelectionGroup.V i b⁆
+FindimCounterexample.SelectionGroup.z_mem_center (N : ℤ) : SelectionGroup.z N ∈ Subgroup.center SelectionGroup.G
+FindimCounterexample.SelectionGroup.z_sq (N : ℤ) : SelectionGroup.z N ^ 2 = 1
+'FindimCounterexample.SelectionGroup.lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionCommutator.transfer' depends on axioms: [propext]
+'FindimCounterexample.SelectionGroup.commutator_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.commutator_eq_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.z_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.z_mem_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.z_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+FindimCounterexample.SelectionGroup.beta (c : ℤ) : SelectionGroup.G ≃* SelectionGroup.G
+FindimCounterexample.SelectionGroup.beta_T (c : ℤ) (l : SelectionGroup.Index) :
+  (SelectionGroup.beta c) (SelectionGroup.T l) = SelectionGroup.T l
+FindimCounterexample.SelectionGroup.beta_U (c : ℤ) (i : SelectionGroup.Index) (r : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.U i r) = SelectionGroup.U i (r + c)
+FindimCounterexample.SelectionGroup.beta_V (c : ℤ) (i : SelectionGroup.Index) (r : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.V i r) = SelectionGroup.V i r
+FindimCounterexample.SelectionGroup.beta_W (c : ℤ) (ij : SelectionGroup.Pair) (r : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.W ij r) = SelectionGroup.W ij r
+FindimCounterexample.SelectionGroup.beta_add (c d : ℤ) :
+  (SelectionGroup.beta d).trans (SelectionGroup.beta c) = SelectionGroup.beta (c + d)
+FindimCounterexample.SelectionGroup.beta_zero : SelectionGroup.beta 0 = MulEquiv.refl SelectionGroup.G
+FindimCounterexample.SelectionGroup.beta_z (c N : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.z N) = SelectionGroup.z (N + c)
+FindimCounterexample.SelectionGroup.alpha_z (N : ℤ) :
+  SelectionGroup.alpha (SelectionGroup.z N) = SelectionGroup.z (N + 1)
+'FindimCounterexample.SelectionGroup.beta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.beta_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.beta_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.beta_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.alpha_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+FindimCounterexample.FiniteQuotientRing.S (m : ℕ) : Type
+FindimCounterexample.FiniteQuotientRing.basis (m : ℕ) (hm : 0 < m) :
+  Module.Basis (Fin m) (ZMod 2) (FiniteQuotientRing.S m)
+FindimCounterexample.FiniteQuotientRing.finite (m : ℕ) (hm : 0 < m) : Finite (FiniteQuotientRing.S m)
+FindimCounterexample.FiniteQuotientRing.t (m : ℕ) (hm : 0 < m) : (FiniteQuotientRing.S m)ˣ
+FindimCounterexample.FiniteQuotientRing.t_pow (m : ℕ) (hm : 0 < m) : FiniteQuotientRing.t m hm ^ m = 1
+FindimCounterexample.FiniteQuotientRing.linearIndependent_tPow (m : ℕ) (hm : 0 < m) :
+  LinearIndependent (ZMod 2) fun i => FiniteQuotientRing.tPow m hm ↑↑i
+FindimCounterexample.FiniteQuotients.pi (m : ℕ) (hm : 0 < m) : SelectionGroup.G →* FiniteQuotients.MatGroup m
+FindimCounterexample.FiniteQuotients.pi_T_matrix (m : ℕ) (hm : 0 < m) (l : SelectionGroup.Index) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.T l)) = Matrix.diagonal fun k => ↑(FiniteQuotients.diagonalEntry m hm l k)
+FindimCounterexample.FiniteQuotients.pi_U_matrix (m : ℕ) (hm : 0 < m) (i : SelectionGroup.Index) (r : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.U i r)) =
+    1 + Matrix.single 0 (FiniteQuotients.middle i) (FiniteQuotientRing.tPow m hm r)
+FindimCounterexample.FiniteQuotients.pi_V_matrix (m : ℕ) (hm : 0 < m) (i : SelectionGroup.Index) (r : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.V i r)) =
+    1 + Matrix.single (FiniteQuotients.middle i) 4 (FiniteQuotientRing.tPow m hm r)
+FindimCounterexample.FiniteQuotients.pi_W_matrix (m : ℕ) (hm : 0 < m) (ij : SelectionGroup.Pair) (r : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.W ij r)) =
+    1 + Matrix.single (FiniteQuotients.middle (↑ij).1) (FiniteQuotients.middle (↑ij).2) (FiniteQuotientRing.tPow m hm r)
+FindimCounterexample.FiniteQuotients.pi_z_matrix (m : ℕ) (hm : 0 < m) (N : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.z N)) = 1 + Matrix.single 0 4 (FiniteQuotientRing.tPow m hm N)
+FindimCounterexample.FiniteQuotients.finite_F (m : ℕ) (hm : 0 < m) : Finite ↥(FiniteQuotients.F m hm)
+FindimCounterexample.FiniteQuotients.coordinates (m : ℕ) (hm : 0 < m) :
+  FiniteQuotients.Coordinates m →* ↥(FiniteQuotients.F m hm)
+FindimCounterexample.FiniteQuotients.coordinates_injective (m : ℕ) (hm : 0 < m) :
+  Function.Injective ⇑(FiniteQuotients.coordinates m hm)
+FindimCounterexample.FiniteQuotients.coordinates_range (m : ℕ) (hm : 0 < m) :
+  (FiniteQuotients.coordinates m hm).range = FiniteQuotients.Z m hm
+FindimCounterexample.FiniteQuotients.centerEquiv (m : ℕ) (hm : 0 < m) :
+  FiniteQuotients.Coordinates m ≃* ↥(FiniteQuotients.Z m hm)
+FindimCounterexample.FiniteQuotients.centerEquiv_generator (m : ℕ) (hm : 0 < m) (q : Fin m) :
+  ↑((FiniteQuotients.centerEquiv m hm) (FiniteQuotients.coordinateGenerator q)) =
+    (FiniteQuotients.pi m hm).rangeRestrict (SelectionGroup.z ↑↑q)
+FindimCounterexample.FiniteQuotients.z_image_mem_center (m : ℕ) (hm : 0 < m) (N : ℤ) :
+  (FiniteQuotients.pi m hm).rangeRestrict (SelectionGroup.z N) ∈ Subgroup.center ↥(FiniteQuotients.F m hm)
+FindimCounterexample.FiniteQuotients.Z_le_center (m : ℕ) (hm : 0 < m) :
+  FiniteQuotients.Z m hm ≤ Subgroup.center ↥(FiniteQuotients.F m hm)
+'FindimCounterexample.FiniteQuotientRing.basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotientRing.finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotientRing.t' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotientRing.linearIndependent_tPow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_T_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_U_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_V_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_W_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_z_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.finite_F' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.coordinates_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.coordinates_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.centerEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.centerEquiv_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.z_image_mem_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.Z_le_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+FindimCounterexample.SelectionGroup.centralSum : (ℤ →₀ ZMod 2) →+ Additive ↥(Subgroup.center SelectionGroup.G)
+FindimCounterexample.SelectionGroup.centralSum_single_one (N : ℤ) :
+  SelectionGroup.centralSum (Finsupp.single N 1) = Additive.ofMul (SelectionGroup.zCentral N)
+FindimCounterexample.SelectionGroup.centralSum_injective : Function.Injective ⇑SelectionGroup.centralSum
+FindimCounterexample.SelectionGroup.centralProduct_range :
+  SelectionGroup.centralProduct.range = SelectionGroup.centralSubgroup
+FindimCounterexample.SelectionGroup.centralSubgroup_map :
+  Subgroup.map (Subgroup.center SelectionGroup.G).subtype SelectionGroup.centralSubgroup =
+    Subgroup.closure (Set.range SelectionGroup.z)
+FindimCounterexample.SelectionGroup.directSumEquiv : Multiplicative (ℤ →₀ ZMod 2) ≃* ↥SelectionGroup.centralSubgroup
+FindimCounterexample.SelectionGroup.directSumEquiv_single (N : ℤ) :
+  ↑(SelectionGroup.directSumEquiv (Multiplicative.ofAdd (Finsupp.single N 1))) = SelectionGroup.zCentral N
+FindimCounterexample.SelectionGroup.center_not_finitelyGenerated : ¬Group.FG ↥(Subgroup.center SelectionGroup.G)
+FindimCounterexample.SelectionGroup.center_not_fg : ¬(Subgroup.center SelectionGroup.G).FG
+'FindimCounterexample.SelectionGroup.centralSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.centralSum_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.centralProduct_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.centralSubgroup_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.directSumEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.directSumEquiv_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.center_not_finitelyGenerated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.SelectionGroup.center_not_fg' depends on axioms: [propext, Classical.choice, Quot.sound]

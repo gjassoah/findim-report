@@ -1,0 +1,857 @@
+\section{Bimodule complexes from selection data}
+\label{sec:realisation}
+
+This section turns selection data into a complex of bimodules over a
+finite-dimensional algebra of global dimension at most two. Let $(R,\Psi)$ be
+selection data in the sense of \Cref{def:selection-data}, with $R$ finitely
+presented, and put ${H=\Psi\otimes_R-}$. \Cref{thm:realisation} provides a
+finite-dimensional algebra $B$, an exact fully faithful functor $M$ from
+finite-dimensional $R$-modules to $B$-modules, and a bounded complex $P$ of
+$B$-bimodules such that
+\[
+  P\Lotimes[B]M(Y)\simeq M(HY)\oplus M(HY)[3]
+\]
+for every finite-dimensional $R$-module $Y$. The argument has four steps.
+\begin{enumerate}
+  \item The algebra $B$ is constructed from a presentation of $R$ by generators
+    and relations of degree at most two, and $R$ acts on an object $E_0$ of a
+    Verdier quotient $\mathcal{Q}$ of the bounded homotopy category of
+    projective right $B$-modules (\Cref{subsec:encoding,subsec:action}).
+  \item The bimodule $\Psi$ determines a direct summand $U$ of a finite sum of
+    copies of $E_0$ in the idempotent completion of $\mathcal{Q}$. The object
+    $U$ need not lie in $\mathcal{Q}$, but ${U\oplus U[3]}$ does
+    (\Cref{subsec:odd-double}).
+  \item A representation of the quiver with relations of $B$ in
+    $\mathcal{Q}$, with ${U\oplus U[3]}$ at every vertex, lifts to the homotopy
+    category up to homotopies prescribed on the relations
+    (\Cref{subsec:lifting}).
+  \item Such a homotopy representation is replaced by a complex of
+    bimodules (\Cref{subsec:rectification}), and the extension between the
+    two cohomology modules of ${P\Lotimes[B]M(Y)}$ vanishes because
+    ${\operatorname{gldim}B\leq2}$ (\Cref{subsec:realisation-theorem}).
+\end{enumerate}
+The argument uses choices that are not made explicit in steps~(2) and~(3); see
+\Cref{rem:uncontrolled-length}.
+
+Throughout this section $\kk$ is a field, and all algebras, bimodules,
+categories and functors are $\kk$-linear; bimodules are $\kk$-central, that is,
+the two actions of $\kk$ on them agree. For a finite-dimensional algebra $B$ we
+write $\operatorname{proj}B^{\op}$ for the category of finitely generated
+projective right $B$-modules and $\operatorname{mod}B$ for the category of
+finitely generated left $B$-modules. For a $\kk$-algebra $R$, not necessarily
+finite-dimensional, $\operatorname{mod}_{\mathrm{fd}}R$ denotes the category of
+finite-dimensional left $R$-modules.
+
+\subsection{Right fractions}
+\label{subsec:fractions}
+
+Let $\mathcal{K}$ be an essentially small triangulated category and
+$\mathcal{S}$ a full triangulated subcategory. Let $\mathcal{W}$ be the class of
+morphisms $u$ of
+$\mathcal{K}$ that occur in a triangle ${X'\xrightarrow{u}X\to Z\to X'[1]}$ with
+$Z$ isomorphic to an object of $\mathcal{S}$. By~\cite[Tag~05RG,
+Lemma~13.6.6]{Stacks}, $\mathcal{W}$ is a multiplicative system, and the
+Verdier quotient is defined as
+${\mathcal{K}/\mathcal{S}=\mathcal{W}^{-1}\mathcal{K}}$, with quotient functor
+${q\colon\mathcal{K}\to\mathcal{K}/\mathcal{S}}$~\cite[Tag~05RI,
+Definition~13.6.7]{Stacks}. Since the categories of left and of right
+fractions of a multiplicative system are canonically
+isomorphic~\cite[Tag~04VB, Lemma~4.27.19]{Stacks}, we may compute in
+$\mathcal{K}/\mathcal{S}$ with right fractions~\cite[Tag~04VH,
+Lemma~4.27.11]{Stacks}: a morphism ${qX\to qY}$ is the class of a pair $(f,u)$ of
+morphisms ${f\colon X'\to Y}$ and ${u\colon X'\to X}$ with ${u\in\mathcal{W}}$. The
+composition rule gives ${(f,u)\circ q(u)=q(f)}$, so that the class of $(f,u)$ is
+$q(f)q(u)^{-1}$, and $q(u)$ is invertible for every
+${u\in\mathcal{W}}$~\cite[Tag~04VK, Lemma~4.27.16]{Stacks}.
+
+\begin{lemma}
+  \label{lemma:fractions}
+  In the situation above, let $X$ be an object of $\mathcal{K}$.
+  \begin{enumerate}
+    \item\label{it:fractions-denominator} For finitely many morphisms
+      ${\gamma_i\colon qX\to qY_i}$ in $\mathcal{K}/\mathcal{S}$, there exist a
+      morphism ${u\colon X'\to X}$ in $\mathcal{W}$ and morphisms
+      ${f_i\colon X'\to Y_i}$ in $\mathcal{K}$ such that
+      ${\gamma_i=q(f_i)q(u)^{-1}}$ for every $i$.
+    \item\label{it:fractions-kill} For finitely many morphisms
+      ${g_i\colon X\to Y_i}$ in $\mathcal{K}$ with ${q(g_i)=0}$, there exists a
+      morphism ${v\colon X'\to X}$ in $\mathcal{W}$ such that ${g_iv=0}$ for every
+      $i$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \eqref{it:fractions-denominator} By induction on the number of morphisms, it
+  suffices to give two roofs $(f_1,u_1)$ and $(f_2,u_2)$ from $X$, with
+  ${u_i\colon X_i\to X}$, a common denominator. The Ore condition for the right
+  multiplicative system $\mathcal{W}$~\cite[Tag~04VC,
+  Definition~4.27.1]{Stacks} gives morphisms ${t\colon X'\to X_2}$ in
+  $\mathcal{W}$ and ${g\colon X'\to X_1}$ with ${u_1g=u_2t}$. The morphism
+  ${u\coloneqq u_2t}$ lies in $\mathcal{W}$, and ${q(g)=q(u_1)^{-1}q(u)}$ is
+  invertible. Hence,
+  \[
+    q(f_1)q(u_1)^{-1}=q(f_1g)q(u)^{-1}\qquad\text{and}\qquad
+    q(f_2)q(u_2)^{-1}=q(f_2t)q(u)^{-1}.
+  \]
+  For the empty family take ${u=\id[X]}$.
+
+  \eqref{it:fractions-kill} Replacing the family by the single morphism
+  ${g=(g_i)_i\colon X\to\bigoplus_iY_i}$, we may assume that there is one
+  morphism. The roofs $(g,\id[X])$ and $(0,\id[X])$ represent the same morphism
+  of $\mathcal{K}/\mathcal{S}$, so that~\cite[Tag~04VJ, Lemma~4.27.14]{Stacks}
+  gives ${v\colon X'\to X}$ in $\mathcal{W}$ with ${gv=0}$.
+\end{proof}
+
+\subsection{The algebra \texorpdfstring{$B$}{B}}
+\label{subsec:encoding}
+
+Every finitely presented algebra has a presentation by relations of degree at
+most two. Indeed, given a finite presentation, introduce for each monomial
+$y_1y_2\cdots y_n$ of length ${n\geq3}$ occurring in a relation new generators
+$w_2,\dots,w_{n-1}$ with the relations ${w_2=y_1y_2}$ and ${w_{j+1}=w_jy_{j+1}}$,
+and replace the monomial by $w_{n-1}y_n$. Sending $w_j$ to $y_1\cdots y_j$ and
+each old generator to its class defines mutually inverse homomorphisms between
+the two presented algebras.
+
+\begin{construction}
+  \label{cons:encoding-algebra}
+  Let $R$ be a $\kk$-algebra with a presentation
+  \[
+    R=\kk\langle x_1,\dots,x_d\rangle/(p_1,\dots,p_t)
+  \]
+  in which every $p_j$ is a noncommutative polynomial of degree at most two;
+  constant and linear terms are allowed. Let $Q$ be the quiver with vertices
+  $0$, $1$ and~$2$, arrows ${s,a_1,\dots,a_d\colon0\to1}$ and
+  ${s',a'_1,\dots,a'_d\colon1\to2}$, and no other arrows. Write
+  $\mathcal{A}_{01}$ and $\mathcal{A}_{12}$ for the two sets of arrows. The
+  \emph{homogenisation} $\widetilde{p}_j$ of $p_j$ is the linear combination of
+  paths of length two obtained by the substitutions
+  \[
+    x_hx_l\longmapsto a'_ha_l,\qquad x_h\longmapsto s'a_h,\qquad
+    1\longmapsto s's.
+  \]
+  Let $J_2$ be the subspace of the span of the paths of length two spanned by
+  the elements ${a'_hs-s'a_h}$ for ${1\leq h\leq d}$ and $\widetilde{p}_j$ for
+  ${1\leq j\leq t}$, and let $\mathcal{R}$ be a basis of $J_2$. We write
+  \[
+    \rho=\sum_{a\in\mathcal{A}_{01},\,b\in\mathcal{A}_{12}}\rho_{ba}\,ba
+    \qquad(\rho\in\mathcal{R},\ \rho_{ba}\in\kk).
+  \]
+  Put ${B=\kk Q/(J_2)}$, with
+  vertex idempotents $e_0$, $e_1$ and $e_2$. For a finite-dimensional left
+  $R$-module $Y$, let $M(Y)$ be the representation of $Q$ with the space $Y$
+  at each vertex, the identity of $Y$ on $s$ and $s'$, and the action of $x_h$
+  on $a_h$ and~$a'_h$.
+\end{construction}
+
+The algebra $B$ depends on the presentation. Its defining relations span $J_2$.
+In the quotient category of \Cref{subsec:action}, $s$ and $s'$ become invertible
+and $x_h$ acts as $s^{-1}a_h$.
+
+\begin{lemma}
+  \label{lemma:directed-gldim}
+  Let $\Lambda$ be a finite-dimensional algebra with a complete set of
+  orthogonal idempotents $\varepsilon_0,\dots,\varepsilon_{n-1}$, where
+  ${n\geq1}$, such that ${\varepsilon_i\Lambda\varepsilon_i=\kk\varepsilon_i}$ for
+  every $i$ and ${\varepsilon_j\Lambda\varepsilon_i=0}$ for ${j<i}$. Then every left
+  and every right $\Lambda$-module has projective dimension at most ${n-1}$.
+\end{lemma}
+
+\begin{proof}
+  Let $N$ be a left $\Lambda$-module with ${\varepsilon_iN=0}$ for ${i<p}$. The map
+  \[
+    \bigoplus_{i=p}^{n-1}\Lambda\varepsilon_i\otimes_\kk\varepsilon_iN
+    \longrightarrow N,\qquad c\otimes v\longmapsto cv,
+  \]
+  is surjective since ${v=\sum_i\varepsilon_iv}$, and its source is projective.
+  The hypotheses give ${\varepsilon_p\Lambda\varepsilon_i=0}$ for ${i>p}$ and
+  ${\varepsilon_p\Lambda\varepsilon_p=\kk\varepsilon_p}$, so the map is an
+  isomorphism after multiplication by $\varepsilon_p$, and its kernel $N'$
+  satisfies ${\varepsilon_iN'=0}$ for ${i<p+1}$. A module annihilated by
+  $\varepsilon_0,\dots,\varepsilon_{n-2}$ is a direct sum of copies of
+  ${\Lambda\varepsilon_{n-1}=\kk\varepsilon_{n-1}}$, hence projective. Starting
+  with ${p=0}$ and repeating the construction ${n-1}$ times gives a projective
+  resolution of length at most ${n-1}$. The opposite algebra, with the
+  idempotents in the reverse order, satisfies the same hypotheses, which gives
+  the statement for right modules.
+\end{proof}
+
+\begin{proposition}
+  \label{prop:encoding-algebra}
+  In \Cref{cons:encoding-algebra}, the algebra $B$ is finite-dimensional,
+  \[
+    \dim_\kk B=3+2(d+1)+(d+1)^2-\dim_\kk J_2,
+  \]
+  and every left and every right $B$-module has projective dimension at most
+  two. Moreover, $M(Y)$ is a left $B$-module for every finite-dimensional left
+  $R$-module $Y$, and $M$ extends to an exact fully faithful functor
+  ${M\colon\operatorname{mod}_{\mathrm{fd}}R\to\operatorname{mod}B}$ with
+  ${e_iM(Y)=Y}$ for every vertex $i$. In particular, ${M(Y)=0}$ only if ${Y=0}$.
+\end{proposition}
+
+\begin{proof}
+  The quiver has three paths of length zero, ${2(d+1)}$ arrows, ${(d+1)^2}$ paths
+  of length two and no longer paths. No arrow ends at~$0$ and no arrow starts
+  at~$2$, so the product of an element of $J_2$ with an arrow on either side is
+  zero, and the ideal generated by $J_2$ is $J_2$ itself. This gives the
+  dimension formula. The idempotents $e_0,e_1,e_2$ satisfy
+  ${e_iBe_i=\kk e_i}$ and ${e_jBe_i=0}$ for ${j<i}$, since every arrow increases the
+  vertex index; so \Cref{lemma:directed-gldim} applies with ${n=3}$.
+
+  The element ${a'_hs-s'a_h}$ acts on $M(Y)$ as ${x_h-x_h=0}$. The element
+  $\widetilde{p}_j$ acts as $p_j(x_1,\dots,x_d)$, which is zero on~$Y$. A
+  homomorphism of $R$-modules ${Y\to Y'}$, placed at the three vertices, is a
+  homomorphism ${M(Y)\to M(Y')}$. Conversely, a homomorphism ${M(Y)\to M(Y')}$
+  consists of three linear maps; compatibility with $s$ and $s'$ forces them
+  to be equal, and compatibility with the arrows $a_h$ forces the common map
+  to commute with every $x_h$. Hence, $M$ is fully faithful. It is exact
+  because exactness of a sequence of $B$-modules is tested at each vertex.
+\end{proof}
+
+\subsection{The action on the quotient category}
+\label{subsec:action}
+
+In the situation of \Cref{cons:encoding-algebra}, put
+\[
+  \mathcal{K}\coloneqq K^b(\operatorname{proj}B^{\op}),\qquad
+  E_i\coloneqq e_iB\quad(i=0,1,2).
+\]
+An arrow ${a\colon i\to j}$ of $Q$ lies in $e_jBe_i$, and left multiplication by
+$a$ is a homomorphism of right modules ${E_i\to E_j}$, which we denote by $a$ as
+well; composition of these homomorphisms is multiplication in~$B$. Let
+$\mathcal{S}$ be the smallest thick subcategory of $\mathcal{K}$ containing
+the cones of ${s\colon E_0\to E_1}$ and of ${s'\colon E_1\to E_2}$, let
+$\mathcal{W}$ be the class of morphisms with cone in $\mathcal{S}$, and let
+\[
+  q\colon\mathcal{K}\longrightarrow\mathcal{Q}\coloneqq\mathcal{K}/\mathcal{S}
+\]
+be the Verdier quotient. In $\mathcal{Q}$ the morphisms $s$ and $s'$ are
+invertible.
+
+For a finite-dimensional left $R$-module $Y$, the \emph{evaluation} at $Y$ is
+the functor
+\[
+  \operatorname{ev}_Y\colon\mathcal{K}\longrightarrow
+  \DerCat[b]{\operatorname{mod}\kk},\qquad T\longmapsto T\otimes_BM(Y).
+\]
+Termwise tensor product preserves homotopies, mapping cones and shifts, so
+$\operatorname{ev}_Y$ is an exact functor. Since a bounded complex of
+projective right modules is K-flat, $\operatorname{ev}_Y(T)$ computes
+${T\Lotimes[B]M(Y)}$. Under the isomorphisms ${E_i\otimes_BM(Y)}\cong{ e_iM(Y)}={Y}$,
+given by ${c\otimes v\mapsto cv}$, the morphism $\operatorname{ev}_Y(a)$ is the
+action of the arrow $a$ on $M(Y)$.
+
+\begin{proposition}
+  \label{prop:quotient-action}
+  In the situation above, there is a unique homomorphism of unital algebras
+  \[
+    \theta\colon R\longrightarrow\operatorname{End}_{\mathcal{Q}}(E_0)
+    \qquad\text{with}\qquad\theta(x_h)=s^{-1}a_h\quad(1\leq h\leq d).
+  \]
+  For every finite-dimensional left $R$-module $Y$, the functor
+  $\operatorname{ev}_Y$ factors uniquely through an exact functor
+  ${\operatorname{ev}_Y\colon\mathcal{Q}\to\DerCat[b]{\operatorname{mod}\kk}}$,
+  and $\operatorname{ev}_Y(\theta(r))$ is the action of $r$ on
+  ${Y=\operatorname{ev}_Y(E_0)}$ for every ${r\in R}$.
+\end{proposition}
+
+\begin{proof}
+  In $\mathcal{Q}$ the relation ${a'_hs=s'a_h}$ gives ${a'_h=s'a_hs^{-1}}$, and
+  therefore
+  \begin{gather*}
+    (s's)^{-1}a'_ha_l=s^{-1}(s')^{-1}s'a_hs^{-1}a_l=(s^{-1}a_h)(s^{-1}a_l),\\
+    (s's)^{-1}s'a_h=s^{-1}a_h,\qquad(s's)^{-1}s's=\id[E_0].
+  \end{gather*}
+  Multiplying the relation ${\widetilde{p}_j=0}$ on the left by $(s's)^{-1}$
+  thus gives
+  \[
+    p_j(s^{-1}a_1,\dots,s^{-1}a_d)=0,
+  \]
+  constant term included. Hence,
+  the homomorphism from the free algebra sending $x_h$ to $s^{-1}a_h$ factors
+  through~$R$; it is unique since the $x_h$ generate $R$.
+
+  The cones of $s$ and $s'$ are sent by $\operatorname{ev}_Y$ to cones of
+  identity maps, which are zero. The full subcategory of objects sent to zero
+  by the exact functor $\operatorname{ev}_Y$ is closed under shifts, cones
+  and direct summands, so it contains $\mathcal{S}$, and the universal property
+  of the Verdier quotient~\cite[Tag~05RJ, Lemma~13.6.8]{Stacks} gives the
+  exact factorisation. Finally, $\operatorname{ev}_Y(s^{-1}a_h)$ is
+  ${\id^{-1}\circ x_h=x_h}$, so ${\operatorname{ev}_Y\circ\theta}$ and the action
+  of $R$ on $Y$ agree on generators.
+\end{proof}
+
+The argument uses the action $\theta$ and the evaluation functors; it does not
+require an identification of $\mathcal Q$ with a derived category of $R$.
+
+\subsection{A summand and its odd shifts}
+\label{subsec:odd-double}
+
+Let $\mathcal{T}$ be an additive category. Its \emph{idempotent completion}
+$\operatorname{Kar}\mathcal{T}$ has as objects the pairs $(Z,p)$ of an object
+$Z$ of $\mathcal{T}$ and an idempotent ${p\in\operatorname{End}(Z)}$; a morphism
+${(Z,p)\to(Z',p')}$ is a morphism ${u\colon Z\to Z'}$ with ${u=p'up}$, and the
+identity of $(Z,p)$ is $p$. The functor ${Z\mapsto(Z,\id[Z])}$ is fully faithful,
+and we regard $\mathcal{T}$ as a full subcategory of
+$\operatorname{Kar}\mathcal{T}$. If $\mathcal{T}$ is triangulated, the shift
+extends to $\operatorname{Kar}\mathcal{T}$ by ${(Z,p)[1]=(Z[1],p[1])}$. We do not
+use a triangulated structure on $\operatorname{Kar}\mathcal{T}$.
+
+\begin{lemma}
+  \label{lemma:cone-splitting}
+  Let $\mathcal{T}$ be a triangulated category and
+  \[
+    X_1\xrightarrow{f}X_2\xrightarrow{j}X_3\xrightarrow{v}X_1[1]
+  \]
+  a triangle in $\mathcal{T}$. Suppose that there are decompositions
+  ${X_1\cong I\oplus X_1'}$ and ${X_2}\cong{ I\oplus X_2'}$ in
+  $\operatorname{Kar}\mathcal{T}$ in which $f$ has the components $\id[I]$
+  on $I$ and zero elsewhere. Then
+  ${X_3}\cong{ X_2'\oplus X_1'[1]}$ in $\operatorname{Kar}\mathcal{T}$.
+\end{lemma}
+
+\begin{proof}
+  Let ${Z=(Z_0,p)}$ be an object of $\operatorname{Kar}\mathcal{T}$. The
+  sequence obtained by applying $\Hom{Z}{-}$ to the triangle is the image of
+  the idempotent endomorphism $\Hom{p}{-}$ of the long exact sequence obtained
+  by applying $\Hom{Z_0}{-}$, and a direct summand of an exact sequence is
+  exact. Hence, $\Hom{Z}{-}$ takes the triangle to a long exact sequence.
+
+  Let ${\iota\colon X_2'\to X_2}$ and ${\kappa\colon X_1'[1]\to X_1[1]}$ be the
+  inclusions, let ${\pi_2\colon X_2\to X_2'}$ and ${\pi\colon X_1[1]\to X_1'[1]}$
+  be the projections, and put ${j'=j\iota}$ and ${v'=\pi v}$. Since ${jf=0}$ and
+  ${f[1]v=0}$, the morphism $j$ vanishes on $I$ and the component of $v$ in
+  $I[1]$ is zero, so that ${j=j'\pi_2}$ and ${v=\kappa v'}$. We claim that
+  \[
+    0\longrightarrow\Hom{Z}{X_2'}\xrightarrow{j'_*}\Hom{Z}{X_3}
+    \xrightarrow{v'_*}\Hom{Z}{X_1'[1]}\longrightarrow0
+  \]
+  is exact for every $Z$. If ${j'g=0}$, then ${\iota g=fh}$ for some $h$; the
+  component of $fh$ in $X_2'$ is zero, so ${g=0}$. If ${v'g=0}$, then ${vg=0}$, so
+  ${g=jh=j'\pi_2h}$ for some $h$. If ${g\colon Z\to X_1'[1]}$, then
+  ${f[1]\kappa g=0}$, so ${\kappa g=vh}$ for some $h$ and ${g=\pi\kappa g=v'h}$.
+
+  Taking ${Z=X_1'[1]}$ gives ${\sigma\colon X_1'[1]\to X_3}$ with ${v'\sigma=\id}$.
+  The morphism
+  \[
+    (j',\sigma)\colon X_2'\oplus X_1'[1]\longrightarrow X_3
+  \]
+  induces a
+  bijection on $\Hom{Z}{-}$ for every $Z$: a morphism ${g\colon Z\to X_3}$ is the
+  image of $(g',v'g)$, where ${j'g'=g-\sigma v'g}$, and the injectivity follows by
+  applying $v'_*$, since ${v'j'=\pi vj\iota=0}$, and then the injectivity of
+  $j'_*$. By the Yoneda lemma,
+  $(j',\sigma)$ is an isomorphism.
+\end{proof}
+
+\begin{proposition}
+  \label{prop:odd-double}
+  Let $\mathcal{T}$ be an essentially small triangulated category, $E$ an
+  object of $\mathcal{T}$ and $p$ an idempotent endomorphism of $E$, and put
+  ${U=(E,p)\in\operatorname{Kar}\mathcal{T}}$. Then there exist objects $C$ and
+  $V$ of $\mathcal{T}$ such that
+  \[
+    C\cong U\oplus U[1]\quad\text{and}\quad V\cong U\oplus U[3]
+    \quad\text{in }\operatorname{Kar}\mathcal{T},
+  \]
+  and ${[C]=[V]=0}$ in $K_0(\mathcal{T})$.
+\end{proposition}
+
+\begin{proof}
+  Let $C$ be a cone of ${\id-p\colon E\to E}$. In the decomposition
+  ${E\cong(E,\id-p)\oplus U}$ the morphism ${\id-p}$ is the identity on the first
+  summand and zero on the second, so \Cref{lemma:cone-splitting} gives
+  ${C\cong U\oplus U[1]}$. Since $\mathcal{T}$ is a full subcategory of
+  $\operatorname{Kar}\mathcal{T}$, the morphism
+  \[
+    g\colon C[1]\cong U[1]\oplus U[2]
+    \xrightarrow{\left(\begin{smallmatrix}0&0\\\id&0\end{smallmatrix}\right)}
+    U\oplus U[1]\cong C,
+  \]
+  which identifies the two copies of $U[1]$, is a morphism of $\mathcal{T}$.
+  Let $V$ be a cone of~$g$. By \Cref{lemma:cone-splitting}, with ${I=U[1]}$, we
+  have ${V\cong U\oplus U[3]}$. The triangles defining $C$ and $V$ give
+  ${[C]=[E]-[E]=0}$ and ${[V]=[C]-[C[1]]=2[C]=0}$, where ${[C[1]]=-[C]}$ follows
+  from the triangle ${C\to0\to C[1]\xrightarrow{\id}C[1]}$.
+\end{proof}
+
+Any object of $\mathcal{T}$ isomorphic to ${U\oplus U[3]}$ in
+$\operatorname{Kar}\mathcal{T}$ is isomorphic to $V$ in $\mathcal{T}$, since
+the inclusion of $\mathcal{T}$ is fully faithful, and so has class zero as well.
+The object $U$ itself need not be isomorphic to an object of $\mathcal{T}$; for
+${p=0}$ or ${p=\id}$ it is. The equality ${[V]=0}$ is in $K_0(\mathcal T)$.
+Cancellation between summands with shifts of opposite parity also occurs in the
+iterates of \Cref{coro:realisation-iterates}, whose classes vanish for ${j\geq1}$,
+and in the second iterate of the functor of \Cref{sec:simulation}; see
+\Cref{rem:k0-invisibility}.
+
+\begin{remark}
+  \label{rem:why-three}
+  The cones of \Cref{prop:odd-double} produce ${U\oplus U[1]}$ and
+  ${U\oplus U[3]}$. If the diagram of \Cref{cons:diagram-V} were defined using
+  ${U\oplus U[c]}$, the
+  two cohomology modules of ${P\Lotimes[B]M(Y)}$ in the proof of
+  \Cref{thm:realisation} would be in degrees $0$ and ${-c}$, and the extension
+  class between them would lie in $\operatorname{Ext}^{c+1}_B$, which vanishes
+  when ${c+1>\operatorname{gldim}B}$. Since ${\operatorname{gldim}B\leq2}$, the
+  shift $3$ is the smallest positive odd integer $c$ for which this argument
+  applies; for ${c=1}$ it would need the vanishing of an
+  $\operatorname{Ext}^2_B$, which the bound on the global dimension does not
+  provide.
+\end{remark}
+
+We now apply \Cref{prop:odd-double} to selection data. Recall from
+\Cref{def:selection-data} that $\Psi$ is an $R$-bimodule that is finitely
+generated and projective as a right $R$-module, and ${H=\Psi\otimes_R-}$. We
+write elements of $R^n$ as columns, so that $M_n(R)$ acts on $R^n$ from the
+left and ${\operatorname{End}_{R^{\op}}(R^n)=M_n(R)}$, with composition the
+product of matrices.
+
+\begin{lemma}
+  \label{lemma:selection-matrix}
+  Let $(R,\Psi)$ be selection data. Then there exist an integer ${n\geq1}$, an
+  idempotent ${\varepsilon\in M_n(R)}$ and a homomorphism of algebras
+  ${\rho\colon R\to\varepsilon M_n(R)\varepsilon}$ with ${\rho(1)=\varepsilon}$
+  such that ${\Psi\cong\varepsilon R^n}$ as bimodules, where $R$ acts on
+  $\varepsilon R^n$ from the left through $\rho$. For every finite-dimensional
+  left $R$-module $Y$ there is an isomorphism, natural in $Y$,
+  \[
+    HY\cong\varepsilon_Y(Y^n),\quad\text{on which ${r\in R}$ acts as
+    $\rho(r)_Y$,}
+  \]
+  where $m_Y$ denotes the operator on $Y^n$ given by a matrix ${m\in M_n(R)}$.
+  In particular, $H$ is exact and ${\dim_\kk HY\leq n\dim_\kk Y}$.
+\end{lemma}
+
+\begin{proof}
+  Choose a split surjection ${\pi\colon R^n\to\Psi}$ of right modules with
+  section $\sigma$, and put ${\varepsilon=\sigma\pi\in M_n(R)}$. Then $\sigma$
+  identifies $\Psi$ with $\varepsilon R^n$, and the endomorphisms of the right
+  module $\varepsilon R^n$, extended by zero on ${(1-\varepsilon)R^n}$, form
+  $\varepsilon M_n(R)\varepsilon$. The left action of $R$ on $\Psi$ thus
+  becomes a homomorphism $\rho$ with ${\rho(1)=\varepsilon}$; it is
+  $\kk$-linear because $\Psi$ is $\kk$-central. The isomorphism
+  ${R^n\otimes_RY\cong Y^n}$, ${(r_i)_i\otimes y\mapsto(r_iy)_i}$, restricts to
+  ${\varepsilon R^n\otimes_RY\cong\varepsilon_Y(Y^n)}$, and it carries the left
+  action of $r$ to $\rho(r)_Y$. After forgetting the left action of $R$, the
+  functor $H$ is a direct summand of the exact functor ${R^n\otimes_R-}$ with
+  values in vector spaces; since exactness is detected on underlying vector
+  spaces, $H$ is exact.
+\end{proof}
+
+Now suppose that $R$ is finitely presented, fix a presentation as in
+\Cref{cons:encoding-algebra}, and let $B$, $\mathcal{Q}$ and $\theta$ be as in
+\Cref{subsec:action}. Choose $n$, $\varepsilon$ and $\rho$ as in
+\Cref{lemma:selection-matrix}. Applying $\theta$ to the entries of a matrix
+defines a homomorphism of algebras
+\[
+  \theta_n\colon
+  M_n(R)\longrightarrow\operatorname{End}_{\mathcal{Q}}(E_0^{\oplus n}).
+\]
+Put
+\[
+  U\coloneqq\bigl(E_0^{\oplus n},\theta_n(\varepsilon)\bigr)\in
+  \operatorname{Kar}\mathcal{Q}.
+\]
+For ${r\in R}$ the endomorphism $\theta_n(\rho(r))$ of $E_0^{\oplus n}$
+satisfies
+\[
+  \theta_n(\rho(r))=\theta_n(\varepsilon)\theta_n(\rho(r))
+  \theta_n(\varepsilon),
+\]
+so it is an endomorphism of $U$, and
+${r\mapsto\theta_n(\rho(r))}$ is a homomorphism of unital algebras
+${R\to\operatorname{End}(U)}$, since ${\theta_n(\varepsilon)=\id[U]}$.
+
+By \Cref{prop:odd-double} there is an object $V$ of $\mathcal{Q}$ with
+${V\cong U\oplus U[3]}$ in $\operatorname{Kar}\mathcal{Q}$; we fix such an
+isomorphism and transport to $V$ the action of $R$ on ${U\oplus U[3]}$ given by
+${\theta_n\circ\rho}$ on both summands. Write ${r_V\in\operatorname{End}(V)}$ for
+the action of ${r\in R}$.
+
+\begin{construction}
+  \label{cons:diagram-V}
+  A \emph{$B$-diagram} in a $\kk$-linear category $\mathcal{C}$ consists of
+  objects $W_0$, $W_1$ and $W_2$ and a morphism ${t_a\colon W_i\to W_j}$ for
+  every arrow ${a\colon i\to j}$ of $Q$, such that
+  ${\sum_{b,a}\rho_{ba}t_bt_a=0}$ for every ${\rho\in\mathcal{R}}$. Let $\mathbb{V}$
+  be the $B$-diagram in $\mathcal{Q}$
+  with ${W_0=W_1=W_2=V}$, with ${t_s=t_{s'}=\id[V]}$, and with
+  ${t_{a_h}=t_{a'_h}=(x_h)_V}$ for ${1\leq h\leq d}$.
+\end{construction}
+
+The relations hold in $\mathbb{V}$ since they become ${p_j((x_1)_V,\dots,
+(x_d)_V)}={0}$ and ${(x_h)_V-(x_h)_V=0}$. A bounded complex $P$ of $B$-bimodules that
+is termwise finitely generated and projective as a right module defines a
+$B$-diagram ${(e_iP,a\cdot-)}$ in $\mathcal{K}$, and then in $\mathcal{Q}$. We
+lift $\mathbb{V}$ to $\mathcal{K}$ and replace the lift by a complex of
+bimodules.
+
+\begin{lemma}
+  \label{lemma:evaluate-V}
+  For every finite-dimensional left $R$-module $Y$, the functor
+  $\operatorname{ev}_Y$ extends to $\operatorname{Kar}\mathcal{Q}$, and there
+  is an isomorphism ${\operatorname{ev}_Y(V)\cong HY\oplus HY[3]}$ in
+  $\DerCat[b]{\operatorname{mod}\kk}$ under which $\operatorname{ev}_Y(r_V)$ is
+  the action of $r$ on $HY$ on both summands, for every ${r\in R}$.
+\end{lemma}
+
+\begin{proof}
+  Idempotents split in $\DerCat[b]{\operatorname{mod}\kk}$: every bounded
+  complex of vector spaces is isomorphic to its cohomology with zero
+  differential, morphisms between such complexes have only components of
+  degree zero, and an idempotent is then a family of idempotent linear maps,
+  whose images are direct summands. Hence, $\operatorname{ev}_Y$ extends to
+  $\operatorname{Kar}\mathcal{Q}$, with $(Z,p)$ sent to the image of
+  $\operatorname{ev}_Y(p)$. By \Cref{prop:quotient-action}, the functor
+  $\operatorname{ev}_Y$ sends $E_0^{\oplus n}$ to $Y^n$ and $\theta_n(m)$ to
+  $m_Y$ for ${m\in M_n(R)}$. Hence, it sends $U$ to ${\varepsilon_Y(Y^n)\cong HY}$
+  and $\theta_n(\rho(r))$ to the action of $r$, by
+  \Cref{lemma:selection-matrix}. Since $\operatorname{ev}_Y$ commutes with the
+  shift, the statement follows.
+\end{proof}
+
+\subsection{Lifts of \texorpdfstring{$\mathbb{V}$}{V}}
+\label{subsec:lifting}
+
+\begin{proposition}
+  \label{prop:lifting}
+  In the situation of \Cref{cons:diagram-V}, there exist bounded complexes
+  $\widetilde{V}_0$, $\widetilde{V}_1$ and $\widetilde{V}_2$ of finitely
+  generated projective right $B$-modules, chain maps
+  ${f_a\colon\widetilde{V}_i\to\widetilde{V}_j}$ for the arrows ${a\colon i\to j}$
+  of $Q$, homogeneous maps ${h_\rho\colon\widetilde{V}_0\to\widetilde{V}_2}$ of
+  degree ${-1}$ of right modules for ${\rho\in\mathcal{R}}$, and isomorphisms
+  ${\phi_i\colon q\widetilde{V}_i\to V}$ in $\mathcal{Q}$ such that
+  \begin{equation}
+    \label{eq:lifting}
+    \begin{gathered}
+      \phi_j\circ q(f_a)=t_a\circ\phi_i\quad\text{for every arrow }
+      a\colon i\to j,\\
+      dh_\rho+h_\rho d=f_\rho\coloneqq\sum_{b,a}\rho_{ba}f_bf_a
+      \quad\text{for every }\rho\in\mathcal{R}.
+    \end{gathered}
+  \end{equation}
+\end{proposition}
+
+\begin{proof}
+  The objects of $\mathcal{Q}$ are those of $\mathcal{K}$, so $V$ is an object
+  of $\mathcal{K}$ and ${qV=V}$. We proceed from vertex~$2$ to vertex~$0$, so that
+  the denominators introduced at a vertex do not affect the arrows already
+  lifted.
+
+  Apply \Cref{lemma:fractions}\eqref{it:fractions-denominator} to the
+  morphisms ${t_b\colon qV\to qV}$ for ${b\in\mathcal{A}_{12}}$. This gives
+  ${u_1\colon\widetilde{V}_1\to V}$ in $\mathcal{W}$ and morphisms
+  ${f_b\colon\widetilde{V}_1\to V}$ with ${t_b=q(f_b)q(u_1)^{-1}}$. Put
+  ${\widetilde{V}_2=V}$, ${\phi_2=\id[V]}$ and ${\phi_1=q(u_1)}$; then
+  ${\phi_2q(f_b)=t_b\phi_1}$. Next apply
+  \Cref{lemma:fractions}\eqref{it:fractions-denominator} to the morphisms
+  ${\phi_1^{-1}t_a\colon qV\to q\widetilde{V}_1}$ for ${a\in\mathcal{A}_{01}}$.
+  This gives ${u_0\colon V'_0\to V}$ in $\mathcal{W}$ and morphisms
+  ${f'_a\colon V'_0\to\widetilde{V}_1}$, and with ${\phi'_0=q(u_0)}$ the first
+  identity of~\eqref{eq:lifting} holds for all
+  arrows. For ${\rho\in\mathcal{R}}$ put
+  \[
+    g_\rho=\sum_{b,a}\rho_{ba}f_bf'_a\colon V'_0\longrightarrow\widetilde{V}_2.
+  \]
+  Then
+  \[
+    \phi_2q(g_\rho)=\Bigl(\sum_{b,a}\rho_{ba}t_bt_a\Bigr)\phi'_0=0,
+  \]
+  so ${q(g_\rho)=0}$. By \Cref{lemma:fractions}\eqref{it:fractions-kill} there
+  is ${v\colon\widetilde{V}_0\to V'_0}$ in $\mathcal{W}$ with ${g_\rho v=0}$ for
+  every $\rho$. Put ${f_a=f'_av}$ for ${a\in\mathcal{A}_{01}}$ and
+  ${\phi_0=\phi'_0q(v)}$. The first identity of~\eqref{eq:lifting} still holds,
+  and ${\sum_{b,a}\rho_{ba}f_bf_a=g_\rho v=0}$ in $\mathcal{K}$; no further
+  compatibility arises, since no arrow ends at~$0$.
+
+  Finally, choose chain maps representing the morphisms $f_a$ of $\mathcal{K}$.
+  For each ${\rho\in\mathcal{R}}$ the chain map $f_\rho$ is then null-homotopic,
+  and we choose a homotopy $h_\rho$ with ${dh_\rho+h_\rho d=f_\rho}$.
+\end{proof}
+
+All the data of \Cref{prop:lifting} are chosen from $\mathbb V$, and do not
+depend on a module~$Y$. Applying $\operatorname{ev}_Y$ to
+the first identity of~\eqref{eq:lifting} and using \Cref{lemma:evaluate-V}, we
+obtain for every $Y$ isomorphisms
+${\operatorname{ev}_Y(\widetilde{V}_i)\cong HY\oplus HY[3]}$ under which
+$\operatorname{ev}_Y(f_s)$ and $\operatorname{ev}_Y(f_{s'})$ are identities and
+$\operatorname{ev}_Y(f_{a_h})$ and $\operatorname{ev}_Y(f_{a'_h})$ are the
+action of $x_h$ on both summands.
+
+\begin{remark}
+  \label{rem:uncontrolled-length}
+  The construction uses choices not given by explicit formulas at four points:
+  the
+  splitting morphisms in the proof of \Cref{lemma:cone-splitting}, the roofs
+  representing the morphisms $t_a$ in \Cref{lemma:fractions}, the Ore squares
+  producing common denominators, and the denominator $v$ for which ${g_\rho v=0}$
+  for every ${\rho\in\mathcal R}$. A proof that a cone lies in the thick
+  subcategory
+  $\mathcal{S}$ does not by itself provide a bounded number of cones, shifts
+  and direct summands witnessing it, and none of these steps specifies the
+  complexes $\widetilde{V}_i$ or bounds their length. Once the
+  $\widetilde{V}_i$ and the $f_a$ are given as complexes and chain maps, the
+  homotopies $h_\rho$ are solutions of finite systems of linear equations, and
+  \Cref{subsec:rectification} is explicit: if all $\widetilde{V}_i$ are
+  concentrated in degrees $[a,b]$ with ${a\leq0\leq b}$, the complex $P$ of
+  \Cref{prop:rectification} is concentrated in degrees ${[a-2,b]}$. The argument
+  therefore does not determine the integer $l$ used in \Cref{sec:simulation}.
+  This is the
+  absence of a bound in the argument, not a proof that no bound or algorithm
+  exists; see \Cref{rem:what-is-explicit}.
+\end{remark}
+
+\subsection{Rectification}
+\label{subsec:rectification}
+
+The following construction applies to every algebra ${B}={\kk Q/(J_2)}$ for which
+$Q$
+has vertices $0$, $1$ and $2$, finite sets of arrows $\mathcal{A}_{01}$ from
+$0$ to $1$ and $\mathcal{A}_{12}$ from $1$ to $2$ and no other arrows, and
+$J_2$ is a subspace of the span of the paths of length two, with basis
+$\mathcal{R}$.
+
+\begin{proposition}
+  \label{prop:rectification}
+  Let $B$ be as above, and suppose given bounded complexes
+  $\widetilde{V}_0$, $\widetilde{V}_1$ and $\widetilde{V}_2$ of finitely
+  generated projective right $B$-modules, chain maps $f_a$ and homogeneous
+  maps $h_\rho$ of degree ${-1}$ of right modules satisfying the second identity
+  of~\eqref{eq:lifting}. Then there are a bounded complex $P$ of
+  finite-dimensional $B$-bimodules whose terms are projective right modules,
+  homotopy equivalences ${\iota_i\colon\widetilde{V}_i\to e_iP}$ of complexes of
+  right modules, and, for every arrow ${a\colon i\to j}$, a homotopy
+  ${a\iota_i\simeq\iota_jf_a}$, where $a$ acts on $P$ by left multiplication.
+\end{proposition}
+
+\begin{proof}
+  All unadorned tensor products in this proof are over $\kk$. On a tensor
+  product ${Be_j\otimes\widetilde{V}_i}$, the algebra $B$ acts from the left on
+  the first factor and from the right on the second, and the differential is
+  ${\id\otimes d}$. Consider the complexes of bimodules
+  \[
+    L_0=\bigoplus_{i}Be_i\otimes\widetilde{V}_i,\qquad
+    L_1=\bigoplus_{a\colon i\to j}Be_j\otimes\widetilde{V}_i,\qquad
+    L_2=\bigoplus_{\rho\in\mathcal{R}}Be_2\otimes\widetilde{V}_0,
+  \]
+  with differentials $d_0$, $d_1$ and $d_2$, and the bimodule maps
+  ${\partial_1\colon L_1\to L_0}$ and ${\partial_2\colon L_2}\to{ L_1}$ of degree
+  zero and ${\eta\colon L_2\to L_0}$ of degree ${-1}$ defined by
+  \begin{equation}
+    \label{eq:rectification-maps}
+    \begin{aligned}
+      \partial_1(c\otimes v)_a&=(ca\otimes v)_i-(c\otimes f_av)_j
+        &&\text{for }a\colon i\to j,\\
+      \partial_2(c\otimes v)_\rho&=\sum_{b,a}\rho_{ba}\bigl((cb\otimes v)_a
+        +(c\otimes f_av)_b\bigr),\\
+      \eta(c\otimes v)_\rho&=(c\otimes h_\rho v)_2,
+    \end{aligned}
+  \end{equation}
+  where a subscript names the summand containing an element: in $L_0$ the
+  summand of a vertex, in $L_1$ that of an arrow. These maps are
+  bimodule homomorphisms because paths act on the first factor and $f_a$ and
+  $h_\rho$ are homomorphisms of right modules on the second. Since the $f_a$
+  are chain maps, ${d_0\partial_1=\partial_1d_1}$ and
+  ${d_1\partial_2=\partial_2d_2}$. In the composite
+  \[
+    \partial_1\partial_2(c\otimes v)_\rho=\sum_{b,a}\rho_{ba}\bigl(
+    (cba\otimes v)_0-(cb\otimes f_av)_1+(cb\otimes f_av)_1
+    -(c\otimes f_bf_av)_2\bigr)=-(c\otimes f_\rho v)_2
+  \]
+  the two middle terms cancel, and the first term vanishes since
+  ${\sum\rho_{ba}ba=\rho=0}$ in~$B$. Together with~\eqref{eq:lifting} this gives
+  \begin{equation}
+    \label{eq:eta-homotopy}
+    d_0\eta+\eta d_2=-\partial_1\partial_2.
+  \end{equation}
+  Put
+  \[
+    P\coloneqq L_0\oplus L_1[1]\oplus L_2[2],\qquad
+    d_P=\begin{pmatrix}d_0&\partial_1&\eta\\0&-d_1&\partial_2\\0&0&d_2
+    \end{pmatrix}.
+  \]
+  In total degree $m$ the three components lie in degrees $m$, ${m+1}$ and
+  ${m+2}$ of $L_0$, $L_1$ and $L_2$, so all entries of $d_P$ have degree one; the
+  diagonal signs are those of the shifts. The entries of $d_P^2$ are $d_0^2$,
+  $d_1^2$, $d_2^2$, ${d_0\partial_1-\partial_1d_1}$,
+  ${\partial_2d_2-d_1\partial_2}$ and ${d_0\eta+\partial_1\partial_2+\eta d_2}$,
+  and all of them vanish by the identities above and~\eqref{eq:eta-homotopy}.
+  As a right module, ${Be_j\otimes\widetilde{V}_i^m}$ is a finite direct sum of
+  copies of $\widetilde{V}_i^m$, so the terms of $P$ are finite-dimensional and
+  projective on the right, and $P$ is bounded.
+
+  For a vertex $i$, let ${\iota_i\colon\widetilde{V}_i\to e_iP}$ send $v$ to
+  ${(e_i\otimes v)_i\in e_iL_0}$. It is a chain map and, in each degree, a split
+  injection of right modules. We show that the quotient
+  ${C_i=e_iP/\iota_i(\widetilde{V}_i)}$ is acyclic. Filter $e_iP$ by the
+  subcomplexes $F^r$ consisting of the summands whose second factor is
+  $\widetilde{V}_j$ with ${j\geq r}$; the differential preserves this filtration,
+  since $d$ and the path terms preserve $j$, the terms involving $f_a$ increase
+  it, and $\eta$ increases it from $0$ to~$2$. The induced filtration of $C_i$
+  has the following subquotients. The subquotient for ${j=i}$ is zero, since the
+  only summand of $e_iP$ with second factor $\widetilde{V}_i$ is
+  ${e_iBe_i\otimes\widetilde{V}_i=\kk e_i\otimes\widetilde{V}_i}$. The
+  subquotients for ${j>i}$ are zero, since ${e_iBe_j=0}$. For $(j,i)$ equal to
+  $(0,1)$ or $(1,2)$, the subquotient is the total complex of the double
+  complex ${K\otimes\widetilde{V}_j}$, where $K$ is the complex
+  \[
+    0\longrightarrow\kk\{a\colon j\to i\}\xrightarrow{a\mapsto a}
+    e_iBe_j\longrightarrow0
+  \]
+  in degrees ${-1}$ and~$0$, which is exact since all relations have length two.
+  For ${(j,i)=(0,2)}$ it is the total complex of ${K\otimes\widetilde{V}_0}$ with
+  \[
+    K\colon\ 0\longrightarrow\kk\mathcal{R}
+    \xrightarrow{\rho\mapsto\sum\rho_{ba}(b,a)}
+    \kk\{(b,a)\}\xrightarrow{(b,a)\mapsto ba}e_2Be_0\longrightarrow0
+  \]
+  in degrees ${-2}$, ${-1}$ and~$0$, where $(b,a)$ runs through
+  ${\mathcal{A}_{12}\times\mathcal{A}_{01}}$. This complex is exact because
+  $\mathcal{R}$ is linearly independent with span $J_2$ and $e_2Be_0$ is the
+  quotient of the span of the paths of length two by $J_2$; here it matters
+  that $\mathcal{R}$ is a basis and not merely a spanning set. An exact complex
+  $K$ of vector spaces has a contraction $\sigma$ with
+  ${\partial_K\sigma+\sigma\partial_K=\id}$, and ${\sigma\otimes\id}$ contracts the
+  total complex of ${K\otimes\widetilde{V}_j}$: in horizontal degree $m$ its
+  differential is
+  \[
+    \partial_K\otimes\id+(-1)^m\id\otimes d,
+  \]
+  and the terms of
+  ${(\sigma\otimes\id)(\id\otimes d)}$ and ${(\id\otimes d)(\sigma\otimes\id)}$
+  appear with the opposite signs ${(-1)^m}$ and ${(-1)^{m-1}}$. These signs agree
+  with those of $d_P$. Hence, all subquotients are acyclic, and so is $C_i$, by
+  induction along the finite filtration and the long exact cohomology sequence.
+
+  The terms of $C_i$ are projective right modules, since $\iota_i$ is split in
+  each degree, and a bounded acyclic complex of projective modules is
+  contractible. Choose a splitting ${e_iP=\widetilde{V}_i\oplus C_i}$ of graded
+  right modules, in which $d_P$ has the form
+  $\left(\begin{smallmatrix}d&t\\0&d_C\end{smallmatrix}\right)$ with
+  ${dt+td_C=0}$, and a contraction $\sigma$ of $C_i$. Then
+  ${r(x,c)=x-t\sigma c}$ is a chain map with ${r\iota_i=\id}$, and ${K(x,c)=(0,\sigma
+  c)}$ satisfies ${d_PK+Kd_P=\id-\iota_ir}$. Hence, $\iota_i$ is a homotopy
+  equivalence.
+
+  For an arrow ${a\colon i\to j}$, let ${H_a\colon\widetilde{V}_i\to e_jP}$ be the
+  map of degree ${-1}$ sending $v$ to ${(e_j\otimes v)_a\in e_jL_1[1]}$. The
+  component of $d_PH_a(v)$ in $L_1[1]$ is ${-(e_j\otimes dv)_a=-H_a(dv)}$, and its
+  component in $L_0$ is
+  \[
+    \partial_1(e_j\otimes v)_a=(a\otimes v)_i-(e_j\otimes f_av)_j.
+  \]
+  Hence,
+  \[
+    d_PH_a+H_ad=a\iota_i-\iota_jf_a.\qedhere
+  \]
+\end{proof}
+
+The three columns of $P$ are indexed by the vertices, the arrows and the
+relations of $Q$. Since every relation starts at $0$ and ends at $2$, no
+relation can be composed with a further arrow, and no homotopies beyond $h_\rho$
+are required.
+
+\subsection{The realisation theorem}
+\label{subsec:realisation-theorem}
+
+\begin{theorem}
+  \label{thm:realisation}
+  Let $(R,\Psi)$ be selection data over $\kk$ in which $R$ is finitely
+  presented, and put ${H=\Psi\otimes_R-}$. Let $B$ and $M$ be the algebra
+  and the functor of \Cref{cons:encoding-algebra} for a presentation of $R$ by
+  relations of degree at most two. Then there exists a bounded complex $P$ of
+  finite-dimensional $B$-bimodules, whose terms are projective as right
+  modules, such that for every finite-dimensional left $R$-module $Y$
+  \begin{equation}
+    \label{eq:realisation}
+    P\Lotimes[B]M(Y)\cong M(HY)\oplus M(HY)[3]\quad\text{in }
+    \DerCat[b]{\operatorname{mod}B}.
+  \end{equation}
+  The complex $P$ does not depend on~$Y$.
+\end{theorem}
+
+\begin{proof}
+  Let $P$ be the complex obtained by applying \Cref{prop:rectification} to the
+  data of \Cref{prop:lifting}; it depends only on $(R,\Psi)$, the presentation
+  and the choices made there. Fix $Y$ and put ${T_Y=P\otimes_BM(Y)}$, which
+  computes ${P\Lotimes[B]M(Y)}$ since $P$ is a bounded complex of projective right
+  modules. For each vertex $i$ we have ${e_iT_Y=\operatorname{ev}_Y(e_iP)}$, and
+  the action of an arrow $a$ on $T_Y$ is $\operatorname{ev}_Y$ of left
+  multiplication by~$a$.
+
+  Applying $\operatorname{ev}_Y$ to the homotopy equivalences $\iota_i$ and the
+  homotopies of \Cref{prop:rectification} identifies $\operatorname{ev}_Y(e_iP)$
+  with $\operatorname{ev}_Y(\widetilde{V}_i)$, compatibly with the arrows, and
+  the paragraph after \Cref{prop:lifting} identifies the latter with
+  ${HY\oplus HY[3]}$. Taking cohomology, we obtain isomorphisms of vector spaces
+  at each vertex that commute with the actions of all arrows, hence
+  isomorphisms of left $B$-modules
+  \[
+    H^m(T_Y)\cong
+    \begin{cases}
+      M(HY)&\text{if }m\in\set{0,-3},\\
+      0&\text{otherwise.}
+    \end{cases}
+  \]
+
+  Put ${N_0=H^0(T_Y)}$ and ${N_{-3}=H^{-3}(T_Y)}$. The good truncation $T'$ of
+  $T_Y$ to the degrees ${[-3,0]}$ is quasi-isomorphic to $T_Y$, and its
+  cohomology in degree ${-3}$ is its degree ${-3}$ cycle module, which is a
+  subcomplex isomorphic to $N_{-3}[3]$. The quotient complex has cohomology
+  $N_0$ in degree zero only and terms in nonpositive degrees, so it is
+  quasi-isomorphic to $N_0$. The short exact sequence of complexes gives a
+  triangle
+  \[
+    N_{-3}[3]\longrightarrow T_Y\longrightarrow N_0\xrightarrow{\ \delta\ }
+    N_{-3}[4]
+  \]
+  in $\DerCat[b]{\operatorname{mod}B}$. By \Cref{prop:encoding-algebra},
+  $N_0$ has a projective resolution of length at most two, so that
+  ${\delta\in\Hom{N_0}{N_{-3}[4]}=\operatorname{Ext}^4_B(N_0,N_{-3})=0}$. Hence,
+  the identity of $N_0$ lifts to a morphism ${N_0\to T_Y}$, and together with
+  the first morphism of the triangle it gives a morphism
+  ${N_{-3}[3]\oplus N_0\to T_Y}$, which is a quasi-isomorphism by the long exact
+  cohomology sequence. This proves~\eqref{eq:realisation}.
+\end{proof}
+
+\begin{corollary}
+  \label{coro:realisation-iterates}
+  In the situation of \Cref{thm:realisation}, put ${\mathcal{F}=P\Lotimes[B]-}$.
+  For every finite-dimensional left $R$-module $Y$ and every integer
+  ${j\geq0}$,
+  \[
+    \mathcal{F}^jM(Y)\cong\bigoplus_{r=0}^{j}
+    \bigl(M(H^jY)[3r]\bigr)^{\oplus\binom{j}{r}}.
+  \]
+  In particular, ${\mathcal{F}^jM(Y)=0}$ if and only if ${H^jY=0}$.
+\end{corollary}
+
+\begin{proof}
+  For ${j=0}$ there is nothing to prove. Suppose the formula holds for $j$. The
+  module $H^jY$ is finite-dimensional by \Cref{lemma:selection-matrix}, and
+  $\mathcal{F}$ commutes with finite direct sums and shifts, so
+  \Cref{thm:realisation} applied to $H^jY$ gives
+  \[
+    \mathcal{F}^{j+1}M(Y)\cong\bigoplus_{r=0}^{j}
+    \bigl(M(H^{j+1}Y)[3r]\oplus M(H^{j+1}Y)[3r+3]\bigr)^{\oplus\binom{j}{r}},
+  \]
+  in which the shift $3r$ occurs with multiplicity
+  ${\binom{j}{r}+\binom{j}{r-1}=\binom{j+1}{r}}$. The last assertion follows
+  from \Cref{prop:encoding-algebra}.
+\end{proof}
+
+\begin{remark}
+  \label{rem:realisation-special-case}
+  The main preprint~\cite[Sections~3 and~4]{OAI26findim} treats the case of a
+  central idempotent
+  ${e\in R}$ and an algebra endomorphism $\alpha$ of $R$, with
+  ${\Psi={}_\alpha(eR)}$ and ${HY={}_\alpha(eY)}$. This is the case ${n=1}$,
+  ${\varepsilon=e}$ and ${\rho(r)=e\alpha(r)e}$ of \Cref{lemma:selection-matrix};
+  the centrality of $e$ makes $\rho$ multiplicative. The proof above uses
+  neither the centrality of $\varepsilon$ nor any property of $\rho$ beyond
+  its being a homomorphism of unital $\kk$-algebras into
+  $\varepsilon M_n(R)\varepsilon$, and it does not use that $\Psi$ is
+  projective as a left module.
+\end{remark}

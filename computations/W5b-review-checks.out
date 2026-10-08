@@ -1,0 +1,18 @@
+PASS: 179 ordered source/report entries and distinct inputs; degrees: {0: 32, 1: 123, 2: 20, 3: 4}
+PASS: bar dimensions [208, 1968, 18640] ; K^0..4 [1761405952, 148453376, 11713792, 818688, 43264]
+PASS: dim C1 = 1623889344 ; dim Lambda = 170271818183326072615867045851312256
+PASS: saved minimal-tail rank recurrence; C0=784704, C1=1377984, K1=3591168.
+Supported correction: the minimal-tail complex has nonzero homology {-4: 400, -2: 800, 0: 400}
+PASS: saved two-factor profile has W0=W3=1 and all other W^-4..7 zero.
+PASS: fresh exact-polynomial certificate matches saved output: foundations_certificate
+PASS: fresh exact-polynomial certificate matches saved output: finite_cochain_certificate
+Input SHA-256:
+838a489943b88b3501248a02d4835d09124a6b0002834de6fd380057948d340a .cache/ar-src/09-cochain.tex
+37ef29b947f3c1594610c8b3c1b39d83aacdf0e5925a6da8063bbfcd28d42598 report/sections/A1-computations.tex
+d47e148c4313b19afd26eefd21c072ec6cebb7ef515ecc4aba220b4b758b931a computations/06-two-factor/sizes.json
+81a70689b8eb375f8223392dd44d7c326b2ef5932266894763df41e02866878a computations/06-two-factor/evaluated.json
+5c7b819f08e7e8fdc2223ffda17e8715a0bc4095a618dd1614d60ca949e165cd computations/08-D-E/foundations_certificate.py
+d39525c5a53fd5b58e16651b88bfe4b33b0426b53af2f27e9223b6a19d91cfde computations/08-D-E/foundations_certificate.out
+eea3230b4dbc89904277fcd6605298a8a82faf3e19a1b802cbe5bef4437cf46e computations/08-D-E/finite_cochain_certificate.py
+713f3f2c19c4a15468b57b19708ab2d16dc4524fd27ad4f93f8ca89b6a76231d computations/08-D-E/finite_cochain_certificate.out
+All listed finite checks passed. No historical experiment reruns or all-degree certification asserted.

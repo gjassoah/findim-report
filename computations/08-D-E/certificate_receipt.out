@@ -1,0 +1,17 @@
+All 179 independently transcribed cochain entries equal the source table.
+foundations_certificate: fresh execution exactly matches saved output.
+finite_cochain_certificate: fresh execution exactly matches saved output.
+{
+  ".cache/ar-src/03-algebra.tex": "f3da85912c346824c1532feb9b410e169a0b520e8261ebbea2a95e8527908af5",
+  ".cache/ar-src/04-resolution.tex": "d19c8a962c5883d1f53d920604c137229b01c9c8370a17ca6fbfa0abbdbf2636",
+  ".cache/ar-src/05-cones.tex": "6ead1fdaec5fadea2a66c5b7aeace86dbf602f7a3766cc2c00a62b712c926eb3",
+  ".cache/ar-src/06-lift.tex": "1005f67f0188b8a02c43c1ef67062b785476ad648363eecd1704999ba6a21e39",
+  ".cache/ar-src/07-branches.tex": "a6d5866ab571891f6845de6dd31b500fa57c9a27f1ac805c3dacd77cb561de66",
+  ".cache/ar-src/08-consequences.tex": "79abd114831c82382ca0f241368932b7fe7728f5eff88310d7fa327f6cbf72ce",
+  ".cache/ar-src/09-cochain.tex": "838a489943b88b3501248a02d4835d09124a6b0002834de6fd380057948d340a",
+  "computations/08-D-E/foundations_certificate.py": "5c7b819f08e7e8fdc2223ffda17e8715a0bc4095a618dd1614d60ca949e165cd",
+  "computations/08-D-E/foundations_certificate.out": "d39525c5a53fd5b58e16651b88bfe4b33b0426b53af2f27e9223b6a19d91cfde",
+  "computations/08-D-E/finite_cochain_certificate.py": "eea3230b4dbc89904277fcd6605298a8a82faf3e19a1b802cbe5bef4437cf46e",
+  "computations/08-D-E/finite_cochain_certificate.out": "713f3f2c19c4a15468b57b19708ab2d16dc4524fd27ad4f93f8ca89b6a76231d"
+}
+Scope: source identity and finite-certificate reproducibility only.

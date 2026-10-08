@@ -1,0 +1,206 @@
+\section{Trivial extensions from bimodule complexes}
+\label{sec:simulation}
+
+\Cref{thm:realisation} provides a complex $P$ of bimodules whose derived tensor
+functor iterates the selection functor, while \Cref{coro:extinction} requires
+a single bimodule over an algebra of finite global dimension. A bounded complex
+of bimodules is simulated, up to a shift, by the square of the derived tensor
+functor of an ordinary bimodule over a larger algebra.
+
+\subsection{An ordinary bimodule associated with a complex}
+\label{subsec:simulation}
+
+For an integer ${l\geq0}$, let $K_l$ be the path algebra of the quiver
+\[
+  0\xrightarrow{c_1}1\xrightarrow{c_2}\cdots\xrightarrow{c_l}l
+\]
+modulo all paths of length two, with vertex idempotents $1_0,\dots,1_l$, so that
+${c_i\in1_iK_l1_{i-1}}$. Let $W$ be the simple right $K_l$-module at the
+vertex~$l$. For ${i>0}$ the right module $1_iK_l$ has basis $1_i,c_i$ and radical
+spanned by $c_i$, and ${1_0K_l=\kk1_0}$. Hence, left multiplication by $c_i$ maps
+$1_{i-1}K_l$ onto the radical of $1_iK_l$ with kernel the radical of
+$1_{i-1}K_l$, and
+\begin{equation}
+  \label{eq:chain-resolution}
+  0\longrightarrow1_0K_l\xrightarrow{c_1\cdot}1_1K_l\xrightarrow{c_2\cdot}
+  \cdots\xrightarrow{c_l\cdot}1_lK_l\longrightarrow W\longrightarrow0
+\end{equation}
+is a projective resolution of $W$; we write $R_W$ for the complex with
+${R_W^n=1_{l+n}K_l}$ for ${-l\leq n\leq0}$.
+
+\begin{proposition}
+  \label{prop:simulation}
+  Let $B$ be a finite-dimensional algebra whose left and right global
+  dimensions are at most $d_L$ and $d_R$, and let $P$ be a bounded complex of
+  finite-dimensional $B$-bimodules, projective as right modules, with ${P^j=0}$
+  for ${j\notin[a,b]}$; put ${l=b-a\geq0}$. Put ${B_1=B\otimes_\kk K_l}$ and
+  ${\Delta=B\times B_1}$, and let $\pi_0$ and $\pi_1$ be the central idempotents
+  of $\Delta$ corresponding to the two factors. Define
+  \begin{itemize}
+    \item the $(B_1,B)$-bimodule $O$ by ${1_iO=P^{a+i}}$ for ${0\leq i\leq l}$, with
+      ${c_i\colon1_{i-1}O\to1_iO}$ acting as the differential $d_P^{a+i-1}$ and
+      with the two actions of $B$ on the terms of $P$;
+    \item the $(B,B_1)$-bimodule ${Y=B\otimes_\kk W}$, with
+      ${b'(b\otimes w)(b''\otimes c)=b'bb''\otimes wc}$;
+  \end{itemize}
+  and regard ${X=O\oplus Y}$ as a $\Delta$-bimodule with ${O=\pi_1O\pi_0}$ and
+  ${Y=\pi_0Y\pi_1}$. Let ${\Phi=X\Lotimes[\Delta]-}$. Then for every complex $N$
+  of left $B$-modules, regarded as a complex of $\Delta$-modules through the
+  first factor,
+  \[
+    \Phi^2N\cong(P\Lotimes[B]N)[b]\quad\text{in }\DerCat{\operatorname{Mod}
+    \Delta}.
+  \]
+  Moreover, the left and right global dimensions of $\Delta$ are at most
+  ${d_L+l}$ and ${d_R+l}$.
+\end{proposition}
+
+\begin{proof}
+  The bimodule $O$ is well defined: the relations ${c_{i+1}c_i=0}$ hold because
+  ${d_P^2=0}$, and the actions of $B$ commute with those of the $c_i$ because the
+  differential of $P$ is a bimodule map. As a right $B$-module, $O$ is the
+  direct sum of the terms of $P$, hence projective. The complex
+  ${R_Y=B\otimes_\kk R_W}$ is a resolution of $Y$ by $(B,B_1)$-bimodules whose
+  terms ${B\otimes_\kk1_{l+n}K_l=(1\otimes1_{l+n})B_1}$ are projective right
+  $B_1$-modules. In degree ${n\in[-l,0]}$ there is an isomorphism of
+  $B$-bimodules
+  \[
+    (B\otimes_\kk1_{l+n}K_l)\otimes_{B_1}O\longrightarrow1_{l+n}O=P^{b+n},
+    \qquad(\beta\otimes u)\otimes o\longmapsto\beta uo,
+  \]
+  with inverse ${o\mapsto(1\otimes1_{l+n})\otimes o}$, and under these
+  isomorphisms the differential of ${R_Y\otimes_{B_1}O}$ becomes $d_P$, since
+  the differential of $R_W$ is left multiplication by the arrows. The complex
+  $P[b]$ has the same terms in the same degrees and the differential
+  ${(-1)^bd_P}$; the maps ${(-1)^{bn}\id}$ on the terms of degree $n$ form an
+  isomorphism of complexes of bimodules ${R_Y\otimes_{B_1}O\cong P[b]}$, since
+  ${(-1)^{b(n+1)}=(-1)^b(-1)^{bn}}$.
+
+  The complex ${R_X=O\oplus R_Y}$ is a bounded resolution of $X$ by
+  $\Delta$-bimodules projective as right modules, so it computes $\Phi$ on all
+  complexes. For a complex $N$ of left $B$-modules, one application gives
+  ${O\otimes_BN}$, a complex of $B_1$-modules, and a second gives
+  \[
+    R_Y\otimes_{B_1}(O\otimes_BN)\cong(R_Y\otimes_{B_1}O)\otimes_BN
+    \cong P[b]\otimes_BN,
+  \]
+  a complex of $B$-modules; the associativity isomorphism involves no sign
+  since the order of the factors is unchanged. Since $P[b]$ is a bounded complex
+  of projective right modules, ${P[b]\otimes_BN}$ computes
+  ${(P\Lotimes[B]N)[b]}$.
+
+  For the global dimensions, the resolution~\eqref{eq:chain-resolution},
+  ending at any vertex, shows that the right simple $K_l$-modules have
+  projective dimension at most $l$, and similarly for the left simple modules,
+  whose successive syzygies are simple at the following vertices. The ideal
+  ${I=J_B\otimes K_l+B\otimes J_K}$ of $B_1$, where $J_B$ and $J_K$ denote the
+  radicals, is nilpotent, being the sum of two commuting nilpotent ideals, and
+  ${B_1/I\cong(B/J_B)^{l+1}}$ is semisimple. Hence, $I$ is the radical of $B_1$
+  and the simple left $B_1$-modules are the modules ${S\otimes_\kk L}$ for simple
+  modules $S$ over $B$ and $L$ over $K_l$. The tensor product of projective
+  resolutions of $S$ and $L$ is a projective resolution of ${S\otimes_\kk L}$ of
+  length at most ${d_L+l}$. Since every module has a finite filtration by
+  semisimple modules, the left global dimension of $B_1$ is at most ${d_L+l}$;
+  the same argument applies on the right, and the bounds pass to the product
+  ${\Delta=B\times B_1}$.
+\end{proof}
+
+The vertices of $K_l$ correspond to the degrees of $P$, the arrows act on $O$ by
+the differential of $P$, and ${Y\Lotimes[B_1]O\cong P[b]}$. The construction uses
+${l+2}$ copies of $B$; the resulting number of simple modules and the bounds on
+global dimension grow linearly with $l$.
+
+\subsection{The main theorem}
+\label{subsec:main-theorem}
+
+\begin{theorem}
+  \label{thm:main}
+  Let $(R,\Psi)$ be selection data over a field $\kk$ in which $R$ is finitely
+  presented, and let ${H=\Psi\otimes_R-}$. Then there is a finite-dimensional
+  algebra ${A=\Delta\ltimes X}$ over $\kk$, with $\Delta$ of finite global
+  dimension, and an integer ${l\geq0}$ with the following property: for every
+  finite-dimensional left $R$-module $Y$ of finite extinction time ${t\geq1}$,
+  there is a finite-dimensional left $A$-module $N$ with
+  \[
+    2t-2\leq\operatorname{pd}_AN\leq(l+2)+(2t-1)(l+3).
+  \]
+  In particular, if $(R,\Psi)$ has unbounded extinction, then
+  ${\operatorname{findim}A=\infty}$.
+\end{theorem}
+
+\begin{proof}
+  Fix a presentation of $R$ by relations of degree at most two, the algebra $B$
+  and the functor $M$ of \Cref{cons:encoding-algebra}, and the
+  complex $P$ of \Cref{thm:realisation}. Choose integers ${a\leq b}$ with
+  ${P^j=0}$ for ${j\notin[a,b]}$, put ${l=b-a}$, and let $\Delta$, $X$ and $\Phi$ be
+  as in \Cref{prop:simulation}; put ${A=\Delta\ltimes X}$. By
+  \Cref{prop:encoding-algebra}, $B$ has left and right global dimension at
+  most two, so $\Delta$ has left and right global dimension at most ${l+2}$ by
+  \Cref{prop:simulation}. All these choices are made before the module $Y$ is
+  chosen.
+
+  Let $Y$ be a finite-dimensional left $R$-module of extinction time ${t\geq1}$,
+  and let $N$ be $M(Y)$, regarded as a $\Delta$-module through the first factor
+  and then as an $A$-module. By \Cref{prop:simulation}, ${\Phi^{2r}N\cong
+  (\mathcal{F}^rM(Y))[rb]}$ for every ${r\geq0}$, where
+  ${\mathcal{F}=P\Lotimes[B]-}$, and \Cref{coro:realisation-iterates} gives
+  \[
+    \Phi^{2r}N\cong\bigoplus_{j=0}^r\bigl(M(H^rY)[rb+3j]\bigr)^{\oplus
+    \binom{r}{j}}.
+  \]
+  Hence, ${\Phi^{2t}N\simeq0}$, since ${H^tY=0}$, and ${\Phi^{2t-2}N\not\simeq0}$,
+  since ${H^{t-1}Y\neq0}$ and hence ${M(H^{t-1}Y)\neq0}$ by
+  \Cref{prop:encoding-algebra}. By \Cref{coro:extinction}, with
+  ${d_L=d_R=l+2}$ and with $2t$ in place of $t$, the module $N$ has finite
+  projective dimension at most ${(l+2)+(2t-1)(l+3)}$, and by
+  \Cref{prop:pd-formula} at least ${2t-2}$. The last assertion follows since
+  every finite-dimensional $A$-module is finitely generated.
+\end{proof}
+
+\begin{corollary}[{\cite[Theorem~1.1]{OAI26findim}}]
+  \label{coro:main}
+  There is a finite-dimensional complex algebra $A$ with
+  ${\operatorname{findim}A=\infty}$. More precisely, there are an integer
+  ${l\geq0}$ and a finite-dimensional complex algebra ${A=\Delta\ltimes X}$ with
+  ${3(l+2)}$ simple modules, where $\Delta$ has global dimension at most ${l+2}$,
+  such that for every ${m\geq1}$ some finite-dimensional $A$-module $N_m$
+  satisfies ${2m-2\leq\operatorname{pd}_AN_m<\infty}$.
+\end{corollary}
+
+\begin{proof}
+  Apply \Cref{thm:main} to the selection data of
+  \Cref{thm:selection-unbounded} and to the modules $Y_m$ of extinction time
+  $m$. The simple $A$-modules are the simple $\Delta$-modules, by the proof of
+  \Cref{prop:pd-formula}. The algebra $B$ has three simple modules,
+  one for each vertex, and the simple modules of ${B_1=B\otimes K_l}$ are the
+  ${3(l+1)}$ modules ${S\otimes L}$ of the proof of \Cref{prop:simulation}.
+\end{proof}
+
+\begin{remark}
+  \label{rem:what-is-explicit}
+  The group $G$ and its
+  presentation (\Cref{subsec:group}), the selection data
+  (\Cref{subsec:unbounded-extinction}), the algebra $B$ with its
+  dimension (\Cref{prop:encoding-algebra}), the rectification
+  (\Cref{prop:rectification}) once its input is given, and the simulation
+  (\Cref{prop:simulation}) are given by formulas. The exception is the input of
+  the rectification: the complexes $\widetilde{V}_i$, the chain maps $f_a$ and
+  the homotopies $h_\rho$ of \Cref{prop:lifting} exist by the calculus of
+  fractions, but the proof gives no bound on the lengths of the
+  $\widetilde{V}_i$ (\Cref{rem:uncontrolled-length}). Consequently, the integer
+  $l$, the number ${3(l+2)}$ of simple modules of $A$ and the dimension of $A$
+  are not determined by the argument. Whether the lifting can be made
+  effective, with a bound on $l$, is not settled here. Applying the procedure of
+  \Cref{subsec:encoding} to the chosen presentation of $\mathbb{C}G$ introduces
+  auxiliary generators for the relators of degree larger than two, in addition
+  to the thirty symbols for the fifteen generators of $G$ and their inverses.
+  For a resulting presentation with $d$ generators, $B$ has ${2(d+1)}$ arrows.
+\end{remark}
+
+\begin{remark}
+  \label{rem:simulation-bound}
+  The main preprint bounds the global dimensions of $\Delta$ by ${3l+2}$, using
+  the ordering of the vertices~\cite[Proposition~5.1]{OAI26findim}; the bound ${l+2}$ of \Cref{prop:simulation} comes from the tensor product
+  description of the radical of $B_1$. Neither bound is needed beyond
+  finiteness, except for the explicit upper bound in \Cref{thm:main}.
+\end{remark}

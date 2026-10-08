@@ -1,0 +1,907 @@
+{
+  "job": "Codex job 08",
+  "case": 0,
+  "status": "completed through degree 3",
+  "field": "Finite Field in b of size 2^16",
+  "modulus": "x^16 + x^5 + x^3 + x^2 + 1",
+  "primitive": "b",
+  "seed": 8082026,
+  "exponents": [
+    2377,
+    63797,
+    37483
+  ],
+  "orders": [
+    65535,
+    65535,
+    65535
+  ],
+  "ratio_order": 65535,
+  "resolution": [
+    {
+      "a": 0,
+      "P": 208,
+      "syzygy": 20,
+      "next_syzygy": 188,
+      "betti": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "a": 1,
+      "P": 480,
+      "syzygy": 188,
+      "next_syzygy": 292,
+      "betti": [
+        2,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "a": 2,
+      "P": 768,
+      "syzygy": 292,
+      "next_syzygy": 476,
+      "betti": [
+        4,
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "name": "bimodule degree 0 radical equations",
+      "equations": 160,
+      "unknowns_per_rhs": 20
+    },
+    {
+      "name": "bimodule degree 0 cover kernel",
+      "equations": 20,
+      "unknowns_per_rhs": 208
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 188,
+      "unknowns_per_rhs": 188
+    },
+    {
+      "name": "bimodule degree 1 radical equations",
+      "equations": 1504,
+      "unknowns_per_rhs": 188
+    },
+    {
+      "name": "bimodule degree 1 cover kernel",
+      "equations": 188,
+      "unknowns_per_rhs": 480
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 292,
+      "unknowns_per_rhs": 292
+    },
+    {
+      "name": "bimodule degree 2 radical equations",
+      "equations": 2336,
+      "unknowns_per_rhs": 292
+    },
+    {
+      "name": "bimodule degree 2 cover kernel",
+      "equations": 292,
+      "unknowns_per_rhs": 768
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 476,
+      "unknowns_per_rhs": 476
+    }
+  ],
+  "elapsed_seconds": 257.3428554534912,
+  "dim_C": 312,
+  "finish_systems": [
+    {
+      "name": "dual cone cover radical equations",
+      "equations": 2496,
+      "unknowns_per_rhs": 312
+    },
+    {
+      "name": "dual cone cover cover kernel",
+      "equations": 312,
+      "unknowns_per_rhs": 688
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 376,
+      "unknowns_per_rhs": 376
+    },
+    {
+      "name": "dual extension to injective",
+      "equations": 312,
+      "unknowns_per_rhs": 688
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 188,
+      "unknowns_per_rhs": 188
+    },
+    {
+      "name": "twist lift with exact top",
+      "equations": 2444,
+      "unknowns_per_rhs": 376
+    },
+    {
+      "name": "twist lift with exact top",
+      "equations": 2444,
+      "unknowns_per_rhs": 376
+    },
+    {
+      "name": "P(N) radical equations",
+      "equations": 3008,
+      "unknowns_per_rhs": 376
+    },
+    {
+      "name": "P(N) cover kernel",
+      "equations": 376,
+      "unknowns_per_rhs": 688
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 312,
+      "unknowns_per_rhs": 312
+    },
+    {
+      "name": "fibre F",
+      "equations": 376,
+      "unknowns_per_rhs": 728
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 352,
+      "unknowns_per_rhs": 352
+    },
+    {
+      "name": "tensor evaluation relations",
+      "equations": 5928,
+      "unknowns_per_rhs": 312
+    },
+    {
+      "name": "tensor evaluation relations",
+      "equations": 6688,
+      "unknowns_per_rhs": 352
+    },
+    {
+      "name": "tensor evaluation relations",
+      "equations": 7144,
+      "unknowns_per_rhs": 376
+    },
+    {
+      "name": "diagonal lift v",
+      "equations": 162,
+      "unknowns_per_rhs": 8
+    }
+  ],
+  "finish_seconds": 641.0955011844635,
+  "dim_N": 376,
+  "dim_F": 352,
+  "dim_Lambda": 392,
+  "dim_Cs": 6,
+  "dim_Fs": 8,
+  "dim_Z": 16,
+  "W": {
+    "-4": 0,
+    "-3": 0,
+    "-2": 0,
+    "-1": 0,
+    "0": 1,
+    "1": 1,
+    "2": 0,
+    "3": 0,
+    "4": 0
+  },
+  "delta0": {
+    "domain": 2,
+    "codomain": 2,
+    "rank": 1,
+    "kernel_dimension": 1,
+    "cokernel_dimension": 1,
+    "formula": "(c,d) -> (c+d)[v]",
+    "kernel_basis": [
+      [
+        1,
+        1
+      ]
+    ],
+    "matrix_rows": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "profile_systems": [
+    {
+      "name": "simple socle",
+      "equations": 160,
+      "unknowns_per_rhs": 8
+    }
+  ],
+  "profile_seconds": 1.1944310665130615,
+  "F_side_projective": [
+    {
+      "side": "left",
+      "dimension": 352,
+      "top": [
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f"
+      ]
+    },
+    {
+      "side": "dual right",
+      "dimension": 352,
+      "top": [
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "e",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f",
+        "f"
+      ]
+    }
+  ],
+  "ext_systems": [
+    {
+      "name": "F left radical",
+      "equations": 1408,
+      "unknowns_per_rhs": 352
+    },
+    {
+      "name": "F left kernel",
+      "equations": 352,
+      "unknowns_per_rhs": 352
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "F dual right radical",
+      "equations": 1408,
+      "unknowns_per_rhs": 352
+    },
+    {
+      "name": "F dual right kernel",
+      "equations": 352,
+      "unknowns_per_rhs": 352
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "Lambda degree 0 radical",
+      "equations": 288,
+      "unknowns_per_rhs": 16
+    },
+    {
+      "name": "Lambda degree 0 kernel",
+      "equations": 16,
+      "unknowns_per_rhs": 144
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 128,
+      "unknowns_per_rhs": 128
+    },
+    {
+      "name": "Lambda degree 1 radical",
+      "equations": 2304,
+      "unknowns_per_rhs": 128
+    },
+    {
+      "name": "Lambda degree 1 kernel",
+      "equations": 128,
+      "unknowns_per_rhs": 244
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 116,
+      "unknowns_per_rhs": 116
+    },
+    {
+      "name": "Lambda degree 2 radical",
+      "equations": 2088,
+      "unknowns_per_rhs": 116
+    },
+    {
+      "name": "Lambda degree 2 kernel",
+      "equations": 116,
+      "unknowns_per_rhs": 248
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 132,
+      "unknowns_per_rhs": 132
+    },
+    {
+      "name": "Lambda degree 3 radical",
+      "equations": 2376,
+      "unknowns_per_rhs": 132
+    },
+    {
+      "name": "Lambda degree 3 kernel",
+      "equations": 132,
+      "unknowns_per_rhs": 384
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 252,
+      "unknowns_per_rhs": 252
+    },
+    {
+      "name": "Lambda degree 4 radical",
+      "equations": 4536,
+      "unknowns_per_rhs": 252
+    },
+    {
+      "name": "Lambda degree 4 kernel",
+      "equations": 252,
+      "unknowns_per_rhs": 492
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 240,
+      "unknowns_per_rhs": 240
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 7,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 8,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 9,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 0,
+      "unknowns_per_rhs": 0
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 1,
+      "unknowns_per_rhs": 1
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 7,
+      "unknowns_per_rhs": 7
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 15,
+      "unknowns_per_rhs": 9
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 148,
+      "unknowns_per_rhs": 144
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 248,
+      "unknowns_per_rhs": 148
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 256,
+      "unknowns_per_rhs": 248
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 12,
+      "unknowns_per_rhs": 12
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 8,
+      "unknowns_per_rhs": 8
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 236,
+      "unknowns_per_rhs": 236
+    },
+    {
+      "name": "inclusion coordinates",
+      "equations": 136,
+      "unknowns_per_rhs": 136
+    },
+    {
+      "name": "ordinary Hom differential",
+      "equations": 396,
+      "unknowns_per_rhs": 256
+    }
+  ],
+  "ext_seconds": 221.0678904056549,
+  "Lambda_resolution": [
+    {
+      "degree": 0,
+      "syzygy": 16,
+      "projective": 144,
+      "next_syzygy": 128,
+      "betti": [
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "degree": 1,
+      "syzygy": 128,
+      "projective": 244,
+      "next_syzygy": 116,
+      "betti": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "degree": 2,
+      "syzygy": 116,
+      "projective": 248,
+      "next_syzygy": 132,
+      "betti": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "degree": 3,
+      "syzygy": 132,
+      "projective": 384,
+      "next_syzygy": 252,
+      "betti": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "degree": 4,
+      "syzygy": 252,
+      "projective": 492,
+      "next_syzygy": 240,
+      "betti": [
+        2,
+        0,
+        1,
+        1
+      ]
+    }
+  ],
+  "self": [
+    {
+      "degree": 0,
+      "cochains": 8,
+      "out_rank": 1,
+      "in_rank": 0,
+      "Ext": 7
+    },
+    {
+      "degree": 1,
+      "cochains": 7,
+      "out_rank": 5,
+      "in_rank": 1,
+      "Ext": 1
+    },
+    {
+      "degree": 2,
+      "cochains": 8,
+      "out_rank": 3,
+      "in_rank": 5,
+      "Ext": 0
+    },
+    {
+      "degree": 3,
+      "cochains": 9,
+      "out_rank": 6,
+      "in_rank": 3,
+      "Ext": 0
+    }
+  ],
+  "regular": [
+    {
+      "degree": 0,
+      "cochains": 144,
+      "out_rank": 16,
+      "in_rank": 0,
+      "Ext": 128
+    },
+    {
+      "degree": 1,
+      "cochains": 148,
+      "out_rank": 132,
+      "in_rank": 16,
+      "Ext": 0
+    },
+    {
+      "degree": 2,
+      "cochains": 248,
+      "out_rank": 116,
+      "in_rank": 132,
+      "Ext": 0
+    },
+    {
+      "degree": 3,
+      "cochains": 256,
+      "out_rank": 140,
+      "in_rank": 116,
+      "Ext": 0
+    }
+  ]
+}

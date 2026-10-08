@@ -1,0 +1,34 @@
+20.76 evaluated cone degree 0 dim 6 top ['e'] P 12 next 6
+20.78 evaluated cone degree 1 dim 6 top ['e'] P 12 next 6
+20.81 evaluated cone degree 2 dim 6 top ['e'] P 12 next 6
+20.83 evaluated cone degree 3 dim 6 top ['e'] P 12 next 6
+20.84 evaluated cone degree 4 dim 6 top ['e'] P 12 next 6
+24.32 evaluated tensor terms {-4: 64, -3: 192, -2: 336, -1: 480, 0: 624, 1: 768, 2: 912} homology {-4: 1, -3: 0, -2: 2, -1: 0, 0: 1, 1: 0}
+49.54 simple degree 0 dim 1 top ['f'] P 8 next 7
+49.56 simple degree 1 dim 7 top ['e'] P 12 next 5
+49.59 simple degree 2 dim 5 top ['e'] P 12 next 7
+49.64 simple degree 3 dim 7 top ['e', 'f'] P 20 next 13
+49.7 simple degree 4 dim 13 top ['e', 'e'] P 24 next 11
+49.94 simple degree 5 dim 11 top ['e', 'e'] P 24 next 13
+50.03 simple degree 6 dim 13 top ['e', 'e', 'f'] P 32 next 19
+50.27 simple degree 7 dim 19 top ['e', 'e', 'e'] P 36 next 17
+50.49 simple degree 8 dim 17 top ['e', 'e', 'e'] P 36 next 19
+53.7 simple degree 0 dim 1 top ['f'] P 8 next 7
+53.72 simple degree 1 dim 7 top ['e'] P 12 next 5
+53.74 simple degree 2 dim 5 top ['e'] P 12 next 7
+53.78 simple degree 3 dim 7 top ['e', 'f'] P 20 next 13
+53.83 simple degree 4 dim 13 top ['e', 'e'] P 24 next 11
+Timeout (0:01:00)!
+Thread 0x00007fa6a00ddbc0 [python3] (most recent call first):
+  File "/usr/lib/python3.14/site-packages/sage/matrix/matrix_space.py", line 1184 in _element_constructor_
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8386 in echelon_coordinates
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 7807 in echelon_coordinate_vector
+  File "/usr/lib/python3.14/site-packages/sage/modules/free_module.py", line 8435 in coordinate_vector
+  File "computations/06-two-factor/evaluated.py", line 116 in hom_differential
+  File "computations/06-two-factor/evaluated.py", line 173 in run
+  File "computations/06-two-factor/evaluated.py", line 185 in <module>
+Timeout (0:01:00)!
+Thread 0x00007fa6a00ddbc0 [python3] (most recent call first):
+  File "computations/06-two-factor/evaluated.py", line 114 in hom_differential
+  File "computations/06-two-factor/evaluated.py", line 173 in run
+  File "computations/06-two-factor/evaluated.py", line 185 in <module>

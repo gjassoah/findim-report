@@ -1,0 +1,167 @@
+\section{Computations}
+\label{app:computations}
+
+\emph{Certificates} check finitely many polynomial identities exactly,
+over polynomial rings such as $\mathbb{F}_2[q]$ or $\mathbb{F}_2[q,\lambda]$;
+they are part of the proofs of the statements that cite them, and
+multilinearity extends them to all inputs. \emph{Experiments} compute
+homological invariants in finitely many degrees, over finite fields or over
+$\mathbb{F}_2(q,H_1,H_2)$; they are evidence with the stated scope and prove
+nothing about other degrees or other fields. All scripts and their saved
+outputs are in the directory \texttt{computations/} of the repository described
+in \Cref{app:ai-declaration}. A rerun of the
+scripts, recorded in the repository, executed 45 commands with Python~3.14 and
+SageMath~10.10, and their mathematical output agreed with the saved results.
+Three finite-field runs for $\Lambda_0$ were not repeated, and two stages for
+$\Lambda_1$ and two stages of the attempt using minimal bimodule resolutions
+over ${T\otimes_\kk T}$ were rerun from
+saved intermediate results. The finite fields
+$\mathbb{F}_{2^{16}}$ below are defined by the modulus
+${x^{16}+x^5+x^3+x^2+1}$, and the parameters $q$, $H_1$ and $H_2$ are powers of a
+generator, with exponents recorded in the saved outputs.
+
+\subsection*{The cochain}
+
+The following table, reproduced from the appendix of~\cite{OAI26ar}, defines the
+cochain $p$ of \Cref{subsec:cocycle}. Lower-case letters denote the basis of $C$
+of \Cref{subsec:algebra-C} and capital letters the dual basis of $DC$; an entry
+$abcw$ in the row $q^d$ means that the coefficient of the basis vector $w$ in
+$p(a,b,c)$ is $q^d$, and all other coefficients are zero. A script confirms that
+the table below and the source table have the same $179$ entries
+in the same order.
+
+\begin{center}
+\small
+\begin{tabular}{r@{\quad}l}
+ coefficient & input and output letters \\ \hline
+ $q^2$ & \texttt{EuNT EyZX FNtU JtXZ NtEU NtXV XzJT ZxEY tEun tXuf} \\
+ $q^2$ & \texttt{tXvn tXzj tuFn tuNf tvNn uFNT vNNT vtJu xEyz zJtx} \\
+ $q$ & \texttt{EuUE EuVX EvVE ExXE EyYE EzZE FNnF FVvF FVxU FtTF} \\
+ $q$ & \texttt{FtYU Ftun Ftxj JFtX JNtZ JUyX JVyZ JjEE JjTT JjXX} \\
+ $q$ & \texttt{NFtU NNtV NUyU NVyV NjJN NjZV NnNN NnVV Ntuf Ntvn} \\
+ $q$ & \texttt{Ntzj TtEE TtXX UuFF UuUU UvNF UvVU UxXU Uyun Uyxj} \\
+ $q$ & \texttt{UzZU VvNN VvVV VxEU VxXV Vyuf Vyvn Vyzj VzZV XxEE} \\
+ $q$ & \texttt{XxXX YuFT YuUY YvNT YvVY YxXY YyEE YyJJ YyTT YyXX} \\
+ $q$ & \texttt{YyYY YyZZ YzZY ZxXZ ZzEE ZzJJ ZzTT ZzXX jJFF jJUU} \\
+ $q$ & \texttt{jJjj jJnn jYyj jZvn jZzj nNFF nNUU ntTn tJjt tTNN} \\
+ $q$ & \texttt{tTVV tTtt tYyt tZzt tzJn uFVX uFty uNFT uNUY uNte} \\
+ $q$ & \texttt{uUyy uVye ujJu vNUE vNVX vNty vVyy vtTv xEuv xJFT} \\
+ $q$ & \texttt{xJUY xJjx xJte xTtx xXuu xXvv xXyy xXzz xYyx xZye} \\
+ $q$ & \texttt{xZzx xuFv xuNu xvNv yxJu yzJv zJNT zJVY zYyz zZuu} \\
+ $q$ & \texttt{zZvv zZyy zZzz} \\
+ $q^3$ & \texttt{EyJT JtEY tEyj tyJf} \\
+ $1$ & \texttt{JNjX JVzX NNjU NVzU NjYU Njun Njxj Ntxt TNtX TVyX} \\
+ $1$ & \texttt{Vyxt VzYU Vzun Vzxj YuNJ YuVZ jYun juNn jxJn txTn} \\
+ $1$ & \texttt{uNNJ uNVZ uNjy uVzy xJNJ xJVZ xTNT xTVY yxTv zYuv} \\
+ $1$ & \texttt{zuNv zxJv} \\
+\end{tabular}
+\end{center}
+
+\subsection*{Certificates for \texorpdfstring{\Cref{sec:ar-route}}{Section 9}}
+
+\begin{enumerate}
+  \item \emph{The algebras $C$ and $T$}
+  (\Cref{lemma:algebra-C,lemma:T-symmetric};
+    \texttt{08-D-E/foundations\_}\allowbreak\texttt{certificate.py},
+    over $\mathbb{F}_2[q]$). All
+    $1000$ associators of basis vectors of $C$ and all $8000$ of $T$ vanish; the
+    grading is respected by all products; the trace form of $T$ is symmetric,
+    associative and has the stated dual bases; ${(ut)^2}={q(1+q)z}$. An earlier,
+    independently written script (\texttt{02-ar-finite-data/}) checks the same
+    identities over $\mathbb{F}_2(q)$ and $\mathbb{F}_{2^{16}}$ and computes the
+    resolution of $s$ in degrees up to eight, in agreement with
+    \Cref{prop:C-resolution}.
+  \item \emph{The cochain} (\Cref{lemma:cocycle};
+    \texttt{08-D-E/finite\_cochain\_certificate.py}, over $\mathbb{F}_2[q]$ with
+    the coefficients of $\lambda^0$ and $\lambda^1$ compared separately, hence
+    over $\mathbb{F}_2[q,\lambda]$). Every entry has radical inputs, matching
+    corners and weight ${-1}$; the cocycle identity holds on all ${18^4=104\,976}$
+    words of four radical basis vectors; the boundary identity holds on all
+    $324$ pairs; ${p(t,x,j^*)=0}$, ${p(t,y,j^*)=q^3f}$, and the bar chain $\zeta$
+    of \Cref{prop:cocycle-generator} is a cycle. The script
+    \texttt{08-D-E/certificate\_receipt.py} confirms that its table equals the
+    source table.
+  \item \emph{Casimir identities} (\Cref{prop:lifts}; the same script). The sum
+    \[
+      \sum_wh_\lambda(w)w^*
+    \]
+    over the twenty basis vectors vanishes, and the sum
+    over the radical basis vectors with left idempotent $r$ equals $r^*$, for
+    ${r\in\set{e,f}}$. The other identities used in that proof are proved in the
+    text.
+\end{enumerate}
+
+\subsection*{Dimensions}
+
+The dimension of $C_1$ in \Cref{rem:ar-sizes} is computed exactly from the
+corner dimensions of $T$ and $\operatorname{rad}T$, which give the dimensions
+of the terms of the bar resolution, and from the cohomology $E$, $E^2$ and $E$
+of $K$ in degrees $0$, $2$ and $4$ (\texttt{09-sizes/dimensions.py}). The
+terms $K^0,\dots,K^4$ have dimensions $1\,761\,405\,952$, $148\,453\,376$,
+$11\,713\,792$, $818\,688$ and $43\,264$, which gives ${\dim
+C_1=1\,623\,889\,344}$
+and
+\[
+  \begin{aligned}
+    \dim_\kk\Lambda&=1600+159999^5\cdot1\,623\,889\,344\\
+    &=170\,271\,818\,183\,326\,072\,615\,867\,045\,851\,312\,256.
+  \end{aligned}
+\]
+The computation (\texttt{06-two-factor/}, over $\mathbb{F}_{2^{16}}$)
+used minimal bimodule resolutions of the cones and determined, from the
+dimensions of the terms and of the homology of the complex, cokernels of
+dimensions $784\,704$ and $1\,377\,984$; it
+stopped, before forming the bimodule matrices, at a linear system with
+$3\,591\,168$ unknowns per right-hand side, beyond the bound of ${2\cdot10^6}$
+set in advance. The same computation gives the dimensions of the Tate cohomology
+groups in \Cref{prop:two-cone-profile} in degrees ${-4\leq a\leq7}$ for its sample
+parameters.
+
+\subsection*{Experiments for \texorpdfstring{\Cref{sec:obstructions}}{Section
+10}}
+
+\begin{enumerate}
+  \item \emph{The algebra $\Lambda_0$} (\texttt{03-testbed-lambda0/}). Three
+    runs over $\mathbb{F}_{2^{16}}$ in degrees up to six and one exact run over
+    $\mathbb{F}_2(q,H_1,H_2)$ in degrees up to two compute minimal projective
+    resolutions of $Z_0$ and the groups $\operatorname{Ext}^a(Z_0,Z_0)$ and
+    $\operatorname{Ext}^a(Z_0,\Lambda_0)$. A separate script compares the
+    surviving class with the cokernel of $\delta^0$; this map has rank one and
+    kernel spanned by $(1,1)$.
+  \item \emph{The algebra $\Lambda_1$ constructed over $T$}
+  (\texttt{05-candidate1/}).
+    Two runs over $\mathbb{F}_{2^{16}}$ construct minimal bimodule covers, the
+    cocycle, the cone of dimension $312$, normalised lifts, the fibre of
+    dimension $352$, the algebra $\Lambda_1$ and the module $Z_1$, and compute
+    the dimensions of the Tate cohomology groups of the cone in degrees ${-4\leq
+    a\leq4}$ (nonzero only in degrees
+    $0$ and $1$, as in \Cref{prop:one-cone}), the matrix of $\delta^0$, and
+    $\operatorname{Ext}^a$ for ${a=1,2,3}$.
+  \item \emph{Further attempts using a single cone}
+  (\texttt{07-one-factor-search/},
+    over $\mathbb{F}_{2^{16}}$). For the six-dimensional trivial extension of
+    ${\kk(1\to2)}$, its tensor product with $\kk[\epsilon]/(\epsilon^2)$, and the
+    trivial extension of $T$, minimal resolutions of the simple modules give
+    Ext dimensions up to degree twelve, directly for the first two and, for
+    the third, directly in degrees $0$ and $1$ and by a tensor-product formula
+    in degrees $2$ to $12$. None has polynomial Ext algebra on a generator of
+    degree three. The same directory contains the six-dimensional example
+    mentioned in \Cref{rem:weights}.
+  \item \emph{Brackets for $T$} (\texttt{04-toda-bracket/}, over
+    $\mathbb{F}_2(q)$ and over $\mathbb{F}_{2^n}$ for ${n}={8,12,16}$). An explicit
+    defining system shows ${\langle\tau,\beta_0,\beta_0\rangle}={\set{0}}$, in
+    agreement with \Cref{thm:tate-obstruction}.
+\end{enumerate}
+
+\subsection*{Checks of signs and finite cases}
+
+The remaining scripts check signs and finite cases of general arguments; they
+are not needed for the proofs. They cover the finite quotients of $G$ for
+${m\leq10}$
+(\texttt{D-C-selection-checks.py}); the signs of the bar decomposition, of the
+simulation and two examples, including
+\Cref{ex:derived-powers} (\texttt{D-A-checks.py}); the rectification for an
+algebra with a nonzero null-homotopic relation
+(\texttt{D-B-rectification-check.py});
+and the signs of the cone in the proof of \Cref{thm:conversion}
+(\texttt{D-D-cone-signs.py}).

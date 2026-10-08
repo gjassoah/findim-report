@@ -1,0 +1,16 @@
+
+FIELD: exact F_2(q)
+PASS: associativity on all 1000 basis triples
+PASS: unit e+f, orthogonal idempotents, corner dimensions [4, 2, 2, 2]
+PASS: N two-sided; dimensions N^1..N^5 = [8, 5, 3, 1, 0] ; C/N = k x k
+PASS: ((ut)u)t = (0, 0, 0, q^2 + q, 0, 0, 0, 0, 0, 0) = q(1+q)z != 0
+ITEM 1 PASS (supported by exhaustive exact computation)
+Finite-field modulus: x^16 + x^5 + x^3 + x^2 + 1
+Specialisation q = a ; multiplicative order = 65535
+
+FIELD: specialised F_(2^16)
+PASS: associativity on all 1000 basis triples
+PASS: unit e+f, orthogonal idempotents, corner dimensions [4, 2, 2, 2]
+PASS: N two-sided; dimensions N^1..N^5 = [8, 5, 3, 1, 0] ; C/N = k x k
+PASS: ((ut)u)t = (0, 0, 0, a^2 + a, 0, 0, 0, 0, 0, 0) = q(1+q)z != 0
+ITEM 1 PASS (supported by exhaustive exact computation)

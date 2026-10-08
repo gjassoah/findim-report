@@ -1,0 +1,769 @@
+@ProjectiveCoresolution.hasProjectiveDimensionLE : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) → ∀ (n : ℕ), CategoryTheory.HasProjectiveDimensionLE (R.c n) n
+@ProjectiveCoresolution.not_hasProjectiveDimensionLT : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  ¬CategoryTheory.Projective (R.c 1) → ∀ (n : ℕ), ¬CategoryTheory.HasProjectiveDimensionLT (R.c (n + 1)) (n + 1)
+@ProjectiveCoresolution.projectiveDimension_eq : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) →
+    ¬CategoryTheory.Projective (R.c 1) →
+      ∀ (n : ℕ),
+        1 ≤ n → CategoryTheory.HasProjectiveDimensionLE (R.c n) n ∧ ¬CategoryTheory.HasProjectiveDimensionLT (R.c n) n
+'FindimCounterexample.ProjectiveCoresolution.hasProjectiveDimensionLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.not_hasProjectiveDimensionLT' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.projectiveDimension_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@RingDual.freeDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (ι : Type u_2) → [Fintype ι] → [DecidableEq ι] → RingDual.RightDual A (ι → Aᵐᵒᵖ) ≃ₗ[A] ι → A
+@RingDual.evalEquiv : {A : Type u_1} →
+  [inst : Ring A] →
+    {P : Type u_2} →
+      [inst_1 : AddCommGroup P] →
+        [inst_2 : Module Aᵐᵒᵖ P] →
+          [Module.Finite Aᵐᵒᵖ P] → [Module.Projective Aᵐᵒᵖ P] → P ≃ₗ[Aᵐᵒᵖ] RingDual.LeftDual A (RingDual.RightDual A P)
+@RingDual.rightDual_projective : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P],
+  Module.Projective A (RingDual.RightDual A P)
+@RingDual.rightDual_finite : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P], Module.Finite A (RingDual.RightDual A P)
+@RingDual.split_of_dual_split : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} {P' : Type u_3}
+  [inst_1 : AddCommGroup P] [inst_2 : AddCommGroup P'] [inst_3 : Module Aᵐᵒᵖ P] [inst_4 : Module Aᵐᵒᵖ P']
+  [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P'] [Module.Projective Aᵐᵒᵖ P']
+  (f : P →ₗ[Aᵐᵒᵖ] P') (r : RingDual.RightDual A P →ₗ[A] RingDual.RightDual A P'),
+  r ∘ₗ RingDual.rightMap f = LinearMap.id → ∃ s, f ∘ₗ s = LinearMap.id
+@ExactCoresolution.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (X : ℕ → ModuleCat A) →
+      (d : (n : ℕ) → ↑(X n) →ₗ[A] ↑(X (n + 1))) →
+        (∀ (n : ℕ), (d n).range = (d (n + 1)).ker) →
+          Function.Injective ⇑(d 0) →
+            (∀ (n : ℕ), CategoryTheory.Projective (X (n + 1))) → ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] →
+          [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] →
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+              (∀ (n : ℕ),
+                  (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+                ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.projective_zero : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)], CategoryTheory.Projective (StrongNakayama.cok P d 0)
+@StrongNakayama.cok_finite : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] (n : ℕ), Module.Finite A ↑(StrongNakayama.cok P d n)
+@StrongNakayama.not_projective_one : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε → ε ∘ₗ d 0 = 0 → ¬CategoryTheory.Projective (StrongNakayama.cok P d 1)
+@StrongNakayama.projectiveDimension_eq : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                  ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                ∃ M,
+                  Module.Finite A ↑M ∧
+                    CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+'FindimCounterexample.RingDual.freeDualEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.evalEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_projective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.split_of_dual_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ExactCoresolution.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projective_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.cok_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.not_projective_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ResolutionExt.ext_zero_iff_injective : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X),
+  Subsingleton (CategoryTheory.Abelian.Ext X Y 0) ↔
+    Function.Injective fun f => CategoryTheory.CategoryStruct.comp (R.complex.d 1 0) f
+@ResolutionExt.ext_succ_iff_cocycles_boundaries : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X) (n : ℕ),
+  Subsingleton (CategoryTheory.Abelian.Ext X Y (n + 1)) ↔
+    ∀ (f : R.complex.X (n + 1) ⟶ Y),
+      CategoryTheory.CategoryStruct.comp (R.complex.d (n + 2) (n + 1)) f = 0 →
+        ∃ g, CategoryTheory.CategoryStruct.comp (R.complex.d (n + 1) n) g = f
+@ResolutionExt.ext_vanishing_iff : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X),
+  (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext X Y n)) ↔
+    (Function.Injective fun f => CategoryTheory.CategoryStruct.comp (R.complex.d 1 0) f) ∧
+      ∀ (n : ℕ) (f : R.complex.X (n + 1) ⟶ Y),
+        CategoryTheory.CategoryStruct.comp (R.complex.d (n + 2) (n + 1)) f = 0 →
+          ∃ g, CategoryTheory.CategoryStruct.comp (R.complex.d (n + 1) n) g = f
+@ModuleResolution.projectiveResolution : {R : Type u_1} →
+  [inst : Ring R] →
+    (P : ℕ → ModuleCat R) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[R] ↑(P n)) →
+        (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+          {E : ModuleCat R} →
+            (ε : ↑(P 0) →ₗ[R] ↑E) →
+              (d 0).range = ε.ker →
+                Function.Surjective ⇑ε → [∀ (n : ℕ), Module.Projective R ↑(P n)] → CategoryTheory.ProjectiveResolution E
+@ModuleResolution.ext_vanishing_iff : ∀ {R : Type u_1} [inst : Ring R] (P : ℕ → ModuleCat R)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[R] ↑(P n)) (N : ModuleCat R) [inst_1 : Small.{u_2, u_1} R]
+  [∀ (n : ℕ), Module.Projective R ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat R} (ε : ↑(P 0) →ₗ[R] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ((∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E N n)) ↔
+            Function.Injective ⇑(ModuleResolution.homDifferential P d N 0) ∧
+              ∀ (n : ℕ),
+                (ModuleResolution.homDifferential P d N n).range = (ModuleResolution.homDifferential P d N (n + 1)).ker)
+@StrongNakayama.homRightDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (P : ℕ → ModuleCat Aᵐᵒᵖ) → (n : ℕ) → (P n ⟶ ModuleCat.of Aᵐᵒᵖ A) ≃+ RingDual.RightDual A ↑(P n)
+@StrongNakayama.homDifferential_eq_dualDifferential : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) (n : ℕ),
+  ModuleResolution.homDifferential P d (ModuleCat.of Aᵐᵒᵖ A) n = (StrongNakayama.dualDifferential P d n).toAddMonoidHom
+@StrongNakayama.ext_vanishing_iff_dual_exact : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ((∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) ↔
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) ∧
+              ∀ (n : ℕ),
+                (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker)
+@StrongNakayama.projectiveDimension_eq_of_ext : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ∀ [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] [Nontrivial ↑E],
+            (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) →
+              ∀ (n : ℕ),
+                1 ≤ n →
+                  Module.Finite A ↑(StrongNakayama.cok P d n) ∧
+                    CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                      ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded_of_ext : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ∀ [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] [Nontrivial ↑E],
+            (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) →
+              ∀ (n : ℕ),
+                1 ≤ n →
+                  ∃ M,
+                    Module.Finite A ↑M ∧
+                      CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+@Transpose.presentedModule : {A : Type u_1} →
+  [inst : Ring A] → {Q₁ Q₀ : ModuleCat Aᵐᵒᵖ} → (↑Q₁ →ₗ[Aᵐᵒᵖ] ↑Q₀) → ModuleCat Aᵐᵒᵖ
+@Transpose.ofPresentation : {A : Type u_1} →
+  [inst : Ring A] → {Q₁ Q₀ : ModuleCat Aᵐᵒᵖ} → (↑Q₁ →ₗ[Aᵐᵒᵖ] ↑Q₀) → ModuleCat A
+@Transpose.cok_eq_transpose : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) (n : ℕ), StrongNakayama.cok P d (n + 1) = Transpose.ofPresentation (d n)
+@Transpose.syzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      ((n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) → (E : ModuleCat Aᵐᵒᵖ) → (↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) → ℕ → ModuleCat Aᵐᵒᵖ
+@Transpose.presentationCokernelEquivSyzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        (E : ModuleCat Aᵐᵒᵖ) →
+          (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) →
+            Function.Surjective ⇑ε →
+              (d 0).range = ε.ker →
+                (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+                  (n : ℕ) → ↑(Transpose.presentedModule (d n)) ≃ₗ[Aᵐᵒᵖ] ↑(Transpose.syzygy P d E ε n)
+@Transpose.presentationCokernelIsoSyzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        (E : ModuleCat Aᵐᵒᵖ) →
+          (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) →
+            Function.Surjective ⇑ε →
+              (d 0).range = ε.ker →
+                (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+                  (n : ℕ) → Transpose.presentedModule (d n) ≅ Transpose.syzygy P d E ε n
+'FindimCounterexample.ResolutionExt.ext_zero_iff_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ResolutionExt.ext_succ_iff_cocycles_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ResolutionExt.ext_vanishing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ModuleResolution.projectiveResolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ModuleResolution.ext_vanishing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.homRightDualEquiv' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.StrongNakayama.homDifferential_eq_dualDifferential' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.StrongNakayama.ext_vanishing_iff_dual_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq_of_ext' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded_of_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.presentedModule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.ofPresentation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.cok_eq_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.syzygy' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.Transpose.presentationCokernelEquivSyzygy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Transpose.presentationCokernelIsoSyzygy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+FindimCounterexample.SelectionGroup.G : Type
+FindimCounterexample.SelectionGroup.Relator : FreeGroup SelectionGroup.Generator → Prop
+FindimCounterexample.SelectionGroup.weight : SelectionGroup.Root → (SelectionGroup.Index → ℤ) →+ ℤ
+@SelectionGroup.lift : {H : Type u_1} →
+  [inst : Group H] →
+    (t : SelectionGroup.Index → H) →
+      (s : SelectionGroup.Root → ℤ → H) →
+        (∀ (l k : SelectionGroup.Index), Commute (t l) (t k)) →
+          (∀ (l : SelectionGroup.Index) (a : SelectionGroup.Root) (r : ℤ),
+              t l * s a r * (t l)⁻¹ = s a (r + SelectionGroup.step a l)) →
+            (∀ (i : SelectionGroup.Index) (r : ℤ), s (SelectionGroup.Root.u i) r ^ 2 = 1) →
+              (∀ (i j : SelectionGroup.Index),
+                  i ≠ j → ∀ (r q : ℤ), Commute (s (SelectionGroup.Root.u i) r) (s (SelectionGroup.Root.u j) q)) →
+                (∀ (i j : SelectionGroup.Index),
+                    i ≠ j → ∀ (r q : ℤ), Commute (s (SelectionGroup.Root.v i) r) (s (SelectionGroup.Root.v j) q)) →
+                  (∀ (i j : SelectionGroup.Index),
+                      i ≠ j → ∀ (r q : ℤ), Commute (s (SelectionGroup.Root.u i) r) (s (SelectionGroup.Root.v j) q)) →
+                    (∀ (ij : SelectionGroup.Pair) (h : SelectionGroup.Index),
+                        h ≠ (↑ij).1 →
+                          ∀ (q r : ℤ), Commute (s (SelectionGroup.Root.w ij) q) (s (SelectionGroup.Root.u h) r)) →
+                      (∀ (ij : SelectionGroup.Pair) (h : SelectionGroup.Index),
+                          h ≠ (↑ij).2 →
+                            ∀ (q r : ℤ), Commute (s (SelectionGroup.Root.w ij) q) (s (SelectionGroup.Root.v h) r)) →
+                        (∀ (ij : SelectionGroup.Pair) (r q : ℤ),
+                            ⁅s (SelectionGroup.Root.u (↑ij).1) r, s (SelectionGroup.Root.w ij) q⁆ =
+                              s (SelectionGroup.Root.u (↑ij).2) (r + q)) →
+                          (∀ (ij : SelectionGroup.Pair) (q r : ℤ),
+                              ⁅s (SelectionGroup.Root.w ij) q, s (SelectionGroup.Root.v (↑ij).2) r⁆ =
+                                s (SelectionGroup.Root.v (↑ij).1) (r + q)) →
+                            SelectionGroup.G →* H
+@SelectionCommutator.transfer : ∀ {H : Type u_1} [inst : Group H] {x w v p q : H},
+  Commute x v → ⁅x, w⁆ = p → ⁅w, v⁆ = q → Commute q p → Commute q v → ⁅x, q⁆ = ⁅p, v⁆
+FindimCounterexample.SelectionGroup.commutator_transfer (i j : SelectionGroup.Index) (hij : i ≠ j) (a s b : ℤ) :
+  ⁅SelectionGroup.U i a, SelectionGroup.V i (s + b)⁆ = ⁅SelectionGroup.U j (a + s), SelectionGroup.V j b⁆
+FindimCounterexample.SelectionGroup.commutator_eq_of_sum (i j : SelectionGroup.Index) (a b c d : ℤ)
+  (h : a + b = c + d) : ⁅SelectionGroup.U i a, SelectionGroup.V i b⁆ = ⁅SelectionGroup.U j c, SelectionGroup.V j d⁆
+FindimCounterexample.SelectionGroup.z_eq (N : ℤ) (i : SelectionGroup.Index) (a b : ℤ) (h : a + b = N) :
+  SelectionGroup.z N = ⁅SelectionGroup.U i a, SelectionGroup.V i b⁆
+FindimCounterexample.SelectionGroup.z_mem_center (N : ℤ) : SelectionGroup.z N ∈ Subgroup.center SelectionGroup.G
+FindimCounterexample.SelectionGroup.z_sq (N : ℤ) : SelectionGroup.z N ^ 2 = 1
+'FindimCounterexample.SelectionGroup.lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionCommutator.transfer' depends on axioms: [propext]
+'FindimCounterexample.SelectionGroup.commutator_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.commutator_eq_of_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.z_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.z_mem_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.z_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+FindimCounterexample.SelectionGroup.beta (c : ℤ) : SelectionGroup.G ≃* SelectionGroup.G
+FindimCounterexample.SelectionGroup.beta_T (c : ℤ) (l : SelectionGroup.Index) :
+  (SelectionGroup.beta c) (SelectionGroup.T l) = SelectionGroup.T l
+FindimCounterexample.SelectionGroup.beta_U (c : ℤ) (i : SelectionGroup.Index) (r : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.U i r) = SelectionGroup.U i (r + c)
+FindimCounterexample.SelectionGroup.beta_V (c : ℤ) (i : SelectionGroup.Index) (r : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.V i r) = SelectionGroup.V i r
+FindimCounterexample.SelectionGroup.beta_W (c : ℤ) (ij : SelectionGroup.Pair) (r : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.W ij r) = SelectionGroup.W ij r
+FindimCounterexample.SelectionGroup.beta_add (c d : ℤ) :
+  (SelectionGroup.beta d).trans (SelectionGroup.beta c) = SelectionGroup.beta (c + d)
+FindimCounterexample.SelectionGroup.beta_zero : SelectionGroup.beta 0 = MulEquiv.refl SelectionGroup.G
+FindimCounterexample.SelectionGroup.beta_z (c N : ℤ) :
+  (SelectionGroup.beta c) (SelectionGroup.z N) = SelectionGroup.z (N + c)
+FindimCounterexample.SelectionGroup.alpha_z (N : ℤ) :
+  SelectionGroup.alpha (SelectionGroup.z N) = SelectionGroup.z (N + 1)
+'FindimCounterexample.SelectionGroup.beta' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.beta_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.beta_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.beta_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.alpha_z' depends on axioms: [propext, Classical.choice, Quot.sound]
+FindimCounterexample.FiniteQuotientRing.S (m : ℕ) : Type
+FindimCounterexample.FiniteQuotientRing.basis (m : ℕ) (hm : 0 < m) :
+  Module.Basis (Fin m) (ZMod 2) (FiniteQuotientRing.S m)
+FindimCounterexample.FiniteQuotientRing.finite (m : ℕ) (hm : 0 < m) : Finite (FiniteQuotientRing.S m)
+FindimCounterexample.FiniteQuotientRing.t (m : ℕ) (hm : 0 < m) : (FiniteQuotientRing.S m)ˣ
+FindimCounterexample.FiniteQuotientRing.t_pow (m : ℕ) (hm : 0 < m) : FiniteQuotientRing.t m hm ^ m = 1
+FindimCounterexample.FiniteQuotientRing.linearIndependent_tPow (m : ℕ) (hm : 0 < m) :
+  LinearIndependent (ZMod 2) fun i => FiniteQuotientRing.tPow m hm ↑↑i
+FindimCounterexample.FiniteQuotients.pi (m : ℕ) (hm : 0 < m) : SelectionGroup.G →* FiniteQuotients.MatGroup m
+FindimCounterexample.FiniteQuotients.pi_T_matrix (m : ℕ) (hm : 0 < m) (l : SelectionGroup.Index) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.T l)) = Matrix.diagonal fun k => ↑(FiniteQuotients.diagonalEntry m hm l k)
+FindimCounterexample.FiniteQuotients.pi_U_matrix (m : ℕ) (hm : 0 < m) (i : SelectionGroup.Index) (r : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.U i r)) =
+    1 + Matrix.single 0 (FiniteQuotients.middle i) (FiniteQuotientRing.tPow m hm r)
+FindimCounterexample.FiniteQuotients.pi_V_matrix (m : ℕ) (hm : 0 < m) (i : SelectionGroup.Index) (r : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.V i r)) =
+    1 + Matrix.single (FiniteQuotients.middle i) 4 (FiniteQuotientRing.tPow m hm r)
+FindimCounterexample.FiniteQuotients.pi_W_matrix (m : ℕ) (hm : 0 < m) (ij : SelectionGroup.Pair) (r : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.W ij r)) =
+    1 + Matrix.single (FiniteQuotients.middle (↑ij).1) (FiniteQuotients.middle (↑ij).2) (FiniteQuotientRing.tPow m hm r)
+FindimCounterexample.FiniteQuotients.pi_z_matrix (m : ℕ) (hm : 0 < m) (N : ℤ) :
+  ↑((FiniteQuotients.pi m hm) (SelectionGroup.z N)) = 1 + Matrix.single 0 4 (FiniteQuotientRing.tPow m hm N)
+FindimCounterexample.FiniteQuotients.finite_F (m : ℕ) (hm : 0 < m) : Finite ↥(FiniteQuotients.F m hm)
+FindimCounterexample.FiniteQuotients.coordinates (m : ℕ) (hm : 0 < m) :
+  FiniteQuotients.Coordinates m →* ↥(FiniteQuotients.F m hm)
+FindimCounterexample.FiniteQuotients.coordinates_injective (m : ℕ) (hm : 0 < m) :
+  Function.Injective ⇑(FiniteQuotients.coordinates m hm)
+FindimCounterexample.FiniteQuotients.coordinates_range (m : ℕ) (hm : 0 < m) :
+  (FiniteQuotients.coordinates m hm).range = FiniteQuotients.Z m hm
+FindimCounterexample.FiniteQuotients.centerEquiv (m : ℕ) (hm : 0 < m) :
+  FiniteQuotients.Coordinates m ≃* ↥(FiniteQuotients.Z m hm)
+FindimCounterexample.FiniteQuotients.centerEquiv_generator (m : ℕ) (hm : 0 < m) (q : Fin m) :
+  ↑((FiniteQuotients.centerEquiv m hm) (FiniteQuotients.coordinateGenerator q)) =
+    (FiniteQuotients.pi m hm).rangeRestrict (SelectionGroup.z ↑↑q)
+FindimCounterexample.FiniteQuotients.z_image_mem_center (m : ℕ) (hm : 0 < m) (N : ℤ) :
+  (FiniteQuotients.pi m hm).rangeRestrict (SelectionGroup.z N) ∈ Subgroup.center ↥(FiniteQuotients.F m hm)
+FindimCounterexample.FiniteQuotients.Z_le_center (m : ℕ) (hm : 0 < m) :
+  FiniteQuotients.Z m hm ≤ Subgroup.center ↥(FiniteQuotients.F m hm)
+'FindimCounterexample.FiniteQuotientRing.basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotientRing.finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotientRing.t' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotientRing.linearIndependent_tPow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_T_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_U_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_V_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_W_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.pi_z_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.finite_F' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.coordinates_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.coordinates_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.centerEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.centerEquiv_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.z_image_mem_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.FiniteQuotients.Z_le_center' depends on axioms: [propext, Classical.choice, Quot.sound]
+FindimCounterexample.SelectionGroup.centralSum : (ℤ →₀ ZMod 2) →+ Additive ↥(Subgroup.center SelectionGroup.G)
+FindimCounterexample.SelectionGroup.centralSum_single_one (N : ℤ) :
+  SelectionGroup.centralSum (Finsupp.single N 1) = Additive.ofMul (SelectionGroup.zCentral N)
+FindimCounterexample.SelectionGroup.centralSum_injective : Function.Injective ⇑SelectionGroup.centralSum
+FindimCounterexample.SelectionGroup.centralProduct_range :
+  SelectionGroup.centralProduct.range = SelectionGroup.centralSubgroup
+FindimCounterexample.SelectionGroup.centralSubgroup_map :
+  Subgroup.map (Subgroup.center SelectionGroup.G).subtype SelectionGroup.centralSubgroup =
+    Subgroup.closure (Set.range SelectionGroup.z)
+FindimCounterexample.SelectionGroup.directSumEquiv : Multiplicative (ℤ →₀ ZMod 2) ≃* ↥SelectionGroup.centralSubgroup
+FindimCounterexample.SelectionGroup.directSumEquiv_single (N : ℤ) :
+  ↑(SelectionGroup.directSumEquiv (Multiplicative.ofAdd (Finsupp.single N 1))) = SelectionGroup.zCentral N
+FindimCounterexample.SelectionGroup.center_not_finitelyGenerated : ¬Group.FG ↥(Subgroup.center SelectionGroup.G)
+FindimCounterexample.SelectionGroup.center_not_fg : ¬(Subgroup.center SelectionGroup.G).FG
+'FindimCounterexample.SelectionGroup.centralSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.centralSum_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.centralProduct_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.centralSubgroup_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.directSumEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.directSumEquiv_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionGroup.center_not_finitelyGenerated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.SelectionGroup.center_not_fg' depends on axioms: [propext, Classical.choice, Quot.sound]
+inductive FindimCounterexample.SelectionGroup.Relator : FreeGroup SelectionGroup.Generator → Prop
+number of parameters: 0
+constructors:
+FindimCounterexample.SelectionGroup.Relator.torus : ∀ (l k : SelectionGroup.Index),
+  SelectionGroup.Relator ⁅SelectionGroup.Word.T l, SelectionGroup.Word.T k⁆
+FindimCounterexample.SelectionGroup.Relator.conjugation : ∀ (l : SelectionGroup.Index) (s : SelectionGroup.Root)
+  (r : ℤ),
+  SelectionGroup.Relator
+    (SelectionGroup.Word.T l * SelectionGroup.Word.S s r * (SelectionGroup.Word.T l)⁻¹ *
+      (SelectionGroup.Word.S s (r + SelectionGroup.step s l))⁻¹)
+FindimCounterexample.SelectionGroup.Relator.involution : ∀ (i : SelectionGroup.Index) (r : ℤ),
+  SelectionGroup.Relator (SelectionGroup.Word.U i r ^ 2)
+FindimCounterexample.SelectionGroup.Relator.uu : ∀ (i j : SelectionGroup.Index),
+  i ≠ j → ∀ (r s : ℤ), SelectionGroup.Relator ⁅SelectionGroup.Word.U i r, SelectionGroup.Word.U j s⁆
+FindimCounterexample.SelectionGroup.Relator.vv : ∀ (i j : SelectionGroup.Index),
+  i ≠ j → ∀ (r s : ℤ), SelectionGroup.Relator ⁅SelectionGroup.Word.V i r, SelectionGroup.Word.V j s⁆
+FindimCounterexample.SelectionGroup.Relator.uv : ∀ (i j : SelectionGroup.Index),
+  i ≠ j → ∀ (r s : ℤ), SelectionGroup.Relator ⁅SelectionGroup.Word.U i r, SelectionGroup.Word.V j s⁆
+FindimCounterexample.SelectionGroup.Relator.wu : ∀ (ij : SelectionGroup.Pair) (h : SelectionGroup.Index),
+  h ≠ (↑ij).1 → ∀ (s r : ℤ), SelectionGroup.Relator ⁅SelectionGroup.Word.W ij s, SelectionGroup.Word.U h r⁆
+FindimCounterexample.SelectionGroup.Relator.wv : ∀ (ij : SelectionGroup.Pair) (h : SelectionGroup.Index),
+  h ≠ (↑ij).2 → ∀ (s r : ℤ), SelectionGroup.Relator ⁅SelectionGroup.Word.W ij s, SelectionGroup.Word.V h r⁆
+FindimCounterexample.SelectionGroup.Relator.uw : ∀ (ij : SelectionGroup.Pair) (r s : ℤ),
+  SelectionGroup.Relator
+    (⁅SelectionGroup.Word.U (↑ij).1 r, SelectionGroup.Word.W ij s⁆ * (SelectionGroup.Word.U (↑ij).2 (r + s))⁻¹)
+FindimCounterexample.SelectionGroup.Relator.wv_transfer : ∀ (ij : SelectionGroup.Pair) (s r : ℤ),
+  SelectionGroup.Relator
+    (⁅SelectionGroup.Word.W ij s, SelectionGroup.Word.V (↑ij).2 r⁆ * (SelectionGroup.Word.V (↑ij).1 (r + s))⁻¹)
+@[reducible] def FindimCounterexample.SelectionGroup.G : Type :=
+PresentedGroup SelectionGroup.relations
+@[reducible] def FindimCounterexample.SelectionFinite.Generator : Type :=
+SelectionGroup.Index ⊕ SelectionGroup.Root
+def FindimCounterexample.SelectionFinite.relationWord : SelectionFinite.RelatorIndex →
+  FreeGroup SelectionFinite.Generator :=
+fun x =>
+  match x with
+  | SelectionFinite.RelatorIndex.torus i j => ⁅SelectionFinite.Word.T i, SelectionFinite.Word.T j⁆
+  | SelectionFinite.RelatorIndex.involution i => SelectionFinite.Word.U0 i ^ 2
+  | SelectionFinite.RelatorIndex.uu ij => ⁅SelectionFinite.Word.U0 (↑ij).1, SelectionFinite.Word.U0 (↑ij).2⁆
+  | SelectionFinite.RelatorIndex.vv ij => ⁅SelectionFinite.Word.V0 (↑ij).1, SelectionFinite.Word.V0 (↑ij).2⁆
+  | SelectionFinite.RelatorIndex.uv ij => ⁅SelectionFinite.Word.U0 (↑ij).1, SelectionFinite.Word.V0 (↑ij).2⁆
+  | SelectionFinite.RelatorIndex.wu ij h => ⁅SelectionFinite.Word.W0 ij, SelectionFinite.Word.U0 ↑h⁆
+  | SelectionFinite.RelatorIndex.wv ij h => ⁅SelectionFinite.Word.W0 ij, SelectionFinite.Word.V0 ↑h⁆
+  | SelectionFinite.RelatorIndex.uw ij =>
+    ⁅SelectionFinite.Word.U0 (↑ij).1, SelectionFinite.Word.W0 ij⁆ * (SelectionFinite.Word.U0 (↑ij).2)⁻¹
+  | SelectionFinite.RelatorIndex.wv_transfer ij =>
+    ⁅SelectionFinite.Word.W0 ij, SelectionFinite.Word.V0 (↑ij).2⁆ * (SelectionFinite.Word.V0 (↑ij).1)⁻¹
+  | SelectionFinite.RelatorIndex.torus_u hi => ⁅SelectionFinite.Word.T (↑hi).1, SelectionFinite.Word.U0 (↑hi).2⁆
+  | SelectionFinite.RelatorIndex.torus_v hi => ⁅SelectionFinite.Word.T (↑hi).1, SelectionFinite.Word.V0 (↑hi).2⁆
+  | SelectionFinite.RelatorIndex.torus_w_pair ij =>
+    ⁅SelectionFinite.Word.T (↑ij).1 * SelectionFinite.Word.T (↑ij).2, SelectionFinite.Word.W0 ij⁆
+  | SelectionFinite.RelatorIndex.torus_w_third ij k => ⁅SelectionFinite.Word.T ↑k, SelectionFinite.Word.W0 ij⁆
+@[reducible] def FindimCounterexample.SelectionFinite.P : Type :=
+PresentedGroup SelectionFinite.relations
+FindimCounterexample.SelectionFinite.card_generator : Fintype.card SelectionFinite.Generator = 15
+FindimCounterexample.SelectionFinite.relations_finite : SelectionFinite.relations.Finite
+FindimCounterexample.SelectionFinite.family (a : SelectionGroup.Root) (r : ℤ) : SelectionFinite.P
+FindimCounterexample.SelectionFinite.conjugation (l : SelectionGroup.Index) (a : SelectionGroup.Root) (r : ℤ) :
+  SelectionFinite.T l * SelectionFinite.family a r * (SelectionFinite.T l)⁻¹ =
+    SelectionFinite.family a (r + SelectionGroup.step a l)
+FindimCounterexample.SelectionFinite.torus_conjugation (n : SelectionGroup.Index → ℤ) (a : SelectionGroup.Root)
+  (r : ℤ) :
+  SelectionFinite.torus n * SelectionFinite.family a r * (SelectionFinite.torus n)⁻¹ =
+    SelectionFinite.family a (r + (SelectionGroup.weight a) n)
+FindimCounterexample.SelectionFinite.toG : SelectionFinite.P →* SelectionGroup.G
+FindimCounterexample.SelectionFinite.fromG : SelectionGroup.G →* SelectionFinite.P
+FindimCounterexample.SelectionFinite.toG_family (a : SelectionGroup.Root) (r : ℤ) :
+  SelectionFinite.toG (SelectionFinite.family a r) = SelectionGroup.S a r
+FindimCounterexample.SelectionFinite.fromG_comp_toG :
+  SelectionFinite.fromG.comp SelectionFinite.toG = MonoidHom.id SelectionFinite.P
+FindimCounterexample.SelectionFinite.toG_comp_fromG :
+  SelectionFinite.toG.comp SelectionFinite.fromG = MonoidHom.id SelectionGroup.G
+FindimCounterexample.SelectionFinite.presentationEquiv : SelectionFinite.P ≃* SelectionGroup.G
+FindimCounterexample.SelectionFinite.presentationEquiv_T (i : SelectionGroup.Index) :
+  SelectionFinite.presentationEquiv (SelectionFinite.T i) = SelectionGroup.T i
+FindimCounterexample.SelectionFinite.presentationEquiv_root0 (a : SelectionGroup.Root) :
+  SelectionFinite.presentationEquiv (SelectionFinite.root0 a) = SelectionGroup.S a 0
+FindimCounterexample.SelectionFinite.finitelyPresented : Group.IsFinitelyPresented SelectionGroup.G
+'FindimCounterexample.SelectionFinite.card_generator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.relations_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.torus_conjugation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.toG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.fromG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.toG_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.fromG_comp_toG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.toG_comp_fromG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.presentationEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.presentationEquiv_T' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.SelectionFinite.presentationEquiv_root0' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.SelectionFinite.finitelyPresented' depends on axioms: [propext, Classical.choice, Quot.sound]
+@RankObstruction.apply_pow_eq_zero_of_eventually : ∀ {K : Type u_1} [inst : Field K] {V : Type u_2}
+  [inst_1 : AddCommGroup V] [inst_2 : Module K V] [FiniteDimensional K V] (T : Module.End K V) (v : V)
+  (φ : Module.Dual K V),
+  (∃ t₀, ∀ (t : ℕ), t₀ ≤ t → φ ((T ^ t) v) = 0) → ∀ (t : ℕ), Module.finrank K V ≤ t → φ ((T ^ t) v) = 0
+@RankObstruction.apply_pow_finrank_eq_zero : ∀ {K : Type u_1} [inst : Field K] {V : Type u_2} [inst_1 : AddCommGroup V]
+  [inst_2 : Module K V] [FiniteDimensional K V] (T : Module.End K V) (v : V) (φ : Module.Dual K V),
+  (∃ t₀, ∀ (t : ℕ), t₀ ≤ t → φ ((T ^ t) v) = 0) → φ ((T ^ Module.finrank K V) v) = 0
+@RankObstruction.extinction_bound : ∀ {V : Type u_1} [inst : AddCommGroup V] [inst_1 : Module ℚ V]
+  [FiniteDimensional ℚ V] {ι : Type u_2} (T : Module.End ℚ V) (v : V) (φ : ι → Module.Dual ℚ V) (d : ι → ℕ → ℕ),
+  (∀ (Y : ι) (t : ℕ), ↑(d Y t) = (φ Y) ((T ^ t) v)) →
+    (∀ (Y : ι) (t : ℕ), d Y t = 0 → d Y (t + 1) = 0) →
+      ∀ (Y : ι), (∃ t₀, d Y t₀ = 0) → ∀ (t : ℕ), Module.finrank ℚ V ≤ t → d Y t = 0
+'FindimCounterexample.RankObstruction.apply_pow_eq_zero_of_eventually' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.RankObstruction.apply_pow_finrank_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.RankObstruction.extinction_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Stage3cFractions.exists_common_denominator_finset : ∀ {C : Type u_4} {D : Type u_5}
+  [inst : CategoryTheory.Category.{u_2, u_4} C] [inst_1 : CategoryTheory.Category.{u_3, u_5} D]
+  (L : CategoryTheory.Functor C D) (W : CategoryTheory.MorphismProperty C) [L.IsLocalization W]
+  [W.HasRightCalculusOfFractions] {ι : Type u_1} (s : Finset ι) {X : C} {Y : ι → C}
+  (γ : (i : ι) → L.obj X ⟶ L.obj (Y i)),
+  ∃ X' u, W u ∧ ∀ i ∈ s, ∃ f, CategoryTheory.CategoryStruct.comp (L.map u) (γ i) = L.map f
+@Stage3cFractions.exists_common_denominator : ∀ {C : Type u_4} {D : Type u_5}
+  [inst : CategoryTheory.Category.{u_2, u_4} C] [inst_1 : CategoryTheory.Category.{u_3, u_5} D]
+  (L : CategoryTheory.Functor C D) (W : CategoryTheory.MorphismProperty C) [inst_2 : L.IsLocalization W]
+  [W.HasRightCalculusOfFractions] {ι : Type u_1} [Finite ι] {X : C} {Y : ι → C} (γ : (i : ι) → L.obj X ⟶ L.obj (Y i)),
+  ∃ X' u,
+    ∃ (hu : W u),
+      ∃ f,
+        ∀ (i : ι),
+          γ i = CategoryTheory.CategoryStruct.comp (CategoryTheory.Localization.isoOfHom L W u hu).inv (L.map (f i))
+@Stage3cFractions.exists_equalising_denominator_finset : ∀ {C : Type u_4} {D : Type u_5}
+  [inst : CategoryTheory.Category.{u_2, u_4} C] [inst_1 : CategoryTheory.Category.{u_3, u_5} D]
+  (L : CategoryTheory.Functor C D) (W : CategoryTheory.MorphismProperty C) [L.IsLocalization W]
+  [W.HasRightCalculusOfFractions] {ι : Type u_1} (s : Finset ι) {X : C} {Y : ι → C} (f g : (i : ι) → X ⟶ Y i),
+  (∀ i ∈ s, L.map (f i) = L.map (g i)) →
+    ∃ X' u, W u ∧ ∀ i ∈ s, CategoryTheory.CategoryStruct.comp u (f i) = CategoryTheory.CategoryStruct.comp u (g i)
+@Stage3cFractions.exists_equalising_denominator : ∀ {C : Type u_4} {D : Type u_5}
+  [inst : CategoryTheory.Category.{u_2, u_4} C] [inst_1 : CategoryTheory.Category.{u_3, u_5} D]
+  (L : CategoryTheory.Functor C D) (W : CategoryTheory.MorphismProperty C) [L.IsLocalization W]
+  [W.HasRightCalculusOfFractions] {ι : Type u_1} [Finite ι] {X : C} {Y : ι → C} (f g : (i : ι) → X ⟶ Y i),
+  (∀ (i : ι), L.map (f i) = L.map (g i)) →
+    ∃ X' u, W u ∧ ∀ (i : ι), CategoryTheory.CategoryStruct.comp u (f i) = CategoryTheory.CategoryStruct.comp u (g i)
+@Stage3cFractions.exists_annihilating_denominator : ∀ {C : Type u_4} {D : Type u_5}
+  [inst : CategoryTheory.Category.{u_2, u_4} C] [inst_1 : CategoryTheory.Category.{u_3, u_5} D]
+  (L : CategoryTheory.Functor C D) (W : CategoryTheory.MorphismProperty C) [L.IsLocalization W]
+  [W.HasRightCalculusOfFractions] [inst_4 : CategoryTheory.Preadditive C] [inst_5 : CategoryTheory.Preadditive D]
+  [L.Additive] {ι : Type u_1} [Finite ι] {X : C} {Y : ι → C} (g : (i : ι) → X ⟶ Y i),
+  (∀ (i : ι), L.map (g i) = 0) → ∃ X' u, W u ∧ ∀ (i : ι), CategoryTheory.CategoryStruct.comp u (g i) = 0
+'FindimCounterexample.Stage3cFractions.exists_common_denominator_finset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cFractions.exists_common_denominator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cFractions.exists_equalising_denominator_finset' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cFractions.exists_equalising_denominator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cFractions.exists_annihilating_denominator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@Stage3cKaroubi.shift : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [CategoryTheory.HasShift C ℤ] →
+      ℤ → CategoryTheory.Functor (CategoryTheory.Idempotents.Karoubi C) (CategoryTheory.Idempotents.Karoubi C)
+@Stage3cKaroubi.karoubi_hasBinaryBiproducts : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] [CategoryTheory.Limits.HasFiniteBiproducts C],
+  CategoryTheory.Limits.HasBinaryBiproducts (CategoryTheory.Idempotents.Karoubi C)
+@Stage3cKaroubi.shift_additive : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] [inst_2 : CategoryTheory.Preadditive C] (n : ℤ)
+  [(CategoryTheory.shiftFunctor C n).Additive], (Stage3cKaroubi.shift n).Additive
+@Stage3cKaroubi.shift_obj_X : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) (P : CategoryTheory.Idempotents.Karoubi C),
+  ((Stage3cKaroubi.shift n).obj P).X = (CategoryTheory.shiftFunctor C n).obj P.X
+@Stage3cKaroubi.shift_obj_p : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) (P : CategoryTheory.Idempotents.Karoubi C),
+  ((Stage3cKaroubi.shift n).obj P).p = (CategoryTheory.shiftFunctor C n).map P.p
+@Stage3cKaroubi.shift_map_f : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) {P Q : CategoryTheory.Idempotents.Karoubi C} (f : P ⟶ Q),
+  ((Stage3cKaroubi.shift n).map f).f = (CategoryTheory.shiftFunctor C n).map f.f
+@Stage3cKaroubi.shiftToKaroubiIso : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.HasShift C ℤ] →
+      (n : ℤ) →
+        (X : C) →
+          (CategoryTheory.Idempotents.toKaroubi C).obj ((CategoryTheory.shiftFunctor C n).obj X) ≅
+            (Stage3cKaroubi.shift n).obj ((CategoryTheory.Idempotents.toKaroubi C).obj X)
+@Stage3cKaroubi.shiftToKaroubiIso_hom_f : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) (X : C),
+  (Stage3cKaroubi.shiftToKaroubiIso n X).hom.f =
+    CategoryTheory.CategoryStruct.id ((CategoryTheory.shiftFunctor C n).obj X)
+@Stage3cKaroubi.shiftToKaroubiIso_inv_f : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) (X : C),
+  (Stage3cKaroubi.shiftToKaroubiIso n X).inv.f =
+    CategoryTheory.CategoryStruct.id ((CategoryTheory.shiftFunctor C n).obj X)
+@Stage3cKaroubi.shiftToKaroubiIso_naturality : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) {X Y : C} (f : X ⟶ Y),
+  CategoryTheory.CategoryStruct.comp
+      ((CategoryTheory.Idempotents.toKaroubi C).map ((CategoryTheory.shiftFunctor C n).map f))
+      (Stage3cKaroubi.shiftToKaroubiIso n Y).hom =
+    CategoryTheory.CategoryStruct.comp (Stage3cKaroubi.shiftToKaroubiIso n X).hom
+      ((Stage3cKaroubi.shift n).map ((CategoryTheory.Idempotents.toKaroubi C).map f))
+@Stage3cKaroubi.shiftToKaroubiIso_inv_naturality : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] (n : ℤ) {X Y : C} (f : X ⟶ Y),
+  CategoryTheory.CategoryStruct.comp (Stage3cKaroubi.shiftToKaroubiIso n X).inv
+      ((CategoryTheory.Idempotents.toKaroubi C).map ((CategoryTheory.shiftFunctor C n).map f)) =
+    CategoryTheory.CategoryStruct.comp ((Stage3cKaroubi.shift n).map ((CategoryTheory.Idempotents.toKaroubi C).map f))
+      (Stage3cKaroubi.shiftToKaroubiIso n Y).inv
+@Stage3cKaroubi.shiftAddIso : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.HasShift C ℤ] →
+      (m n : ℤ) →
+        (P : CategoryTheory.Idempotents.Karoubi C) →
+          (Stage3cKaroubi.shift n).obj ((Stage3cKaroubi.shift m).obj P) ≅ (Stage3cKaroubi.shift (m + n)).obj P
+@Stage3cKaroubi.lift_exact : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] {X Y Z : C} (f : X ⟶ Y) (g : Y ⟶ Z),
+  (∀ (W : C) (a : W ⟶ Y),
+      CategoryTheory.CategoryStruct.comp a g = 0 → ∃ b, a = CategoryTheory.CategoryStruct.comp b f) →
+    ∀ {P : CategoryTheory.Idempotents.Karoubi C} (a : P ⟶ (CategoryTheory.Idempotents.toKaroubi C).obj Y),
+      CategoryTheory.CategoryStruct.comp a ((CategoryTheory.Idempotents.toKaroubi C).map g) = 0 →
+        ∃ b, a = CategoryTheory.CategoryStruct.comp b ((CategoryTheory.Idempotents.toKaroubi C).map f)
+@Stage3cKaroubi.coyoneda_exact₂ : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] [inst_2 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C],
+  ∀ T ∈ CategoryTheory.Pretriangulated.distinguishedTriangles,
+    ∀ {P : CategoryTheory.Idempotents.Karoubi C} (a : P ⟶ (CategoryTheory.Idempotents.toKaroubi C).obj T.obj₂),
+      CategoryTheory.CategoryStruct.comp a ((CategoryTheory.Idempotents.toKaroubi C).map T.mor₂) = 0 →
+        ∃ b, a = CategoryTheory.CategoryStruct.comp b ((CategoryTheory.Idempotents.toKaroubi C).map T.mor₁)
+@Stage3cKaroubi.coyoneda_exact₃ : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] [inst_2 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C],
+  ∀ T ∈ CategoryTheory.Pretriangulated.distinguishedTriangles,
+    ∀ {P : CategoryTheory.Idempotents.Karoubi C} (a : P ⟶ (CategoryTheory.Idempotents.toKaroubi C).obj T.obj₃),
+      CategoryTheory.CategoryStruct.comp a ((CategoryTheory.Idempotents.toKaroubi C).map T.mor₃) = 0 →
+        ∃ b, a = CategoryTheory.CategoryStruct.comp b ((CategoryTheory.Idempotents.toKaroubi C).map T.mor₂)
+@Stage3cKaroubi.coyoneda_exact₁ : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] [inst_2 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C],
+  ∀ T ∈ CategoryTheory.Pretriangulated.distinguishedTriangles,
+    ∀ {P : CategoryTheory.Idempotents.Karoubi C}
+      (a : P ⟶ (CategoryTheory.Idempotents.toKaroubi C).obj ((CategoryTheory.shiftFunctor C 1).obj T.obj₁)),
+      CategoryTheory.CategoryStruct.comp a
+            ((CategoryTheory.Idempotents.toKaroubi C).map ((CategoryTheory.shiftFunctor C 1).map T.mor₁)) =
+          0 →
+        ∃ b, a = CategoryTheory.CategoryStruct.comp b ((CategoryTheory.Idempotents.toKaroubi C).map T.mor₃)
+@Stage3cConeSplitting.nonempty_iso_of_hom_exact : ∀ {D : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} D]
+  [inst_1 : CategoryTheory.Preadditive D] {A X B : D} [inst_2 : CategoryTheory.Limits.HasBinaryBiproduct A B]
+  (a : A ⟶ X) (b : X ⟶ B),
+  CategoryTheory.CategoryStruct.comp a b = 0 →
+    (∀ (Z : D) (g : Z ⟶ A), CategoryTheory.CategoryStruct.comp g a = 0 → g = 0) →
+      (∀ (Z : D) (g : Z ⟶ X),
+          CategoryTheory.CategoryStruct.comp g b = 0 → ∃ h, g = CategoryTheory.CategoryStruct.comp h a) →
+        (∀ (Z : D) (g : Z ⟶ B), ∃ h, g = CategoryTheory.CategoryStruct.comp h b) → Nonempty (X ≅ A ⊞ B)
+@Stage3cConeSplitting.nonempty_iso_of_complementary_retracts : ∀ {D : Type u_2}
+  [inst : CategoryTheory.Category.{u_1, u_2} D] [inst_1 : CategoryTheory.Preadditive D] {X₁ X₂ X₃ X₄ X₅ A B : D}
+  [inst_2 : CategoryTheory.Limits.HasBinaryBiproduct B A] (f : X₁ ⟶ X₂) (j : X₂ ⟶ X₃) (v : X₃ ⟶ X₄) (w : X₄ ⟶ X₅),
+  CategoryTheory.CategoryStruct.comp j v = 0 →
+    (∀ (Z : D) (g : Z ⟶ X₂),
+        CategoryTheory.CategoryStruct.comp g j = 0 → ∃ h, g = CategoryTheory.CategoryStruct.comp h f) →
+      (∀ (Z : D) (g : Z ⟶ X₃),
+          CategoryTheory.CategoryStruct.comp g v = 0 → ∃ h, g = CategoryTheory.CategoryStruct.comp h j) →
+        (∀ (Z : D) (g : Z ⟶ X₄),
+            CategoryTheory.CategoryStruct.comp g w = 0 → ∃ h, g = CategoryTheory.CategoryStruct.comp h v) →
+          ∀ (iB : B ⟶ X₂) (pB : X₂ ⟶ B) (iA : A ⟶ X₄) (pA : X₄ ⟶ A),
+            CategoryTheory.CategoryStruct.comp iB pB = CategoryTheory.CategoryStruct.id B →
+              CategoryTheory.CategoryStruct.comp f pB = 0 →
+                CategoryTheory.CategoryStruct.comp pB (CategoryTheory.CategoryStruct.comp iB j) = j →
+                  CategoryTheory.CategoryStruct.comp iA pA = CategoryTheory.CategoryStruct.id A →
+                    CategoryTheory.CategoryStruct.comp iA w = 0 →
+                      CategoryTheory.CategoryStruct.comp v (CategoryTheory.CategoryStruct.comp pA iA) = v →
+                        Nonempty (X₃ ≅ B ⊞ A)
+@Stage3cConeSplitting.coneSplittingIso : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.Preadditive C] →
+      [inst_2 : CategoryTheory.Limits.HasZeroObject C] →
+        [inst_3 : CategoryTheory.HasShift C ℤ] →
+          [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive] →
+            [inst_5 : CategoryTheory.Pretriangulated C] →
+              (T : CategoryTheory.Pretriangulated.Triangle C) →
+                T ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+                  {I A B : CategoryTheory.Idempotents.Karoubi C} →
+                    (e1 : (CategoryTheory.Idempotents.toKaroubi C).obj T.obj₁ ≅ I ⊞ A) →
+                      (e2 : (CategoryTheory.Idempotents.toKaroubi C).obj T.obj₂ ≅ I ⊞ B) →
+                        CategoryTheory.CategoryStruct.comp e1.inv
+                              (CategoryTheory.CategoryStruct.comp ((CategoryTheory.Idempotents.toKaroubi C).map T.mor₁)
+                                e2.hom) =
+                            CategoryTheory.CategoryStruct.comp CategoryTheory.Limits.biprod.fst
+                              CategoryTheory.Limits.biprod.inl →
+                          ((CategoryTheory.Idempotents.toKaroubi C).obj T.obj₃ ≅ B ⊞ (Stage3cKaroubi.shift 1).obj A)
+'FindimCounterexample.Stage3cKaroubi.shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.karoubi_hasBinaryBiproducts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shift_additive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shift_obj_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shift_obj_p' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shift_map_f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shiftToKaroubiIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shiftToKaroubiIso_hom_f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shiftToKaroubiIso_inv_f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shiftToKaroubiIso_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shiftToKaroubiIso_inv_naturality' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.shiftAddIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.lift_exact' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.coyoneda_exact₂' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.coyoneda_exact₃' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cKaroubi.coyoneda_exact₁' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cConeSplitting.nonempty_iso_of_hom_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cConeSplitting.nonempty_iso_of_complementary_retracts' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cConeSplitting.coneSplittingIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Stage3cOddDouble.complementDecomposition : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.Preadditive C] →
+      [inst_2 : CategoryTheory.Limits.HasFiniteBiproducts C] →
+        (U : CategoryTheory.Idempotents.Karoubi C) → (CategoryTheory.Idempotents.toKaroubi C).obj U.X ≅ U.complement ⊞ U
+@Stage3cOddDouble.complement_matrix : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] [inst_2 : CategoryTheory.Limits.HasFiniteBiproducts C]
+  (U : CategoryTheory.Idempotents.Karoubi C),
+  CategoryTheory.CategoryStruct.comp (Stage3cOddDouble.complementDecomposition U).inv
+      (CategoryTheory.CategoryStruct.comp
+        ((CategoryTheory.Idempotents.toKaroubi C).map (CategoryTheory.CategoryStruct.id U.X - U.p))
+        (Stage3cOddDouble.complementDecomposition U).hom) =
+    CategoryTheory.CategoryStruct.comp CategoryTheory.Limits.biprod.fst CategoryTheory.Limits.biprod.inl
+@Stage3cOddDouble.firstDouble : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.Preadditive C] →
+      [inst_2 : CategoryTheory.Limits.HasZeroObject C] →
+        [inst_3 : CategoryTheory.HasShift C ℤ] →
+          [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive] →
+            [inst_5 : CategoryTheory.Pretriangulated C] →
+              (U : CategoryTheory.Idempotents.Karoubi C) →
+                (X : C) × ((CategoryTheory.Idempotents.toKaroubi C).obj X ≅ U ⊞ (Stage3cKaroubi.shift 1).obj U)
+@Stage3cOddDouble.shiftedDecomposition : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.Preadditive C] →
+      [inst_2 : CategoryTheory.HasShift C ℤ] →
+        [∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive] →
+          [inst_4 : CategoryTheory.Limits.HasFiniteBiproducts C] →
+            (U : CategoryTheory.Idempotents.Karoubi C) →
+              {X : C} →
+                ((CategoryTheory.Idempotents.toKaroubi C).obj X ≅ U ⊞ (Stage3cKaroubi.shift 1).obj U) →
+                  ((CategoryTheory.Idempotents.toKaroubi C).obj ((CategoryTheory.shiftFunctor C 1).obj X) ≅
+                    (Stage3cKaroubi.shift 1).obj U ⊞ (Stage3cKaroubi.shift 2).obj U)
+@Stage3cOddDouble.thirdDouble : {C : Type u_2} →
+  [inst : CategoryTheory.Category.{u_1, u_2} C] →
+    [inst_1 : CategoryTheory.Preadditive C] →
+      [inst_2 : CategoryTheory.Limits.HasZeroObject C] →
+        [inst_3 : CategoryTheory.HasShift C ℤ] →
+          [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive] →
+            [inst_5 : CategoryTheory.Pretriangulated C] →
+              (U : CategoryTheory.Idempotents.Karoubi C) →
+                (X : C) × ((CategoryTheory.Idempotents.toKaroubi C).obj X ≅ U ⊞ (Stage3cKaroubi.shift 3).obj U)
+@Stage3cOddDouble.exists_odd_doubles : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Preadditive C] [inst_2 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C] (U : CategoryTheory.Idempotents.Karoubi C),
+  ∃ X V,
+    Nonempty ((CategoryTheory.Idempotents.toKaroubi C).obj X ≅ U ⊞ (Stage3cKaroubi.shift 1).obj U) ∧
+      Nonempty ((CategoryTheory.Idempotents.toKaroubi C).obj V ≅ U ⊞ (Stage3cKaroubi.shift 3).obj U)
+'FindimCounterexample.Stage3cOddDouble.complementDecomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.complement_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.firstDouble' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.shiftedDecomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.thirdDouble' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Stage3cOddDouble.exists_odd_doubles' depends on axioms: [propext, Classical.choice, Quot.sound]

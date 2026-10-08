@@ -1,0 +1,505 @@
+@ProjectiveCoresolution.hasProjectiveDimensionLE : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) → ∀ (n : ℕ), CategoryTheory.HasProjectiveDimensionLE (R.c n) n
+@ProjectiveCoresolution.not_hasProjectiveDimensionLT : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  ¬CategoryTheory.Projective (R.c 1) → ∀ (n : ℕ), ¬CategoryTheory.HasProjectiveDimensionLT (R.c (n + 1)) (n + 1)
+@ProjectiveCoresolution.projectiveDimension_eq : ∀ {𝒞 : Type u_1} [inst : CategoryTheory.Category.{u_2, u_1} 𝒞]
+  [inst_1 : CategoryTheory.Abelian 𝒞] (R : ProjectiveCoresolution 𝒞),
+  CategoryTheory.Projective (R.c 0) →
+    ¬CategoryTheory.Projective (R.c 1) →
+      ∀ (n : ℕ),
+        1 ≤ n → CategoryTheory.HasProjectiveDimensionLE (R.c n) n ∧ ¬CategoryTheory.HasProjectiveDimensionLT (R.c n) n
+'FindimCounterexample.ProjectiveCoresolution.hasProjectiveDimensionLE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.not_hasProjectiveDimensionLT' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ProjectiveCoresolution.projectiveDimension_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@RingDual.freeDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (ι : Type u_2) → [Fintype ι] → [DecidableEq ι] → RingDual.RightDual A (ι → Aᵐᵒᵖ) ≃ₗ[A] ι → A
+@RingDual.evalEquiv : {A : Type u_1} →
+  [inst : Ring A] →
+    {P : Type u_2} →
+      [inst_1 : AddCommGroup P] →
+        [inst_2 : Module Aᵐᵒᵖ P] →
+          [Module.Finite Aᵐᵒᵖ P] → [Module.Projective Aᵐᵒᵖ P] → P ≃ₗ[Aᵐᵒᵖ] RingDual.LeftDual A (RingDual.RightDual A P)
+@RingDual.rightDual_projective : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P],
+  Module.Projective A (RingDual.RightDual A P)
+@RingDual.rightDual_finite : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} [inst_1 : AddCommGroup P]
+  [inst_2 : Module Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P], Module.Finite A (RingDual.RightDual A P)
+@RingDual.split_of_dual_split : ∀ {A : Type u_1} [inst : Ring A] {P : Type u_2} {P' : Type u_3}
+  [inst_1 : AddCommGroup P] [inst_2 : AddCommGroup P'] [inst_3 : Module Aᵐᵒᵖ P] [inst_4 : Module Aᵐᵒᵖ P']
+  [Module.Finite Aᵐᵒᵖ P] [Module.Projective Aᵐᵒᵖ P] [Module.Finite Aᵐᵒᵖ P'] [Module.Projective Aᵐᵒᵖ P']
+  (f : P →ₗ[Aᵐᵒᵖ] P') (r : RingDual.RightDual A P →ₗ[A] RingDual.RightDual A P'),
+  r ∘ₗ RingDual.rightMap f = LinearMap.id → ∃ s, f ∘ₗ s = LinearMap.id
+@ExactCoresolution.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (X : ℕ → ModuleCat A) →
+      (d : (n : ℕ) → ↑(X n) →ₗ[A] ↑(X (n + 1))) →
+        (∀ (n : ℕ), (d n).range = (d (n + 1)).ker) →
+          Function.Injective ⇑(d 0) →
+            (∀ (n : ℕ), CategoryTheory.Projective (X (n + 1))) → ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.coresolution : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] →
+          [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] →
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+              (∀ (n : ℕ),
+                  (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+                ProjectiveCoresolution (ModuleCat A)
+@StrongNakayama.projective_zero : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)], CategoryTheory.Projective (StrongNakayama.cok P d 0)
+@StrongNakayama.cok_finite : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)] (n : ℕ), Module.Finite A ↑(StrongNakayama.cok P d n)
+@StrongNakayama.not_projective_one : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε → ε ∘ₗ d 0 = 0 → ¬CategoryTheory.Projective (StrongNakayama.cok P d 1)
+@StrongNakayama.projectiveDimension_eq : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                  ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)]
+  [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) →
+    (∀ (n : ℕ), (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker) →
+      ∀ {E : Type u_3} [inst_3 : AddCommGroup E] [inst_4 : Module Aᵐᵒᵖ E] [Nontrivial E] (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] E),
+        Function.Surjective ⇑ε →
+          ε ∘ₗ d 0 = 0 →
+            ∀ (n : ℕ),
+              1 ≤ n →
+                ∃ M,
+                  Module.Finite A ↑M ∧
+                    CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+'FindimCounterexample.RingDual.freeDualEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.evalEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_projective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.rightDual_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.RingDual.split_of_dual_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ExactCoresolution.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.coresolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projective_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.cok_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.not_projective_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+@ResolutionExt.ext_zero_iff_injective : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X),
+  Subsingleton (CategoryTheory.Abelian.Ext X Y 0) ↔
+    Function.Injective fun f => CategoryTheory.CategoryStruct.comp (R.complex.d 1 0) f
+@ResolutionExt.ext_succ_iff_cocycles_boundaries : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X) (n : ℕ),
+  Subsingleton (CategoryTheory.Abelian.Ext X Y (n + 1)) ↔
+    ∀ (f : R.complex.X (n + 1) ⟶ Y),
+      CategoryTheory.CategoryStruct.comp (R.complex.d (n + 2) (n + 1)) f = 0 →
+        ∃ g, CategoryTheory.CategoryStruct.comp (R.complex.d (n + 1) n) g = f
+@ResolutionExt.ext_vanishing_iff : ∀ {C : Type u_3} [inst : CategoryTheory.Category.{u_2, u_3} C]
+  [inst_1 : CategoryTheory.Abelian C] [inst_2 : CategoryTheory.HasExt C] {X Y : C}
+  (R : CategoryTheory.ProjectiveResolution X),
+  (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext X Y n)) ↔
+    (Function.Injective fun f => CategoryTheory.CategoryStruct.comp (R.complex.d 1 0) f) ∧
+      ∀ (n : ℕ) (f : R.complex.X (n + 1) ⟶ Y),
+        CategoryTheory.CategoryStruct.comp (R.complex.d (n + 2) (n + 1)) f = 0 →
+          ∃ g, CategoryTheory.CategoryStruct.comp (R.complex.d (n + 1) n) g = f
+@ModuleResolution.projectiveResolution : {R : Type u_1} →
+  [inst : Ring R] →
+    (P : ℕ → ModuleCat R) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[R] ↑(P n)) →
+        (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+          {E : ModuleCat R} →
+            (ε : ↑(P 0) →ₗ[R] ↑E) →
+              (d 0).range = ε.ker →
+                Function.Surjective ⇑ε → [∀ (n : ℕ), Module.Projective R ↑(P n)] → CategoryTheory.ProjectiveResolution E
+@ModuleResolution.ext_vanishing_iff : ∀ {R : Type u_1} [inst : Ring R] (P : ℕ → ModuleCat R)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[R] ↑(P n)) (N : ModuleCat R) [inst_1 : Small.{u_2, u_1} R]
+  [∀ (n : ℕ), Module.Projective R ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat R} (ε : ↑(P 0) →ₗ[R] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ((∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E N n)) ↔
+            Function.Injective ⇑(ModuleResolution.homDifferential P d N 0) ∧
+              ∀ (n : ℕ),
+                (ModuleResolution.homDifferential P d N n).range = (ModuleResolution.homDifferential P d N (n + 1)).ker)
+@StrongNakayama.homRightDualEquiv : {A : Type u_1} →
+  [inst : Ring A] → (P : ℕ → ModuleCat Aᵐᵒᵖ) → (n : ℕ) → (P n ⟶ ModuleCat.of Aᵐᵒᵖ A) ≃+ RingDual.RightDual A ↑(P n)
+@StrongNakayama.homDifferential_eq_dualDifferential : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) (n : ℕ),
+  ModuleResolution.homDifferential P d (ModuleCat.of Aᵐᵒᵖ A) n = (StrongNakayama.dualDifferential P d n).toAddMonoidHom
+@StrongNakayama.ext_vanishing_iff_dual_exact : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ((∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) ↔
+            Function.Injective ⇑(StrongNakayama.dualDifferential P d 0) ∧
+              ∀ (n : ℕ),
+                (StrongNakayama.dualDifferential P d n).range = (StrongNakayama.dualDifferential P d (n + 1)).ker)
+@StrongNakayama.projectiveDimension_eq_of_ext : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ∀ [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] [Nontrivial ↑E],
+            (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) →
+              ∀ (n : ℕ),
+                1 ≤ n →
+                  Module.Finite A ↑(StrongNakayama.cok P d n) ∧
+                    CategoryTheory.HasProjectiveDimensionLE (StrongNakayama.cok P d n) n ∧
+                      ¬CategoryTheory.HasProjectiveDimensionLT (StrongNakayama.cok P d n) n
+@StrongNakayama.unbounded_of_ext : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) [∀ (n : ℕ), Module.Projective Aᵐᵒᵖ ↑(P n)],
+  (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+    ∀ {E : ModuleCat Aᵐᵒᵖ} (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E),
+      (d 0).range = ε.ker →
+        Function.Surjective ⇑ε →
+          ∀ [∀ (n : ℕ), Module.Finite Aᵐᵒᵖ ↑(P n)] [Nontrivial ↑E],
+            (∀ (n : ℕ), Subsingleton (CategoryTheory.Abelian.Ext E (ModuleCat.of Aᵐᵒᵖ A) n)) →
+              ∀ (n : ℕ),
+                1 ≤ n →
+                  ∃ M,
+                    Module.Finite A ↑M ∧
+                      CategoryTheory.HasProjectiveDimensionLE M n ∧ ¬CategoryTheory.HasProjectiveDimensionLT M n
+@Transpose.presentedModule : {A : Type u_1} →
+  [inst : Ring A] → {Q₁ Q₀ : ModuleCat Aᵐᵒᵖ} → (↑Q₁ →ₗ[Aᵐᵒᵖ] ↑Q₀) → ModuleCat Aᵐᵒᵖ
+@Transpose.ofPresentation : {A : Type u_1} →
+  [inst : Ring A] → {Q₁ Q₀ : ModuleCat Aᵐᵒᵖ} → (↑Q₁ →ₗ[Aᵐᵒᵖ] ↑Q₀) → ModuleCat A
+@Transpose.cok_eq_transpose : ∀ {A : Type u_1} [inst : Ring A] (P : ℕ → ModuleCat Aᵐᵒᵖ)
+  (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) (n : ℕ), StrongNakayama.cok P d (n + 1) = Transpose.ofPresentation (d n)
+@Transpose.syzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      ((n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) → (E : ModuleCat Aᵐᵒᵖ) → (↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) → ℕ → ModuleCat Aᵐᵒᵖ
+@Transpose.presentationCokernelEquivSyzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        (E : ModuleCat Aᵐᵒᵖ) →
+          (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) →
+            Function.Surjective ⇑ε →
+              (d 0).range = ε.ker →
+                (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+                  (n : ℕ) → ↑(Transpose.presentedModule (d n)) ≃ₗ[Aᵐᵒᵖ] ↑(Transpose.syzygy P d E ε n)
+@Transpose.presentationCokernelIsoSyzygy : {A : Type u_1} →
+  [inst : Ring A] →
+    (P : ℕ → ModuleCat Aᵐᵒᵖ) →
+      (d : (n : ℕ) → ↑(P (n + 1)) →ₗ[Aᵐᵒᵖ] ↑(P n)) →
+        (E : ModuleCat Aᵐᵒᵖ) →
+          (ε : ↑(P 0) →ₗ[Aᵐᵒᵖ] ↑E) →
+            Function.Surjective ⇑ε →
+              (d 0).range = ε.ker →
+                (∀ (n : ℕ), (d (n + 1)).range = (d n).ker) →
+                  (n : ℕ) → Transpose.presentedModule (d n) ≅ Transpose.syzygy P d E ε n
+'FindimCounterexample.ResolutionExt.ext_zero_iff_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ResolutionExt.ext_succ_iff_cocycles_boundaries' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.ResolutionExt.ext_vanishing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ModuleResolution.projectiveResolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.ModuleResolution.ext_vanishing_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.StrongNakayama.homRightDualEquiv' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.StrongNakayama.homDifferential_eq_dualDifferential' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.StrongNakayama.ext_vanishing_iff_dual_exact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.StrongNakayama.projectiveDimension_eq_of_ext' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.StrongNakayama.unbounded_of_ext' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.presentedModule' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.ofPresentation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.cok_eq_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FindimCounterexample.Transpose.syzygy' depends on axioms: [propext, Quot.sound]
+'FindimCounterexample.Transpose.presentationCokernelEquivSyzygy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'FindimCounterexample.Transpose.presentationCokernelIsoSyzygy' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Stage4a.TateDuality : (k : Type u_1) →
+  [inst : Field k] →
+    (C : Type u_3) →
+      [inst_1 : CategoryTheory.Category.{u_2, u_3} C] →
+        [inst_2 : CategoryTheory.Preadditive C] →
+          [CategoryTheory.Linear k C] → [CategoryTheory.HasShift C ℤ] → Type (max (max u_1 u_2) u_3)
+'FindimCounterexample.Stage4a.TateDuality' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Stage4a.PolynomialSelfExtensions : {k : Type u_1} →
+  [inst : Field k] →
+    {C : Type u_3} →
+      [inst_1 : CategoryTheory.Category.{u_2, u_3} C] →
+        [inst_2 : CategoryTheory.Preadditive C] →
+          [CategoryTheory.Linear k C] → [CategoryTheory.HasShift C ℤ] → C → ℕ → Type (max u_1 u_2)
+'FindimCounterexample.Stage4a.PolynomialSelfExtensions' depends on axioms: [propext, Classical.choice, Quot.sound]
+@Stage4a.TateDuality.right_factorization : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ] (D : Stage4a.TateDuality k C) {s : C}
+  [FiniteDimensional k (CategoryTheory.ShiftedHom s s 0)],
+  Module.finrank k (CategoryTheory.ShiftedHom s s 0) = 1 →
+    ∀ (τ : CategoryTheory.ShiftedHom s s 3), τ ≠ 0 → ∀ (β : CategoryTheory.ShiftedHom s s (-1)), ∃ γ, τ.comp γ ⋯ = β
+'FindimCounterexample.Stage4a.TateDuality.right_factorization' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.TateDuality.right_factorization: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Toda.bracket_nonempty : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Limits.HasZeroObject C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C] {T : CategoryTheory.Pretriangulated.Triangle C} {X W : C} {f : X ⟶ T.obj₁}
+  {h : T.obj₂ ⟶ W},
+  T ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+    CategoryTheory.CategoryStruct.comp f T.mor₁ = 0 →
+      CategoryTheory.CategoryStruct.comp T.mor₁ h = 0 → (Stage4a.Toda.bracket T f h).Nonempty
+'FindimCounterexample.Stage4a.Toda.bracket_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.bracket_nonempty: []
+@Stage4a.Toda.bracket_eq_coset : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Limits.HasZeroObject C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C] {T : CategoryTheory.Pretriangulated.Triangle C} {X W : C} {f : X ⟶ T.obj₁}
+  {h : T.obj₂ ⟶ W},
+  T ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+    ∀ (d : Stage4a.Toda.DefiningSystem T f h),
+      Stage4a.Toda.bracket T f h =
+        {z | z - CategoryTheory.CategoryStruct.comp d.a d.b ∈ Stage4a.Toda.indeterminacy T f h}
+'FindimCounterexample.Stage4a.Toda.bracket_eq_coset' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.bracket_eq_coset: []
+@Stage4a.Toda.juggling : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.HasShift C ℤ] {T : CategoryTheory.Pretriangulated.Triangle C} {X W : C} {f : X ⟶ T.obj₁}
+  {h : T.obj₂ ⟶ W} {X' : C} (u : X' ⟶ X) {z : (CategoryTheory.shiftFunctor C 1).obj X ⟶ W},
+  z ∈ Stage4a.Toda.bracket T f h →
+    CategoryTheory.CategoryStruct.comp ((CategoryTheory.shiftFunctor C 1).map u) z ∈
+      Stage4a.Toda.bracket T (CategoryTheory.CategoryStruct.comp u f) h
+'FindimCounterexample.Stage4a.Toda.juggling' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.juggling: []
+@Stage4a.Toda.bracket_eq_of_distinguished_cones : ∀ {C : Type u_2} [inst : CategoryTheory.Category.{u_1, u_2} C]
+  [inst_1 : CategoryTheory.Limits.HasZeroObject C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.HasShift C ℤ] [inst_4 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_5 : CategoryTheory.Pretriangulated C] {X W Y Z Q Q' : C} (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W) (i : Z ⟶ Q)
+  (q : Q ⟶ (CategoryTheory.shiftFunctor C 1).obj Y) (i' : Z ⟶ Q') (q' : Q' ⟶ (CategoryTheory.shiftFunctor C 1).obj Y),
+  CategoryTheory.Pretriangulated.Triangle.mk g i q ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+    CategoryTheory.Pretriangulated.Triangle.mk g i' q' ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+      Stage4a.Toda.bracket (CategoryTheory.Pretriangulated.Triangle.mk g i q) f h =
+        Stage4a.Toda.bracket (CategoryTheory.Pretriangulated.Triangle.mk g i' q') f h
+'FindimCounterexample.Stage4a.Toda.bracket_eq_of_distinguished_cones' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Toda.bracket_eq_of_distinguished_cones: []
+@Stage4a.tate_obstruction : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_5 : CategoryTheory.HasShift C ℤ] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] (D : Stage4a.TateDuality k C) (s : C)
+  [FiniteDimensional k (CategoryTheory.ShiftedHom s s 0)],
+  Module.finrank k (CategoryTheory.ShiftedHom s s 0) = 1 →
+    Subsingleton (CategoryTheory.ShiftedHom s s 1) →
+      Subsingleton (CategoryTheory.ShiftedHom s s 2) →
+        Subsingleton (CategoryTheory.ShiftedHom s s 4) →
+          ∀ (τ : CategoryTheory.ShiftedHom s s 3) (β : CategoryTheory.ShiftedHom s s (-1)) (Z : C)
+            (i : (CategoryTheory.shiftFunctor C (-2)).obj s ⟶ Z)
+            (q : Z ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-1)).obj s)),
+            CategoryTheory.Pretriangulated.Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q ∈
+                CategoryTheory.Pretriangulated.distinguishedTriangles →
+              Stage4a.Toda.bracket
+                  (CategoryTheory.Pretriangulated.Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q) β
+                  ((Stage4a.shiftHomEquiv s s (-2) 3 1 ⋯) τ) =
+                {0}
+'FindimCounterexample.Stage4a.tate_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.tate_obstruction: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.HigherObstruction.polynomial_toda_eq_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_5 : CategoryTheory.HasShift C ℤ] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] (D : Stage4a.TateDuality k C) {s : C} {p : ℕ}
+  (P : Stage4a.PolynomialSelfExtensions s p),
+  3 ≤ p →
+    ∀ (τ : CategoryTheory.ShiftedHom s s ↑p) (β : CategoryTheory.ShiftedHom s s (-1)) {Q : C}
+      (i : (CategoryTheory.shiftFunctor C (-2)).obj s ⟶ Q)
+      (q : Q ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-1)).obj s)),
+      CategoryTheory.Pretriangulated.Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q ∈
+          CategoryTheory.Pretriangulated.distinguishedTriangles →
+        Stage4a.Toda.bracket
+            (CategoryTheory.Pretriangulated.Triangle.mk ((Stage4a.shiftHomEquiv s s (-1) (-1) (-2) ⋯) β) i q) β
+            ((Stage4a.shiftHomEquiv s s (-2) (↑p) (↑p - 2) ⋯) τ) =
+          {0}
+'FindimCounterexample.Stage4a.HigherObstruction.polynomial_toda_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.HigherObstruction.polynomial_toda_eq_zero: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4aRank.oneFactor_rank : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2}
+  [inst_1 : CategoryTheory.Category.{u_3, u_2} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_5 : CategoryTheory.HasShift C ℤ] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (S X F : C)
+  [inst_9 : CategoryTheory.Limits.HasBinaryBiproduct S S] (ρ : F ⟶ S ⊞ S)
+  (w₁ w₂ : S ⟶ (CategoryTheory.shiftFunctor C 1).obj X)
+  (q : (CategoryTheory.shiftFunctor C 1).obj X ⟶ (CategoryTheory.shiftFunctor C 1).obj F),
+  CategoryTheory.Pretriangulated.Triangle.mk ρ (CategoryTheory.Limits.biprod.desc w₁ w₂) q ∈
+      CategoryTheory.Pretriangulated.distinguishedTriangles →
+    Module.finrank k (S ⟶ S) = 1 →
+      Module.finrank k (S ⟶ X) = 1 →
+        Module.finrank k (S ⟶ (CategoryTheory.shiftFunctor C 1).obj X) = 1 →
+          ∀ (β : S ⟶ (CategoryTheory.shiftFunctor C (-1)).obj S),
+            β ≠ 0 →
+              Module.finrank k (S ⟶ (CategoryTheory.shiftFunctor C (-1)).obj S) = 1 →
+                w₁ ≠ 0 ∨ w₂ ≠ 0 →
+                  CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w₁) = 0 →
+                    CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w₂) = 0 →
+                      Module.finrank k (S ⟶ F) = 2 ∧
+                        ∀ (v : S ⟶ F), ¬Function.Surjective ⇑(Stage4aRank.scalarDifference v)
+'FindimCounterexample.Stage4aRank.oneFactor_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4aRank.oneFactor_rank: []
+@Stage4a.beta_comp_eq_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ]
+  [∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive] (D : Stage4a.TateDuality k C) {s X : C}
+  [FiniteDimensional k (CategoryTheory.ShiftedHom s s 0)],
+  Module.finrank k (CategoryTheory.ShiftedHom s s 0) = 1 →
+    ∀ (τ : CategoryTheory.ShiftedHom s s 3),
+      τ ≠ 0 →
+        Subsingleton (CategoryTheory.ShiftedHom s X (-3)) →
+          ∀ (β : CategoryTheory.ShiftedHom s s (-1)) (w : CategoryTheory.ShiftedHom s X 1), β.comp w ⋯ = 0
+'FindimCounterexample.Stage4a.beta_comp_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.beta_comp_eq_zero: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.beta_shift_comp_eq_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ]
+  [∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive] (D : Stage4a.TateDuality k C) {s X : C}
+  [FiniteDimensional k (CategoryTheory.ShiftedHom s s 0)],
+  Module.finrank k (CategoryTheory.ShiftedHom s s 0) = 1 →
+    ∀ (τ : CategoryTheory.ShiftedHom s s 3),
+      τ ≠ 0 →
+        Subsingleton (CategoryTheory.ShiftedHom s X (-3)) →
+          ∀ (β : CategoryTheory.ShiftedHom s s (-1)) (w : CategoryTheory.ShiftedHom s X 1),
+            CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w) = 0
+'FindimCounterexample.Stage4a.beta_shift_comp_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.beta_shift_comp_eq_zero: [FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Cone.oneCone_i_bijective : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2}
+  [inst_1 : CategoryTheory.Category.{u_3, u_2} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ]
+  [inst_5 : CategoryTheory.Limits.HasZeroObject C] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] (D : Stage4a.TateDuality k C) (s X : C)
+  (P : Stage4a.PolynomialSelfExtensions s 3) (t : (CategoryTheory.shiftFunctor C (-3)).obj s ⟶ s) (i : s ⟶ X)
+  (π : X ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-3)).obj s)),
+  CategoryTheory.Pretriangulated.Triangle.mk t i π ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+    Function.Bijective ⇑(Stage4a.Cone.homMap s i 0)
+'FindimCounterexample.Stage4a.Cone.oneCone_i_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_i_bijective: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Cone.oneCone_pi_bijective : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2}
+  [inst_1 : CategoryTheory.Category.{u_3, u_2} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ]
+  [inst_5 : CategoryTheory.Limits.HasZeroObject C] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] (s X : C) (P : Stage4a.PolynomialSelfExtensions s 3)
+  (t : (CategoryTheory.shiftFunctor C (-3)).obj s ⟶ s) (i : s ⟶ X)
+  (π : X ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-3)).obj s)),
+  CategoryTheory.Pretriangulated.Triangle.mk t i π ∈ CategoryTheory.Pretriangulated.distinguishedTriangles →
+    Function.Bijective ⇑(Stage4a.Cone.connecting s (CategoryTheory.Pretriangulated.Triangle.mk t i π) 1)
+'FindimCounterexample.Stage4a.Cone.oneCone_pi_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_pi_bijective: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis]
+@Stage4a.Cone.oneCone_profile : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2}
+  [inst_1 : CategoryTheory.Category.{u_3, u_2} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ]
+  [inst_5 : CategoryTheory.Limits.HasZeroObject C] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C)
+  (s X : C) (P : Stage4a.PolynomialSelfExtensions s 3) (i : s ⟶ X)
+  (π : X ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-3)).obj s)),
+  CategoryTheory.Pretriangulated.Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈
+      CategoryTheory.Pretriangulated.distinguishedTriangles →
+    Module.finrank k (CategoryTheory.ShiftedHom s X 0) = 1 ∧
+      Module.finrank k (CategoryTheory.ShiftedHom s X 1) = 1 ∧
+        ∀ (a : ℤ), a ≠ 0 → a ≠ 1 → Subsingleton (CategoryTheory.ShiftedHom s X a)
+'FindimCounterexample.Stage4a.Cone.oneCone_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_profile: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis_mul,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.Cone.oneCone_composite_zero : ∀ {k : Type u_1} [inst : Field k] {C : Type u_2}
+  [inst_1 : CategoryTheory.Category.{u_3, u_2} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.HasShift C ℤ]
+  [inst_5 : CategoryTheory.Limits.HasZeroObject C] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C)
+  (s X : C) (P : Stage4a.PolynomialSelfExtensions s 3) (i : s ⟶ X)
+  (π : X ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-3)).obj s)),
+  CategoryTheory.Pretriangulated.Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈
+      CategoryTheory.Pretriangulated.distinguishedTriangles →
+    ∀ (β : CategoryTheory.ShiftedHom s s (-1)) (w : CategoryTheory.ShiftedHom s X 1),
+      CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w) = 0
+'FindimCounterexample.Stage4a.Cone.oneCone_composite_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.Cone.oneCone_composite_zero: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis_mul,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.one_factor_rank : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_5 : CategoryTheory.HasShift C ℤ] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C)
+  (s X F : C) (P : Stage4a.PolynomialSelfExtensions s 3) [inst_9 : CategoryTheory.Limits.HasBinaryBiproduct s s]
+  (i : s ⟶ X) (π : X ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-3)).obj s)),
+  CategoryTheory.Pretriangulated.Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈
+      CategoryTheory.Pretriangulated.distinguishedTriangles →
+    ∀ (ρ : F ⟶ s ⊞ s) (w₁ w₂ : s ⟶ (CategoryTheory.shiftFunctor C 1).obj X)
+      (q : (CategoryTheory.shiftFunctor C 1).obj X ⟶ (CategoryTheory.shiftFunctor C 1).obj F),
+      CategoryTheory.Pretriangulated.Triangle.mk ρ (CategoryTheory.Limits.biprod.desc w₁ w₂) q ∈
+          CategoryTheory.Pretriangulated.distinguishedTriangles →
+        ∀ (β : CategoryTheory.ShiftedHom s s (-1)),
+          β ≠ 0 →
+            w₁ ≠ 0 ∨ w₂ ≠ 0 →
+              CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w₁) = 0 →
+                CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w₂) = 0 →
+                  Module.finrank k (s ⟶ F) = 2 ∧ ∀ (v : s ⟶ F), ¬Function.Surjective ⇑(Stage4aRank.scalarDifference v)
+'FindimCounterexample.Stage4a.one_factor_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.one_factor_rank: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.TateDuality.pairing]
+@Stage4a.one_factor_obstruction : ∀ {k : Type u_1} [inst : Field k] {C : Type u_3}
+  [inst_1 : CategoryTheory.Category.{u_2, u_3} C] [inst_2 : CategoryTheory.Preadditive C]
+  [inst_3 : CategoryTheory.Linear k C] [inst_4 : CategoryTheory.Limits.HasZeroObject C]
+  [inst_5 : CategoryTheory.HasShift C ℤ] [inst_6 : ∀ (n : ℤ), (CategoryTheory.shiftFunctor C n).Additive]
+  [inst_7 : CategoryTheory.Pretriangulated C] [∀ (A B : C), FiniteDimensional k (A ⟶ B)] (D : Stage4a.TateDuality k C)
+  (s X F : C) (P : Stage4a.PolynomialSelfExtensions s 3) [inst_9 : CategoryTheory.Limits.HasBinaryBiproduct s s]
+  (i : s ⟶ X) (π : X ⟶ (CategoryTheory.shiftFunctor C 1).obj ((CategoryTheory.shiftFunctor C (-3)).obj s)),
+  CategoryTheory.Pretriangulated.Triangle.mk (Stage4a.Cone.deshiftTau s P.tau) i π ∈
+      CategoryTheory.Pretriangulated.distinguishedTriangles →
+    ∀ (ρ : F ⟶ s ⊞ s) (w₁ w₂ : s ⟶ (CategoryTheory.shiftFunctor C 1).obj X)
+      (q : (CategoryTheory.shiftFunctor C 1).obj X ⟶ (CategoryTheory.shiftFunctor C 1).obj F),
+      CategoryTheory.Pretriangulated.Triangle.mk ρ (CategoryTheory.Limits.biprod.desc w₁ w₂) q ∈
+          CategoryTheory.Pretriangulated.distinguishedTriangles →
+        w₁ ≠ 0 ∨ w₂ ≠ 0 →
+          (∀ (β : CategoryTheory.ShiftedHom s s (-1)),
+              CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w₁) = 0 ∧
+                CategoryTheory.CategoryStruct.comp β ((CategoryTheory.shiftFunctor C (-1)).map w₂) = 0) ∧
+            Module.finrank k (s ⟶ F) = 2 ∧ ∀ (v : s ⟶ F), ¬Function.Surjective ⇑(Stage4aRank.scalarDifference v)
+'FindimCounterexample.Stage4a.one_factor_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+Interface projections in FindimCounterexample.Stage4a.one_factor_obstruction: [FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis,
+ FindimCounterexample.Stage4a.PolynomialSelfExtensions.basis_mul,
+ FindimCounterexample.Stage4a.TateDuality.composition,
+ FindimCounterexample.Stage4a.TateDuality.pairing]

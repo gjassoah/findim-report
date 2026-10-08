@@ -1,0 +1,13 @@
+FIELD: exact F_2(q)
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+FIELD: exact F_2(q,H)
+PASS: all 324 twisted boundary pairs, both coefficient identities
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+FIELD: Finite Field in a of size 2^16 ; modulus = x^16 + x^5 + x^3 + x^2 + 1
+q = a ; H = q^7 = a^7 ; both orders = 65535
+PASS: 179 entries, distinct inputs, endpoints and weight -1
+PASS: all 104976 radical four-words; composable count = 15250
+PASS: all 324 twisted boundary pairs, both coefficient identities
+PASS: d(q^2[t|x|J]+[t|y|J])=0; p evaluates to q^3*f != 0
+ITEM 5 PASS (supported by exhaustive exact identities and specialisation)

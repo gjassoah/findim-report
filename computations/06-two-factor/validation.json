@@ -1,0 +1,22 @@
+{
+  "job": "Codex job 10",
+  "status": "supported",
+  "dim_M": 276,
+  "ordinary_Hom_X_M": 1,
+  "ordinary_Hom_M_X": 0,
+  "projective_factor_rank": 0,
+  "W0": 1,
+  "Wminus1": 0,
+  "systems": [
+    {
+      "name": "direct Hom(X,coneX)",
+      "equations": 11040,
+      "unknowns_per_rhs": 276
+    },
+    {
+      "name": "direct Hom(coneX,X)",
+      "equations": 11040,
+      "unknowns_per_rhs": 276
+    }
+  ]
+}

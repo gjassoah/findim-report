@@ -1,0 +1,236 @@
+% PROVENANCE: This manuscript was written entirely by AI.
+% Models that drafted or edited it:
+%   Claude Opus 5.5 (Anthropic), in Claude Code, outline, proof notes and
+%     drafting, October 2026
+%   GPT-6 Astra (OpenAI), in Codex, verification of proofs, computations and
+%     review, October 2026
+%   GPT-6 Astra (OpenAI), in Codex (effort ultra), block-by-block review (W5)
+%     with minor edits, 2026-10-08
+%   GPT-6 Astra (OpenAI), in Codex (effort high), application of the prose edits
+%     decided by Claude (P-apply), 2026-10-08
+% Detailed history: git log; log/CONVERSATION.md and PROGRESS.md of the
+% repository; Appendix D.
+%
+% Research report on the OpenAI preprints on the finitistic dimension conjecture
+% and the Auslander--Reiten conjecture (September 2026). Sources: this file
+% (preamble and outline) and sections/*.tex, included with \input.
+% Build with latexmk (see latexmkrc): pdfLaTeX and biber, bibliography in
+% library.bib.
+
+\documentclass[a4paper]{amsart}
+
+% Allow line breaking at long run-in headings and repository URLs.
+\setlength{\emergencystretch}{1em}
+\hyphenation{OpenAI}
+
+% ============================================================
+% Core mathematics
+% ============================================================
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{eucal}
+
+% ============================================================
+% Color, graphics, and diagrams
+% ============================================================
+
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{array}
+
+% ============================================================
+% Theorem infrastructure
+% ============================================================
+
+\usepackage{thmtools}
+
+% ============================================================
+% Bibliography
+% ============================================================
+
+\usepackage[
+  backend=biber,
+  style=alphabetic,
+  isbn=false,
+  doi=false,
+  url=false,
+  eprint=true,
+  giveninits=true,
+  backref=false,
+  maxbibnames=99
+]{biblatex}
+
+\renewbibmacro{in:}{}
+% The long label [StacksProj] widens the hanging indent; allow looser lines.
+\appto{\bibsetup}{\sloppy}
+\addbibresource{library.bib}
+
+% ============================================================
+% Hyperlinks and cross-references
+% ============================================================
+
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks,
+  linkcolor={red!80!black},
+  citecolor={blue!80!black},
+  urlcolor={blue!80!black}
+}
+
+% Last package, and before the theorem declarations (see below).
+\usepackage{cleveref}
+
+% ============================================================
+% Core notation
+% ============================================================
+
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\op}{\mathrm{op}}
+
+% \id       -> id
+% \id[A]    -> id_A
+\NewDocumentCommand{\id}{s o}{%
+  \IfBooleanTF{#1}{1}{\operatorname{id}}%
+  \IfValueT{#2}{_{#2}}%
+}
+
+% \set{x}, \set{x}[condition]; starred form scales delimiters.
+\NewDocumentCommand{\set}{s m o}{%
+  \IfBooleanTF{#1}
+    {\left\{#2\IfValueT{#3}{\,\middle|\,#3}\right\}}
+    {\{#2\IfValueT{#3}{\,\mid\,#3}\}}%
+}
+
+% Hom and derived Hom; optional square argument is the base/category.
+\NewDocumentCommand{\Hom}{o m m}{%
+  \operatorname{Hom}\IfValueT{#1}{_{#1}}(#2,#3)%
+}
+\NewDocumentCommand{\RHom}{o m m}{%
+  \mathbb{R}\!\operatorname{Hom}\IfValueT{#1}{_{#1}}(#2,#3)%
+}
+
+% Derived tensor product. Use ordinary \otimes for the underived tensor.
+\NewDocumentCommand{\Lotimes}{o}{%
+  \otimes^{\mathbb{L}}\IfValueT{#1}{_{#1}}%
+}
+
+% \DerCat{\A}, \DerCat[b]{\A}
+\NewDocumentCommand{\DerCat}{o d<> m}{%
+  \operatorname{D}%
+  \IfValueT{#1}{^{\mathrm{#1}}}%
+  \IfValueT{#2}{_{#2}}%
+  (#3)%
+}
+
+\DeclareMathOperator{\img}{im}
+
+% Define only category letters needed by the article.
+\newcommand{\category}[1]{\mathcal{#1}}
+\newcommand{\A}{\category{A}}
+
+% ============================================================
+% Paper-specific notation
+% ============================================================
+
+% Notice printed in the top margin of every page (requested by Gustavo Jasso).
+\AddToShipoutPictureFG{%
+  \AtPageUpperLeft{%
+    \raisebox{-1.1cm}{\makebox[\paperwidth]{%
+      \textcolor{red}{\normalfont\bfseries NOT VERIFIED -- PROVIDED AS IS}}}}}
+
+% ============================================================
+% Theorem environments
+% ============================================================
+
+\numberwithin{equation}{section}
+% The shared counter needs section-qualified PDF destinations.
+\renewcommand{\theHequation}{\theHsection.\arabic{equation}}
+
+\declaretheorem[style=plain,sibling=equation]{theorem}
+\declaretheorem[style=plain,sibling=equation]{proposition}
+\declaretheorem[style=plain,sibling=equation]{lemma}
+\declaretheorem[style=plain,sibling=equation]{corollary}
+\declaretheorem[style=plain,numbered=no,name=Theorem]{theorem*}
+
+\declaretheorem[style=definition,sibling=equation]{definition}
+\declaretheorem[
+  style=definition,
+  sibling=equation,
+  Refname={Notation,Notations}
+]{notation}
+\declaretheorem[style=definition,sibling=equation]{construction}
+
+\declaretheorem[style=remark,sibling=equation]{remark}
+\declaretheorem[style=remark,sibling=equation]{example}
+
+\declaretheorem[
+  style=definition,
+  numbered=no
+]{conventions}
+
+% ============================================================
+% Metadata
+% ============================================================
+
+\title[OpenAI's counterexamples to the finitistic dimension conjecture]{Report on OpenAI's counterexamples to the little finitistic
+  dimension conjecture for finite-dimensional algebras}
+
+\author[AI agents (Claude Opus 5.5 and GPT-6 Astra)]{Prepared autonomously by AI
+  agents (Claude Opus~5.5 and GPT-6 Astra)}
+\address[G.~Jasso]{Mathematisches Institut, Universität zu Köln,
+  Weyertal 86--90, 50931 Köln, Germany}
+\email{gjasso@math.uni-koeln.de}
+\urladdr{https://gustavo.jasso.info}
+
+\begin{document}
+
+\begin{abstract}
+We reconstruct, with complete proofs, the two constructions of
+finite-dimensional algebras of infinite little finitistic dimension released by
+OpenAI in September 2026: one realises a selection functor on modules over a
+finitely presented algebra by a bimodule complex and a trivial extension; the
+other obtains a counterexample to the Auslander--Reiten conjecture from a
+bimodule and a morphism in the stable module category of a symmetric algebra. We
+also prove criteria for infinite finitistic dimension and
+obstructions to simpler constructions.
+\end{abstract}
+
+\maketitle
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section*{Caveat lector}
+
+This report was produced as an aid for verifying and understanding the
+counterexamples to the little finitistic dimension conjecture in the preprints
+of OpenAI~\cite{OAI26findim,OAI26ar}. It was orchestrated by Gustavo Jasso and
+prepared by AI agents, as described in \Cref{app:ai-declaration}. It has not
+been verified by a human, and it is provided as is.
+
+\input{sections/01-introduction}
+\input{sections/02-preliminaries}
+\input{sections/03-criteria}
+\input{sections/04-trivial-extensions}
+\input{sections/05-selection}
+\input{sections/06-realisation}
+\input{sections/07-simulation}
+\input{sections/08-conversion}
+\input{sections/09-ar-counterexample}
+\input{sections/10-obstructions}
+
+\appendix
+\crefalias{section}{appendix}
+\input{sections/A1-computations}
+\input{sections/A2-verification}
+\input{sections/A3-companion}
+\input{sections/A4-ai-declaration}
+
+\printbibliography
+
+\end{document}
