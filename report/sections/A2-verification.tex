@@ -67,6 +67,37 @@ of the scope of \Cref{thm:tate-obstruction}, and several statements whose
 wording claimed more than their proofs. Two broader claims of the first part
 of the work were withdrawn.
 
+\subsection*{Second checks}
+
+After the article was completed, \Cref{sec:criteria,sec:extinction,sec:selection,sec:realisation,sec:simulation,sec:conversion,sec:ar-route,sec:obstructions}
+were checked by fresh sessions of Claude Opus~5.5, in two phases. GPT-6 Astra
+had checked all proof notes and drafted most of those for
+\Cref{sec:extinction,sec:selection,sec:realisation,sec:simulation,sec:conversion,sec:ar-route}
+(\Cref{tab:verification}); the notes for \Cref{sec:criteria,sec:obstructions}
+had been compiled by Claude Opus~5.5. In the first phase, the checker received
+only the definitions and statements, with all proofs,
+remarks and examples removed, and tried to prove each statement; in the
+second, it checked the proofs of the article step by step against its own
+attempts. In the first phase the checker gave its own proof of every
+statement except the existence of the maps $g_\lambda$ in \Cref{prop:lifts},
+which the proof in the article supplies, and the third case of \Cref{coro:rank-obstruction}, which rests on a
+cited result of Schofield, read in the source. In the second phase no error
+was found; the proof of \Cref{coro:tate-obstruction} omitted the verification
+that the bracket is defined for ${p>3}$, which has been added, and several
+statements were reworded. The separation of the first phase rested on
+instructions to the checker, and the statements of the lemmas outline the
+proofs, so the first phase was not fully blind.
+
+To estimate how reliable the verification of the proof notes is, eight
+realistic errors were inserted by Claude Opus~5.5 into copies of the proof
+notes for \Cref{sec:extinction,sec:realisation,sec:simulation,sec:conversion,sec:ar-route},
+and the original verification was repeated on the copies by fresh sessions of
+GPT-6 Astra (ultra). All eight errors were found, and no error was claimed at
+an unaltered place. Eight errors are too few to estimate a detection rate,
+and errors of a non-local kind are not measured. Finally, the citations of
+the Stacks Project were compared with the tagged statements; one wrong tag
+was corrected.
+
 \subsection*{Formalisation}
 
 The following results are formally verified in Lean~4 (version 4.33.1)
@@ -135,12 +166,45 @@ independent replay of the proof terms by the Lean kernel checker. The
 formalisation is included in the repository described in
 \Cref{app:ai-declaration} (directory \texttt{lean/formalisation}), with its check
 logs (\texttt{lean/gates}).
-A search of Mathlib shows that a complete formalisation of either construction
-would require theories not currently available there, in particular derived
-tensor products over
-noncommutative algebras and dg resolutions for the main construction, and
-stable categories of symmetric algebras with Tate duality for the construction
-of the counterexample to the Auslander--Reiten conjecture. Of the smaller parts
-identified by the feasibility review, only the finite computations of
-\Cref{sec:ar-route} have not been formalised. The evaluation is recorded in
-the repository.
+\paragraph{OpenAI's formalisations.}
+The repository that accompanies the OpenAI preprints,
+\texttt{openai/math} (commit \texttt{fd4aeeb2}, Mathlib \texttt{d13f23b7},
+Lean~4.34.1), poses
+existence statements of the counterexamples as challenges for the checking
+tool Comparator and provides Lean proofs of them, written independently of
+the work recorded here. The three challenges on little finitistic dimension,
+the Auslander--Reiten conjecture and Tachikawa's second conjecture were read
+by two AI models against the classical definitions and against this article,
+and found to be faithful encodings. The first states the numerical content of
+\Cref{coro:main}. The second states, over the field $\mathbb{F}_2(q,H_1,H_2)$
+and over every field containing it, the existence of an algebra and a module
+as in \Cref{thm:ar-counterexample}, without identifying them with the algebra
+$\Lambda$ and the module $Z$ constructed here. The third states the existence
+asserted in the preprint on Tachikawa's second conjecture, which this article
+does not use. None of the three covers \Cref{thm:ar-to-findim}, so
+\Cref{coro:ar-findim} is not among the formalised statements. A fourth
+challenge concerns the left--right asymmetry of finitistic dimensions stated
+in the main preprint, which this article does not treat; it was not examined.
+OpenAI's formalisation overlaps only in part with the one described above:
+it has counterparts of item~3 except \Cref{coro:z-independent}, with an
+independent presentation of the group, and of \Cref{lemma:fractions} and
+\Cref{prop:odd-double} from item~5, and of two auxiliary lemmas of
+item~2, but nothing corresponding to items~1, 4 and~6 or to
+\Cref{thm:strong-nakayama} itself. Both comparisons were made by reading the sources and are recorded in the
+files \texttt{audit/openai-lean-audit.md} and
+\texttt{audit/lean-comparison-openai.md} of the repository. OpenAI's proofs themselves have not been
+checked for this article: neither Comparator nor an independent replay by the
+Lean kernel has been run.
+
+\paragraph{Scope of the formalisation here.}
+The search of Mathlib made for the feasibility review found that Mathlib
+lacked, at the time, theories needed to formalise the proofs of this article
+in full, in particular derived tensor products over noncommutative algebras
+and dg resolutions for the main construction, and stable categories of
+symmetric algebras with Tate duality for the route through the
+Auslander--Reiten conjecture. This estimates the cost of formalising the
+present proofs; it does not show that a complete formalisation is
+infeasible, and OpenAI's repository provides Lean proofs of the existence
+statements. Of the smaller parts identified by the feasibility review, only
+the finite computations of \Cref{sec:ar-route} have not been formalised here.
+The evaluation is recorded in the repository.

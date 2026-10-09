@@ -12,7 +12,8 @@ remote; without the preprint and six page images; `PREPRINT.md` with the link pi
 
 ## Waiting for Gustavo
 
-1. The push of `../findim-report` to `gjassoah/findim-report`: on hold at his request (2026-10-08).
+1. Public release: `../findim-report` pushed to `gjassoah/findim-report`, tag `v0.1.0` (commit `062dbd5`; state checked
+   2026-10-09). Round 2 (`docs/PLAN-round2.md`) merged into `main`; to be released as `v0.2.0`.
 2. Lean: stages 3a, 3b, 3c, 4a (conditional), 4b done (Lean `main` at `103c2b4`, all gates pass). Stage 3d
    not approved. The report (Appendix B, Appendix D) describes all of them.
 
@@ -57,3 +58,14 @@ None.
 | 2026-10-08 | Claude Opus 5.5 | Gustavo's final decisions (title, byline, notice, caveat lector), prose decisions, MathSciNet entries, sanitised repository | `report/`, `library.bib`, `tools/make_public_repo.sh` |
 | 2026-10-08 | Codex GPT-6 Astra, ultra | Lean stages 3b, 3c, 4a (conditional), 4b (jobs 14–17) | Lean repository `103c2b4`, `audit/14-…`–`audit/17-…` |
 | 2026-10-08 | Claude Opus 5.5 | Review and merge of stages 3b–4b; report updates (Appendix B, displays, inline protection); release preparation | `report/`, `lean/DESIGN.md`, `USAGE.md` |
+| 2026-10-09 | Claude Sonnet 5.5 (default effort), round 2 orchestrator | Round 2 on branch `verification-round-2`: wording drafts, OpenAI Lean audit, Stacks tag check, cross-vendor and calibration orchestration, Codex runner `--workdir` | `audit/openai-lean-audit.md`, `audit/stacks-tags-round2.md`, `notes/round2/`, `tools/codex_job.py` |
+| 2026-10-09 | Claude Opus 5.5 (subagents, effort not reported; about 0.2 M tokens for Section 6, 0.33 M for Section 9, 0.24 M for the seeder) | Cross-vendor check of Sections 6 and 9 (Phases A, B); seeding of 8 errors for the calibration | `audit/cross-vendor-s6-s9.md`, `audit/cross-vendor/`, `audit/calibration/seeds.md` |
+| 2026-10-09 | Codex GPT-6 Astra, ultra (4 fresh sessions, usage not reported) | Calibration: checks CAL-V-A, -B, -D, -E of seeded dossiers | `audit/calibration.md`, `audit/calibration/` |
+| 2026-10-09 | Claude Sonnet 5.5 (subagent, about 0.08 M tokens) | Pins and packaging drafts for the Comparator toolchain (nothing built; drafts deleted) | `notes/round2/pkgbuilds.md` |
+| 2026-10-09 | Claude Opus 5.5 (subagent, about 0.15 M tokens) | Re-read of the OpenAI Lean audit: nine corrections | `audit/openai-lean-audit-review-opus.md` |
+| 2026-10-09 | Claude Opus 5.5, medium (main session after the model switch) | Review of the round 2 work done under Sonnet: audit corrections applied, Appendix B and README rewritten, provenance statements in the cross-vendor and calibration records corrected, Comparator script rewritten (replay of all OAI modules; log-directory bug), runner fix | round 2 files |
+| 2026-10-09 | Claude Opus 5.5 (4 subagents, about 0.11–0.15 M tokens each) | Cross-vendor check of Sections 3, 4, 5, 7, 8, 10 (Phases A, B) | `audit/cross-vendor-rest.md`, `audit/cross-vendor-rest/` |
+| 2026-10-09 | Claude Opus 5.5 (main session) | Judgement of the outcomes; Sch07a read in the source; repair of Corollary 10.5; wording edits in Sections 3, 7, 8, 10; Appendix B | `report/`, `audit/cross-vendor-rest.md` |
+| 2026-10-09 | Codex GPT-6 Astra, high | Recheck of the round-2 edits (R2-recheck) | `audit/R2-recheck-codex.md` |
+| 2026-10-09 | Claude Opus 5.5 (subagent, about 0.27 M tokens) | Comparison of the report's Lean formalisation with OpenAI's | `audit/lean-comparison-openai.md` |
+| 2026-10-09 | Codex GPT-6 Astra, high | Recheck of the further wording edits (R2-recheck2): no error found | `audit/R2-recheck2-codex.md` |

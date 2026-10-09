@@ -54,3 +54,5 @@ tools/codex_run.sh resume <job> [--message TEXT]                        # after 
 | 15-lean-stage3c | done | 2026-10-08 15:34 | gpt-6-astra, effort ultra; answer codex/outputs/15-lean-stage3c.md (attempt 3) |
 | 16-lean-stage4a | done | 2026-10-08 15:43 | gpt-6-astra, effort ultra; answer codex/outputs/16-lean-stage4a.md (attempt 3) |
 | 17-lean-stage4b | done | 2026-10-08 14:54 | gpt-6-astra, effort ultra; answer codex/outputs/17-lean-stage4b.md (attempt 1) |
+| R2-recheck | done | 2026-10-09 21:30 | gpt-6-astra, effort high; answer codex/outputs/R2-recheck.md (attempt 1) |
+| R2-recheck2 | done | 2026-10-09 23:14 | gpt-6-astra, effort high; answer codex/outputs/R2-recheck2.md (attempt 1) |

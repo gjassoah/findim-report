@@ -1,0 +1,33 @@
+associativity failures in T (incl. C): 0
+1 is unit: True
+C graded: True
+corners consistent in T: True
+N is ideal of C: True
+dim N^2 = 5
+dim N^3 = 3
+dim N^4 = 1
+dim N^5 = 0
+N+DC ideal of T: True
+dim (N+DC)^2 = 14
+dim (N+DC)^3 = 10
+dim (N+DC)^4 = 5
+dim (N+DC)^5 = 2
+dim (N+DC)^6 = 0
+tr symmetric: True  Gram det != 0: True
+table au: [(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 0, 0, 0, 0, q + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+table a l_0: [{'x': 1, 'y': 1}, {'z': q}, {'z': 1}, {}, {'j': q^2 + 1}, {}]
+table a l_1: [{'x': 1, 'y': q}, {'z': q^2}, {'z': 1}, {}, {'j': q^3 + 1}, {}]
+table a l_2: [{'x': 1, 'y': q^2}, {'z': q^3}, {'z': 1}, {}, {'j': q^4 + 1}, {}]
+dim Cf/im(.u) = 1
+R exact (degrees -1..-14) and complex: True
+rank u. on fC: 4 (injective iff 4)
+dims of H^1,H^2,... of Hom_C(R,C): [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ker(l1.)= [
+(0, 1, 1, 0, 0, 0),
+(0, 0, 0, 1, 0, 0),
+(0, 0, 0, 0, 0, 1)
+]  im(l0.)= [
+(0, 1, 1, 0, 0, 0),
+(0, 0, 0, 1, 0, 0)
+]
+v.t = (0, 0, 0, q, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  v.n = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  v.f = v: True

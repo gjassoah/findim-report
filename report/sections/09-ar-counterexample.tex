@@ -371,7 +371,8 @@ ${H^a}={\widehat{\operatorname{Ext}}{}^a_E(S,S)}$.
   gives $\operatorname{Ext}^{3m}_E(S,S)$ the basis
   $\tau_1^i\tau_2^{m-i}$, ${0\leq i\leq m}$, and all other positive degrees
   vanish. The classes $\tau_1$ and $\tau_2$ are represented by lifts of $\tau$
-  acting on different tensor factors, which commute in characteristic two, so
+  acting on different tensor factors, which commute up to a sign, hence
+  commute in characteristic two, so
   their monomials are the external products ${\tau^i\otimes\tau^{m-i}}$ and
   there are no relations. The last assertion follows as in \Cref{thm:T-ext}.
 \end{proof}
@@ -385,10 +386,11 @@ ${P_m=0}$ for ${m<0}$.
   The Tate groups of $S$ are
   \[
     H^{3m}=P_m,\qquad H^{-3m-1}\cong DP_m\quad(m\geq0),\qquad
-    H^a=0\quad\text{otherwise}.
+    H^a=0\quad\text{otherwise},
   \]
-  For ${m\geq1}$, multiplication by $\tau_i$ from $H^{-3m-1}$ to $H^{-3m+2}$ is
-  the transpose ${DP_m}\to{ DP_{m-1}}$ of multiplication by $\tau_i$ from
+  where the isomorphism is that of \Cref{thm:tate-duality}. For ${m\geq1}$, left
+  multiplication by $\tau_i$ from $H^{-3m-1}$ to $H^{-3m+2}$ is
+  the transpose ${DP_m}\to{ DP_{m-1}}$ of left multiplication by $\tau_i$ from
   $P_{m-1}$ to $P_m$; it is surjective with kernel spanned by the dual of
   $\tau_{3-i}^m$. Multiplication by $\tau_i$ on ${H^{-1}=DP_0}$ is zero.
 \end{proposition}
@@ -635,7 +637,7 @@ ${f\otimes f\mapsto f^*\otimes f^*}$, where ${\Omega S=\operatorname{rad}(E)
   of $E$ and the induced map on tops is an isomorphism.
 
   Evaluating at $S$, all terms of ${\xi_\lambda\otimes_Ts}$ vanish except the
-  one with $w^*$ ending at $f$ and ${h_\lambda(w)=\lambda f^*}$; hence
+  one with ${w^*=f}$, for which ${h_\lambda(w)=\lambda f^*}$; hence
   ${\pi[3]\circ(g_\lambda\otimes S)}$ is the class of
   ${f\otimes f\mapsto\lambda^2(f^*\otimes f^*)}$, which is $\lambda^2\beta_0$.
   Finally, ${\beta_0\neq0}$: a map ${S\to\Omega S}$ factoring through a projective
@@ -727,7 +729,7 @@ with projections ${\rho_i\colon F\to E_{H_i}}$.
   \[
     (g,j)\longmapsto(H_1^{-m}g+j,\ H_2^{-m}g+j),
   \]
-  by \Cref{lemma:twist}; its scalar ${2\times2}$ matrix has determinant
+  by \Cref{lemma:twist,prop:E-ext}; its scalar ${2\times2}$ matrix has determinant
   ${H_1^{-m}+H_2^{-m}\neq0}$, since
   $H_1^m$ and $H_2^m$ are distinct monomials. For positive $a$ not divisible
   by three both sides vanish.

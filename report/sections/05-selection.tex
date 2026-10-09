@@ -347,8 +347,8 @@ are self-contained.
         U_i(r)^2=1,\qquad[U_i(r),U_j(s)]=1,\\
         [U_i(r),V_j(s)]=1,\qquad[W_{ij}(s),U_h(r)]=1
       \end{gather*}
-      go to the instances with ${r+c}$ and ${s+c}$ in place of the parameters of
-      $U$;
+      go to their instances with the parameter of each factor $U$ replaced by
+      its sum with $c$;
     \item the relation ${[U_i(r),W_{ij}(s)]=U_j(r+s)}$ goes to its instance with
       first parameter ${r+c}$;
     \item all other relations are fixed.
@@ -389,7 +389,8 @@ $\mathbf{1}$ for the identity matrix.
 
 \begin{proof}
   Every matrix unit ${A=E_{ab}}$ with ${a\neq b}$ satisfies ${A^2=0}$, so
-  ${(\mathbf{1}+xA)^2}={\mathbf{1}+2xA}={\mathbf{1}}$ for ${x\in S_m}$; in particular,
+  ${(\mathbf{1}+xA)^2}={\mathbf{1}+2xA}={\mathbf{1}}$ for ${x\in S_m}$, since $S_m$ has
+  characteristic two; in particular,
   the matrices above are invertible and the relations ${U_i(r)^2=1}$ hold. The
   diagonal matrices commute, and ${DE_{ab}D^{-1}}={d_ad_b^{-1}E_{ab}}$ for a
   diagonal matrix $D$ with entries $d_a$; for ${D=D_\ell}$ the factors for
@@ -519,7 +520,8 @@ of $\alpha_G$, and put
   ${hp_{\chi_m}=\chi_m(h)p_{\chi_m}}$, and since $Z_m$ is central in $F_m$,
   every ${h\in Z_m}$ acts on $Y_m$ as the scalar $\chi_m(h)$. Hence, $e_q$ acts on
   $Y_m$ as the identity for ${0\leq q<m-1}$ and as zero for ${q=m-1}$. By
-  \Cref{lemma:selection-iterates}, $H^jY_m$ is the subspace $p_jY_m$, which is
+  \Cref{lemma:selection-iterates}, $H^jY_m$ is isomorphic to a twist of the
+  subspace $p_jY_m$, which is
   ${Y_m\neq0}$ for ${j<m}$ and zero for ${j\geq m}$, since then $p_j$ contains the
   factor $e_{m-1}$.
 \end{proof}

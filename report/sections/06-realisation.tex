@@ -56,7 +56,7 @@ ${\mathcal{K}/\mathcal{S}=\mathcal{W}^{-1}\mathcal{K}}$, with quotient functor
 ${q\colon\mathcal{K}\to\mathcal{K}/\mathcal{S}}$~\cite[Tag~05RI,
 Definition~13.6.7]{Stacks}. Since the categories of left and of right
 fractions of a multiplicative system are canonically
-isomorphic~\cite[Tag~04VB, Lemma~4.27.19]{Stacks}, we may compute in
+isomorphic~\cite[Tag~04VL, Lemma~4.27.19]{Stacks}, we may compute in
 $\mathcal{K}/\mathcal{S}$ with right fractions~\cite[Tag~04VH,
 Lemma~4.27.11]{Stacks}: a morphism ${qX\to qY}$ is the class of a pair $(f,u)$ of
 morphisms ${f\colon X'\to Y}$ and ${u\colon X'\to X}$ with ${u\in\mathcal{W}}$. The
@@ -225,7 +225,8 @@ $\mathcal{W}$ be the class of morphisms with cone in $\mathcal{S}$, and let
 \[
   q\colon\mathcal{K}\longrightarrow\mathcal{Q}\coloneqq\mathcal{K}/\mathcal{S}
 \]
-be the Verdier quotient. In $\mathcal{Q}$ the morphisms $s$ and $s'$ are
+be the Verdier quotient. We write a morphism of $\mathcal{K}$ and its image
+under $q$ by the same letter. In $\mathcal{Q}$ the morphisms $s$ and $s'$ are
 invertible.
 
 For a finite-dimensional left $R$-module $Y$, the \emph{evaluation} at $Y$ is
@@ -467,7 +468,8 @@ By \Cref{prop:odd-double} there is an object $V$ of $\mathcal{Q}$ with
 ${V\cong U\oplus U[3]}$ in $\operatorname{Kar}\mathcal{Q}$; we fix such an
 isomorphism and transport to $V$ the action of $R$ on ${U\oplus U[3]}$ given by
 ${\theta_n\circ\rho}$ on both summands. Write ${r_V\in\operatorname{End}(V)}$ for
-the action of ${r\in R}$.
+the action of ${r\in R}$; the map ${r\mapsto r_V}$ is a homomorphism of unital
+algebras.
 
 \begin{construction}
   \label{cons:diagram-V}
@@ -595,7 +597,7 @@ action of $x_h$ on both summands.
   $\widetilde{V}_i$ and the $f_a$ are given as complexes and chain maps, the
   homotopies $h_\rho$ are solutions of finite systems of linear equations, and
   \Cref{subsec:rectification} is explicit: if all $\widetilde{V}_i$ are
-  concentrated in degrees $[a,b]$ with ${a\leq0\leq b}$, the complex $P$ of
+  concentrated in degrees $[a,b]$, the complex $P$ of
   \Cref{prop:rectification} is concentrated in degrees ${[a-2,b]}$. The argument
   therefore does not determine the integer $l$ used in \Cref{sec:simulation}.
   This is the

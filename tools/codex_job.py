@@ -50,11 +50,19 @@ def save(rec):
     tmp.replace(d / "job.json")
 
 
+def base_of(rec):
+    """Root the job works in: the repository, or a separate directory given by --workdir (calibration runs)."""
+    return Path(rec["workdir"]) if rec.get("workdir") else ROOT
+
+
 def queue_row(rec, status, note):
     # The session id stays in the git-ignored job.json; the public queue does not record it.
     row = (f"| {rec['job']} | {status} | {now()} | {rec.get('model')}, effort {rec.get('effort')}; "
            f"{sanitise(note)} |\n")
-    with open(QUEUE, "r+") as f:
+    q = base_of(rec) / "codex" / "QUEUE.md" if rec.get("workdir") else QUEUE
+    q.parent.mkdir(parents=True, exist_ok=True)
+    q.touch(exist_ok=True)
+    with open(q, "r+") as f:
         fcntl.flock(f, fcntl.LOCK_EX)
         lines = f.readlines()
         for i, l in enumerate(lines):
@@ -78,7 +86,7 @@ def attempt(rec, argv):
     # For a new run the task text comes on stdin (argv ends with "-"); a resume gets its prompt as an argument.
     stdin = open(rec["task_path"]) if argv[-1] == "-" else subprocess.DEVNULL
     with open(events, "w") as ev, open(errs, "w") as er:
-        p = subprocess.Popen(argv[:-1] + ["-o", str(answer), argv[-1]], cwd=ROOT, stdout=subprocess.PIPE,
+        p = subprocess.Popen(argv[:-1] + ["-o", str(answer), argv[-1]], cwd=base_of(rec), stdout=subprocess.PIPE,
                              stderr=er, stdin=stdin, text=True)
         for line in p.stdout:
             ev.write(line); ev.flush()
@@ -101,7 +109,9 @@ def attempt(rec, argv):
         status, note = "done", f"answer codex/outputs/{rec['job']}.md (attempt {n})"
         # Public copy: paths relative to the repository, home directory as ~.
         text_out = answer.read_text().replace(str(ROOT) + "/", "").replace(str(Path.home()), "~")
-        (OUT / f"{rec['job']}.md").write_text(text_out)
+        out = base_of(rec) / "codex" / "outputs" if rec.get("workdir") else OUT
+        out.mkdir(parents=True, exist_ok=True)
+        (out / f"{rec['job']}.md").write_text(text_out)
     elif LIMIT_RE.search(text):
         m = LIMIT_RE.search(text)
         status = "blocked"
@@ -120,6 +130,8 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("run"); r.add_argument("task")
     r.add_argument("--add-dir", action="append", default=[], help="extra writable directory for Codex")
+    r.add_argument("--workdir", help="run in this directory instead of the repository (calibration runs); "
+                   "queue rows and answers stay there")
     s = sub.add_parser("resume"); s.add_argument("job"); s.add_argument("--message")
     s.add_argument("--add-dir", action="append", default=[],
                    help="extra writable directory (default: those recorded by `run`)")
@@ -134,8 +146,9 @@ def main():
         rec = load(task.stem)
         rec.update(task_path=str(task), model=a.model or DEFAULT_MODEL, effort=a.effort or "max")
         rec["add_dirs"] = [str(Path(d).expanduser().resolve()) for d in a.add_dir]
+        rec["workdir"] = str(Path(a.workdir).expanduser().resolve()) if a.workdir else None
         extra = [x for d in rec["add_dirs"] for x in ("--add-dir", d)]
-        argv = ["codex", "exec", "--json", "-C", str(ROOT), "-s", "workspace-write", "--skip-git-repo-check",
+        argv = ["codex", "exec", "--json", "-C", str(base_of(rec)), "-s", "workspace-write", "--skip-git-repo-check",
                 *extra, "-m", rec["model"], "-c", f'model_reasoning_effort="{rec["effort"]}"', "-"]
         return attempt(rec, argv)
     rec = load(a.job)

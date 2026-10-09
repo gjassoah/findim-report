@@ -105,7 +105,8 @@ smaller algebra C (Fable's Candidate 2).
 
 The report `report/main.pdf` (51 pages; title "Report on OpenAI's counterexamples to the little finitistic
 dimension conjecture for finite-dimensional algebras", prepared autonomously by Claude Opus 5.5 and GPT-6 Astra)
-reconstructs both preprints in a common framework with complete proofs, and adds criteria and obstructions.
+reconstructs both preprints in a common framework with proofs written out in full (not verified by a human),
+and adds criteria and obstructions.
 Main points, all AI-verified (nothing checked by Gustavo):
 
 - **Main construction, generalised.** Theorem 7.3: finitely presented selection data (R, Ψ) with Ψ_R

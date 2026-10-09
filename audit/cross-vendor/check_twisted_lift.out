@@ -1,0 +1,18 @@
+(A) r=e: {'E': 1}
+(A) r=f: {'F': 1}
+(C) h(a) xi = xi a for all basis a: True
+(B) twisted Casimir identity for all radical basis a: True
+(H1) n=0 generators 2 failures 0
+(H1) n=1 generators 18 failures 0
+(H1) n=2 generators 170 failures 0
+(H1) n=3 generators 1610 failures 0
+(H2) n=1 generators 18 failures 0
+(H2) n=2 generators 170 failures 0
+(H2) n=3 generators 1610 failures 0
+(H2) n=4 generators 15250 failures 0
+(P) n=3 generators 1610 failures 0
+(P) n=4 generators 15250 failures 0
+(P) n=5 generators 144450 failures 0
+terms of xi with w* = f: {('F', 'f'): lam}
+
+[exited with code 0]

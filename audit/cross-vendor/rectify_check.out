@@ -1,0 +1,6 @@
+regime1 trial 0: deg ok True | d^2=0 True | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: True} | arrow homotopies True | dim P 121
+regime1 trial 1: deg ok True | d^2=0 True | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: True} | arrow homotopies True | dim P 121
+regime1 trial 2: deg ok True | d^2=0 True | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: True} | arrow homotopies True | dim P 121
+regime2 trial 0 (f nonzero: True): deg ok True | d^2=0 True | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: True} | arrow homotopies True | dim P 108
+regime2 trial 1 (f nonzero: True): deg ok True | d^2=0 True | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: True} | arrow homotopies True | dim P 108
+regime2 trial 2 (f nonzero: True): deg ok True | d^2=0 True | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: True} | arrow homotopies True | dim P 108

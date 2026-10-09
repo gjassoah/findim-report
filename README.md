@@ -6,11 +6,12 @@ and the records were written by AI models (Claude Opus 5.5 and GPT-6 Astra, with
 models).
 
 **The report:** [`report/findim-report.pdf`](report/findim-report.pdf) (sources in [`report/`](report/)).
-**It has not been verified by a human**, and it is provided as is. It reconstructs, with complete proofs,
-the two constructions of finite-dimensional algebras of infinite little finitistic dimension released by
-OpenAI in September 2026, and adds criteria for infinite finitistic dimension and obstructions to simpler
-constructions. The repository is meant to make independent mathematical scrutiny of these counterexamples
-easier; it does not establish that they have been independently verified.
+**It has not been verified by a human**, and it is provided as is. It reconstructs, with proofs written out
+in full (not verified by a human), the two constructions of finite-dimensional algebras of infinite little
+finitistic dimension released by OpenAI in September 2026, and adds criteria for infinite finitistic
+dimension and obstructions to simpler constructions. The repository is meant to make independent
+mathematical scrutiny of these counterexamples easier; it does not establish that they have been
+independently verified.
 
 ## Purpose
 
@@ -41,6 +42,22 @@ evidence are distinguished as follows.
 | Formal verification | Kernel-checked by Lean 4 against Mathlib, exactly under the hypotheses of the formal statement; one stage is conditional on explicitly stated hypotheses | formally verified in Lean | `lean/formalisation/`, `lean/gates/`, Appendix B of the report |
 | Human verification | None | — | — |
 
+The gate that covers the Lean sources published in `lean/formalisation/` is `lean/gates/main-103c2b4`:
+all five checks pass on commit `103c2b4`, and its `sources.sha256` lists the 46 source and configuration
+files, which match the published tree byte for byte. The other directories of `lean/gates/` hold the gates
+of the individual stages and of earlier states of `main`; they were run on earlier trees and are
+development records only.
+
+OpenAI's repository `openai/math` contains its own Lean formalisation, written independently, which provides
+proofs of the existence theorems for the counterexamples in full (not checked here); the formalisation here does
+not attempt that. The two overlap
+only in part (comparison by reading the sources: [`audit/lean-comparison-openai.md`](audit/lean-comparison-openai.md);
+OpenAI's proofs were not run). Formalised in both, independently and in different forms: the group of Section 5
+with its finite presentation, central involutions, shifts and finite quotients, Lemma 6.1 and Proposition 6.7
+without its K₀ clause. Formalised only here: Proposition 3.1 for an arbitrary abelian category, Theorem 3.3 (the
+strong Nakayama criterion) over an arbitrary ring, Proposition 5.4, Corollary 5.15, and the conditional results of
+Section 10.
+
 None of these establishes the correctness of the report as a whole. The AI checks are not a certification:
 they found and repaired errors, recorded in `audit/` and in Appendix B of the report, and may have missed
 others. The formal verification covers only the results listed in Appendix B, under the hypotheses stated
@@ -58,9 +75,10 @@ that the smallest available design (one tensor factor) cannot work, while the wo
 enormous as specified (dimension about 10³⁵) and could not be completed computationally even when minimised.
 
 **Second part: the report.** Written from scratch on the two OpenAI constructions (the main preprint and the
-route through the Auslander–Reiten conjecture), with complete proofs, each checked in a fresh Codex session,
-an autonomous block-by-block review, and a Lean formalisation of selected parts: Lean stages 3a, 3b, 3c and
-4b unconditionally, stage 4a conditionally. Status of the report: [`report/PROGRESS.md`](report/PROGRESS.md);
+route through the Auslander–Reiten conjecture), with proofs written out in full (not verified by a human),
+each checked in a fresh Codex session, an autonomous block-by-block review, and a Lean formalisation of
+selected parts: Lean stages 3a, 3b, 3c and 4b unconditionally, stage 4a conditionally. Status of the
+report: [`report/PROGRESS.md`](report/PROGRESS.md);
 summary: `REPORT.md` §7; AI resources used: [`USAGE.md`](USAGE.md).
 
 ## The record
@@ -71,8 +89,11 @@ summary: `REPORT.md` §7; AI resources used: [`USAGE.md`](USAGE.md).
   Codex and Fable are summarised, with pointers to the task and answer files. It is not a raw transcript,
   and none is included. It covers the work up to the end of the plan's execution (8 October 2026); the
   preparation of the public release is described in
-  [`docs/findim-report-proposal.md`](docs/findim-report-proposal.md).
+  [`docs/findim-report-proposal.md`](docs/findim-report-proposal.md). The second round of checks
+  (9 October 2026) is not in the log; it is documented in [`docs/PLAN-round2.md`](docs/PLAN-round2.md) and
+  [`notes/round2/`](notes/round2/).
 - The plan and the working rules: [`docs/PLAN.md`](docs/PLAN.md), [`docs/PLAN-part2.md`](docs/PLAN-part2.md),
+  [`docs/PLAN-round2.md`](docs/PLAN-round2.md) (second checks),
   [`docs/WORKING_RULES.md`](docs/WORKING_RULES.md) (extended summaries of the author's instruction files).
 - The origin of each idea and argument: [`PROVENANCE.md`](PROVENANCE.md); the model behind each unit of work:
   [`PROGRESS.md`](PROGRESS.md); verification reports: [`audit/`](audit/); Codex task files and answers:
@@ -99,7 +120,13 @@ conjecture* are available from the same repository.
 ## Versions
 
 The first public release is tagged `v0.1.0`. Corrections and further verification are recorded in later
-commits and in GitHub issues, so that the state of the record at the release remains available.
+commits and in GitHub issues, so that the state of the record at the release remains available. Version
+`v0.2.0` adds a second round of checks: every numbered result of Sections 3–10 checked by Claude Opus 5.5, a
+model other than the one that checked the proof notes, which first attempted proofs from the statements alone
+and then checked the report's proofs against its attempts (one gap repaired, in Corollary 10.5); a calibration
+of the original checking procedure on deliberately seeded errors; a comparison with OpenAI's Lean
+formalisations; and corrections of wording and of one citation (see
+[`notes/round2/SUMMARY.md`](notes/round2/SUMMARY.md)).
 
 ---
 
@@ -210,9 +237,11 @@ access to arXiv.
 ## Contributors and licence
 
 Gustavo Jasso (task design, direction, decisions); Claude Opus 5.5 (orchestration, notes, reviews,
-drafting of the report, Lean stage 1); Codex GPT-6 Astra (verifications, computations, the review of the
-report, Lean stages 2, 3a, 3b, 3c, 4a and 4b, the Tate-duality obstruction); Claude Fable 5.1 and Claude Sonnet (consults, summaries, retrieval). Details: `PROVENANCE.md`,
-`PROGRESS.md` (model attribution) and `log/CONVERSATION.md`.
+drafting of the report, Lean stage 1, the second checks of round 2); Codex GPT-6 Astra (verifications,
+computations, the review of the report, Lean stages 2, 3a, 3b, 3c, 4a and 4b, the Tate-duality obstruction,
+the calibration and recheck of round 2); Claude Fable 5.1 and Claude Sonnet (consults, summaries,
+retrieval; Claude Sonnet 5.5 also coordinated part of round 2). Details: `PROVENANCE.md`, `PROGRESS.md`
+(model attribution) and `log/CONVERSATION.md`.
 
 Prose and data under CC BY 4.0, code under Apache 2.0; the preprint, which is OpenAI's, is not part of the
 licensed content.

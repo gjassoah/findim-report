@@ -70,7 +70,7 @@ in degree zero unless at least one of the compositions ${w_i[-1]\circ\beta_0}$ i
   zero. Suppose that ${w_1[-1]\circ\beta_0}={0}={w_2[-1]\circ\beta_0}$ in $U^0$. Then
   for every stable morphism ${v\colon s\to Fs}$ the map $\delta^0$ of
   \Cref{thm:conversion} is not surjective, and the module $Z$ constructed by the
-  formula in \Cref{thm:conversion}, if defined, satisfies
+  formula in \Cref{thm:conversion} satisfies
   ${\operatorname{Ext}^1_\Lambda(Z,Z)\neq0}$.
 \end{proposition}
 
@@ -94,9 +94,9 @@ in degree zero unless at least one of the compositions ${w_i[-1]\circ\beta_0}$ i
 \begin{corollary}
   \label{coro:one-factor}
   The hypothesis ${w_1[-1]\circ\beta_0=0=w_2[-1]\circ\beta_0}$ of
-  \Cref{prop:one-factor} always holds. Hence, in the situation of
-  \Cref{prop:one-cone}, the formula in \Cref{thm:conversion}, applied to a
-  single cone as above, never produces a module $Z$ with
+  \Cref{prop:one-factor} always holds. Hence, for every bimodule $F$ and
+  triangle as in \Cref{prop:one-factor}, the formula in \Cref{thm:conversion}
+  never produces a module $Z$ with
   ${\operatorname{Ext}^1_\Lambda(Z,Z)=0}$.
 \end{corollary}
 
@@ -161,7 +161,12 @@ in degree zero unless at least one of the compositions ${w_i[-1]\circ\beta_0}$ i
 \end{corollary}
 
 \begin{proof}
-  For ${p=3}$ this is \Cref{thm:tate-obstruction}. For ${p>3}$ the bracket lies in
+  For ${p=3}$ this is \Cref{thm:tate-obstruction}. Let ${p>3}$. The bracket is
+  defined: ${\beta^2}$ lies in
+  ${\widehat{\operatorname{Ext}}{}^{-2}_A(s,s)\cong
+  D\operatorname{Ext}^1_A(s,s)=0}$ by \Cref{thm:tate-duality}, and the
+  composite of $\tau$ and $\beta$ lies in ${\operatorname{Ext}^{p-1}_A(s,s)=0}$,
+  since ${0<p-1<p}$. It lies in
   ${\widehat{\operatorname{Ext}}{}^{p-3}_A(s,s)}={\operatorname{Ext}^{p-3}_A(s,s)}$,
   which vanishes since ${0<p-3<p}$.
 \end{proof}

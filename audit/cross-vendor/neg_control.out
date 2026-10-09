@@ -1,0 +1,3 @@
+V1 d nonzero True V2 d nonzero True
+h nonzero [True, True]
+NEGATIVE CONTROL (sign of h flipped): deg ok True | d^2=0 False | left B-linear True | iota_l quasi-iso {0: True, 1: True, 2: False} | arrow homotopies True | dim P 121

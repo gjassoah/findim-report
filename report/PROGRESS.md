@@ -4,6 +4,9 @@ Plan: `docs/PLAN-part2.md`. Outline: `report/notes/outline.md`. Conventions: `au
 
 ## Phase
 
+Round 2 (2026-10-09, `docs/PLAN-round2.md`): second checks of Sections 3–10 by Claude Opus 5.5 (one gap repaired,
+Corollary 10.5; wording edits rechecked by GPT-6 Astra), calibration, Appendix B and D updated; 54 pages.
+
 W2–W6 done (2026-10-08): all dossiers verified; all sections drafted and checked (W4); block-by-block review W5 done (337 blocks, 15 proposals adopted, `audit/report-review.md`); remaining markers: three in Appendix D, for Gustavo.
 
 ## Dossier (W2)

@@ -52,3 +52,20 @@ Codex (GPT-6 Astra) ran 42 jobs (`codex/QUEUE.md`): 20 at effort ultra, 6 at max
 1 at low (a smoke test). Codex did not record token counts or cost estimates for these jobs. In total they
 used 207% of the weekly usage allowance of the subscription; resetting the usage limits was necessary to
 complete the work.
+
+## Round 2 (2026-10-09, branch `verification-round-2`)
+
+Subagent token counts as reported by Claude Code at completion of each subagent (not a cost estimate):
+
+| Unit | Model | Tokens (subagent total) |
+|---|---|---|
+| Section 6 check, Phases A and B | Claude Opus 5.5 | about 0.20 M |
+| Section 9 check, Phases A and B | Claude Opus 5.5 | about 0.33 M |
+| Seeder (calibration) | Claude Opus 5.5 | about 0.24 M |
+| Sections 3–5, 7, 8, 10 checks, Phases A and B | Claude Opus 5.5 (four sessions) | about 0.11–0.15 M each |
+| Re-read of the OpenAI Lean audit | Claude Opus 5.5 | about 0.15 M |
+| Comparison of the two Lean formalisations | Claude Opus 5.5 | about 0.27 M |
+| Pins and packaging drafts for Comparator | Claude Sonnet 5.5 | about 0.08 M |
+| Orchestration, audit, drafting, review | Claude Sonnet 5.5, then Claude Opus 5.5 | not reported separately |
+| Calibration checks CAL-V-A, -B, -D, -E | Codex GPT-6 Astra, ultra | four jobs; Codex reports no token counts; share of the weekly allowance not recorded |
+| Rechecks R2-recheck, R2-recheck2 | Codex GPT-6 Astra, high | two jobs; no token counts |

@@ -1,0 +1,9 @@
+P_0 = Tf
+P_1 = Te^1 + Tf^0
+P_2 = Te^1 + Tf^0
+P_3 = Te^1 + Tf^1
+P_4 = Te^2 + Tf^0
+P_5 = Te^2 + Tf^0
+P_6 = Te^2 + Tf^1
+P_7 = Te^3 + Tf^0
+P_8 = Te^3 + Tf^0

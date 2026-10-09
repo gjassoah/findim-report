@@ -104,7 +104,7 @@ as a property of a module of projective dimension one, such as $C_1$.
       map from $C$ or from a cokernel to the next $Q_m$ is a left
       $\operatorname{add}A$-approximation.
   \end{enumerate}
-  In this case ${E\cong\operatorname{Ext}^1_A(C,A)}$.
+  Moreover, ${E\cong\operatorname{Ext}^1_A(C,A)}$.
 \end{proposition}
 
 \begin{proof}
@@ -113,7 +113,9 @@ as a property of a module of projective dimension one, such as $C_1$.
   ${E^*=\ker(Q_0\to Q_1)=0}$; moreover ${E\neq0}$, since otherwise ${Q_1^*\to Q_0^*}$
   would split and $C$ would be projective. This proves that (1) and (2) are
   equivalent. Assume (1). Dualising a minimal projective resolution of $E$ gives
-  an exact complex whose first cokernel is ${\operatorname{Tr}E=C}$ and whose tail
+  an exact complex whose first cokernel is ${\operatorname{Tr}E=C}$, since
+  ${\operatorname{Tr}\operatorname{Tr}C\cong C}$ for a module $C$ without nonzero
+  projective summands, and whose tail
   is a projective coresolution of $C$; the dual of each of its short exact
   sequences is a segment of the resolution of $E$, hence exact, which is the
   approximation property in (3). Conversely, dualising the sequence in (3) gives
@@ -130,8 +132,9 @@ as a property of a module of projective dimension one, such as $C_1$.
 \end{corollary}
 
 \begin{proof}
-  The indecomposable summands of the modules $C_n$ of
-  \Cref{thm:strong-nakayama} are torsionless and of finite projective
+  The modules $C_n$ of \Cref{thm:strong-nakayama} embed into the projective
+  modules $P_{n+1}^*$, by the short exact sequences in its proof, so their
+  indecomposable summands are torsionless and of finite projective
   dimension. If there were only finitely many of them, their projective
   dimensions would bound ${\operatorname{pd}C_n=n}$ for all $n$.
 \end{proof}
@@ -241,6 +244,8 @@ endomorphisms are taken as \emph{right} $B$-modules.
 
   Assume now the vanishing in all degrees. A minimal injective resolution
   ${A\to I^\bullet}$ of the right regular module has no summand with socle $S$,
+  since the number of such summands of $I^j$ is the dimension of
+  ${\operatorname{Ext}^j_{A^{\op}}(S,A)}$ over ${\operatorname{End}_{A^{\op}}(S)}$,
   so each $I^j$ is a sum of modules $D(Ae_t)$ with ${e_t\leq f}$. Then
   $I^jf$ is a direct sum of modules $D(Be_t)$, hence an injective right
   $B$-module, and, by the first part of the proof applied to ${V=I^j}$, the
@@ -257,7 +262,11 @@ endomorphisms are taken as \emph{right} $B$-modules.
   ${A}={\kk(1\xrightarrow{a}2\xrightarrow{b}3)/(ba)}$. Its minimal projective resolution is
   ${0\to e_1A\to e_2A\to e_3A\to S\to0}$, and the dual complex shows that
   ${\Hom[A^{\op}]{S}{A}}={0}={\operatorname{Ext}^1_{A^{\op}}(S,A)}$, while
-  ${\operatorname{Ext}^2_{A^{\op}}(S,A)}\cong{ Ae_1/\kk a}\neq{0}$.
+  ${\operatorname{Ext}^2_{A^{\op}}(S,A)}\cong{ Ae_1/\kk a}\neq{0}$. The
+  conclusion fails as well: here ${B=\kk(1\xrightarrow{a}2)}$ and $M$ is the simple
+  right $B$-module at the vertex $2$, with projective resolution
+  ${0\to e_1B\to e_2B\to M\to0}$, so that
+  ${\operatorname{Ext}^1_{B^{\op}}(M,B)\cong Be_1/\kk a\neq0}$.
 \end{example}
 
 \subsection{Triangular matrix algebras and bounds on projective dimension}
@@ -306,8 +315,8 @@ closed field; the argument below works over any field.
 
 \begin{proposition}
   \label{prop:bounded-dimension}
-  Let $A$ be a finite-dimensional algebra and $d$ a dimension vector. The
-  subset of the module variety $\operatorname{Rep}_d(A)$ of modules of
+  Let $A$ be a finite-dimensional algebra and ${d\geq0}$ an integer. The
+  subset of the variety $\operatorname{Rep}_d(A)$ of $d$-dimensional modules of
   projective dimension at most $n$ is open, and projective dimension is bounded
   on the modules of finite projective dimension in $\operatorname{Rep}_d(A)$.
   In particular, modules of unbounded finite projective dimension have unbounded

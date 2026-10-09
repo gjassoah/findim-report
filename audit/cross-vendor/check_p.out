@@ -1,0 +1,13 @@
+number of table entries: 179  distinct triples: 179
+table I-bilinear (corner consistent): True
+(1) composable quadruples checked: 15250  failures: 0
+(2) holds: True
+(3) holds for all basis pairs (a,b), lam symbolic: True
+c* is trace-dual of c and (c*)* = c: True
+(4) p(t,x,J) = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) 
+    p(t,y,J) = (0, 0, 0, 0, 0, 0, 0, 0, q^3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+x*J = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0) 
+ y*J = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, q^2, 0, 0, 0)
+t*x = (0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) 
+ t*y = (0, 0, 0, 0, 0, 0, 0, q^2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+nonzero f-coefficients of p: [(('t', 'X', 'u'), q^2), (('t', 'u', 'N'), q^2), (('N', 't', 'u'), q), (('V', 'y', 'u'), q), (('t', 'y', 'J'), q^3)]
